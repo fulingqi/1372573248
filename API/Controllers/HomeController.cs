@@ -200,8 +200,27 @@ namespace API.Controllers
                 throw;
             }
         }
+        /// <summary>
+        /// 健康档案占比
+        /// </summary>
+        /// <returns></returns>
+        public EntityResult GetHealthRecordPie()
+        {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                var bls = bll.HealthRecordPie();
+                return new EntityResult(ResultType.Success, "", bls);
+            }
+
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
         #endregion
-        
+
         #region 门诊数据饼状图
         public EntityResult GetOutpatientData(string StateTime, string EndTime, string SPTXT, string K)
         {
