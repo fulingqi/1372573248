@@ -54,23 +54,23 @@ namespace DAL
         /// <param name="StartTime"></param>
         /// <param name="EndTime"></param>
         /// <returns></returns>
-        public List<BigDataHome> GetTwoDiaPieChartData(string StartTime, string EndTime)
+        public List<BigDataHome> GetTwoDiaPieChartData(string StartTime, string EndTime, string SPTXT, string K)
         {
-            //if (string.IsNullOrEmpty(StartTime))
-            //{
-            //    DateTime dt = DateTime.Parse(StartTime);
-            //    StartTime = dt.ToString("yyyy/mm/dd hh:mm:ss");
-            //}
-            //if (string.IsNullOrEmpty(EndTime))
-            //{
-            //    DateTime dt = DateTime.Parse(EndTime);
-            //    EndTime = dt.ToString("yyyy/mm/dd hh:mm:ss");
-            //}
+           
             string sql1 = "Select s.Sex,s.Department,Sum(Case When age <=20 Then 1 Else 0 End) As ZoreToTwenty," +
         "Sum(Case When age Between 21 And 40 Then 1 Else 0 End) As TwentyToFourty," +
        "Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As  FourtyTOSixty," +
-       "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where [Data] between '" + StartTime + "' and '" + EndTime + "' ) s Group by s.Sex,s.Department";
-
+       "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'";
+            if (K == "C")
+            {
+                sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+            }
+            if (K == "Y")
+            {
+                sql1 += " and HospCode='" + SPTXT + "' ";
+            }
+            sql1 += "";
+            sql1 += "  ) s Group by s.Sex,s.Department";
             DBHelper dB = new DBHelper();
             List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
             List<BigDataHome> list = new List<BigDataHome>();

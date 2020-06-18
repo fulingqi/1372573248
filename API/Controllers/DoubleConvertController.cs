@@ -38,12 +38,12 @@ namespace API.Controllers
             /// </summary>
             /// <returns></returns>
             [HttpGet]
-            public EntityResult GetTwoDiaPieChartData(string StartTime, string EndTime)
+            public EntityResult GetTwoDiaPieChartData(string StartTime, string EndTime,string  SPTXT,string  K)
             {
                 try
                 {
                     Outpatient bll = new Outpatient();
-                    var result = bll.GetTwoDiaPieChartData(StartTime, EndTime);
+                    var result = bll.GetTwoDiaPieChartData(StartTime, EndTime, SPTXT, K);
                     return new EntityResult(ResultType.Success, "", result);
                 }
                 catch (System.Exception ex)

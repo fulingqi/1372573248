@@ -290,10 +290,10 @@ namespace BLL
         /// <param name="StartTime"></param>
         /// <param name="EndTime"></param>
         /// <returns></returns>
-        public List<BigDataHome> GetTwoDiaPieChartData(string StartTime, string EndTime)
+        public List<BigDataHome> GetTwoDiaPieChartData(string StartTime, string EndTime, string SPTXT, string K)
         {
             DoubleDiagnoseDAL dal = new DoubleDiagnoseDAL();
-            return dal.GetTwoDiaPieChartData(StartTime, EndTime);
+            return dal.GetTwoDiaPieChartData(StartTime, EndTime, SPTXT,K);
         }
 
 
