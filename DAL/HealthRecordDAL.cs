@@ -124,7 +124,7 @@ namespace DAL
                 }
                 if (item.Name == "地区")
                 {
-                    item.Name = "";
+                    item.Name = "   ";
                 }
 
             }
