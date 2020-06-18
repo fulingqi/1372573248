@@ -52,6 +52,30 @@ namespace API.Controllers
                     throw;
                 }
             }
-        
+             /// <summary>
+             /// 双向转诊根据年龄统计饼状图
+             /// </summary>
+             /// <param name="StartTime"></param>
+             /// <param name="EndTime"></param>
+             /// <param name="SPTXT"></param>
+             /// <param name="K"></param>
+             /// <returns></returns>
+            [HttpGet]
+            public EntityResult GetTwoDiaPieChartAgeData(string StartTime, string EndTime, string SPTXT, string K)
+            {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                var result = bll.TwoDiaPieChartAgeData(StartTime, EndTime, SPTXT, K);
+                return new EntityResult(ResultType.Success, "", result);
+            }
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
+
+
     }
 }

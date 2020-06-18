@@ -50,5 +50,27 @@ namespace API.Controllers
             }
         }
 
+
+        /// <summary>
+        /// 预约挂号年龄分组饼状图
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public EntityResult GetHealthBookByAgeData(string StartTime, string EndTime)
+        {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                var result = bll.HealthBookByAgeData(StartTime, EndTime);
+                return new EntityResult(ResultType.Success, "", result);
+            }
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
+        
+
     }
 }

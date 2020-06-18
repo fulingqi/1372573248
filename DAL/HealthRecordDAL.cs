@@ -43,7 +43,17 @@ namespace DAL
             return list;
         }
 
-        public List<BigDataHome> HealthBookData(string StateTime, string EndTime, string SPTXT, string K)
+
+
+        /// <summary>
+        /// 健康档案根据年龄分组
+        /// </summary>
+        /// <param name="StateTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        public List<BigDataHome> HealthBookByAgeData()
         {
 
             List<BigDataHome> list = new List<BigDataHome>();
@@ -59,19 +69,10 @@ namespace DAL
               "SUM(Case When age Between 21 And 30 Then 1 Else 0 End) As TwentyToThrity," +
         "Sum(Case When age Between 31 And 40 Then 1 Else 0 End) As ThrityToFourty," +
         "Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As FourtyTOSixty," +
-        "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From(SELECT *, datediff(year, Birthday, getdate()) AS age FROM InberTable  where[Data] between '" + StateTime + "' and '" + EndTime + "'";
+        "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From(SELECT *, datediff(year, Birthday, getdate()) AS age FROM InberTable  ";
 
 
             DBHelper dB = new DBHelper();
-            if (K == "C")
-            {
-                sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
-            }
-            if (K == "Y")
-            {
-                sql1 += " and HospCode='" + SPTXT + "' ";
-            }
-            sql1 += "";
             sql1 += ") s GROUP BY s.Sex";
 
             List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);

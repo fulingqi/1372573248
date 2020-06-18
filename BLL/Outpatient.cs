@@ -133,7 +133,11 @@ namespace BLL
             BigDataDAL dal = new BigDataDAL();
             return dal.FeverChartData(StartTime,EndTime,SPTXT,K) ;
         }
-
+        public List<BigDataHome> FeverChartAgeData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+            BigDataDAL dal = new BigDataDAL();
+            return dal.FeverChartAgeData(StartTime, EndTime, SPTXT, K);
+        }
 
         #endregion
 
@@ -169,10 +173,6 @@ namespace BLL
                 paras[0].Value = StateTime;
                 paras[1].Value = EndTime;
                 paras[2].Value = SPTXT;
-                //paras[4].Value = bigAge;
-                //paras[5].Value = smallAge;
-                //paras[6].Value = DiscSpe;
-                //paras[7].Value = Sex;
 
                 //K == 1 市   2县    3医院
                 if (K == "H")
@@ -227,7 +227,18 @@ namespace BLL
             BookRegisterDAL dal = new BookRegisterDAL();
             return dal.GetPieChartData(StartTime, EndTime);
         }
+        /// <summary>
+        /// 预约挂号年龄分组
+        /// </summary>
+        /// <param name="StartTime"></param>
+        /// <param name="EndTime"></param>
+        /// <returns></returns>
+        public List<BigDataHome> HealthBookByAgeData(string StartTime, string EndTime)
+        {
+            BookRegisterDAL dal = new BookRegisterDAL();
+            return dal.HealthBookByAgeData(StartTime, EndTime);
 
+        }
 
         #endregion
 
@@ -269,6 +280,16 @@ namespace BLL
             HealthRecordDAL dal = new HealthRecordDAL();
             return dal.HealthRecordPie();
         }
+
+        /// <summary>
+        /// 健康档案根据年龄分组
+        /// </summary>
+        /// <returns></returns>
+        public List<BigDataHome> HealthBookByAgeData()
+        {
+            HealthRecordDAL dal = new HealthRecordDAL();
+            return dal.HealthBookByAgeData();
+        }
         #endregion
 
 
@@ -295,7 +316,11 @@ namespace BLL
             DoubleDiagnoseDAL dal = new DoubleDiagnoseDAL();
             return dal.GetTwoDiaPieChartData(StartTime, EndTime, SPTXT,K);
         }
-
+        public List<BigDataHome> TwoDiaPieChartAgeData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+            DoubleDiagnoseDAL dal = new DoubleDiagnoseDAL();
+            return dal.TwoDiaPieChartAgeData(StartTime, EndTime, SPTXT, K);
+        }
 
         #endregion
 

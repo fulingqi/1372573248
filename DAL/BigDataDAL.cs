@@ -71,6 +71,51 @@ namespace DAL
 
             return list;
         }
+        /// <summary>
+        /// 发热门诊统计年龄饼状图
+        /// </summary>
+        /// <param name="StartTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        public List<BigDataHome> FeverChartAgeData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+
+            List<BigDataHome> list = new List<BigDataHome>();
+            list.Add(new BigDataHome
+            {
+                message = "发热门诊年龄分组",
+                data = new List<ItmeList>()
+            });
+
+            string sql1 = "Select s.Sex,SUM(Case When age <=5 Then 1 Else 0 End) As ZoreToFive," +
+                "SUM(Case When age Between 6 And 10 Then 1 Else 0 End) As FiveToTen," +
+                "SUM(Case When age Between 11 And 20 Then 1 Else 0 End) As TenToTwenty," +
+              "SUM(Case When age Between 21 And 30 Then 1 Else 0 End) As TwentyToThrity," +
+        "Sum(Case When age Between 31 And 40 Then 1 Else 0 End) As ThrityToFourty," +
+        "Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As FourtyTOSixty," +
+        "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From(SELECT *, datediff(year, Birthday, getdate()) AS age FROM FeclTable  where[Data] between '" + StartTime + "' and '" + EndTime + "'";
+
+
+            DBHelper dB = new DBHelper();
+            if (K == "C")
+            {
+                sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+            }
+            if (K == "Y")
+            {
+                sql1 += " and HospCode='" + SPTXT + "' ";
+            }
+            sql1 += "";
+            sql1 += ") s GROUP BY s.Sex";
+
+            List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+            list[0].data.Add(new ItmeList { Name = "根据年龄分组各阶段人数", SelectItmeList = mzrc });
+
+            return list;
+        }
+
 
 
         #endregion

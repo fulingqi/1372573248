@@ -40,13 +40,21 @@ namespace DAL
         #endregion
 
 
+        /// <summary>
+        /// 住院数据统计年龄饼状图
+        /// </summary>
+        /// <param name="StateTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
        public List<BigDataHome> HospLiveAgeData(string StateTime, string EndTime, string SPTXT, string K)
         {
 
             List<BigDataHome> list = new List<BigDataHome>();
             list.Add(new BigDataHome
             {
-                message = "年龄分组",
+                message = "住院数据年龄分组",
                 data = new List<ItmeList>()
             });
 

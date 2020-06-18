@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
+using System.Data;
+using Core;
 
 namespace DAL
 {
@@ -11,6 +14,122 @@ namespace DAL
     /// </summary>
     public class PublicHygieneDAL
     {
+        /// <summary>
+        /// 公共卫生主界面数据（SP_TwoDia_Proc）
+        /// </summary>
+        /// <returns></returns>
+        public List<BigDataHome> TwoDiaData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+            DBHelper dB = new DBHelper();
+            SqlParameter[] paras = new SqlParameter[] {
+                new SqlParameter("@StartTime",SqlDbType.VarChar,50),
+                new SqlParameter("@EndTime",SqlDbType.VarChar,50),
+                new SqlParameter("@HospCode",SqlDbType.VarChar,200),
+                new SqlParameter("@type",SqlDbType.VarChar,200)
+                 };
+            paras[0].Value = StartTime;
+            paras[1].Value = EndTime;
+            paras[2].Value = SPTXT;
+
+            //K == 1 市   2县    3医院
+            if (K == "H")
+            {
+                paras[3].Value = 1;
+            }
+            if (K == "C")
+            {
+                paras[3].Value = 2;
+            }
+            if (K == "Y")
+            {
+                paras[3].Value = 3;
+            }
+            return UpdateDataName(dB.ProcHomeData("SP_TwoDia_Proc", System.Data.CommandType.StoredProcedure, paras));
+        }
+
+        /// <summary>
+        /// 双向转诊饼状图Data
+        /// </summary>
+        /// <param name="StartTime"></param>
+        /// <param name="EndTime"></param>
+        /// <returns></returns>
+        public List<BigDataHome> GetTwoDiaPieChartData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+
+            string sql1 = "Select s.Sex,s.Department,Sum(Case When age <=20 Then 1 Else 0 End) As ZoreToTwenty," +
+        "Sum(Case When age Between 21 And 40 Then 1 Else 0 End) As TwentyToFourty," +
+       "Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As  FourtyTOSixty," +
+       "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'";
+            if (K == "C")
+            {
+                sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+            }
+            if (K == "Y")
+            {
+                sql1 += " and HospCode='" + SPTXT + "' ";
+            }
+            sql1 += "";
+            sql1 += "  ) s Group by s.Sex,s.Department";
+            DBHelper dB = new DBHelper();
+            List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+            List<BigDataHome> list = new List<BigDataHome>();
+            list.Add(new BigDataHome
+            {
+                message = "双向转诊饼状图",
+                data = new List<ItmeList>{
+            new ItmeList { Name="Data",SelectItmeList=mzrc }
+            }
+            });
+            return list;
+        }
+
+        /// <summary>
+        /// 双向转诊统计年龄饼状图
+        /// </summary>
+        /// <param name="StartTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        public List<BigDataHome> TwoDiaPieChartAgeData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+
+            List<BigDataHome> list = new List<BigDataHome>();
+            list.Add(new BigDataHome
+            {
+                message = "双向转诊年龄分组",
+                data = new List<ItmeList>()
+            });
+
+            string sql1 = "Select s.Sex,SUM(Case When age <=5 Then 1 Else 0 End) As ZoreToFive," +
+                "SUM(Case When age Between 6 And 10 Then 1 Else 0 End) As FiveToTen," +
+                "SUM(Case When age Between 11 And 20 Then 1 Else 0 End) As TenToTwenty," +
+              "SUM(Case When age Between 21 And 30 Then 1 Else 0 End) As TwentyToThrity," +
+        "Sum(Case When age Between 31 And 40 Then 1 Else 0 End) As ThrityToFourty," +
+        "Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As FourtyTOSixty," +
+        "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From(SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where[Data] between '" + StartTime + "' and '" + EndTime + "'";
+
+
+            DBHelper dB = new DBHelper();
+            if (K == "C")
+            {
+                sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+            }
+            if (K == "Y")
+            {
+                sql1 += " and HospCode='" + SPTXT + "' ";
+            }
+            sql1 += "";
+            sql1 += ") s GROUP BY s.Sex";
+
+            List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+            list[0].data.Add(new ItmeList { Name = "根据年龄分组各阶段人数", SelectItmeList = mzrc });
+
+            return list;
+        }
+
+
+
         /// <summary>
         /// 修改数据中的Name
         /// </summary>

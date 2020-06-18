@@ -89,6 +89,21 @@ namespace API.Controllers
                 throw;
             }
         }
+        #region 发热门诊饼状根据年龄图
+        public EntityResult GetFeverChartAgeData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                return new EntityResult(ResultType.Success, "", bll.FeverChartAgeData(StartTime, EndTime, SPTXT, K));
+            }
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
+        #endregion
         #endregion
         #endregion
 
@@ -210,6 +225,23 @@ namespace API.Controllers
             {
                 Outpatient bll = new Outpatient();
                 var bls = bll.HealthRecordPie();
+                return new EntityResult(ResultType.Success, "", bls);
+            }
+
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
+
+        [HttpGet]
+        public EntityResult GetHealthBookByAgeData()
+        {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                var bls = bll.HealthBookByAgeData();
                 return new EntityResult(ResultType.Success, "", bls);
             }
 
