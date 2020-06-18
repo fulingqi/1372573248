@@ -47,7 +47,7 @@ namespace DAL
             string sql1 = "Select s.Sex,SUM(Case When age <=20 Then 1 Else 0 End) As ZoreToTwenty," +
         "Sum(Case When age Between 21 And 40 Then 1 Else 0 End) As TwentyToFourty," +
        "Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As 'FourtyTOSixty'," +
-       "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM InberTable  where [Data] between '" + StartTime + "' and '" + EndTime + "' ) s Group by s.Sex";
+       "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM MakeTable  where [Data] between '" + StartTime + "' and '" + EndTime + "' ) s Group by s.Sex";
 
             DBHelper dB = new DBHelper();
             List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);

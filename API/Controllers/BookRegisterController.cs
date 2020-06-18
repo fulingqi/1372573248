@@ -11,7 +11,7 @@ namespace API.Controllers
 {
 
     /// <summary>
-    /// 预约挂号Controller
+    /// 预约挂号（BookRegister）Controller
     /// </summary>
     public class BookRegisterController : ApiController
     {
