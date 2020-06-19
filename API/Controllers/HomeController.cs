@@ -6,6 +6,8 @@ namespace API.Controllers
 {
     public class HomeController : ApiController
     {
+        #region 门诊数据
+
         [HttpGet]
         public EntityResult HomeData(string StateTime, string EndTime,string SPTXT,string K)
         {
@@ -20,7 +22,24 @@ namespace API.Controllers
                 throw;
             }
         }
-        
+        #region 门诊数据饼状图
+
+        public EntityResult GetOutpatientData(string StateTime, string EndTime, string SPTXT, string K)
+        {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                var bls = bll.GetOutpatientData(StateTime, EndTime, SPTXT, K);
+                return new EntityResult(ResultType.Success, "", bls);
+            }
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
+        #endregion
+        #endregion
 
         #region 二期（发热门诊）
         #region 全市数据查询
@@ -253,13 +272,18 @@ namespace API.Controllers
         }
         #endregion
 
-        #region 门诊数据饼状图
-        public EntityResult GetOutpatientData(string StateTime, string EndTime, string SPTXT, string K)
+        
+
+
+        #region 公共卫生（无年龄性别和时间）
+
+        [HttpGet]
+        public EntityResult GetPublicHealthData(string SPTXT,string K)
         {
             try
             {
                 Outpatient bll = new Outpatient();
-                var bls = bll.GetOutpatientData(StateTime, EndTime, SPTXT, K);
+                var bls = bll.PublicHealthData(  SPTXT, K);
                 return new EntityResult(ResultType.Success, "", bls);
             }
             catch (System.Exception ex)
@@ -268,7 +292,10 @@ namespace API.Controllers
                 throw;
             }
         }
+
+
         #endregion
+
 
     }
 }

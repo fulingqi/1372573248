@@ -169,7 +169,7 @@ namespace DAL
                 }
                 if (item.Name == "门诊收费趋势")
                 {
-                    item.Name = "";
+                    item.Name = "上转次数";
                 }
                 if (item.Name == "地区")
                 {

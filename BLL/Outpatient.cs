@@ -325,6 +325,43 @@ namespace BLL
         #endregion
 
 
+        #region 公共卫生
+        public List<BigDataHome> PublicHealthData(string SPTXT, string K)
+        {
+            PublicHygieneDAL dal = new PublicHygieneDAL();
+            return dal.PublicHealthData(SPTXT,K);
+        }
+
+        #endregion
+
+
+
+
+        #region 检查检验
+
+        /// <summary>
+        /// 主界面数据
+        /// </summary>
+        /// <param name="StartTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        public List<BigDataHome> CheckMainData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+            CheckDAL dal = new CheckDAL();
+            return dal.CheckMainData(StartTime,EndTime,SPTXT,K);
+        }
+
+        public List<BigDataHome> GetCheckMainChartData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+            CheckDAL dal = new CheckDAL();
+            return dal.GetCheckMainChartData(StartTime, EndTime, SPTXT, K);
+        }
+        #endregion
+
+
+
 
 
     }

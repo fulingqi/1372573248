@@ -92,6 +92,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BookRegisterController.cs" />
+    <Compile Include="Controllers\CheckController.cs" />
     <Compile Include="Controllers\DoubleConvertController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">

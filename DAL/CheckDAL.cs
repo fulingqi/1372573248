@@ -20,7 +20,7 @@ namespace DAL
         /// 检查检验主界面数据（SP_Check）
         /// </summary>
         /// <returns></returns>
-        public List<BigDataHome> TwoDiaData(string StartTime, string EndTime, string SPTXT, string K)
+        public List<BigDataHome> CheckMainData(string StartTime, string EndTime, string SPTXT, string K)
         {
             DBHelper dB = new DBHelper();
             SqlParameter[] paras = new SqlParameter[] {
@@ -55,7 +55,7 @@ namespace DAL
         /// <param name="StartTime"></param>
         /// <param name="EndTime"></param>
         /// <returns></returns>
-        public List<BigDataHome> GetTwoDiaPieChartData(string StartTime, string EndTime,string SPTXT,string K)
+        public List<BigDataHome> GetCheckMainChartData(string StartTime, string EndTime,string SPTXT,string K)
         {
             List<string> BingType = new List<string>();
             BingType.Add("胸部");
