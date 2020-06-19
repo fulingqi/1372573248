@@ -222,7 +222,7 @@ namespace DAL
                 }
                 if (item.Name == "门诊费用总额")
                 {
-                    item.Name = "检验数量趋势";
+                    item.Name = "检查数量趋势";
                 }
                 if (item.Name == "中药费用总额")
                 {
@@ -238,7 +238,7 @@ namespace DAL
                 }
                 if (item.Name == "地区")
                 {
-                    item.Name = "";
+                    item.Name = "检验数量趋势";
                 }
 
             }
