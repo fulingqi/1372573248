@@ -128,6 +128,72 @@ namespace DAL
 
 
 
+        /// <summary>
+        /// 检查检验根据年龄分组
+        /// </summary>
+        /// <param name="StartTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        public List<BigDataHome> GetCheckMainAgeChartData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+            List<BigDataHome> list = new List<BigDataHome>();
+            list.Add(new BigDataHome
+            {
+                message = "首页数据",
+                data = new List<ItmeList>()
+            });
+                string sql1 ="Select s.Sex,SUM(Case When age <= 5 Then 1 Else 0 End) As ZoreToFive," +
+                "SUM(Case When age Between 6 And 10 Then 1 Else 0 End) As FiveToTen," +
+                "SUM(Case When age Between 11 And 20 Then 1 Else 0 End) As TenToTwenty," +
+              "SUM(Case When age Between 21 And 30 Then 1 Else 0 End) As TwentyToThrity," +
+        "Sum(Case When age Between 31 And 40 Then 1 Else 0 End) As ThrityToFourty," +
+        "Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As FourtyTOSixty," +
+       "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM InspTable  where [Data] between '" + StartTime + "' and '" + EndTime + "' ";
+
+
+                DBHelper dB = new DBHelper();
+                if (K == "C")
+                {
+                    sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                }
+                if (K == "Y")
+                {
+                    sql1 += " and HospCode='" + SPTXT + "' ";
+                }
+                sql1 += "";
+                sql1 += ") s  GROUP BY s.Sex";
+
+             List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+            list[0].data.Add(new ItmeList { Name = "检查根据年龄饼图", SelectItmeList = mzrc });
+            string sql2 = "Select s.Sex,SUM(Case When age <= 5 Then 1 Else 0 End) As ZoreToFive," +
+                "SUM(Case When age Between 6 And 10 Then 1 Else 0 End) As FiveToTen," +
+                "SUM(Case When age Between 11 And 20 Then 1 Else 0 End) As TenToTwenty," +
+              "SUM(Case When age Between 21 And 30 Then 1 Else 0 End) As TwentyToThrity," +
+        "Sum(Case When age Between 31 And 40 Then 1 Else 0 End) As ThrityToFourty," +
+        "Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As FourtyTOSixty," +
+       "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TestTable  where [Data] between '" + StartTime + "' and '" + EndTime + "' ";
+            
+            if (K == "C")
+            {
+                sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+            }
+            if (K == "Y")
+            {
+                sql1 += " and HospCode='" + SPTXT + "' ";
+            }
+            sql1 += "";
+            sql1 += ") s  GROUP BY s.Sex";
+
+            List<Dictionary<string, object>> mzrcs = dB.GetNewList(sql1, System.Data.CommandType.Text);
+            list[0].data.Add(new ItmeList { Name = "检验根据年龄饼图", SelectItmeList = mzrcs });
+
+
+            return list;
+
+        }
+
 
         /// <summary>
         /// 修改数据中的Name

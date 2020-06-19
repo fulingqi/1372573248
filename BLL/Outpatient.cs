@@ -357,6 +357,20 @@ namespace BLL
         {
             CheckDAL dal = new CheckDAL();
             return dal.GetCheckMainChartData(StartTime, EndTime, SPTXT, K);
+        }      
+
+         /// <summary>
+        /// 检查检验根据年龄分组
+        /// </summary>
+        /// <param name="StartTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        public List<BigDataHome> GetCheckMainAgeChartData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+            CheckDAL dal = new CheckDAL();
+            return dal.GetCheckMainAgeChartData(StartTime, EndTime, SPTXT, K);
         }
         #endregion
 

@@ -57,7 +57,24 @@ namespace API.Controllers
             catch (System.Exception ex)
             {
                 return new EntityResult(ResultType.Error, "", null);
-                throw;
+                throw; 
+            }
+        }
+
+
+        [HttpGet]
+        public EntityResult GetCheckMainAgeChartData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                var result = bll.GetCheckMainAgeChartData(StartTime, EndTime, SPTXT, K);
+                return new EntityResult(ResultType.Success, "", result);
+            }
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw; 
             }
         }
         #endregion
