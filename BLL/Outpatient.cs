@@ -321,6 +321,11 @@ namespace BLL
             DoubleDiagnoseDAL dal = new DoubleDiagnoseDAL();
             return dal.TwoDiaPieChartAgeData(StartTime, EndTime, SPTXT, K);
         }
+        public List<BigDataHome> TwoZhuanRuOrChuData(string StartTime, string EndTime, string SPTXT)
+        {
+            DoubleDiagnoseDAL dal = new DoubleDiagnoseDAL();
+            return dal.TwoZhuanRuOrChuData(StartTime, EndTime, SPTXT);
+        }
 
         #endregion
 

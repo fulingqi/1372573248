@@ -19,54 +19,76 @@ namespace API.Controllers
 
         #endregion
         [HttpGet]
-            public EntityResult GetTwoDiaData(string StartTime, string EndTime, string SPTXT, string K)
+        public EntityResult GetTwoDiaData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+            try
             {
-                try
-                {
-                    Outpatient bll = new Outpatient();
-                    var result = bll.TwoDiaData(StartTime, EndTime,SPTXT,K);
-                    return new EntityResult(ResultType.Success, "", result);
-                }
-                catch (System.Exception ex)
-                {
-                    return new EntityResult(ResultType.Error, "", null);
-                    throw;
-                }
+                Outpatient bll = new Outpatient();
+                var result = bll.TwoDiaData(StartTime, EndTime, SPTXT, K);
+                return new EntityResult(ResultType.Success, "", result);
             }
-            /// <summary>
-            /// 双向转诊饼状图
-            /// </summary>
-            /// <returns></returns>
-            [HttpGet]
-            public EntityResult GetTwoDiaPieChartData(string StartTime, string EndTime,string  SPTXT,string  K)
+            catch (System.Exception ex)
             {
-                try
-                {
-                    Outpatient bll = new Outpatient();
-                    var result = bll.GetTwoDiaPieChartData(StartTime, EndTime, SPTXT, K);
-                    return new EntityResult(ResultType.Success, "", result);
-                }
-                catch (System.Exception ex)
-                {
-                    return new EntityResult(ResultType.Error, "", null);
-                    throw;
-                }
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
             }
-             /// <summary>
-             /// 双向转诊根据年龄统计饼状图
-             /// </summary>
-             /// <param name="StartTime"></param>
-             /// <param name="EndTime"></param>
-             /// <param name="SPTXT"></param>
-             /// <param name="K"></param>
-             /// <returns></returns>
-            [HttpGet]
-            public EntityResult GetTwoDiaPieChartAgeData(string StartTime, string EndTime, string SPTXT, string K)
+        }
+        /// <summary>
+        /// 双向转诊饼状图
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public EntityResult GetTwoDiaPieChartData(string StartTime, string EndTime, string SPTXT, string K)
+        {
+            try
             {
+                Outpatient bll = new Outpatient();
+                var result = bll.GetTwoDiaPieChartData(StartTime, EndTime, SPTXT, K);
+                return new EntityResult(ResultType.Success, "", result);
+            }
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
+        /// <summary>
+        /// 双向转诊根据年龄统计饼状图
+        /// </summary>
+        /// <param name="StartTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public EntityResult GetTwoDiaPieChartAgeData(string StartTime, string EndTime, string SPTXT, string K)
+        {
             try
             {
                 Outpatient bll = new Outpatient();
                 var result = bll.TwoDiaPieChartAgeData(StartTime, EndTime, SPTXT, K);
+                return new EntityResult(ResultType.Success, "", result);
+            }
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
+        /// <summary>
+        /// 转出和转入趋势
+        /// </summary>
+        /// <param name="StartTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public EntityResult GetTwoZhuanRuOrChuData(string StartTime, string EndTime, string SPTXT)
+        {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                var result = bll.TwoZhuanRuOrChuData(StartTime, EndTime, SPTXT);
                 return new EntityResult(ResultType.Success, "", result);
             }
             catch (System.Exception ex)

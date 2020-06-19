@@ -136,7 +136,7 @@ namespace DAL
         #region 根据地区查询所有医院
         public List<BigDataHome> CityHospList(string City)
         {
-            string sql1 = "select ORGCODE, MANAGERORGNAME from MediTable where ADMINISTRATIVECODE like '" + City + "%'";
+            string sql1 = "select ORGCODE, MANAGERORGNAME FROM MediTable where ADMINISTRATIVECODE like '" + City + "%'";
             DBHelper dB = new DBHelper();
             List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
             List<BigDataHome> list = new List<BigDataHome>();

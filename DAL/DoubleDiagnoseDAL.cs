@@ -19,7 +19,7 @@ namespace DAL
         /// 双向转诊主界面数据（SP_TwoDia_Proc）
         /// </summary>
         /// <returns></returns>
-        public List<BigDataHome> TwoDiaData(string StartTime,string EndTime,string SPTXT,string K)
+        public List<BigDataHome> TwoDiaData(string StartTime, string EndTime, string SPTXT, string K)
         {
             DBHelper dB = new DBHelper();
             SqlParameter[] paras = new SqlParameter[] {
@@ -47,7 +47,7 @@ namespace DAL
             }
             return UpdateDataName(dB.ProcHomeData("SP_TwoDia_Proc", System.Data.CommandType.StoredProcedure, paras));
         }
-        
+
         /// <summary>
         /// 双向转诊饼状图Data
         /// </summary>
@@ -56,7 +56,7 @@ namespace DAL
         /// <returns></returns>
         public List<BigDataHome> GetTwoDiaPieChartData(string StartTime, string EndTime, string SPTXT, string K)
         {
-           
+
             string sql1 = "Select s.Sex,s.Department,Sum(Case When age <=20 Then 1 Else 0 End) As ZoreToTwenty," +
         "Sum(Case When age Between 21 And 40 Then 1 Else 0 End) As TwentyToFourty," +
        "Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As  FourtyTOSixty," +
@@ -129,6 +129,42 @@ namespace DAL
             return list;
         }
 
+
+        public List<BigDataHome> TwoZhuanRuOrChuData(string StartTime, string EndTime, string SPTXT)
+        {
+            DBHelper dB = new DBHelper();
+            List<BigDataHome> list = new List<BigDataHome>();
+            list.Add(new BigDataHome
+            {
+                message = "乡镇转出和转入趋势",
+                data = new List<ItmeList>()
+            });
+            string sql = "SELECT  COUNT(1) AS Sums,t.Data FROM dbo.TwreTable t  JOIN " +
+                          " dbo.MediTable m ON t.HospCode = m.ORGCODE" +
+                          " WHERE t.Updown != m.MANAGERORGNAME " +
+                          " AND t.Data BETWEEN '"+ StartTime + "' AND '"+ EndTime + "'" +
+                          " AND t.HospCode = '"+ SPTXT + "'" +
+                          " GROUP BY t.Data";
+
+            List<Dictionary<string, object>> mzrc = dB.GetNewList(sql, System.Data.CommandType.Text);
+            list[0].data.Add(new ItmeList { Name = "转出趋势", SelectItmeList = mzrc });
+            //list.Add(new BigDataHome
+            //{
+            //    message = "乡镇转入",
+            //    data = new List<ItmeList>()
+            //});
+            string sql1 = "SELECT  COUNT(1) AS Sums,t.Data FROM dbo.TwreTable t  JOIN " +
+                         "dbo.MediTable m ON t.HospCode = m.ORGCODE " +
+                         " WHERE t.Updown = m.MANAGERORGNAME " +
+                         " AND t.Data BETWEEN '" + StartTime + "' AND '" + EndTime + "'" +
+                         " AND t.HospCode = '" + SPTXT + "'" +
+                         " GROUP BY t.Data";
+
+            List<Dictionary<string, object>> mzrcs = dB.GetNewList(sql1, System.Data.CommandType.Text);
+            list[0].data.Add(new ItmeList { Name = "转入趋势", SelectItmeList = mzrcs });
+
+            return list;
+        }
 
         /// <summary>
         /// 修改数据中的Name
