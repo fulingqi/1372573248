@@ -118,6 +118,18 @@ namespace DAL
                 DBHelper dB = new DBHelper();
 
                 List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+
+                if (mzrc.Count==0)
+                {
+                    mzrc.Add(new Dictionary<string, object>() {{ "name", item },{ "AgeDuan","ZoreToTwenty"} ,{ "Sex",1},{ "ShuLiang",0}});
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "ZoreToTwenty" }, { "Sex", 2 }, { "ShuLiang",0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "TwentyToFourty" }, { "Sex", 1 }, { "ShuLiang", 0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "TwentyToFourty" }, { "Sex", 2 }, { "ShuLiang", 0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "FourtyTOSixty" }, { "Sex", 1 }, { "ShuLiang", 0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "FourtyTOSixty" }, { "Sex", 2 }, { "ShuLiang", 0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "OnSixty" }, { "Sex", 2 }, { "ShuLiang", 0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "OnSixty" }, { "Sex", 1 }, { "ShuLiang", 0 } });
+                }
                 list[0].data.Add(new ItmeList { Name = "检查", SelectItmeList = mzrc });
             }
             //检验
@@ -149,6 +161,17 @@ namespace DAL
                 DBHelper dB = new DBHelper();
                
                 List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+                if (mzrc.Count == 0)
+                {
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "ZoreToTwenty" }, { "Sex", 1 }, { "ShuLiang", 0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "ZoreToTwenty" }, { "Sex", 2 }, { "ShuLiang", 0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "TwentyToFourty" }, { "Sex", 1 }, { "ShuLiang", 0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "TwentyToFourty" }, { "Sex", 2 }, { "ShuLiang", 0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "FourtyTOSixty" }, { "Sex", 1 }, { "ShuLiang", 0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "FourtyTOSixty" }, { "Sex", 2 }, { "ShuLiang", 0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "OnSixty" }, { "Sex", 2 }, { "ShuLiang", 0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "OnSixty" }, { "Sex", 1 }, { "ShuLiang", 0 } });
+                }
                 list[0].data.Add(new ItmeList { Name = "检验", SelectItmeList = mzrc });
             }
             return list;
