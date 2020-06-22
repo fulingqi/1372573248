@@ -49,29 +49,47 @@ namespace DAL
         }
 
         /// <summary>
-        /// 双向转诊饼状图Data
+        /// 双向转诊饼状图Data  TwreTable
         /// </summary>
         /// <param name="StartTime"></param>
         /// <param name="EndTime"></param>
         /// <returns></returns>
         public List<BigDataHome> GetTwoDiaPieChartData(string StartTime, string EndTime, string SPTXT, string K)
         {
-
-            string sql1 = "Select s.Sex,s.Department,Sum(Case When age <=20 Then 1 Else 0 End) As ZoreToTwenty," +
-        "Sum(Case When age Between 21 And 40 Then 1 Else 0 End) As TwentyToFourty," +
-       "Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As  FourtyTOSixty," +
-       "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'";
+            string part = " ) s ";
             if (K == "C")
             {
-                sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                part = " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE ) ) s  ";
             }
             if (K == "Y")
             {
-                sql1 += " and HospCode='" + SPTXT + "' ";
+                part = " and HospCode='" + SPTXT + "' ) s  ";
             }
-            sql1 += "";
-            sql1 += "  ) s Group by s.Sex,s.Department";
+
+            string sql1 = "SELECT  'ZoreToTwenty'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex ,s.Department From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age <=20  Group BY s.Sex ,s.Department" +
+                           "UNION ALL " +
+                           "SELECT  'TwentyToFourty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex,s.Department From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 21 And 40  Group BY s.Sex ,s.Department" +
+                           "UNION ALL " +
+                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex ,s.Department From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 41 And 60 Group BY s.Sex ,s.Department" +
+                          "UNION ALL " +
+                           "SELECT 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex ,s.Department From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ,s.Department";
             DBHelper dB = new DBHelper();
+
+            //     string sql1 = "Select s.Sex,s.Department,Sum(Case When age <=20 Then 1 Else 0 End) As ZoreToTwenty," +
+            // "Sum(Case When age Between 21 And 40 Then 1 Else 0 End) As TwentyToFourty," +
+            //"Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As  FourtyTOSixty," +
+            //"Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'";
+            //     if (K == "C")
+            //     {
+            //         sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+            //     }
+            //     if (K == "Y")
+            //     {
+            //         sql1 += " and HospCode='" + SPTXT + "' ";
+            //     }
+            //     sql1 += "";
+            //     sql1 += "  ) s Group by s.Sex,s.Department";
+            //     DBHelper dB = new DBHelper();
             List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
             List<BigDataHome> list = new List<BigDataHome>();
             list.Add(new BigDataHome
@@ -85,7 +103,7 @@ namespace DAL
         }
 
         /// <summary>
-        /// 双向转诊统计年龄饼状图
+        /// 双向转诊统计年龄饼状图 TwreTable
         /// </summary>
         /// <param name="StartTime"></param>
         /// <param name="EndTime"></param>
@@ -101,27 +119,50 @@ namespace DAL
                 message = "双向转诊年龄分组",
                 data = new List<ItmeList>()
             });
-
-            string sql1 = "Select s.Sex,SUM(Case When age <=5 Then 1 Else 0 End) As ZoreToFive," +
-                "SUM(Case When age Between 6 And 10 Then 1 Else 0 End) As FiveToTen," +
-                "SUM(Case When age Between 11 And 20 Then 1 Else 0 End) As TenToTwenty," +
-              "SUM(Case When age Between 21 And 30 Then 1 Else 0 End) As TwentyToThrity," +
-        "Sum(Case When age Between 31 And 40 Then 1 Else 0 End) As ThrityToFourty," +
-        "Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As FourtyTOSixty," +
-        "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From(SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where[Data] between '" + StartTime + "' and '" + EndTime + "'";
-
-
             DBHelper dB = new DBHelper();
+            string part = " ) s ";
             if (K == "C")
             {
-                sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                part = " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE ) ) s  ";
             }
             if (K == "Y")
             {
-                sql1 += " and HospCode='" + SPTXT + "' ";
+                part = " and HospCode='" + SPTXT + "' ) s  ";
             }
-            sql1 += "";
-            sql1 += ") s GROUP BY s.Sex";
+
+            string sql1 = "SELECT  'ZoreToTwenty'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age <=5  Group BY s.Sex " +
+                         "UNION ALL " +
+                         "SELECT  'TwentyToFourty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 6 And 10  Group BY s.Sex " +
+                         "UNION ALL " +
+                         "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 11 And 20 Group BY s.Sex " +
+                         "UNION ALL " +
+                         "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 21 And 30 Group BY s.Sex " +
+                          "UNION ALL " +
+                         "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 31 And 40 Group BY s.Sex " +
+                          "UNION ALL " +
+                         "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 41 And 60 Group BY s.Sex " +
+                         "UNION ALL " +
+                         "SELECT 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ";
+            //    string sql1 = "Select s.Sex,SUM(Case When age <=5 Then 1 Else 0 End) As ZoreToFive," +
+            //        "SUM(Case When age Between 6 And 10 Then 1 Else 0 End) As FiveToTen," +
+            //        "SUM(Case When age Between 11 And 20 Then 1 Else 0 End) As TenToTwenty," +
+            //      "SUM(Case When age Between 21 And 30 Then 1 Else 0 End) As TwentyToThrity," +
+            //"Sum(Case When age Between 31 And 40 Then 1 Else 0 End) As ThrityToFourty," +
+            //"Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As FourtyTOSixty," +
+            //"Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From(SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where[Data] between '" + StartTime + "' and '" + EndTime + "'";
+
+
+            //    DBHelper dB = new DBHelper();
+            //    if (K == "C")
+            //    {
+            //        sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+            //    }
+            //    if (K == "Y")
+            //    {
+            //        sql1 += " and HospCode='" + SPTXT + "' ";
+            //    }
+            //    sql1 += "";
+            //    sql1 += ") s GROUP BY s.Sex";
 
             List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
             list[0].data.Add(new ItmeList { Name = "根据年龄分组各阶段人数", SelectItmeList = mzrc });

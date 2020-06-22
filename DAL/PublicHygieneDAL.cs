@@ -44,7 +44,7 @@ namespace DAL
         }
 
         /// <summary>
-        /// 公共卫生状图Data
+        /// 公共卫生饼图Data NFileTable
         /// </summary>
         /// <param name="StartTime"></param>
         /// <param name="EndTime"></param>
@@ -52,26 +52,44 @@ namespace DAL
         public List<BigDataHome> GetPublicMainData(string StartTime, string EndTime, string SPTXT, string K)
         {
 
-            string sql1 = "Select s.Sex,s.Department,Sum(Case When age <=20 Then 1 Else 0 End) As ZoreToTwenty," +
-        "Sum(Case When age Between 21 And 40 Then 1 Else 0 End) As TwentyToFourty," +
-       "Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As  FourtyTOSixty," +
-       "Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'";
+            //     string sql1 = "Select s.Sex,s.Department,Sum(Case When age <=20 Then 1 Else 0 End) As ZoreToTwenty," +
+            // "Sum(Case When age Between 21 And 40 Then 1 Else 0 End) As TwentyToFourty," +
+            //"Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As  FourtyTOSixty," +
+            //"Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM NFileTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'";
+            //     if (K == "C")
+            //     {
+            //         sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+            //     }
+            //     if (K == "Y")
+            //     {
+            //         sql1 += " and HospCode='" + SPTXT + "' ";
+            //     }
+            //     sql1 += "";
+            //     sql1 += "  ) s Group by s.Sex,s.Department";
+
+            string part = " ) s ";
             if (K == "C")
             {
-                sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                part = " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE ) ) s  ";
             }
             if (K == "Y")
             {
-                sql1 += " and HospCode='" + SPTXT + "' ";
+                part = " and HospCode='" + SPTXT + "' ) s  ";
             }
-            sql1 += "";
-            sql1 += "  ) s Group by s.Sex,s.Department";
+
+            string sql1 = "SELECT  'ZoreToTwenty'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex ,s.Department From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM NFileTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age <=20  Group BY s.Sex ,s.Department" +
+                           "UNION ALL " +
+                           "SELECT  'TwentyToFourty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex,s.Department From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM NFileTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 21 And 40  Group BY s.Sex ,s.Department" +
+                           "UNION ALL " +
+                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex ,s.Department From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM NFileTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 41 And 60 Group BY s.Sex ,s.Department" +
+                          "UNION ALL " +
+                           "SELECT 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex ,s.Department From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM NFileTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ,s.Department";
             DBHelper dB = new DBHelper();
             List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
             List<BigDataHome> list = new List<BigDataHome>();
             list.Add(new BigDataHome
             {
-                message = "双向转诊饼状图",
+                message = "公共卫生饼图",
                 data = new List<ItmeList>{
             new ItmeList { Name="Data",SelectItmeList=mzrc }
             }
