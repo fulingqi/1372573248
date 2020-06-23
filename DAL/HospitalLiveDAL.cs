@@ -89,19 +89,19 @@ namespace DAL
                 part = " and HospCode='" + SPTXT + "' ) s  ";
             }
 
-            string sql1 = "SELECT  'ZoreToTwenty'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age <=5  Group BY s.Sex " +
+            string sql1 = "SELECT  'ZoreToTwenty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age <=5  Group BY s.Sex " +
                            "UNION ALL " +
-                           "SELECT  'TwentyToFourty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable  where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 6 And 10  Group BY s.Sex " +
+                           "SELECT  'TwentyToFourty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable  where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age Between 6 And 10  Group BY s.Sex " +
                            "UNION ALL " +
-                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 11 And 20 Group BY s.Sex " +
+                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part +  " Where  age Between 11 And 20 Group BY s.Sex " +
                            "UNION ALL " +
-                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 21 And 30 Group BY s.Sex " +
+                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age Between 21 And 30 Group BY s.Sex " +
                             "UNION ALL " +
-                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 31 And 40 Group BY s.Sex " +
+                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age Between 31 And 40 Group BY s.Sex " +
                             "UNION ALL " +
-                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 41 And 60 Group BY s.Sex " +
+                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age Between 41 And 60 Group BY s.Sex " +
                            "UNION ALL " +
-                           "SELECT 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ";
+                           "SELECT 'OnSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "  Where  age >=61 Group BY s.Sex ";
             DBHelper dB = new DBHelper();
 
 
@@ -137,23 +137,23 @@ namespace DAL
 
             foreach (var item in BingType)
             {
-                string part = " ) s  WHERE s.Chename LIKE '%" + item + "%' ";
+                string part = " ) s  WHERE s.DiseName LIKE '%" + item + "%' ";
                 if (K == "C")
                 {
-                    part = " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE ) ) s  WHERE s.Chename LIKE '%" + item + "%'";
+                    part = " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE ) ) s  WHERE s.DiseName LIKE '%" + item + "%'";
                 }
                 if (K == "Y")
                 {
-                    part = " and HospCode='" + SPTXT + "' ) s  WHERE s.Chename LIKE '%" + item + "%' ";
+                    part = " and HospCode='" + SPTXT + "' ) s  WHERE s.DiseName LIKE '%" + item + "%' ";
                 }
 
-                string sql1 = "SELECT '" + item + "' as name, 'ZoreToTwenty'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age <=20  Group BY s.Sex " +
+                string sql1 = "SELECT '" + item + "' as name, 'ZoreToTwenty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " AND  age <=20  Group BY s.Sex " +
                                "UNION ALL " +
-                               "SELECT '" + item + "' as name, 'TwentyToFourty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable  where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 21 And 40  Group BY s.Sex " +
+                               "SELECT '" + item + "' as name, 'TwentyToFourty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable  where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " AND  age Between 21 And 40  Group BY s.Sex " +
                                "UNION ALL " +
-                               "SELECT '" + item + "' as name, 'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 41 And 60 Group BY s.Sex " +
+                               "SELECT '" + item + "' as name, 'FourtyTOSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " AND  age Between 41 And 60 Group BY s.Sex " +
                               "UNION ALL " +
-                               "SELECT '" + item + "' as name, 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ";
+                               "SELECT '" + item + "' as name, 'OnSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " AND  age >=61 Group BY s.Sex ";
                 DBHelper dB = new DBHelper();
 
                 List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
