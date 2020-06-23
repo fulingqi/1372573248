@@ -240,7 +240,7 @@ namespace DAL
         /// <param name="SPTXT"></param>
         /// <param name="K"></param>
         /// <returns></returns>
-        public List<BigDataHome> IllTypeBigData(string StateTime, string EndTime, string SPTXT, string K)
+        public List<BigDataHome> IllTypeBigDataBySick(string StateTime, string EndTime, string SPTXT, string K)
         {
             List<string> BingType = new List<string>();
             BingType.Add("肺炎");
@@ -320,5 +320,44 @@ namespace DAL
             return list;
         }
 
+
+        public List<BigDataHome> IllTypeBigData(string StateTime, string EndTime, string SPTXT, string K)
+        {
+
+            List<BigDataHome> list = new List<BigDataHome>();
+            list.Add(new BigDataHome
+            {
+                message = "首页数据",
+                data = new List<ItmeList>()
+            });
+
+            string part = " ) s ";
+            if (K == "C")
+            {
+                part = " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE ) ) s  ";
+            }
+            if (K == "Y")
+            {
+                part = " and HospCode='" + SPTXT + "' ) s  ";
+            }
+            string sql1 = "SELECT  'ZoreToTwenty'AS AgeDuan, SUM(PsitDay) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age <=5  Group BY s.Sex " +
+                         "UNION ALL " +
+                         "SELECT  'TwentyToFourty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata  where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 6 And 10  Group BY s.Sex " +
+                         "UNION ALL " +
+                         "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 11 And 20 Group BY s.Sex " +
+                         "UNION ALL " +
+                         "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 21 And 30 Group BY s.Sex " +
+                          "UNION ALL " +
+                         "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 31 And 40 Group BY s.Sex " +
+                          "UNION ALL " +
+                         "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 41 And 60 Group BY s.Sex " +
+                         "UNION ALL " +
+                         "SELECT 'OnSixty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age >=61 Group BY s.Sex ";
+            DBHelper dB = new DBHelper();
+            List<Dictionary<string, object>> mzrcs = dB.GetNewList(sql1, System.Data.CommandType.Text);
+            list[0].data.Add(new ItmeList { Name = "门诊根据年龄饼图", SelectItmeList = mzrcs });
+
+            return list;
+        }
     }
 }

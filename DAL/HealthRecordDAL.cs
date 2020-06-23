@@ -83,7 +83,7 @@ namespace DAL
             //    DBHelper dB = new DBHelper();
             //    sql1 += ") s GROUP BY s.Sex";
             DBHelper dB = new DBHelper();
-            string part = " ) s ";
+            string part = " ) s  where  ";
 
             string sql1 = "SELECT  'ZoreToTwenty'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM FiledTable" + part + "  age <=5  Group BY s.Sex " +
                          "UNION ALL " +
