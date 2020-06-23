@@ -134,12 +134,12 @@ namespace DAL
             }
             //检验
             List<string> BingTypes = new List<string>();
-            BingType.Add("肝功能");
-            BingType.Add("肾功能");
-            BingType.Add("尿常规");
-            BingType.Add("血常规");
-            BingType.Add("微量元素");
-            foreach (var item in BingType)
+            BingTypes.Add("肝功能");
+            BingTypes.Add("肾功能");
+            BingTypes.Add("尿常规");
+            BingTypes.Add("血常规");
+            BingTypes.Add("微量元素");
+            foreach (var item in BingTypes)
             {
                 string part = " ) s  WHERE s.Chename LIKE '%" + item + "%' ";
                 if (K == "C")
