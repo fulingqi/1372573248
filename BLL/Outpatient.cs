@@ -24,6 +24,11 @@ namespace BLL
             }
             return Key.Substring(0, Key.Length - 1);
         }
+        public List<BigDataHome> GetNewCityList()
+        {
+            BigDataDAL dal = new BigDataDAL();
+            return dal.GetNewCityList() ;
+        }
         #endregion
 
 

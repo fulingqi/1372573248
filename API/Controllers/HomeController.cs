@@ -140,7 +140,20 @@ namespace API.Controllers
                 throw;
             }
         }
-
+        [HttpGet]
+        public EntityResult GetCityHospRelaList()
+        {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                return new EntityResult(ResultType.Success, "", bll.GetNewCityList());
+            }
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
 
         #region 住院数据
 

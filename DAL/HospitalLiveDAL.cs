@@ -89,15 +89,15 @@ namespace DAL
                 part = " and HospCode='" + SPTXT + "' ) s  ";
             }
 
-            string sql1 = "SELECT  'ZoreToTwenty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age <=5  Group BY s.Sex " +
+            string sql1 = "SELECT  'ZoreToFive'AS AgeDuan, SUM(TnoiDay) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age <=5  Group BY s.Sex " +
                            "UNION ALL " +
-                           "SELECT  'TwentyToFourty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable  where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age Between 6 And 10  Group BY s.Sex " +
+                           "SELECT  'SixToTen'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable  where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age Between 6 And 10  Group BY s.Sex " +
                            "UNION ALL " +
-                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part +  " Where  age Between 11 And 20 Group BY s.Sex " +
+                           "SELECT  'EvelTOTwenty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part +  " Where  age Between 11 And 20 Group BY s.Sex " +
                            "UNION ALL " +
-                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age Between 21 And 30 Group BY s.Sex " +
+                           "SELECT  'TwentyTOThirty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age Between 21 And 30 Group BY s.Sex " +
                             "UNION ALL " +
-                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age Between 31 And 40 Group BY s.Sex " +
+                           "SELECT  'ThirtyTOFourty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age Between 31 And 40 Group BY s.Sex " +
                             "UNION ALL " +
                            "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM InberTable where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " Where  age Between 41 And 60 Group BY s.Sex " +
                            "UNION ALL " +
