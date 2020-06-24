@@ -6,7 +6,36 @@ namespace DAL
 {
     public class BigDataDAL
     {
-        //https://github.com/QiLinQ/10.109.com.git
+        #region  获取直属医院信息
+        public List<BigDataHome> ZhiShuHosp()
+        {
+            try
+            {
+
+                DBHelper dB = new DBHelper();
+                string sql1 = "SELECT * FROM dbo.MediTable WHERE MANAGERORGNAME  IN('丽水市妇幼保健院','丽水市人民医院','丽水市中心医院','丽水市第二人民医院','丽水市中医院')";
+                List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+
+
+                List<BigDataHome> list = new List<BigDataHome>();
+                list.Add(new BigDataHome
+                {
+                    message = "直属医院信息",
+                    data = new List<ItmeList>{
+            new ItmeList { Name="直属医院",SelectItmeList=mzrc }}
+                });
+                return list;
+            }
+            catch (System.Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+
+
+
         #region 查询地区所有机构
         public List<Dictionary<string, object>> GetNewList(string K)
         {
@@ -375,7 +404,7 @@ namespace DAL
                 BigDataHome resultItem = new BigDataHome();
                 foreach (var it in item)
                 {
-                    
+
                     if (it.Key.ToString() == "HospCode")
                     {
                         string sql1 = "SELECT * FROM dbo.HospRelaTable WHERE HospLevel=2 AND ParentCode='" + it.Value.ToString() + "'";
@@ -389,7 +418,7 @@ namespace DAL
                     {
                         resultItem.message = it.Value.ToString();
                     }
-                   
+
                 }
                 list.Add(resultItem);
             }

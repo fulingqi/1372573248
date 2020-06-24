@@ -12,6 +12,16 @@ namespace BLL
     /// </summary>
     public class Outpatient
     {
+        #region 获取直属医院信息
+        public List<BigDataHome> ZhiShuHosp()
+        {
+            BigDataDAL dal = new BigDataDAL();
+            return dal.ZhiShuHosp();
+        }
+
+        #endregion
+
+
         #region 查询地区所有机构
         public string GetNewList(string K)
         {

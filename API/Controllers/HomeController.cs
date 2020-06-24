@@ -6,6 +6,26 @@ namespace API.Controllers
 {
     public class HomeController : ApiController
     {
+        #region 直属医院信息
+        [HttpGet]
+        public EntityResult GetZhiZhuHosp()
+        {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                return new EntityResult(ResultType.Success, "", bll.ZhiShuHosp());
+            }
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
+
+        #endregion
+
+
+
         #region 门诊数据
 
         [HttpGet]
