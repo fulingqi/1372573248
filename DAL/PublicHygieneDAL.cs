@@ -15,7 +15,7 @@ namespace DAL
     public class PublicHygieneDAL
     {
         /// <summary>
-        /// 公共卫生主界面数据（SP_TwoDia_Proc）
+        /// 公共卫生主界面数据（SP_PublicHeal）
         /// </summary>
         /// <returns></returns>
         public List<BigDataHome> PublicHealthData(string SPTXT, string K)
@@ -43,6 +43,35 @@ namespace DAL
             return UpdateDataName(dB.ProcHomeData("SP_PublicHeal", System.Data.CommandType.StoredProcedure, paras));
         }
 
+
+        /// <summary>
+        /// 公共卫生主界面数据（SP_PublicHeal2）
+        /// </summary>
+        /// <returns></returns>
+        public List<BigDataHome> PuHealChildAndTotalData(string SPTXT, string K)
+        {
+            DBHelper dB = new DBHelper();
+            SqlParameter[] paras = new SqlParameter[] {
+                new SqlParameter("@HospCode",SqlDbType.VarChar,200),
+                new SqlParameter("@type",SqlDbType.VarChar,200)
+                 };
+            paras[0].Value = SPTXT;
+
+            //K == 1 市   2县    3医院
+            if (K == "H")
+            {
+                paras[1].Value = 1;
+            }
+            if (K == "C")
+            {
+                paras[1].Value = 2;
+            }
+            if (K == "Y")
+            {
+                paras[1].Value = 3;
+            }
+            return UpdateDataNameTwo(dB.ProcHomeData("[SP_PublicHeal2]", System.Data.CommandType.StoredProcedure, paras));
+        }
         /// <summary>
         /// 公共卫生饼图Data NFileTable
         /// </summary>
@@ -138,6 +167,56 @@ namespace DAL
                 if (item.Name == "门诊收费趋势")
                 {
                     item.Name = "糖尿病根据县";
+                }
+                if (item.Name == "地区")
+                {
+                    item.Name = "";
+                }
+
+            }
+            return data;
+        }
+
+        /// <summary>
+        /// 修改数据中的Name2
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public List<BigDataHome> UpdateDataNameTwo(List<BigDataHome> data)
+        {
+            foreach (var item in data[0].data)
+            {
+                if (item.Name == "门诊人次")
+                {
+                    item.Name = "档案总数";
+                }
+                if (item.Name == "门诊电子病历")
+                {
+                    item.Name = "儿童总数";
+                }
+                if (item.Name == "门诊处方总数")
+                {
+                    item.Name = "";
+                }
+                if (item.Name == "中医处方总量")
+                {
+                    item.Name = "";
+                }
+                if (item.Name == "门诊费用总额")
+                {
+                    item.Name = "";
+                }
+                if (item.Name == "中药费用总额")
+                {
+                    item.Name = "";
+                }
+                if (item.Name == "门诊就医趋势")
+                {
+                    item.Name = "";
+                }
+                if (item.Name == "门诊收费趋势")
+                {
+                    item.Name = "";
                 }
                 if (item.Name == "地区")
                 {

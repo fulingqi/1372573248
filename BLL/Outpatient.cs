@@ -341,7 +341,12 @@ namespace BLL
             PublicHygieneDAL dal = new PublicHygieneDAL();
             return dal.PublicHealthData(SPTXT,K);
         }
-
+        
+        public List<BigDataHome> PuHealChildAndTotalData(string SPTXT, string K)
+        {
+            PublicHygieneDAL dal = new PublicHygieneDAL();
+            return dal.PuHealChildAndTotalData(SPTXT, K);
+        }
         #endregion
 
 

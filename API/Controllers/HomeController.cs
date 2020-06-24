@@ -296,7 +296,7 @@ namespace API.Controllers
             try
             {
                 Outpatient bll = new Outpatient();
-                var bls = bll.PublicHealthData(  SPTXT, K);
+                var bls = bll.PublicHealthData(SPTXT, K);
                 return new EntityResult(ResultType.Success, "", bls);
             }
             catch (System.Exception ex)
@@ -305,7 +305,21 @@ namespace API.Controllers
                 throw;
             }
         }
-
+        [HttpGet]
+        public EntityResult GetPuHealChildAndTotalData(string SPTXT, string K)
+        {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                var bls = bll.PuHealChildAndTotalData(SPTXT, K);
+                return new EntityResult(ResultType.Success, "", bls);
+            }
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
 
         #endregion
 
