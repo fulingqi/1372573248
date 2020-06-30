@@ -107,6 +107,98 @@ namespace DAL
                 return null;
             }
         }
+
+        /// <summary>
+        /// 门诊收费趋势
+        /// </summary>
+        /// <param name="StateTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        public List<BigDataHome> HomeOutMonGet(string StateTime, string EndTime, string SPTXT, string K)
+        {
+            try
+            {
+
+                DBHelper dB = new DBHelper();
+                string sql1 = "   select [Data],sum(Topfees) as Topfees from Opusdule  where [Data] between '"+ StateTime + "' and '"+EndTime+"'";
+
+                if (K == "C")
+                {
+                    sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                }
+                if (K == "Y")
+                {
+                    sql1 += " and HospCode='" + SPTXT + "'";
+                }
+                sql1 += "  Group by [Data] order by [Data] desc ";
+                List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+
+
+                List<BigDataHome> list = new List<BigDataHome>();
+                list.Add(new BigDataHome
+                {
+                    message = "门诊费用总额",
+                    data = new List<ItmeList>{
+            new ItmeList { Name="门诊费用总额",SelectItmeList=mzrc }}
+                });
+
+                return list;
+            }
+            catch (System.Exception ex)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 当月门诊就医趋势
+        /// </summary>
+        /// <param name="StateTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        public List<BigDataHome> HomeOutHospGet(string StateTime, string EndTime, string SPTXT, string K)
+        {
+            try
+            {
+
+                DBHelper dB = new DBHelper();
+                string sql1 = "select [Data],SUM(PsitDay) as PsitDay from Stocdata WHIT (NOLOCK) where [Data] between '"+@StateTime+"' and '"+@EndTime+"'";
+
+                if (K == "C")
+                {
+                    sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '"+SPTXT+"' and HospCode=MediTable.ORGCODE )";
+                }
+                if (K == "Y")
+                {
+                    sql1 += " and HospCode='" + SPTXT + "'";
+                }
+                sql1 += "  Group by [Data] order by [Data] desc ";
+
+                List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+
+
+                List<BigDataHome> list = new List<BigDataHome>();
+                list.Add(new BigDataHome
+                {
+                    message = "就医趋势",
+                    data = new List<ItmeList>{
+            new ItmeList { Name="门诊就医趋势",SelectItmeList=mzrc }}
+                });
+
+
+                return list;
+            }
+            catch (System.Exception ex)
+            {
+                return null;
+            }
+        }
+
+
         #endregion
 
         #region 二期（发热门诊）

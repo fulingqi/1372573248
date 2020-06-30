@@ -56,6 +56,51 @@ namespace API.Controllers
                 throw;
             }
         }
+        /// <summary>
+        /// 当月门诊就医趋势
+        /// </summary>
+        /// <param name="StateTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public EntityResult HomeOutHospGet(string StateTime, string EndTime, string SPTXT, string K)
+        {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                return new EntityResult(ResultType.Success, "", bll.HomeOutHospGet(StateTime, EndTime, SPTXT, K));
+            }
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 门诊收费趋势
+        /// </summary>
+        /// <param name="StateTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public EntityResult HomeOutMonGet(string StateTime, string EndTime, string SPTXT, string K)
+        {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                return new EntityResult(ResultType.Success, "", bll.HomeOutMonGet(StateTime, EndTime, SPTXT, K));
+            }
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
         #region 门诊数据饼状图
 
         public EntityResult GetOutpatientData(string StateTime, string EndTime, string SPTXT, string K)
