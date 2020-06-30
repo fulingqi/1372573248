@@ -85,7 +85,7 @@ namespace BLL
             {
                 return new List<BigDataHome>();
             }
-        }
+        }        
         public List<BigDataHome> HomeBigDataGet(string StateTime, string EndTime, string SPTXT, string K)
         {
             try
@@ -141,7 +141,29 @@ namespace BLL
                 throw;
             }
         }
-            #region 门诊数据饼状图
+
+        /// <summary>
+        /// 门诊人次
+        /// </summary>
+        /// <param name="StateTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        public List<BigDataHome> HomeOutCountGet(string StateTime, string EndTime, string SPTXT, string K)
+        {
+            try
+            {
+                BigDataDAL dal = new BigDataDAL();
+                return dal.HomeOutCountGet(StateTime, EndTime, SPTXT, K);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+        #region 门诊数据饼状图
         /// <summary>
         /// 门诊数据饼图
         /// </summary>

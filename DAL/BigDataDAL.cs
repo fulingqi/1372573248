@@ -198,7 +198,50 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// 门诊人次
+        /// </summary>
+        /// <param name="StateTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        public List<BigDataHome> HomeOutCountGet(string StateTime, string EndTime, string SPTXT, string K)
+        {
+            try
+            {
 
+                DBHelper dB = new DBHelper();
+                string sql1 = "select SUM(PsitDay) as MZRC from Stocdata WHIT (NOLOCK) where [Data] between '"+StateTime+"' and '"+EndTime+"' ";
+
+                if (K == "C")
+                {
+                    sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                }
+                if (K == "Y")
+                {
+                    sql1 += " and HospCode='" + SPTXT + "'";
+                }
+
+                List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+
+
+                List<BigDataHome> list = new List<BigDataHome>();
+                list.Add(new BigDataHome
+                {
+                    message = "门诊人次",
+                    data = new List<ItmeList>{
+            new ItmeList { Name="门诊人次",SelectItmeList=mzrc }}
+                });
+
+
+                return list;
+            }
+            catch (System.Exception ex)
+            {
+                return null;
+            }
+        }
         #endregion
 
         #region 二期（发热门诊）
