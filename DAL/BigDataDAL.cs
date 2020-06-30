@@ -51,7 +51,61 @@ namespace DAL
             DBHelper dB = new DBHelper();
 
             var result = dB.ProcHomeData(SP_Name, System.Data.CommandType.StoredProcedure, paras);
+            
             return result;
+        }
+
+        public List<BigDataHome> HomeBigDataGet(string StateTime, string EndTime, string SPTXT, string K)
+        {
+            try
+            {
+                
+                DBHelper dB = new DBHelper();
+                string sql1 = "select sum(Topfees) as MZSFJE from Opusdule where TopfeeType=1 and [Data] between '"+@StateTime+"' and '"+@EndTime+"'";
+              
+                if (K == "C")
+                {
+                    sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '"+SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                }
+                if (K == "Y")
+                {
+                    sql1 += " and HospCode='"+SPTXT+"'";
+                }
+
+                List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+                
+
+                List<BigDataHome> list = new List<BigDataHome>();
+                list.Add(new BigDataHome
+                {
+                    message = "门诊费用总额",
+                    data = new List<ItmeList>{
+            new ItmeList { Name="门诊费用总额",SelectItmeList=mzrc }}
+                });
+
+
+                string sql2 = "select sum(Topfees) as ZYFYZE from Opusdule where TopfeeType=2 and [Data] between '" + @StateTime + "' and '" + @EndTime + "'";
+
+                if (K == "C")
+                {
+                    sql2 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                }
+                if (K == "Y")
+                {
+                    sql2 += " and HospCode='" + SPTXT + "'";
+                }
+
+                List<Dictionary<string, object>> mzrc1 = dB.GetNewList(sql2, System.Data.CommandType.Text);
+
+
+                list[0].data.Add(new ItmeList { Name = "中医收费金额", SelectItmeList = mzrc1 });
+                
+                return list;
+            }
+            catch (System.Exception ex)
+            {
+                return null;
+            }
         }
         #endregion
 

@@ -42,6 +42,20 @@ namespace API.Controllers
                 throw;
             }
         }
+        [HttpGet]
+        public EntityResult Homenum(string StateTime, string EndTime, string SPTXT, string K)
+        {
+            try
+            {
+                Outpatient bll = new Outpatient();
+                return new EntityResult(ResultType.Success, "", bll.HomeBigDataGet(StateTime, EndTime, SPTXT, K));
+            }
+            catch (System.Exception ex)
+            {
+                return new EntityResult(ResultType.Error, "", null);
+                throw;
+            }
+        }
         #region 门诊数据饼状图
 
         public EntityResult GetOutpatientData(string StateTime, string EndTime, string SPTXT, string K)

@@ -77,23 +77,38 @@ namespace BLL
                 {
                     paras[3].Value = 3;
                 }
+              
                 return dal.HomeBigDataDAL("SP_PHASE1_HomeData", paras);
+
             }
             catch (Exception e)
             {
                 return new List<BigDataHome>();
             }
         }
-        #region 门诊数据饼状图
-        /// <summary>
-        /// 门诊数据饼图
-        /// </summary>
-        /// <param name="StateTime"></param>
-        /// <param name="EndTime"></param>
-        /// <param name="SPTXT"></param>
-        /// <param name="K"></param>
-        /// <returns></returns>
-        public List<BigDataHome> GetOutpatientData(string StateTime, string EndTime, string SPTXT, string K)
+        public List<BigDataHome> HomeBigDataGet(string StateTime, string EndTime, string SPTXT, string K)
+        {
+            try
+            {
+                BigDataDAL dal = new BigDataDAL();
+                return dal.HomeBigDataGet(StateTime,EndTime,SPTXT,K);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+            #region 门诊数据饼状图
+            /// <summary>
+            /// 门诊数据饼图
+            /// </summary>
+            /// <param name="StateTime"></param>
+            /// <param name="EndTime"></param>
+            /// <param name="SPTXT"></param>
+            /// <param name="K"></param>
+            /// <returns></returns>
+            public List<BigDataHome> GetOutpatientData(string StateTime, string EndTime, string SPTXT, string K)
         {
             BigDataDAL dal = new BigDataDAL();
             return dal.IllTypeBigData(StateTime, EndTime, SPTXT, K);
