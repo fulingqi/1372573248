@@ -48,14 +48,17 @@ namespace DAL
             }
             return UpdateDataName(dB.ProcHomeData("SP_Check", System.Data.CommandType.StoredProcedure, paras));
         }
-
+        public List<BigDataHome> CheckJYan(string StartTime, string EndTime, string SPTXT, string K)
+        {
+            return null;
+        }
         /// <summary>
         /// 检查检验饼状图Data
         /// </summary>
         /// <param name="StartTime"></param>
         /// <param name="EndTime"></param>
         /// <returns></returns>
-        public List<BigDataHome> GetCheckMainChartData(string StartTime, string EndTime,string SPTXT,string K)
+        public List<BigDataHome> GetCheckMainChartData(string StartTime, string EndTime, string SPTXT, string K)
         {
             List<string> BingType = new List<string>();
             BingType.Add("胸部");
@@ -71,29 +74,29 @@ namespace DAL
             });
 
             #region XX
-       //     foreach (var item in BingType)
-       //     {
-       //         string sql1 = "Select s.Sex,'" + item + "' as name,SUM(Case When age <=20 Then 1 Else 0 End) As ZoreToTwenty," +
-       // "Sum(Case When age Between 21 And 40 Then 1 Else 0 End) As TwentyToFourty," +
-       //"Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As FourtyTOSixty," +
-       //"Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM InspTable  where [Data] between '" + StartTime + "' and '" + EndTime + "' ";
+            //     foreach (var item in BingType)
+            //     {
+            //         string sql1 = "Select s.Sex,'" + item + "' as name,SUM(Case When age <=20 Then 1 Else 0 End) As ZoreToTwenty," +
+            // "Sum(Case When age Between 21 And 40 Then 1 Else 0 End) As TwentyToFourty," +
+            //"Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As FourtyTOSixty," +
+            //"Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM InspTable  where [Data] between '" + StartTime + "' and '" + EndTime + "' ";
 
 
-       //         DBHelper dB = new DBHelper();
-       //         if (K == "C")
-       //         {
-       //             sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
-       //         }
-       //         if (K == "Y")
-       //         {
-       //             sql1 += " and HospCode='" + SPTXT + "' ";
-       //         }
-       //         sql1 += "";
-       //         sql1 += ") s  WHERE s.Chename LIKE '%" + item + "%' GROUP BY s.Sex";
+            //         DBHelper dB = new DBHelper();
+            //         if (K == "C")
+            //         {
+            //             sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+            //         }
+            //         if (K == "Y")
+            //         {
+            //             sql1 += " and HospCode='" + SPTXT + "' ";
+            //         }
+            //         sql1 += "";
+            //         sql1 += ") s  WHERE s.Chename LIKE '%" + item + "%' GROUP BY s.Sex";
 
-       //         List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
-       //         list[0].data.Add(new ItmeList { Name = item, SelectItmeList = mzrc });
-       //     }
+            //         List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+            //         list[0].data.Add(new ItmeList { Name = item, SelectItmeList = mzrc });
+            //     }
             #endregion
             //检查
             foreach (var item in BingType)
@@ -119,10 +122,10 @@ namespace DAL
 
                 List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
 
-                if (mzrc.Count==0)
+                if (mzrc.Count ==0)
                 {
-                    mzrc.Add(new Dictionary<string, object>() {{ "name", item },{ "AgeDuan","ZoreToTwenty"} ,{ "Sex",1},{ "ShuLiang",0}});
-                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "ZoreToTwenty" }, { "Sex", 2 }, { "ShuLiang",0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "ZoreToTwenty" }, { "Sex", 1 }, { "ShuLiang", 0 } });
+                    mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "ZoreToTwenty" }, { "Sex", 2 }, { "ShuLiang", 0 } });
                     mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "TwentyToFourty" }, { "Sex", 1 }, { "ShuLiang", 0 } });
                     mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "TwentyToFourty" }, { "Sex", 2 }, { "ShuLiang", 0 } });
                     mzrc.Add(new Dictionary<string, object>() { { "name", item }, { "AgeDuan", "FourtyTOSixty" }, { "Sex", 1 }, { "ShuLiang", 0 } });
@@ -151,7 +154,7 @@ namespace DAL
                     part = " and HospCode='" + SPTXT + "' ) s  WHERE s.Chename LIKE '%" + item + "%' ";
                 }
 
-                string sql1 = "SELECT '"+item+"' as name, 'ZoreToTwenty'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TestTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age <=20  Group BY s.Sex " +
+                string sql1 = "SELECT '" + item + "' as name, 'ZoreToTwenty'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TestTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age <=20  Group BY s.Sex " +
                                "UNION ALL " +
                                "SELECT '" + item + "' as name, 'TwentyToFourty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TestTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 21 And 40  Group BY s.Sex " +
                                "UNION ALL " +
@@ -159,7 +162,7 @@ namespace DAL
                               "UNION ALL " +
                                "SELECT '" + item + "' as name, 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TestTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ";
                 DBHelper dB = new DBHelper();
-               
+
                 List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
                 if (mzrc.Count == 0)
                 {
@@ -175,7 +178,7 @@ namespace DAL
                 list[0].data.Add(new ItmeList { Name = "检验", SelectItmeList = mzrc });
             }
             return list;
-            
+
         }
 
 
@@ -238,7 +241,7 @@ namespace DAL
                          "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TestTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 41 And 60 Group BY s.Sex " +
                          "UNION ALL " +
                          "SELECT 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TestTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ";
-   
+
             List<Dictionary<string, object>> mzrcs = dB.GetNewList(sql1, System.Data.CommandType.Text);
             list[0].data.Add(new ItmeList { Name = "检验根据年龄饼图", SelectItmeList = mzrcs });
 
