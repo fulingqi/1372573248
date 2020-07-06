@@ -116,7 +116,7 @@ namespace UI
             //成功和失败的界面隐藏
             panel1.Visible = false;
             panelSuccess.Visible = false;
-            txtSuccess.Visible = false;
+            txtZhuCeSuccess.Visible = false;
             
 
             timer2.Start();
@@ -532,7 +532,7 @@ namespace UI
         private void button10_Click(object sender, EventArgs e)
         {
             panel3.Visible = false;
-            string str = "2";
+            string str = "1";
             if (str == "1")
             {
                 panelSuccess.Visible = true;
@@ -567,6 +567,7 @@ namespace UI
             #region 验证身份证是否合法
 
             Address = this.txtAddress.Text;
+            Sidnum = this.txtIDCard.Text;
             string cid = CheckCidInfo18(Sidnum);
             if (cid != "")
             {
@@ -583,30 +584,30 @@ namespace UI
             }
             #endregion
             #region 判断手机号与验证码是否合法
-            if (!String.IsNullOrEmpty(txtPhone.Text))
-            {
-                if (string.IsNullOrEmpty(yPhone))
-                {
-                    Mge = "请您获取验证码";
-                    MessageBox.Show("请您获取验证码");
-                    return;
-                }
-                if (txtPhone.Text != yPhone)//如果接收验证码的手机与文本框的手机不一致
-                {
-                    MessageBox.Show("手机号码不一致");
-                    return;
-                }
-                if (String.IsNullOrEmpty(txtYan.Text))//如果验证码为空
-                {
-                    MessageBox.Show("请输入验证码");
-                    return;
-                }
-                if (txtYan.Text.Trim() != yCode)//与发送的验证码不一致
-                {
-                    MessageBox.Show("验证码错误");
-                    return;
-                }
-            }
+            //if (!String.IsNullOrEmpty(txtPhone.Text))
+            //{
+            //    if (string.IsNullOrEmpty(yPhone))
+            //    {
+            //        Mge = "请您获取验证码";
+            //        MessageBox.Show("请您获取验证码");
+            //        return;
+            //    }
+            //    if (txtPhone.Text != yPhone)//如果接收验证码的手机与文本框的手机不一致
+            //    {
+            //        MessageBox.Show("手机号码不一致");
+            //        return;
+            //    }
+            //    if (String.IsNullOrEmpty(txtYan.Text))//如果验证码为空
+            //    {
+            //        MessageBox.Show("请输入验证码");
+            //        return;
+            //    }
+            //    if (txtYan.Text.Trim() != yCode)//与发送的验证码不一致
+            //    {
+            //        MessageBox.Show("验证码错误");
+            //        return;
+            //    }
+            //}
             #endregion
 
             #endregion
@@ -615,28 +616,28 @@ namespace UI
 
 
             #region 抓取图片
-            if (File.Exists(System.IO.Path.GetFullPath(".\\") + "temp.jpg"))
-            {
-                File.Delete(System.IO.Path.GetFullPath(".\\") + "temp.jpg");
-            }
-            imgFace.Save(System.IO.Path.GetFullPath(".\\") + "temp.jpg");
-            imgFace.Dispose();
+            //if (File.Exists(System.IO.Path.GetFullPath(".\\") + "temp.jpg"))
+            //{
+            //    File.Delete(System.IO.Path.GetFullPath(".\\") + "temp.jpg");
+            //}
+            //imgFace.Save(System.IO.Path.GetFullPath(".\\") + "temp.jpg");
+            //imgFace.Dispose();
             #endregion
 
             Test.WSFaces wsf = new Test.WSFaces();
 
-            #region 调用公安验证
-            FileStream jpgStream = new FileStream(System.IO.Path.GetFullPath(".\\") + "temp.jpg", FileMode.Open);
-            byte[] bytes = StreamToBytes(jpgStream);
-            string result = wsf.AuthenPliceFace(Sidnum, SName, this.txtPhone.Text, SNation, Address, bytes);
+            #region 调用注册接口（公安）验证
+            //FileStream jpgStream = new FileStream(System.IO.Path.GetFullPath(".\\") + "temp.jpg", FileMode.Open);
+            //byte[] bytes = StreamToBytes(jpgStream);
+            //string result = wsf.AuthenPliceFace(Sidnum, SName, this.txtPhone.Text, SNation, Address, bytes);
 
-            JObject obj = JObject.Parse(result);
-            //结果码
-            string strs = obj["code"].ToString();
-            //结果信息
-            //MessageBox.Show(obj["message"].ToString());
-            jpgStream.Close();
-            jpgStream.Dispose();
+            //JObject obj = JObject.Parse(result);
+            ////结果码
+            //string strs = obj["code"].ToString();
+            ////结果信息
+            ////MessageBox.Show(obj["message"].ToString());
+            //jpgStream.Close();
+            //jpgStream.Dispose();
             #endregion
 
 

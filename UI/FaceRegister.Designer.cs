@@ -66,14 +66,15 @@
             this.panelSuccess = new System.Windows.Forms.Panel();
             this.txtSuccess = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtZhuCeSuccess = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.timerSuccess = new System.Windows.Forms.Timer(this.components);
             this.timerfail = new System.Windows.Forms.Timer(this.components);
             this.linkReturn = new System.Windows.Forms.LinkLabel();
             this.linkReturns = new System.Windows.Forms.LinkLabel();
             this.txtFails = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.Paneljps.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).BeginInit();
@@ -81,8 +82,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelSuccess.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtName
@@ -401,7 +402,7 @@
             // 
             this.link2.BackgroundImage = global::UI.Properties.Resources.验证码;
             this.link2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.link2.Location = new System.Drawing.Point(392, 380);
+            this.link2.Location = new System.Drawing.Point(392, 378);
             this.link2.Name = "link2";
             this.link2.Size = new System.Drawing.Size(125, 32);
             this.link2.TabIndex = 5;
@@ -487,7 +488,7 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button10.Location = new System.Drawing.Point(20, 811);
+            this.button10.Location = new System.Drawing.Point(20, 809);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(497, 82);
             this.button10.TabIndex = 48;
@@ -521,17 +522,18 @@
             this.panelSuccess.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelSuccess.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSuccess.BackgroundImage")));
             this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelSuccess.Controls.Add(this.panel1);
             this.panelSuccess.Controls.Add(this.txtSuccess);
-            this.panelSuccess.Location = new System.Drawing.Point(449, 0);
+            this.panelSuccess.Location = new System.Drawing.Point(-5, 0);
             this.panelSuccess.Name = "panelSuccess";
-            this.panelSuccess.Size = new System.Drawing.Size(539, 935);
+            this.panelSuccess.Size = new System.Drawing.Size(539, 923);
             this.panelSuccess.TabIndex = 0;
             // 
             // txtSuccess
             // 
             this.txtSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSuccess.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtSuccess.Location = new System.Drawing.Point(250, 549);
+            this.txtSuccess.Location = new System.Drawing.Point(252, 539);
             this.txtSuccess.Multiline = true;
             this.txtSuccess.Name = "txtSuccess";
             this.txtSuccess.Size = new System.Drawing.Size(33, 32);
@@ -544,10 +546,39 @@
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(5, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(539, 935);
             this.panel1.TabIndex = 51;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.txtZhuCeSuccess);
+            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Location = new System.Drawing.Point(177, 539);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(189, 52);
+            this.panel3.TabIndex = 0;
+            // 
+            // txtZhuCeSuccess
+            // 
+            this.txtZhuCeSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtZhuCeSuccess.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtZhuCeSuccess.Location = new System.Drawing.Point(55, -5);
+            this.txtZhuCeSuccess.Multiline = true;
+            this.txtZhuCeSuccess.Name = "txtZhuCeSuccess";
+            this.txtZhuCeSuccess.Size = new System.Drawing.Size(78, 39);
+            this.txtZhuCeSuccess.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox1.Location = new System.Drawing.Point(72, 3);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(37, 38);
+            this.textBox1.TabIndex = 0;
             // 
             // timerSuccess
             // 
@@ -609,30 +640,12 @@
             this.panel2.Size = new System.Drawing.Size(200, 70);
             this.panel2.TabIndex = 1;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Location = new System.Drawing.Point(181, 549);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(189, 52);
-            this.panel3.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(72, 3);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(37, 38);
-            this.textBox1.TabIndex = 0;
-            // 
             // FaceRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(539, 935);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelSuccess);
             this.Controls.Add(this.link2);
             this.Controls.Add(this.linkReturns);
@@ -672,10 +685,10 @@
             this.panelSuccess.ResumeLayout(false);
             this.panelSuccess.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -727,5 +740,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtZhuCeSuccess;
     }
 }
