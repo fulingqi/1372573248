@@ -522,7 +522,6 @@
             this.panelSuccess.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelSuccess.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSuccess.BackgroundImage")));
             this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelSuccess.Controls.Add(this.panel1);
             this.panelSuccess.Controls.Add(this.txtSuccess);
             this.panelSuccess.Location = new System.Drawing.Point(-5, 0);
             this.panelSuccess.Name = "panelSuccess";
@@ -646,6 +645,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(539, 935);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelSuccess);
             this.Controls.Add(this.link2);
             this.Controls.Add(this.linkReturns);
