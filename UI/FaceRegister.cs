@@ -15,7 +15,10 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using System.Net.Sockets;
 using WebServer;
+using System.Diagnostics;
+using System.Net;
 
 namespace UI
 {
@@ -94,6 +97,8 @@ namespace UI
 
         private void FaceRegister_Load(object sender, EventArgs e)
         {
+            //连接安卓机
+            ConnectAndroid();
             //#region 自适应窗体大小
             //Rectangle rect = new Rectangle();
             //rect = Screen.GetWorkingArea(this);
@@ -103,7 +108,6 @@ namespace UI
             //this.ControlBox = false;   // 设置不出现关闭按钮
             //this.FormBorderStyle = FormBorderStyle.None;//无边框
             //#endregion
-
 
             #region 窗体最大化
             //this.SetVisibleCore(false);
@@ -337,8 +341,9 @@ namespace UI
             {
                 this.txtYan.Text = "";
             }
-
+            
             tmpTextBox = (TextBox)sender;
+            ReveiveAndroid(); SendToAndroidData();
         }
         #region 获取验证码倒计时
         private void timer1_Tick(object sender, EventArgs e)
@@ -375,6 +380,7 @@ namespace UI
                 this.txtPhone.Text = "";
             }
             tmpTextBox = (TextBox)sender;
+            ReveiveAndroid(); SendToAndroidData();
         }
         private FilterInfoCollection videoDevices;
         public static Bitmap imgFace;
@@ -531,8 +537,12 @@ namespace UI
         #region 注册按钮
         private void button10_Click(object sender, EventArgs e)
         {
+            failSecond = 4;
+            sucSecond = 6;
+
+
             panel3.Visible = false;
-            string str = "1";
+            string str = "2";
             if (str == "1")
             {
                 panelSuccess.Visible = true;
@@ -1138,6 +1148,10 @@ namespace UI
         /// <param name="e"></param>
         private void linkReturns_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            ReveiveAndroid(); SendToAndroidData();
+
+            failSecond = 4;
+            sucSecond = 6;
             this.txtName.Text = "请输入姓名";
             this.txtPhone.Text = "请输入手机号";
             this.txtIDCard.Text = "请输入身份证号";
@@ -1146,6 +1160,20 @@ namespace UI
             Sidnum = ""; SName = ""; yPhone = ""; SNation = ""; Address = "";
             picIsShow.Visible = true;
 
+            videPlayer.SignalToStop();
+            videPlayer.Stop();
+            //if (videoDevices == null || videoDevices.Count == 0)
+            //{
+            //    return;
+            //}
+            //VideoCaptureDevice videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
+            //videoSource.DesiredFrameSize = new Size(260, 220);
+            //videoSource.DesiredFrameRate = 1;
+            //videPlayer.VideoSource = videoSource;
+            //videPlayer.Stop();
+
+
+
             //不同意协议
             btnNoAgree.Visible = true;
             btnAgree.Visible = true;
@@ -1153,6 +1181,7 @@ namespace UI
             btnNoAgree.BringToFront();
             //灰色按钮显示
             button12.Visible = true;
+
         }
 
 
@@ -1165,6 +1194,7 @@ namespace UI
             {
                 this.txtName.Text = "";
             }
+            ReveiveAndroid(); SendToAndroidData();
         }
 
         private void txtIDCard_Click(object sender, EventArgs e)
@@ -1173,6 +1203,7 @@ namespace UI
             {
                 this.txtIDCard.Text = "";
             }
+            ReveiveAndroid(); SendToAndroidData();
         }
 
         private void txtAddress_Click(object sender, EventArgs e)
@@ -1181,7 +1212,7 @@ namespace UI
             {
                 this.txtAddress.Text = "";
             }
-
+            ReveiveAndroid(); SendToAndroidData();
         }
 
 
@@ -1207,11 +1238,12 @@ namespace UI
             {
                 this.txtName.Text = "请输入验证码";
             }
+            ReveiveAndroid(); SendToAndroidData();
         }
 
         private void txtName_Enter(object sender, EventArgs e)
         {
-
+            ReveiveAndroid(); SendToAndroidData();
         }
 
         private void txtName_Leave(object sender, EventArgs e)
@@ -1220,6 +1252,8 @@ namespace UI
             {
                 this.txtName.Text = "请输入姓名";
             }
+
+            ReveiveAndroid(); SendToAndroidData();
         }
 
         private void txtIDCard_Enter(object sender, EventArgs e)
@@ -1228,6 +1262,8 @@ namespace UI
             {
                 this.txtIDCard.Text = "";
             }
+
+            ReveiveAndroid(); SendToAndroidData();
         }
 
         private void txtIDCard_Leave(object sender, EventArgs e)
@@ -1236,6 +1272,8 @@ namespace UI
             {
                 this.txtIDCard.Text = "请输入身份证号";
             }
+
+            ReveiveAndroid(); SendToAndroidData();
         }
 
         private void txtAddress_Enter(object sender, EventArgs e)
@@ -1244,6 +1282,8 @@ namespace UI
             {
                 this.txtAddress.Text = "";
             }
+
+            ReveiveAndroid(); SendToAndroidData();
         }
 
         private void txtAddress_Leave(object sender, EventArgs e)
@@ -1252,6 +1292,8 @@ namespace UI
             {
                 this.txtAddress.Text = "请输入地址";
             }
+
+            ReveiveAndroid(); SendToAndroidData();
         }
 
         private void txtPhone_Leave(object sender, EventArgs e)
@@ -1260,6 +1302,8 @@ namespace UI
             {
                 this.txtPhone.Text = "请输入手机号";
             }
+
+            ReveiveAndroid(); SendToAndroidData();
         }
 
         private void linkReturn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1293,6 +1337,8 @@ namespace UI
                 button10.Visible = false;
                 button12.Visible = true;
             }
+
+            ReveiveAndroid(); SendToAndroidData();
         }
 
         private void txtSuccess_TextChanged(object sender, EventArgs e)
@@ -1306,9 +1352,142 @@ namespace UI
             {
                 this.txtYan.Text = "请输入验证码";
             }
+
+            ReveiveAndroid(); SendToAndroidData();
         }
 
 
+        #endregion
+
+
+
+        #region 传送数据到安卓
+
+        //socket连接
+        Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        private void ConnectAndroid()
+        {
+            RunAdbCmd("adb shell am broadcast -a NotifyServiceStart");
+            Thread.Sleep(2000);
+            RunAdbCmd("adb forward tcp:60075 tcp:60076");
+            Thread.Sleep(2000);
+            RunAdbCmd("adb shell am broadcast -a NotifyServiceStop");
+            Thread.Sleep(2000);
+            IPAddress myIP = IPAddress.Parse("127.0.0.1");
+            IPEndPoint EPhost = new IPEndPoint(myIP, int.Parse("60075"));
+            client.Connect(EPhost);
+        }
+
+
+        private string RunAdbCmd(string arg)
+        {
+            var p = new Process(); //实例一个Process类，启动一个独立进程
+            p.StartInfo.FileName = Application.StartupPath+"\\tools\\adb.exe"; //设定程序名
+            p.StartInfo.Arguments = arg;
+            p.StartInfo.UseShellExecute = false; //关闭Shell的使用
+            p.StartInfo.RedirectStandardInput = true; //重定向标准输入
+            p.StartInfo.RedirectStandardOutput = true; //重定向标准输出
+            p.StartInfo.RedirectStandardError = true; //重定向错误输出
+            p.StartInfo.CreateNoWindow = true; // 设置不显示窗口
+            p.StartInfo.ErrorDialog = false;
+            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p.Start();
+            return p.StandardOutput.ReadToEnd();
+        }
+
+
+        /// <summary>
+        /// ReveiveAndroid();SendToAndroidData();
+        /// 每次获取需要发送的信息
+        /// 1=姓名，2=身份证号，3=地址，4=手机号，5=验证码，6=开始注册，7=拍照，8=注册结果，9=同意协议
+        /// </summary>
+        /// <returns></returns>
+        private void SendToAndroidData()
+        {
+            if (client == null)
+            {
+                ConnectAndroid();
+            }
+            List<SendData> list = new List<SendData>();
+            list.Add(new SendData() { type = "1", data = this.txtName.Text });
+            list.Add(new SendData() { type = "2", data = this.txtIDCard.Text });
+            list.Add(new SendData() { type = "3", data = this.txtAddress.Text });
+            list.Add(new SendData() { type = "4", data = this.txtPhone.Text });
+            list.Add(new SendData() { type = "5", data = this.txtYan.Text });
+            list.Add(new SendData() { type = "6", data = "1" });
+            list.Add(new SendData() { type = "7", data = picIsShow.Visible == true ? "0" : "1" });
+            list.Add(new SendData() { type = "8", data = picIsShow.Visible == true ? "0" : "1" });
+            list.Add(new SendData() { type = "9", data = IsAgree.ToString() });
+
+            System.Text.Encoding encode = System.Text.Encoding.ASCII;
+            byte[] bytedata = encode.GetBytes(JsonConvert.SerializeObject(list));
+            string strPath = Convert.ToBase64String(bytedata, 0, bytedata.Length);
+            client.Send(encode.GetBytes(strPath));
+        }
+        /// <summary>
+        /// 接受安卓机数据
+        /// 1=姓名，2=身份证号，3=地址，4=手机号，5=验证码，6=开始注册，7=拍照，8=注册结果，9=同意协议
+        /// </summary>
+        private void ReveiveAndroid()
+        {
+            byte[] arrRecMsg = new byte[1024 * 1024];
+            if (client==null)
+            {
+                ConnectAndroid();
+            }
+            client.Receive(arrRecMsg);
+            int length = 0;
+            try
+            {
+                //将客户端套接字接收到的数据存入内存缓冲区, 并获取其长度
+                length = client.Receive(arrRecMsg);
+            }
+            catch
+            {
+                return;
+            }
+            string strPath = null;
+            while (length != 0)
+            {
+                strPath = Encoding.Default.GetString(arrRecMsg);
+            }
+            List<ReceiveData> list = JsonConvert.DeserializeObject<List<ReceiveData>>(strPath);
+            // 1=姓名，2=身份证号，3=地址，4=手机号，5=验证码，6=开始注册，7=拍照，8=注册结果，9=同意协议
+            foreach (var item in list)
+            {
+                if (item.result == "1")
+                {
+                    this.txtName.Text = item.data;
+                }
+                if (item.result == "2")
+                {
+                    this.txtIDCard.Text = item.data;
+                }
+                if (item.result == "3")
+                {
+                    this.txtAddress.Text = item.data;
+                }
+                if (item.result == "4")
+                {
+                    this.txtPhone.Text = item.data;
+                }
+                if (item.result == "5")
+                {
+                    this.txtYan.Text = item.data;
+                }
+            }
+        }
+
+        class SendData
+        {
+            public string type { get; set; }
+            public string data { get; set; }
+        }
+        class ReceiveData
+        {
+            public string result { get; set; }
+            public string data { get; set; }
+        }
         #endregion
     }
 }
