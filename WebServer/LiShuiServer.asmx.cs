@@ -35,7 +35,9 @@ namespace WebServer
 
                 return result;
             }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
             catch (Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
             {
                 return "error";
             }
@@ -204,7 +206,9 @@ namespace WebServer
 
 
             }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
             catch (Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
             {
                 //PUBLIC_FUNCTION.LogFile("用户注册出现异常[UserRegister],原因:" + ex.Message);
 

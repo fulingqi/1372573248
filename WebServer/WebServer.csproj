@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="BaiDuAuthent.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HttpGet.cs" />
     <Compile Include="ImgUpdate.ashx.cs">
       <DependentUpon>ImgUpdate.ashx</DependentUpon>

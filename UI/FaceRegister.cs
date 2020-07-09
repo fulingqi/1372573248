@@ -31,7 +31,7 @@ namespace UI
         public String SNation = "";//民族
 
         public int isStart { get; set; }
-        public int IsAgree = 0;
+        public int IsAgree = 1;
 
         public static string SName = ""; //完整姓名
         public static string Sidnum = "";//完整身份证信息
@@ -41,6 +41,8 @@ namespace UI
 
         public int IsGetAndrid = 0;
 
+        public string errorMessage;
+
         public FaceRegister()
         {
             InitializeComponent();
@@ -48,15 +50,15 @@ namespace UI
             btnAgree.Visible = true;
             btnNoAgree.Visible=false;
             #region 给软键盘按钮附加click事件
-            this.button1.Click += new System.EventHandler(this.button11_Click);
-            this.button2.Click += new System.EventHandler(this.button11_Click);
-            this.button3.Click += new System.EventHandler(this.button11_Click);
-            this.button4.Click += new System.EventHandler(this.button11_Click);
-            this.button5.Click += new System.EventHandler(this.button11_Click);
-            this.button6.Click += new System.EventHandler(this.button11_Click);
-            this.button7.Click += new System.EventHandler(this.button11_Click);
-            this.button8.Click += new System.EventHandler(this.button11_Click);
-            this.button9.Click += new System.EventHandler(this.button11_Click);
+            //this.button1.Click += new System.EventHandler(this.button11_Click);
+            //this.button2.Click += new System.EventHandler(this.button11_Click);
+            //this.button3.Click += new System.EventHandler(this.button11_Click);
+            //this.button4.Click += new System.EventHandler(this.button11_Click);
+            //this.button5.Click += new System.EventHandler(this.button11_Click);
+            //this.button6.Click += new System.EventHandler(this.button11_Click);
+            //this.button7.Click += new System.EventHandler(this.button11_Click);
+            //this.button8.Click += new System.EventHandler(this.button11_Click);
+            //this.button9.Click += new System.EventHandler(this.button11_Click);
             #endregion
         }
         #region 获取验证码
@@ -65,7 +67,7 @@ namespace UI
         {
             try
             { //WebReference.WSFaces wsf = new WebReference.WSFaces();//我们的接口服务
-                Paneljps.Visible = false;
+                //Paneljps.Visible = false;
 
 
                 Test.WSFaces wsf = new Test.WSFaces();
@@ -132,11 +134,11 @@ namespace UI
             timer2.Start();
             staus = 0;
             //窗体加载时隐藏软键盘
-            Paneljps.Visible = false;
+            //Paneljps.Visible = false;
 
             //覆盖同意协议和注册按钮
             panelCang.Visible = false;
-
+            SendMessage("9",IsAgree.ToString());
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -243,7 +245,7 @@ namespace UI
         #region 点击屏幕区域隐藏软键盘
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Paneljps.Visible = false;
+            //Paneljps.Visible = false;
         }
         #endregion
         #region 身份证号脱敏
@@ -325,19 +327,19 @@ namespace UI
         #region  控制软键盘的显示和隐藏
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Paneljps.Visible = false;
+            //Paneljps.Visible = false;
         }
 
         private void txtPhone_Click(object sender, EventArgs e)
         {
-            Paneljps.Visible = true;
+            //Paneljps.Visible = true;
         }
 
 
         private void txtYan_Click(object sender, EventArgs e)
         {
 
-            Paneljps.Visible = true;
+           // Paneljps.Visible = true;
         }
         #endregion
 
@@ -440,7 +442,9 @@ namespace UI
             IsGetAndrid = 1;
             SendMessage("7", "1");
             byte[] arrImgss = new byte[1024 * 300];
+#pragma warning disable CS0219 // 变量“length”已被赋值，但从未使用过它的值
             int length = 0;
+#pragma warning restore CS0219 // 变量“length”已被赋值，但从未使用过它的值
             //将客户端套接字接收到的数据存入内存缓冲区, 并获取其长度arrImgss, 0, 1000, SocketFlags.None
             string data = "";
             Task task = new Task(() => ReceiveMessage(data));
@@ -460,7 +464,9 @@ namespace UI
         {
             #region 读取身份证信息
             IDCardData CardMsg = new IDCardData();
+#pragma warning disable CS0219 // 变量“iPhotoType”已被赋值，但从未使用过它的值
             int nRet, nPort, iPhotoType;
+#pragma warning restore CS0219 // 变量“iPhotoType”已被赋值，但从未使用过它的值
             string stmp;
             byte[] cPath = new byte[255];
             byte[] pucIIN = new byte[4];
@@ -529,7 +535,7 @@ namespace UI
         {
             if (!string.IsNullOrEmpty(this.txtAddress.Text) && !string.IsNullOrEmpty(this.txtName.Text) && !string.IsNullOrEmpty(this.txtIDCard.Text) && !string.IsNullOrEmpty(this.txtYan.Text) && !string.IsNullOrEmpty(this.txtPhone.Text))
             {
-                if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg.Length >= 0&&IsAgree==1)
+                if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg!=null&&IsAgree==1)
                 {
                     //实名注册刷脸就医按钮隐藏
                     btnNofinsh.Visible = false;
@@ -547,7 +553,7 @@ namespace UI
             //所有的信息填完之后注册按钮变为蓝色
             if (!string.IsNullOrEmpty(this.txtAddress.Text) && !string.IsNullOrEmpty(this.txtName.Text) && !string.IsNullOrEmpty(this.txtIDCard.Text) && !string.IsNullOrEmpty(this.txtYan.Text) && !string.IsNullOrEmpty(this.txtPhone.Text))
             {
-                if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg.Length >= 0)
+                if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg!=null&&IsAgree==1)
                 {
                     //实名注册刷脸就医按钮隐藏
                     btnNofinsh.Visible = false;
@@ -574,7 +580,7 @@ namespace UI
             failSecond = 4;
             sucSecond = 6;
 
-            string strs = "2";
+            string strs = "1";
             if (strs == "1")
             {
                 panelSuccess.Visible = true;
@@ -585,17 +591,19 @@ namespace UI
             }
             else
             {
+
+                errorMessage = "错误信息错误";
                 panelFail.Visible = true;
                 panelFail.BackColor = Color.FromArgb(80, 192, 192, 192);
-                panel3.Visible = true;
-                timerfail.Enabled = true;
+                textBox1.Visible = true;
+                textBox1.Enabled = true;
+                timerfail.Start();
                 SendMessage("8", "错误信息错误");
+                
             }
 
-            panel3.Visible = false;
+            //panel3.Visible = false;
            
-            btnNoAgree.Visible = false;
-            btnAgree.Visible = false;
             #region   检验是否正确
             if (String.IsNullOrEmpty(txtPhone.Text) || txtPhone.Text == "请输入手机号")
             {
@@ -717,7 +725,7 @@ namespace UI
 
             #endregion
 
-
+            photoImg = null;
         }
         #endregion
         private void picRegister_Click(object sender, EventArgs e)
@@ -1118,11 +1126,16 @@ namespace UI
             --sucSecond;
             if (sucSecond == 0)
             {
+                this.txtSuccess.Text = "";
                 txtSuccess.Visible = false;
                 timerSuccess.Enabled = false;
                 panelSuccess.Visible = false;
             }
-            this.txtSuccess.Text = sucSecond.ToString();
+            else
+            {
+                this.txtSuccess.Text = sucSecond.ToString();
+            }
+            
         }
 
         /// <summary>
@@ -1136,11 +1149,18 @@ namespace UI
             --failSecond;
             if (failSecond == 0)
             {
+                this.textBox1.Text = "";
                 this.textBox1.Visible = false;
                 textBox1.Enabled = false;
                 panelFail.Visible = false;
+                timerfail.Stop();
+               
             }
-            this.textBox1.Text = failSecond.ToString();
+            else
+            {
+                this.textBox1.Text = errorMessage + failSecond.ToString();
+            }
+           
 
         }
 
@@ -1186,6 +1206,7 @@ namespace UI
             //实名注册刷脸就医按钮隐藏
             btnNofinsh.Visible = true;
 
+            photoImg = null;
             panelCang.Visible = false;
             isStart = 0;
             SendMessage("11","1");
@@ -1198,7 +1219,8 @@ namespace UI
             this.txtYan.Text = "请输入验证码";
             Sidnum = ""; SName = ""; yPhone = ""; SNation = ""; Address = "";
             picIsShow.Visible = true;
-
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FaceRegister));
+            picIsShow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picIsShow.BackgroundImage")));
             //关闭摄像头
             //videPlayer.SignalToStop();
             //videPlayer.Stop();
@@ -1206,7 +1228,7 @@ namespace UI
             //不同意协议
             btnNoAgree.Visible = false;
             btnAgree.Visible = true;
-            IsAgree = 0;
+            IsAgree = 1;
             //btnNoAgree.BringToFront();
 
         }
@@ -1488,7 +1510,9 @@ namespace UI
             //string sdata = Encoding.ASCII.GetString(arrImgss, 0, index).Replace("\n", "").Replace("\0", "").Replace("\t", "").Replace("\r", "");
 
             photoImg = arrImgss ;
+#pragma warning disable CS0219 // 变量“strPath”已被赋值，但从未使用过它的值
             string strPath = null;
+#pragma warning restore CS0219 // 变量“strPath”已被赋值，但从未使用过它的值
             if (length != 0)
             {
 
@@ -1534,7 +1558,7 @@ namespace UI
                 SendMessage("6", "1");
             }
         }
-      
+
         class ReceiveData
         {
             public string result { get; set; }

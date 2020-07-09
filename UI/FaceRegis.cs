@@ -519,7 +519,9 @@ namespace UI
                                     Empty();
                                 }
                             }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
                             catch (Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
                             {
                                 Mge = "创建档案失败．";
                                 Ts_Show("2", Mge);
@@ -1205,7 +1207,9 @@ namespace UI
         {
             #region 读取身份证信息
             IDCardData CardMsg = new IDCardData();
+#pragma warning disable CS0219 // 变量“iPhotoType”已被赋值，但从未使用过它的值
             int nRet, nPort, iPhotoType;
+#pragma warning restore CS0219 // 变量“iPhotoType”已被赋值，但从未使用过它的值
             string stmp;
             byte[] cPath = new byte[255];
             byte[] pucIIN = new byte[4];

@@ -102,16 +102,24 @@ namespace WebServer
         {
             try
             {
+#pragma warning disable CS0219 // 变量“uid”已被赋值，但从未使用过它的值
                 string uid = "";
+#pragma warning restore CS0219 // 变量“uid”已被赋值，但从未使用过它的值
+#pragma warning disable CS0219 // 变量“scores”已被赋值，但从未使用过它的值
                 string scores = "";
+#pragma warning restore CS0219 // 变量“scores”已被赋值，但从未使用过它的值
+#pragma warning disable CS0219 // 变量“user_info”已被赋值，但从未使用过它的值
                 string user_info = "";
+#pragma warning restore CS0219 // 变量“user_info”已被赋值，但从未使用过它的值
 
                 Stream jpgStream = BytesToStream(bytes);
                 string result = BaiDuAuthent.search(jpgStream, "usergroup");
 
                 return result;
             }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
             catch (Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
             {
                 return "error";
             }
@@ -309,7 +317,9 @@ namespace WebServer
 
 
             }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
             catch (Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
             {
                 //PUBLIC_FUNCTION.LogFile("用户注册出现异常[UserRegister],原因:" + ex.Message);
 

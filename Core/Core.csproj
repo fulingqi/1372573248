@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Crypto.cs" />
     <Compile Include="EncrAndDecr.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Logging.cs" />
     <Compile Include="PASSWORD_MODIFY.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
