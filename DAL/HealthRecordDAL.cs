@@ -32,13 +32,13 @@ namespace DAL
             // "Sum(Case When age Between 21 And 40 Then 1 Else 0 End) As TwentyToFourty,"+
             //"Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As FourtyTOSixty,"+
             //"Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From(SELECT *, datediff(year, Birthday, getdate()) AS age FROM InberTable)s GROUP BY s.Sex";
-            string sql = "SELECT  'ZoreToTwenty'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex ,s.DepartmentFrom (SELECT *, datediff(year, Birthday, getdate()) AS age FROM FiledTable) s where age <=20  Group BY s.Sex ,s.Department" +
+            string sql = "SELECT  'ZoreToTwenty'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM FiledTable) s where age <=20  Group BY s.Sex " +
                                "UNION ALL " +
-                               "SELECT  'TwentyToFourty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex,s.Department From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable ) s where age Between 21 And 40  Group BY s.Sex ,s.Department" +
+                               "SELECT  'TwentyToFourty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable ) s where age Between 21 And 40  Group BY s.Sex " +
                                "UNION ALL " +
-                               "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex ,s.DepartmentFrom(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable ) s where  age Between 41 And 60 Group BY s.Sex ,s.Department" +
+                               "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable ) s where  age Between 41 And 60 Group BY s.Sex " +
                               "UNION ALL " +
-                               "SELECT 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex ,s.DepartmentFrom(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable ) s where  age >=61 Group BY s.Sex ,s.Department";
+                               "SELECT 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex  From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable ) s where  age >=61 Group BY s.Sex ";
 
             List<Dictionary<string, object>> mzrc = dB.GetNewList(sql, System.Data.CommandType.Text);
             List<BigDataHome> list = new List<BigDataHome>();
@@ -87,17 +87,17 @@ namespace DAL
 
             string sql1 = "SELECT  'ZoreToFive'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM FiledTable" + part + "  age <=5  Group BY s.Sex " +
                          "UNION ALL " +
-                         "SELECT  'SixToTen'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable " + part + "  age Between 6 And 10  Group BY s.Sex " +
+                         "SELECT  'SixToTen'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable " + part + " age Between 6 And 10  Group BY s.Sex " +
                          "UNION ALL " +
-                         "SELECT  'EvelTOTwenty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable  " + part + "  age Between 11 And 20 Group BY s.Sex " +
+                         "SELECT  'EvelTOTwenty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable  " + part + " age Between 11 And 20 Group BY s.Sex " +
                          "UNION ALL " +
-                         "SELECT  'TwentyTOThirty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable " + part + "  age Between 21 And 30 Group BY s.Sex " +
+                         "SELECT  'TwentyTOThirty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable " + part + " age Between 21 And 30 Group BY s.Sex " +
                           "UNION ALL " +
                          "SELECT  'ThirtyTOFourty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable " + part + "  age Between 31 And 40 Group BY s.Sex " +
                           "UNION ALL " +
-                         "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable " + part + "  age Between 41 And 60 Group BY s.Sex " +
+                         "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable " + part + " age Between 41 And 60 Group BY s.Sex " +
                          "UNION ALL " +
-                         "SELECT 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable  " + part + "  age >=61 Group BY s.Sex ";
+                         "SELECT 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FiledTable  " + part + " age >=61 Group BY s.Sex ";
 
 
             List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);

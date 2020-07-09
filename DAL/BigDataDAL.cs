@@ -61,7 +61,7 @@ namespace DAL
             {
                 
                 DBHelper dB = new DBHelper();
-                string sql1 = "select sum(Topfees) as MZSFJE from Opusdule where TopfeeType=1 and [Data] between '"+@StateTime+"' and '"+@EndTime+"'";
+                string sql1 = "select sum(Topfees) as MZSFJE from Opusdule_one where TopfeeType=1 and [Data] between '"+@StateTime+"' and '"+@EndTime+"'";
               
                 if (K == "C")
                 {
@@ -84,7 +84,7 @@ namespace DAL
                 });
 
 
-                string sql2 = "select sum(Topfees) as ZYFYZE from Opusdule where TopfeeType=2 and [Data] between '" + @StateTime + "' and '" + @EndTime + "'";
+                string sql2 = "select sum(Topfees) as ZYFYZE from Opusdule_one where TopfeeType=2 and [Data] between '" + @StateTime + "' and '" + @EndTime + "'";
 
                 if (K == "C")
                 {
@@ -122,7 +122,7 @@ namespace DAL
             {
 
                 DBHelper dB = new DBHelper();
-                string sql1 = "   select [Data],sum(Topfees) as Topfees from Opusdule  where [Data] between '"+ StateTime + "' and '"+EndTime+"'";
+                string sql1 = "   select  CONVERT(nvarchar(10),Data,120) as [Data],sum(Topfees) as Topfees from Opusdule_one  where [Data] between '" + StateTime + "' and '"+EndTime+"'";
 
                 if (K == "C")
                 {
@@ -132,16 +132,16 @@ namespace DAL
                 {
                     sql1 += " and HospCode='" + SPTXT + "'";
                 }
-                sql1 += "  Group by [Data] order by [Data] desc ";
+                sql1 += "  Group by  CONVERT(nvarchar(10),Data,120)  order by [Data] desc ";
                 List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
 
 
                 List<BigDataHome> list = new List<BigDataHome>();
                 list.Add(new BigDataHome
                 {
-                    message = "门诊费用总额",
+                    message = "门诊收费趋势",
                     data = new List<ItmeList>{
-            new ItmeList { Name="门诊费用总额",SelectItmeList=mzrc }}
+            new ItmeList { Name="门诊费用趋势",SelectItmeList=mzrc }}
                 });
 
                 return list;
@@ -164,9 +164,8 @@ namespace DAL
         {
             try
             {
-
                 DBHelper dB = new DBHelper();
-                string sql1 = "select [Data],SUM(PsitDay) as PsitDay from Stocdata WHIT (NOLOCK) where [Data] between '"+@StateTime+"' and '"+@EndTime+"'";
+                string sql1 = "select CONVERT(nvarchar(10),WHIT.Data,120) as [Data],SUM(PsitDay) as PsitDay from Stocdata_one WHIT (NOLOCK) where [Data] between '" + @StateTime+"' and '"+@EndTime+"'";
 
                 if (K == "C")
                 {
@@ -176,7 +175,7 @@ namespace DAL
                 {
                     sql1 += " and HospCode='" + SPTXT + "'";
                 }
-                sql1 += "  Group by [Data] order by [Data] desc ";
+                sql1 += "  Group by CONVERT(nvarchar(10),WHIT.Data,120) order by [Data] desc ";
 
                 List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
 
@@ -212,7 +211,7 @@ namespace DAL
             {
 
                 DBHelper dB = new DBHelper();
-                string sql1 = "select SUM(PsitDay) as MZRC from Stocdata WHIT (NOLOCK) where [Data] between '"+StateTime+"' and '"+EndTime+"' ";
+                string sql1 = "select SUM(PsitDay) as MZRC from  dbo.Stocdata_one WHIT (NOLOCK) where [Data] between '" + StateTime+"' and '"+EndTime+"' ";
 
                 if (K == "C")
                 {
@@ -299,13 +298,13 @@ namespace DAL
                 part = " and HospCode='" + SPTXT + "' ) s  ";
             }
 
-            string sql1 = "SELECT  'ZoreToTwenty'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM FeclTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age <=20  Group BY s.Sex " +
+            string sql1 = "SELECT  'ZoreToTwenty'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM FeclTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + " WHERE  age <=20  Group BY s.Sex " +
                            "UNION ALL " +
-                           "SELECT  'TwentyToFourty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FeclTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 21 And 40  Group BY s.Sex " +
+                           "SELECT  'TwentyToFourty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FeclTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "WHERE  age Between 21 And 40  Group BY s.Sex " +
                            "UNION ALL " +
-                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FeclTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 41 And 60 Group BY s.Sex " +
+                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FeclTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "WHERE  age Between 41 And 60 Group BY s.Sex " +
                           "UNION ALL " +
-                           "SELECT 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FeclTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ";
+                           "SELECT 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM FeclTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "WHERE  age >=61 Group BY s.Sex ";
             DBHelper dB = new DBHelper();
 
             List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
@@ -483,13 +482,13 @@ namespace DAL
                     part = " and HospCode='" + SPTXT + "' ) s  WHERE s.Chename LIKE '%" + item + "%' ";
                 }
 
-                string sql1 = "SELECT '" + item + "' as name, 'ZoreToTwenty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age <=20  Group BY s.Sex " +
+                string sql1 = "SELECT '" + item + "' as name, 'ZoreToTwenty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age <=20  Group BY s.Sex " +
                                "UNION ALL " +
-                               "SELECT '" + item + "' as name, 'TwentyToFourty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata  where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 21 And 40  Group BY s.Sex " +
+                               "SELECT '" + item + "' as name, 'TwentyToFourty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one  where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 21 And 40  Group BY s.Sex " +
                                "UNION ALL " +
-                               "SELECT '" + item + "' as name, 'FourtyTOSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 41 And 60 Group BY s.Sex " +
+                               "SELECT '" + item + "' as name, 'FourtyTOSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 41 And 60 Group BY s.Sex " +
                               "UNION ALL " +
-                               "SELECT '" + item + "' as name, 'OnSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ";
+                               "SELECT '" + item + "' as name, 'OnSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ";
                 DBHelper dB = new DBHelper();
 
                 List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
@@ -537,7 +536,14 @@ namespace DAL
             return list;
         }
 
-
+        /// <summary>
+        /// 门诊数据饼图
+        /// </summary>
+        /// <param name="StateTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
         public List<BigDataHome> IllTypeBigData(string StateTime, string EndTime, string SPTXT, string K)
         {
 
@@ -557,19 +563,19 @@ namespace DAL
             {
                 part = " and HospCode='" + SPTXT + "' ) s  ";
             }
-            string sql1 = "SELECT  'ZoreToFive'AS AgeDuan, SUM(PsitDay) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age <=5  Group BY s.Sex " +
+            string sql1 = "SELECT  'ZoreToFive'AS AgeDuan, SUM(PsitDay) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age <=5  Group BY s.Sex " +
                          "UNION ALL " +
-                         "SELECT  'SixToTen'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata  where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 6 And 10  Group BY s.Sex " +
+                         "SELECT  'SixToTen'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one  where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 6 And 10  Group BY s.Sex " +
                          "UNION ALL " +
-                         "SELECT  'EvelTOTwenty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 11 And 20 Group BY s.Sex " +
+                         "SELECT  'EvelTOTwenty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 11 And 20 Group BY s.Sex " +
                          "UNION ALL " +
-                         "SELECT  'TwentyTOThirty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 21 And 30 Group BY s.Sex " +
+                         "SELECT  'TwentyTOThirty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 21 And 30 Group BY s.Sex " +
                           "UNION ALL " +
-                         "SELECT  'ThirtyTOFourty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 31 And 40 Group BY s.Sex " +
+                         "SELECT  'ThirtyTOFourty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 31 And 40 Group BY s.Sex " +
                           "UNION ALL " +
-                         "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 41 And 60 Group BY s.Sex " +
+                         "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 41 And 60 Group BY s.Sex " +
                          "UNION ALL " +
-                         "SELECT 'OnSixty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age >=61 Group BY s.Sex ";
+                         "SELECT 'OnSixty'AS AgeDuan, SUM(PsitDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + " WHERE  age >=61 Group BY s.Sex ";
             DBHelper dB = new DBHelper();
             List<Dictionary<string, object>> mzrcs = dB.GetNewList(sql1, System.Data.CommandType.Text);
             list[0].data.Add(new ItmeList { Name = "门诊根据年龄饼图", SelectItmeList = mzrcs });

@@ -66,13 +66,13 @@ namespace DAL
                 part = " and HospCode='" + SPTXT + "' ) s  ";
             }
 
-            string sql1 = "SELECT  'ZoreToTwenty'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex ,s.Department From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age <=20  Group BY s.Sex ,s.Department" +
-                           "UNION ALL " +
-                           "SELECT  'TwentyToFourty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex,s.Department From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 21 And 40  Group BY s.Sex ,s.Department" +
-                           "UNION ALL " +
-                           "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex ,s.Department From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 41 And 60 Group BY s.Sex ,s.Department" +
-                          "UNION ALL " +
-                           "SELECT 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex ,s.Department From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ,s.Department";
+            string sql1 = "SELECT  'ZoreToTwenty'AS AgeDuan,COUNT(1) AS ShuLiang,s.Sex ,s.Department From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + " WHERE  age <=20  Group BY s.Sex ,s.Department" +
+                           " UNION ALL " +
+                           "SELECT  'TwentyToFourty'AS AgeDuan, COUNT(1) AS ShuLiang, s.Sex,s.Department From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 21 And 40  Group BY s.Sex ,s.Department" +
+                           " UNION ALL " +
+                           "SELECT  'FourtyTOSixty'AS AgeDuan, COUNT(1) AS ShuLiang, s.Sex ,s.Department From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + " WHERE  age Between 41 And 60 Group BY s.Sex ,s.Department" +
+                          " UNION ALL " +
+                           " SELECT 'OnSixty'AS AgeDuan, COUNT(1) AS ShuLiang, s.Sex ,s.Department From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "  WHERE  age >=61 Group BY s.Sex ,s.Department";
             DBHelper dB = new DBHelper();
 
             //     string sql1 = "Select s.Sex,s.Department,Sum(Case When age <=20 Then 1 Else 0 End) As ZoreToTwenty," +
@@ -120,29 +120,29 @@ namespace DAL
                 data = new List<ItmeList>()
             });
             DBHelper dB = new DBHelper();
-            string part = " ) s ";
+            string part = " ) s  WHERE";
             if (K == "C")
             {
-                part = " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE ) ) s  ";
+                part = " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE ) ) s  WHERE";
             }
             if (K == "Y")
             {
-                part = " and HospCode='" + SPTXT + "' ) s  ";
+                part = " and HospCode='" + SPTXT + "' ) s  WHERE";
             }
 
-            string sql1 = "SELECT  'ZoreToFive'AS AgeDuan, SUM(counts) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age <=5  Group BY s.Sex " +
+            string sql1 = "SELECT  'ZoreToFive'AS AgeDuan, COUNT(1) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "  age <=5  Group BY s.Sex " +
                          "UNION ALL " +
-                         "SELECT  'SixToTen'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 6 And 10  Group BY s.Sex " +
+                         "SELECT  'SixToTen'AS AgeDuan, COUNT(1) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable  where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "  age Between 6 And 10  Group BY s.Sex " +
                          "UNION ALL " +
-                         "SELECT  'EvelTOTwenty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 11 And 20 Group BY s.Sex " +
+                         "SELECT  'EvelTOTwenty'AS AgeDuan, COUNT(1) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "  age Between 11 And 20 Group BY s.Sex " +
                          "UNION ALL " +
-                         "SELECT  'TwentyTOThirty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 21 And 30 Group BY s.Sex " +
+                         "SELECT  'TwentyTOThirty'AS AgeDuan, COUNT(1) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "  age Between 21 And 30 Group BY s.Sex " +
                           "UNION ALL " +
-                         "SELECT  'ThirtyTOFourty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 31 And 40 Group BY s.Sex " +
+                         "SELECT  'ThirtyTOFourty'AS AgeDuan, COUNT(1) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "  age Between 31 And 40 Group BY s.Sex " +
                           "UNION ALL " +
-                         "SELECT  'FourtyTOSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age Between 41 And 60 Group BY s.Sex " +
+                         "SELECT  'FourtyTOSixty'AS AgeDuan,COUNT(1) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "  age Between 41 And 60 Group BY s.Sex " +
                          "UNION ALL " +
-                         "SELECT 'OnSixty'AS AgeDuan, SUM(counts) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ";
+                         "SELECT 'OnSixty'AS AgeDuan, COUNT(1) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM TwreTable where [Data] between '" + StartTime + "' and '" + EndTime + "'  " + part + "  age >=61 Group BY s.Sex ";
             //    string sql1 = "Select s.Sex,SUM(Case When age <=5 Then 1 Else 0 End) As ZoreToFive," +
             //        "SUM(Case When age Between 6 And 10 Then 1 Else 0 End) As FiveToTen," +
             //        "SUM(Case When age Between 11 And 20 Then 1 Else 0 End) As TenToTwenty," +
