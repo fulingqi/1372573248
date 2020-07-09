@@ -369,7 +369,15 @@
     <Content Include="Img\提示：请您摘去眼镜帽子并对准摄像头做脸部识别认证.png" />
     <Content Include="Resources\9-1注册-弹框.png" />
     <Content Include="Resources\9-1注册-弹框注册失败.png" />
+    <Content Include="Resources\fail.png" />
+    <Content Include="Resources\success.png" />
+    <Content Include="Resources\Wait.png" />
+    <Content Include="Resources\Wait2.png" />
+    <Content Include="Resources\加载中.gif" />
+    <Content Include="Resources\加载中Small.gif" />
+    <Content Include="Resources\同意协议.png" />
     <Content Include="Resources\注册.png" />
+    <Content Include="Resources\注册拍照加载中.png" />
     <Content Include="Resources\添加人脸.png" />
     <Content Include="Resources\灰注册.png" />
     <Content Include="Resources\组 1.png" />
