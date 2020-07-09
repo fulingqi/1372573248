@@ -372,6 +372,7 @@
     <Content Include="Resources\9-1注册-弹框注册失败.png" />
     <Content Include="Resources\fail.png" />
     <Content Include="Resources\success.png" />
+    <Content Include="Resources\timg.gif" />
     <Content Include="Resources\Wait.png" />
     <Content Include="Resources\Wait2.png" />
     <Content Include="Resources\加载中.gif" />

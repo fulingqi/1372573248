@@ -425,7 +425,7 @@ namespace UI
                 Logging.LogFile(s);
             }
         }
-话        byte[] photoImg =null;
+        byte[] photoImg =null;
 
         //打开摄像头
         private void picIsShow_Click(object sender, EventArgs e)
@@ -590,7 +590,7 @@ namespace UI
             else
             {
 
-                errorMessage = "错误信息错误";
+                errorMessage = "可变说";
                 panelFail.Visible = true;
                 panelFail.BackColor = Color.FromArgb(80, 192, 192, 192);
                 textBox1.Visible = true;
@@ -726,106 +726,6 @@ namespace UI
             photoImg = null;
         }
         #endregion
-        private void picRegister_Click(object sender, EventArgs e)
-        {
-
-
-            #region   检验是否正确
-            if (String.IsNullOrEmpty(txtPhone.Text))
-            {
-                MessageBox.Show("请输入手机号码");
-                return;
-            }
-            if (String.IsNullOrEmpty(txtYan.Text))
-            {
-                MessageBox.Show("请输入验证码");
-                return;
-            }
-            if (IsAgree == 0)
-            {
-                MessageBox.Show("请同意该协议！");
-                return;
-            }
-            String Mge = "";
-            #region 验证身份证是否合法
-            Sidnum = this.txtIDCard.Text;
-            Address = this.txtAddress.Text;
-            SName = this.txtName.Text;
-            string cid = CheckCidInfo18(Sidnum);
-            if (cid != "")
-            {
-                Mge = cid;
-                MessageBox.Show(Mge);
-                return;
-            }
-            #region 验证手机号码是否合法
-            if (!Phone(txtPhone.Text.Trim()))
-            {
-                Mge = "手机号码格式错误";
-                MessageBox.Show(Mge);
-                return;
-            }
-            #endregion
-            #region 判断手机号与验证码是否合法
-            if (!String.IsNullOrEmpty(txtPhone.Text))
-            {
-                if (string.IsNullOrEmpty(yPhone))
-                {
-                    MessageBox.Show("请您获取验证码");
-                    return;
-                }
-                if (txtPhone.Text != yPhone)//如果接收验证码的手机与文本框的手机不一致
-                {
-                    MessageBox.Show("手机号码不一致");
-                    return;
-                }
-                if (String.IsNullOrEmpty(txtYan.Text))//如果验证码为空
-                {
-                    MessageBox.Show("请输入验证码");
-                    return;
-                }
-                if (txtYan.Text.Trim() != yCode)//与发送的验证码不一致
-                {
-                    MessageBox.Show("验证码错误");
-                    return;
-                }
-            }
-            #endregion
-
-            #endregion
-
-
-
-
-            #region 抓取图片
-            if (File.Exists(System.IO.Path.GetFullPath(".\\") + "temp.jpg"))
-            {
-                File.Delete(System.IO.Path.GetFullPath(".\\") + "temp.jpg");
-            }
-            imgFace.Save(System.IO.Path.GetFullPath(".\\") + "temp.jpg");
-            imgFace.Dispose();
-            #endregion
-
-            Test.WSFaces wsf = new Test.WSFaces();
-
-            #region 调用公安验证
-            FileStream jpgStream = new FileStream(System.IO.Path.GetFullPath(".\\") + "temp.jpg", FileMode.Open);
-            byte[] bytes = StreamToBytes(jpgStream);
-            string result = wsf.AuthenPliceFace(Sidnum, SName, this.txtPhone.Text, SNation, Address, bytes);
-
-            JObject obj = JObject.Parse(result);
-            //结果码
-            string str = obj["code"].ToString();
-            //结果信息
-            MessageBox.Show(obj["message"].ToString());
-            jpgStream.Close();
-            jpgStream.Dispose();
-            #endregion  结果判断
-
-
-            #endregion
-        }
-
 
         #region 身份证格式验证,以及15.18位互转方法
         /// <summary>
@@ -991,22 +891,7 @@ namespace UI
         #endregion
 
 
-
-        #region 人脸图片上传
-        /// <summary>
-        /// 人脸图片上传
-        /// </summary>
-        /// <param name="sfz">身份证号码</param>
-        public void ImgUpdate(Object sfz)
-        {
-            #region 保存注册图片，用于手动输入
-            System.Net.WebClient myWebClient = new System.Net.WebClient();
-            //myWebClient.UploadFile("http://192.168.2.249:123/ImgUpdate.ashx?sfz=" + sfz + "&yy=usergroup", "POST", System.IO.Path.GetFullPath(".\\") + "temp.jpg");
-            myWebClient.UploadFile("http://localhost:4862/ImgUpdate.ashx?sfz=" + sfz + "&yy=usergroup", "POST", System.IO.Path.GetFullPath(".\\") + "temp.jpg");
-            #endregion
-        }
-        #endregion
-
+        
         private void FaceRegister_Shown(object sender, EventArgs e)
         {
             #region 寻找身份证读卡器
@@ -1283,11 +1168,7 @@ namespace UI
                 this.txtName.Text = "请输入验证码";
             }
         }
-
-        private void txtName_Enter(object sender, EventArgs e)
-        {
-        }
-
+        
         private void txtName_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(this.txtName.Text))
@@ -1337,18 +1218,8 @@ namespace UI
                 this.txtPhone.Text = "请输入手机号";
             }
         }
-
-        private void linkReturn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-
-        private void pictureBox2_MouseLeave(object sender, EventArgs e)
-        {
-           
-
-        }
+        
+        
 
 
         private void txtYan_Leave(object sender, EventArgs e)
@@ -1395,7 +1266,6 @@ namespace UI
             client.Connect(EPhost);
             SendMessage("6", "1");
             Thread.Sleep(500);
-
 
         }
         
@@ -1541,10 +1411,6 @@ namespace UI
                 //btnNoAgree.Visible = true;
             }
           
-
-        }
-        private void txtSuccess_TextChanged(object sender, EventArgs e)
-        {
 
         }
         public void isStartFun()

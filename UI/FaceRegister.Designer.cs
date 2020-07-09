@@ -94,7 +94,6 @@
             this.txtName.Text = "请输入姓名";
             this.txtName.Click += new System.EventHandler(this.txtName_Click);
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
-            this.txtName.Enter += new System.EventHandler(this.txtName_Enter);
             this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // txtIDCard
@@ -300,7 +299,7 @@
             this.panelSuccess.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSuccess.Controls.Add(this.panelSuccTwo);
-            this.panelSuccess.Location = new System.Drawing.Point(1, -1);
+            this.panelSuccess.Location = new System.Drawing.Point(4, 0);
             this.panelSuccess.Name = "panelSuccess";
             this.panelSuccess.Size = new System.Drawing.Size(611, 1012);
             this.panelSuccess.TabIndex = 0;
@@ -324,14 +323,13 @@
             this.txtSuccess.Name = "txtSuccess";
             this.txtSuccess.Size = new System.Drawing.Size(33, 32);
             this.txtSuccess.TabIndex = 0;
-            this.txtSuccess.TextChanged += new System.EventHandler(this.txtSuccess_TextChanged);
             // 
             // panelFail
             // 
             this.panelFail.BackColor = System.Drawing.Color.White;
             this.panelFail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelFail.Controls.Add(this.panelFailTwo);
-            this.panelFail.Location = new System.Drawing.Point(-2, -2);
+            this.panelFail.Location = new System.Drawing.Point(1, -2);
             this.panelFail.Name = "panelFail";
             this.panelFail.Size = new System.Drawing.Size(611, 1012);
             this.panelFail.TabIndex = 51;
@@ -372,7 +370,7 @@
             // 
             this.panelWait.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelWait.Controls.Add(this.panelWaittwo);
-            this.panelWait.Location = new System.Drawing.Point(4, 2);
+            this.panelWait.Location = new System.Drawing.Point(0, 0);
             this.panelWait.Name = "panelWait";
             this.panelWait.Size = new System.Drawing.Size(611, 1012);
             this.panelWait.TabIndex = 54;
@@ -391,9 +389,9 @@
             // 
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(175, 27);
+            this.label1.Location = new System.Drawing.Point(116, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 86);
+            this.label1.Size = new System.Drawing.Size(209, 158);
             this.label1.TabIndex = 0;
             // 
             // timerSuccess
