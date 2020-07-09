@@ -425,7 +425,7 @@ namespace UI
                 Logging.LogFile(s);
             }
         }
-        byte[] photoImg = new byte[1024*300];
+话        byte[] photoImg =null;
 
         //打开摄像头
         private void picIsShow_Click(object sender, EventArgs e)
@@ -442,9 +442,7 @@ namespace UI
             IsGetAndrid = 1;
             SendMessage("7", "1");
             byte[] arrImgss = new byte[1024 * 300];
-#pragma warning disable CS0219 // 变量“length”已被赋值，但从未使用过它的值
             int length = 0;
-#pragma warning restore CS0219 // 变量“length”已被赋值，但从未使用过它的值
             //将客户端套接字接收到的数据存入内存缓冲区, 并获取其长度arrImgss, 0, 1000, SocketFlags.None
             string data = "";
             Task task = new Task(() => ReceiveMessage(data));
@@ -580,7 +578,7 @@ namespace UI
             failSecond = 4;
             sucSecond = 6;
 
-            string strs = "1";
+            string strs = "2";
             if (strs == "1")
             {
                 panelSuccess.Visible = true;
@@ -679,7 +677,7 @@ namespace UI
             //}
             //imgFace.Save(System.IO.Path.GetFullPath(".\\") + "temp.jpg");
             //imgFace.Dispose();
-            if (photoImg.Length <= 0)
+            if (photoImg==null)
             {
                 MessageBox.Show("请上传图片！");
                 return;
@@ -1510,9 +1508,7 @@ namespace UI
             //string sdata = Encoding.ASCII.GetString(arrImgss, 0, index).Replace("\n", "").Replace("\0", "").Replace("\t", "").Replace("\r", "");
 
             photoImg = arrImgss ;
-#pragma warning disable CS0219 // 变量“strPath”已被赋值，但从未使用过它的值
             string strPath = null;
-#pragma warning restore CS0219 // 变量“strPath”已被赋值，但从未使用过它的值
             if (length != 0)
             {
 
