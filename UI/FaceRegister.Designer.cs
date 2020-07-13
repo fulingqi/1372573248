@@ -44,8 +44,6 @@
             this.btnNoAgree = new System.Windows.Forms.Button();
             this.link3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.btnRegister = new System.Windows.Forms.Button();
             this.panelSuccess = new System.Windows.Forms.Panel();
             this.panelSuccTwo = new System.Windows.Forms.Panel();
@@ -57,8 +55,6 @@
             this.panelWait = new System.Windows.Forms.Panel();
             this.panelWaittwo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.timerSuccess = new System.Windows.Forms.Timer(this.components);
-            this.timerfail = new System.Windows.Forms.Timer(this.components);
             this.linkReturns = new System.Windows.Forms.LinkLabel();
             this.txtFails = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -179,7 +175,6 @@
             this.picText.Size = new System.Drawing.Size(436, 39);
             this.picText.TabIndex = 45;
             this.picText.TabStop = false;
-            this.picText.Click += new System.EventHandler(this.picText_Click);
             // 
             // btnAgree
             // 
@@ -265,16 +260,6 @@
             this.linkLabel1.Text = "退出注册";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
             // 
-            // timer2
-            // 
-            this.timer2.Interval = 1000;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // timer3
-            // 
-            this.timer3.Interval = 1000;
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
             // btnRegister
             // 
             this.btnRegister.BackColor = System.Drawing.Color.White;
@@ -299,7 +284,7 @@
             this.panelSuccess.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSuccess.Controls.Add(this.panelSuccTwo);
-            this.panelSuccess.Location = new System.Drawing.Point(4, 0);
+            this.panelSuccess.Location = new System.Drawing.Point(0, 1);
             this.panelSuccess.Name = "panelSuccess";
             this.panelSuccess.Size = new System.Drawing.Size(611, 1012);
             this.panelSuccess.TabIndex = 0;
@@ -329,9 +314,9 @@
             this.panelFail.BackColor = System.Drawing.Color.White;
             this.panelFail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelFail.Controls.Add(this.panelFailTwo);
-            this.panelFail.Location = new System.Drawing.Point(1, -2);
+            this.panelFail.Location = new System.Drawing.Point(3, 0);
             this.panelFail.Name = "panelFail";
-            this.panelFail.Size = new System.Drawing.Size(611, 1012);
+            this.panelFail.Size = new System.Drawing.Size(611, 1011);
             this.panelFail.TabIndex = 51;
             // 
             // panelFailTwo
@@ -370,7 +355,7 @@
             // 
             this.panelWait.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelWait.Controls.Add(this.panelWaittwo);
-            this.panelWait.Location = new System.Drawing.Point(0, 0);
+            this.panelWait.Location = new System.Drawing.Point(1, -2);
             this.panelWait.Name = "panelWait";
             this.panelWait.Size = new System.Drawing.Size(611, 1012);
             this.panelWait.TabIndex = 54;
@@ -393,16 +378,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(209, 158);
             this.label1.TabIndex = 0;
-            // 
-            // timerSuccess
-            // 
-            this.timerSuccess.Interval = 1000;
-            this.timerSuccess.Tick += new System.EventHandler(this.timerSuccess_Tick);
-            // 
-            // timerfail
-            // 
-            this.timerfail.Interval = 1000;
-            this.timerfail.Tick += new System.EventHandler(this.timerfail_Tick);
             // 
             // linkReturns
             // 
@@ -594,13 +569,9 @@
         private System.Windows.Forms.PictureBox picText;
         private System.Windows.Forms.LinkLabel link3;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Panel panelSuccess;
         private System.Windows.Forms.Panel panelFail;
-        private System.Windows.Forms.Timer timerSuccess;
-        private System.Windows.Forms.Timer timerfail;
         private System.Windows.Forms.TextBox txtSuccess;
         private System.Windows.Forms.LinkLabel linkReturns;
         private System.Windows.Forms.TextBox txtFails;

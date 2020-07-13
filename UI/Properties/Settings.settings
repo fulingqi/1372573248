@@ -11,5 +11,8 @@
     <Setting Name="UI_WebNtit_LiShuiServer" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://10.178.227.93:1109/LiShuiServer.asmx</Value>
     </Setting>
+    <Setting Name="UI_WebFace_WSFaces" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.178.227.93:1020/WSFaces.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -52,5 +52,15 @@ namespace UI.Properties {
                 return ((string)(this["UI_WebNtit_LiShuiServer"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.178.227.93:1020/WSFaces.asmx")]
+        public string UI_WebFace_WSFaces {
+            get {
+                return ((string)(this["UI_WebFace_WSFaces"]));
+            }
+        }
     }
 }

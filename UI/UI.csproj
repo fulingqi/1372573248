@@ -11,6 +11,21 @@
     <AssemblyName>UI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -80,30 +95,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AttendPeople.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AttendPeople.Designer.cs">
-      <DependentUpon>AttendPeople.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BrushFace.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BrushFace.Designer.cs">
-      <DependentUpon>BrushFace.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FaceBrush.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FaceBrush.Designer.cs">
-      <DependentUpon>FaceBrush.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FaceRegis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FaceRegis.Designer.cs">
-      <DependentUpon>FaceRegis.cs</DependentUpon>
-    </Compile>
     <Compile Include="FaceRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,30 +102,6 @@
       <DependentUpon>FaceRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="ManualInput.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManualInput.Designer.cs">
-      <DependentUpon>ManualInput.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MingYiPrivacyPolicy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MingYiPrivacyPolicy.Designer.cs">
-      <DependentUpon>MingYiPrivacyPolicy.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TS_Mask.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TS_Mask.Designer.cs">
-      <DependentUpon>TS_Mask.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Mask.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Mask.Designer.cs">
-      <DependentUpon>Mask.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web References\LS\Reference.cs">
@@ -147,43 +114,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\WebFace\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\WebNtit\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AttendPeople.resx">
-      <DependentUpon>AttendPeople.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BrushFace.resx">
-      <DependentUpon>BrushFace.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FaceBrush.resx">
-      <DependentUpon>FaceBrush.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FaceRegis.resx">
-      <DependentUpon>FaceRegis.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="FaceRegister.resx">
       <DependentUpon>FaceRegister.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ManualInput.resx">
-      <DependentUpon>ManualInput.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MingYiPrivacyPolicy.resx">
-      <DependentUpon>MingYiPrivacyPolicy.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TS_Mask.resx">
-      <DependentUpon>TS_Mask.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Mask.resx">
-      <DependentUpon>Mask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -216,6 +159,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\Test\WSFaces.wsdl" />
+    <None Include="Web References\WebFace\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebFace\WSFaces.wsdl" />
     <None Include="Web References\WebNtit\LiShuiServer.wsdl" />
     <None Include="Web References\WebNtit\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -229,6 +177,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://10.178.227.93:1020/">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebFace\</RelPath>
+      <UpdateFromURL>http://10.178.227.93:1020/</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UI_WebFace_WSFaces</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://10.178.227.93:1109/LiShuiServer.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WebNtit\</RelPath>
@@ -383,6 +342,7 @@
     <Content Include="Resources\添加人脸.png" />
     <Content Include="Resources\灰注册.png" />
     <Content Include="Resources\组 1.png" />
+    <None Include="Web References\WebFace\WSFaces.disco" />
     <None Include="Resources\服务协议.png" />
     <None Include="Resources\添加人像.png" />
     <None Include="Resources\注册icon.png" />
@@ -404,6 +364,13 @@
     <None Include="Resources\姓身份证手机验证码.png" />
     <None Include="Resources\jpg-02.png" />
     <None Include="Img\矩形9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
