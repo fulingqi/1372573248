@@ -25,6 +25,9 @@ namespace UI
 {
     public partial class FaceRegister : Form
     {
+
+        public delegate void UpdateText();
+
         public String yPhone = "";//接受手机验证码的号码
         public String yCode = "";//验证码
         public String Address = "";//家庭地址
@@ -61,9 +64,9 @@ namespace UI
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             try
-            { //WebReference.WSFaces wsf = new WebReference.WSFaces();//我们的接口服务
+            {
+                //WebReference.WSFaces wsf = new WebReference.WSFaces();//我们的接口服务
                 //Paneljps.Visible = false;
-
 
                 WebFace.WSFaces wsf = new WebFace.WSFaces();
                 yPhone = txtPhone.Text.Trim();
@@ -114,10 +117,13 @@ namespace UI
 
             //覆盖同意协议和注册按钮
             panelCang.Visible = false;
-            //SendMessage("9", IsAgree.ToString());
-            //ConnectAndroid();
-            
-            
+            timer1.Start();
+            Task t1 = new Task(() =>
+            {
+                ConnectAndroid();
+            });
+            //启动Task
+            t1.Start();
         }
 
         //private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -342,10 +348,11 @@ namespace UI
         private void timer1_Tick(object sender, EventArgs e)
         {
             ThreadPool.QueueUserWorkItem(ReadIdcardInfo, null);
-            if (client == null)
-            {
-                ConnectAndroid();
-            }
+
+            //if (client == null)
+            //{
+                
+            //}
             if (link3.Text != "获取验证码" && int.Parse(link3.Text.Substring(0, link3.Text.Length - 5)) > 0)
             {
 
@@ -1216,12 +1223,12 @@ namespace UI
             p.Start();
 
             p.StandardInput.WriteLine(@"adb shell am broadcast -a NotifyServiceStop");
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
             //p.StandardInput.WriteLine(@"adb forward tcp:60075 tcp:60076");
             p.StandardInput.WriteLine(@"adb forward tcp:60075 tcp:60076");
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
             p.StandardInput.WriteLine(@"adb shell am broadcast -a NotifyServiceStart");
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
 
             IPAddress myIP = IPAddress.Parse("127.0.0.1");
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -1328,14 +1335,7 @@ namespace UI
                 ConnectAndroid();
             }
             byte[] arrImgss = new byte[1024 * 700];
-
-            //int length = 0;
-            //while (client.Available > 0)
-            //{
-            //    length += client.Receive(arrImgss, arrImgss.Length, SocketFlags.None);
-            //}
-
-
+            
             int receiveLength = 0;
             int index = 0;
             string sdata = "";
@@ -1373,7 +1373,6 @@ namespace UI
                     memoryStream.Close();
                     System.GC.Collect();//垃圾回收
                                         //获取到图片信息后
-                    MessageBox.Show("结束");
                     IsGetAndrid = 0;
                     //线程之间跨平台操作
                     Control.CheckForIllegalCrossThreadCalls = false;
