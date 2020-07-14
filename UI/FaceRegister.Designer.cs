@@ -36,7 +36,6 @@
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtYan = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.picText = new System.Windows.Forms.PictureBox();
             this.btnAgree = new System.Windows.Forms.Button();
             this.picIsShow = new System.Windows.Forms.PictureBox();
@@ -161,11 +160,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // timer4
-            // 
-            this.timer4.Interval = 2000;
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
-            // 
             // picText
             // 
             this.picText.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picText.BackgroundImage")));
@@ -284,7 +278,7 @@
             this.panelSuccess.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSuccess.Controls.Add(this.panelSuccTwo);
-            this.panelSuccess.Location = new System.Drawing.Point(0, 1);
+            this.panelSuccess.Location = new System.Drawing.Point(0, -1);
             this.panelSuccess.Name = "panelSuccess";
             this.panelSuccess.Size = new System.Drawing.Size(611, 1012);
             this.panelSuccess.TabIndex = 0;
@@ -314,7 +308,7 @@
             this.panelFail.BackColor = System.Drawing.Color.White;
             this.panelFail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelFail.Controls.Add(this.panelFailTwo);
-            this.panelFail.Location = new System.Drawing.Point(3, 0);
+            this.panelFail.Location = new System.Drawing.Point(2, 0);
             this.panelFail.Name = "panelFail";
             this.panelFail.Size = new System.Drawing.Size(611, 1011);
             this.panelFail.TabIndex = 51;
@@ -355,7 +349,7 @@
             // 
             this.panelWait.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelWait.Controls.Add(this.panelWaittwo);
-            this.panelWait.Location = new System.Drawing.Point(1, -2);
+            this.panelWait.Location = new System.Drawing.Point(0, -1);
             this.panelWait.Name = "panelWait";
             this.panelWait.Size = new System.Drawing.Size(611, 1012);
             this.panelWait.TabIndex = 54;
@@ -471,7 +465,7 @@
             // panelCang
             // 
             this.panelCang.BackColor = System.Drawing.Color.White;
-            this.panelCang.Location = new System.Drawing.Point(26, 782);
+            this.panelCang.Location = new System.Drawing.Point(18, 791);
             this.panelCang.Name = "panelCang";
             this.panelCang.Size = new System.Drawing.Size(505, 79);
             this.panelCang.TabIndex = 59;
@@ -486,9 +480,9 @@
             this.btnNofinsh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNofinsh.Font = new System.Drawing.Font("微软雅黑", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnNofinsh.ForeColor = System.Drawing.Color.Blue;
-            this.btnNofinsh.Location = new System.Drawing.Point(4, 879);
+            this.btnNofinsh.Location = new System.Drawing.Point(4, 876);
             this.btnNofinsh.Name = "btnNofinsh";
-            this.btnNofinsh.Size = new System.Drawing.Size(594, 82);
+            this.btnNofinsh.Size = new System.Drawing.Size(594, 91);
             this.btnNofinsh.TabIndex = 61;
             this.btnNofinsh.Text = "实名注册    刷脸就医";
             this.btnNofinsh.UseVisualStyleBackColor = false;
@@ -497,7 +491,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::UI.Properties.Resources._9_1注册;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(618, 1011);
             this.Controls.Add(this.panelSuccess);
@@ -563,7 +557,6 @@
         private System.Windows.Forms.PictureBox link2;
         private System.Windows.Forms.PictureBox picIsShow;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer4;
         private System.Windows.Forms.Button btnAgree;
         private System.Windows.Forms.Button btnNoAgree;
         private System.Windows.Forms.PictureBox picText;

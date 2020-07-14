@@ -50,14 +50,12 @@ namespace UI
 
         public int ShibaiDao = 0;
         public int ChengGong = 0;
-
+       
         public FaceRegister()
         {
             InitializeComponent();
-            //起始同意
-            btnAgree.Visible = true;
-            btnNoAgree.Visible=false;
         }
+        protected override CreateParams CreateParams { get { CreateParams cp = base.CreateParams; cp.ExStyle |= 0x02000000; return cp; } }
         #region 获取验证码
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -91,7 +89,7 @@ namespace UI
 
 
             #region 倒计时事件
-            timer1.Enabled = true;
+            //timer1.Start();
             #endregion
         }
         #endregion
@@ -99,47 +97,33 @@ namespace UI
         private void FaceRegister_Load(object sender, EventArgs e)
         {
 
-           
-            //连接安卓机
-            ConnectAndroid();
-            //#region 自适应窗体大小
-            //Rectangle rect = new Rectangle();
-            //rect = Screen.GetWorkingArea(this);
-
-            //this.Width = rect.Width;//屏幕宽
-            //this.Height = rect.Height;//屏幕高
-            //this.ControlBox = false;   // 设置不出现关闭按钮
-            //this.FormBorderStyle = FormBorderStyle.None;//无边框
-            //#endregion
+            //起始同意
+            btnAgree.Visible = true;
+            btnNoAgree.Visible = false;
             //关闭等待
             panelWait.Visible = false;
-
-            #region 窗体最大化
-            //this.SetVisibleCore(false);
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.WindowState = FormWindowState.Maximized;
-            //this.SetVisibleCore(true);
-            #endregion
+            
             //在窗体加载时隐藏lbl1标签
             link3.Visible = false;
             //成功和失败的界面隐藏
             panelFail.Visible = false;
             panelSuccess.Visible = false;
             txtZhuCeSuccess.Visible = false;
-            
+
             staus = 0;
-            //窗体加载时隐藏软键盘
-            //Paneljps.Visible = false;
 
             //覆盖同意协议和注册按钮
             panelCang.Visible = false;
-            SendMessage("9",IsAgree.ToString());
+            //SendMessage("9", IsAgree.ToString());
+            //ConnectAndroid();
+            
+            
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        //private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //{
 
-        }
+        //}
 
 
 
@@ -354,9 +338,14 @@ namespace UI
         #region 获取验证码倒计时
 
         int sucSecond = 6;
-        int failSecond = 4;
+        int failSecond =6;
         private void timer1_Tick(object sender, EventArgs e)
         {
+            ThreadPool.QueueUserWorkItem(ReadIdcardInfo, null);
+            if (client == null)
+            {
+                ConnectAndroid();
+            }
             if (link3.Text != "获取验证码" && int.Parse(link3.Text.Substring(0, link3.Text.Length - 5)) > 0)
             {
 
@@ -401,6 +390,8 @@ namespace UI
             {
                 this.txtSuccess.Text = sucSecond.ToString();
             }
+
+           
         }
         #endregion
 
@@ -480,10 +471,10 @@ namespace UI
 
         #region 通过timer4实现每隔规定时间自动读取身份证信息
 
-        private void timer4_Tick(object sender, EventArgs e)
-        {
-            ThreadPool.QueueUserWorkItem(ReadIdcardInfo, null);
-        }
+        //private void timer4_Tick(object sender, EventArgs e)
+        //{
+            
+        //}
         public void ReadIdcardInfo(object s)
         {
             #region 读取身份证信息
@@ -571,7 +562,6 @@ namespace UI
 
         private void button10_Click(object sender, EventArgs e)
         {
-
             //所有的信息填完之后注册按钮变为蓝色
             if (!string.IsNullOrEmpty(this.txtAddress.Text) && !string.IsNullOrEmpty(this.txtName.Text) && !string.IsNullOrEmpty(this.txtIDCard.Text) && !string.IsNullOrEmpty(this.txtYan.Text) && !string.IsNullOrEmpty(this.txtPhone.Text))
             {
@@ -599,10 +589,10 @@ namespace UI
 
         private void Register()
         {
-            failSecond = 4;
+            failSecond = 6;
             sucSecond = 6;
 
-           
+
             #region   检验是否正确
             if (String.IsNullOrEmpty(txtPhone.Text) || txtPhone.Text == "请输入手机号")
             {
@@ -623,7 +613,7 @@ namespace UI
             #region 验证身份证是否合法
 
             Address = this.txtAddress.Text;
-            Sidnum = this.txtIDCard.Text.IndexOf('*') > 0 ?Sidnum: this.txtIDCard.Text;
+            Sidnum = this.txtIDCard.Text.IndexOf('*') > 0 ? Sidnum : this.txtIDCard.Text;
             SName = this.txtName.Text.IndexOf('*') > 0 ? SName : this.txtName.Text;
             string cid = CheckCidInfo18(Sidnum);
             if (cid != "")
@@ -673,7 +663,7 @@ namespace UI
 
 
             #region 图片
-            if (photoImg==null)
+            if (photoImg == null)
             {
                 MessageBox.Show("请上传图片！");
                 return;
@@ -683,12 +673,11 @@ namespace UI
             WebFace.WSFaces wsf = new WebFace.WSFaces();
 
             #region 调用注册接口（公安）验证
-            string result =  wsf.AuthenPliceFace(Sidnum, SName, this.txtPhone.Text, SNation, Address, photoImg);
+            string result = wsf.AuthenPliceFace(Sidnum, SName, this.txtPhone.Text, SNation, Address, photoImg);
 
             JObject obj = JObject.Parse(result);
             //结果码
             string strs = obj["code"].ToString();
-            
             if (strs == "1")
             {
                 panelSuccess.Visible = true;
@@ -711,12 +700,22 @@ namespace UI
                     FirstRegi = SecondRegi;
                     SecondRegi = Sidnum;
                 }
+                else if (FirstRegi != SecondRegi && SecondRegi != Sidnum)
+                {
+                    FirstRegi = SecondRegi;
+                    SecondRegi = Sidnum;
+                }
+                else if (FirstRegi != SecondRegi && SecondRegi == Sidnum)
+                {
+                    FirstRegi = SecondRegi;
+                    SecondRegi = Sidnum;
+                }
                 else if (!string.IsNullOrEmpty(FirstRegi) && !string.IsNullOrEmpty(SecondRegi)&&FirstRegi ==SecondRegi&& SecondRegi == Sidnum)
                 {
                     ReturnUpLevel();
                     FirstRegi = "";
                     SecondRegi = "";
-                    SendMessage("12","1");
+                    SendMessage("6","1");
                 }
                 else
                 {
@@ -996,8 +995,8 @@ namespace UI
         /// <param name="sender"></param>
         /// <param name="e"></param>
         //int sucSecond = 6;
-        private void timerSuccess_Tick(object sender, EventArgs e)
-        {
+        //private void timerSuccess_Tick(object sender, EventArgs e)
+        //{
 
             //--sucSecond;
             //if (sucSecond ==0)
@@ -1013,16 +1012,16 @@ namespace UI
             //    this.txtSuccess.Text = sucSecond.ToString();
             //}
             
-        }
+        //}
 
         /// <summary>
         /// 注册失败倒计时
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        //int failSecond = 4;
-        private void timerfail_Tick(object sender, EventArgs e)
-        {
+        //int failSecond =6;
+        //private void timerfail_Tick(object sender, EventArgs e)
+        //{
             //--failSecond;
             //if (failSecond == 0)
             //{
@@ -1039,7 +1038,7 @@ namespace UI
             //}
            
 
-        }
+        //}
 
 
         //private void timer3_Tick(object sender, EventArgs e)
@@ -1078,7 +1077,6 @@ namespace UI
         private void linkReturns_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ReturnUpLevel();
-
         }
 
 
@@ -1375,6 +1373,7 @@ namespace UI
                     memoryStream.Close();
                     System.GC.Collect();//垃圾回收
                                         //获取到图片信息后
+                    MessageBox.Show("结束");
                     IsGetAndrid = 0;
                     //线程之间跨平台操作
                     Control.CheckForIllegalCrossThreadCalls = false;
@@ -1405,8 +1404,8 @@ namespace UI
             public string result { get; set; }
             public string data { get; set; }
         }
-        #endregion
 
+        #endregion
 
         #region 返回上一级
         private void ReturnUpLevel()
@@ -1419,9 +1418,9 @@ namespace UI
 
             photoImg = null;
             panelCang.Visible = false;
-            isStart = 0;
+            
             SendMessage("11", "1");
-            failSecond = 4;
+            failSecond =6;
             sucSecond = 6;
             this.txtName.Text = "请输入姓名";
             this.txtPhone.Text = "请输入手机号";
@@ -1429,6 +1428,7 @@ namespace UI
             this.txtAddress.Text = "请输入地址";
             this.txtYan.Text = "请输入验证码";
             Sidnum = ""; SName = ""; yPhone = ""; SNation = ""; Address = "";
+            isStart = 0;
             picIsShow.Visible = true;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FaceRegister));
             picIsShow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picIsShow.BackgroundImage")));
