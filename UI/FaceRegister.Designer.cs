@@ -62,8 +62,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.panelCang = new System.Windows.Forms.Panel();
             this.btnNofinsh = new System.Windows.Forms.Button();
+            this.panelAll = new System.Windows.Forms.Panel();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).BeginInit();
@@ -74,6 +80,7 @@
             this.panelWait.SuspendLayout();
             this.panelWaittwo.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelAll.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtName
@@ -81,7 +88,7 @@
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtName.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtName.Location = new System.Drawing.Point(144, 133);
+            this.txtName.Location = new System.Drawing.Point(149, 139);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(317, 37);
@@ -96,7 +103,7 @@
             this.txtIDCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtIDCard.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtIDCard.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtIDCard.Location = new System.Drawing.Point(144, 205);
+            this.txtIDCard.Location = new System.Drawing.Point(148, 207);
             this.txtIDCard.Multiline = true;
             this.txtIDCard.Name = "txtIDCard";
             this.txtIDCard.Size = new System.Drawing.Size(352, 33);
@@ -112,7 +119,7 @@
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAddress.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtAddress.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtAddress.Location = new System.Drawing.Point(148, 267);
+            this.txtAddress.Location = new System.Drawing.Point(153, 273);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(560, 36);
@@ -128,7 +135,7 @@
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPhone.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtPhone.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtPhone.Location = new System.Drawing.Point(144, 340);
+            this.txtPhone.Location = new System.Drawing.Point(149, 342);
             this.txtPhone.Multiline = true;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(521, 37);
@@ -144,7 +151,7 @@
             this.txtYan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtYan.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtYan.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtYan.Location = new System.Drawing.Point(148, 403);
+            this.txtYan.Location = new System.Drawing.Point(153, 407);
             this.txtYan.Multiline = true;
             this.txtYan.Name = "txtYan";
             this.txtYan.Size = new System.Drawing.Size(216, 37);
@@ -164,7 +171,7 @@
             // 
             this.picText.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picText.BackgroundImage")));
             this.picText.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picText.Location = new System.Drawing.Point(74, 822);
+            this.picText.Location = new System.Drawing.Point(86, 818);
             this.picText.Name = "picText";
             this.picText.Size = new System.Drawing.Size(436, 39);
             this.picText.TabIndex = 45;
@@ -181,7 +188,7 @@
             this.btnAgree.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAgree.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnAgree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgree.Location = new System.Drawing.Point(26, 810);
+            this.btnAgree.Location = new System.Drawing.Point(27, 808);
             this.btnAgree.Name = "btnAgree";
             this.btnAgree.Size = new System.Drawing.Size(42, 51);
             this.btnAgree.TabIndex = 43;
@@ -192,7 +199,7 @@
             // 
             this.picIsShow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picIsShow.BackgroundImage")));
             this.picIsShow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picIsShow.Location = new System.Drawing.Point(189, 521);
+            this.picIsShow.Location = new System.Drawing.Point(204, 514);
             this.picIsShow.Name = "picIsShow";
             this.picIsShow.Size = new System.Drawing.Size(240, 248);
             this.picIsShow.TabIndex = 16;
@@ -203,7 +210,7 @@
             // 
             this.link2.BackgroundImage = global::UI.Properties.Resources.验证码;
             this.link2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.link2.Location = new System.Drawing.Point(484, 402);
+            this.link2.Location = new System.Drawing.Point(494, 410);
             this.link2.Name = "link2";
             this.link2.Size = new System.Drawing.Size(125, 32);
             this.link2.TabIndex = 5;
@@ -221,7 +228,7 @@
             this.btnNoAgree.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnNoAgree.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnNoAgree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNoAgree.Location = new System.Drawing.Point(26, 810);
+            this.btnNoAgree.Location = new System.Drawing.Point(27, 809);
             this.btnNoAgree.Name = "btnNoAgree";
             this.btnNoAgree.Size = new System.Drawing.Size(42, 51);
             this.btnNoAgree.TabIndex = 44;
@@ -232,7 +239,7 @@
             // 
             this.link3.BackColor = System.Drawing.Color.White;
             this.link3.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.link3.Location = new System.Drawing.Point(479, 406);
+            this.link3.Location = new System.Drawing.Point(501, 412);
             this.link3.Name = "link3";
             this.link3.Size = new System.Drawing.Size(136, 34);
             this.link3.TabIndex = 46;
@@ -265,7 +272,7 @@
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnRegister.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegister.Location = new System.Drawing.Point(12, 876);
+            this.btnRegister.Location = new System.Drawing.Point(33, 883);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(586, 91);
             this.btnRegister.TabIndex = 48;
@@ -278,7 +285,7 @@
             this.panelSuccess.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSuccess.Controls.Add(this.panelSuccTwo);
-            this.panelSuccess.Location = new System.Drawing.Point(0, -1);
+            this.panelSuccess.Location = new System.Drawing.Point(343, 149);
             this.panelSuccess.Name = "panelSuccess";
             this.panelSuccess.Size = new System.Drawing.Size(611, 1012);
             this.panelSuccess.TabIndex = 0;
@@ -307,8 +314,9 @@
             // 
             this.panelFail.BackColor = System.Drawing.Color.White;
             this.panelFail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelFail.Controls.Add(this.panelSuccess);
             this.panelFail.Controls.Add(this.panelFailTwo);
-            this.panelFail.Location = new System.Drawing.Point(2, 0);
+            this.panelFail.Location = new System.Drawing.Point(189, 187);
             this.panelFail.Name = "panelFail";
             this.panelFail.Size = new System.Drawing.Size(611, 1011);
             this.panelFail.TabIndex = 51;
@@ -348,8 +356,9 @@
             // panelWait
             // 
             this.panelWait.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelWait.Controls.Add(this.panelFail);
             this.panelWait.Controls.Add(this.panelWaittwo);
-            this.panelWait.Location = new System.Drawing.Point(0, -1);
+            this.panelWait.Location = new System.Drawing.Point(621, 349);
             this.panelWait.Name = "panelWait";
             this.panelWait.Size = new System.Drawing.Size(611, 1012);
             this.panelWait.TabIndex = 54;
@@ -381,7 +390,7 @@
             this.linkReturns.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.linkReturns.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkReturns.LinkColor = System.Drawing.Color.Red;
-            this.linkReturns.Location = new System.Drawing.Point(234, 970);
+            this.linkReturns.Location = new System.Drawing.Point(262, 977);
             this.linkReturns.Name = "linkReturns";
             this.linkReturns.Size = new System.Drawing.Size(130, 24);
             this.linkReturns.TabIndex = 53;
@@ -412,7 +421,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 18F);
-            this.label2.Location = new System.Drawing.Point(12, 133);
+            this.label2.Location = new System.Drawing.Point(17, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 31);
             this.label2.TabIndex = 54;
@@ -423,7 +432,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 18F);
-            this.label3.Location = new System.Drawing.Point(14, 205);
+            this.label3.Location = new System.Drawing.Point(16, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 31);
             this.label3.TabIndex = 55;
@@ -434,7 +443,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 18F);
-            this.label4.Location = new System.Drawing.Point(20, 267);
+            this.label4.Location = new System.Drawing.Point(25, 273);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(128, 31);
             this.label4.TabIndex = 56;
@@ -445,7 +454,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 18F);
-            this.label5.Location = new System.Drawing.Point(20, 341);
+            this.label5.Location = new System.Drawing.Point(24, 342);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(124, 31);
             this.label5.TabIndex = 57;
@@ -456,19 +465,11 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Font = new System.Drawing.Font("微软雅黑", 18F);
-            this.label6.Location = new System.Drawing.Point(24, 403);
+            this.label6.Location = new System.Drawing.Point(27, 409);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 31);
             this.label6.TabIndex = 58;
             this.label6.Text = "验 证 码：";
-            // 
-            // panelCang
-            // 
-            this.panelCang.BackColor = System.Drawing.Color.White;
-            this.panelCang.Location = new System.Drawing.Point(18, 791);
-            this.panelCang.Name = "panelCang";
-            this.panelCang.Size = new System.Drawing.Size(505, 79);
-            this.panelCang.TabIndex = 59;
             // 
             // btnNofinsh
             // 
@@ -480,47 +481,138 @@
             this.btnNofinsh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNofinsh.Font = new System.Drawing.Font("微软雅黑", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnNofinsh.ForeColor = System.Drawing.Color.Blue;
-            this.btnNofinsh.Location = new System.Drawing.Point(4, 876);
+            this.btnNofinsh.Location = new System.Drawing.Point(25, 887);
             this.btnNofinsh.Name = "btnNofinsh";
             this.btnNofinsh.Size = new System.Drawing.Size(594, 91);
             this.btnNofinsh.TabIndex = 61;
             this.btnNofinsh.Text = "实名注册    刷脸就医";
             this.btnNofinsh.UseVisualStyleBackColor = false;
             // 
+            // panelAll
+            // 
+            this.panelAll.BackColor = System.Drawing.Color.White;
+            this.panelAll.Controls.Add(this.linkLabel6);
+            this.panelAll.Controls.Add(this.linkLabel5);
+            this.panelAll.Controls.Add(this.link2);
+            this.panelAll.Controls.Add(this.link3);
+            this.panelAll.Controls.Add(this.linkLabel4);
+            this.panelAll.Controls.Add(this.linkLabel3);
+            this.panelAll.Controls.Add(this.linkLabel2);
+            this.panelAll.Controls.Add(this.button1);
+            this.panelAll.Controls.Add(this.label2);
+            this.panelAll.Controls.Add(this.btnNoAgree);
+            this.panelAll.Controls.Add(this.btnAgree);
+            this.panelAll.Controls.Add(this.btnNofinsh);
+            this.panelAll.Controls.Add(this.txtName);
+            this.panelAll.Controls.Add(this.label6);
+            this.panelAll.Controls.Add(this.txtIDCard);
+            this.panelAll.Controls.Add(this.label5);
+            this.panelAll.Controls.Add(this.txtAddress);
+            this.panelAll.Controls.Add(this.label4);
+            this.panelAll.Controls.Add(this.txtYan);
+            this.panelAll.Controls.Add(this.label3);
+            this.panelAll.Controls.Add(this.txtPhone);
+            this.panelAll.Controls.Add(this.picText);
+            this.panelAll.Controls.Add(this.picIsShow);
+            this.panelAll.Controls.Add(this.linkReturns);
+            this.panelAll.Controls.Add(this.btnRegister);
+            this.panelAll.Location = new System.Drawing.Point(2, 2);
+            this.panelAll.Name = "panelAll";
+            this.panelAll.Size = new System.Drawing.Size(667, 1044);
+            this.panelAll.TabIndex = 62;
+            this.panelAll.SizeChanged += new System.EventHandler(this.panelAll_SizeChanged);
+            // 
+            // linkLabel6
+            // 
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.linkLabel6.Location = new System.Drawing.Point(20, 179);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(629, 12);
+            this.linkLabel6.TabIndex = 67;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Text = "                                                                                 " +
+    "                       ";
+            // 
+            // linkLabel5
+            // 
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.linkLabel5.Location = new System.Drawing.Point(21, 243);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(733, 12);
+            this.linkLabel5.TabIndex = 66;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "                                                                                 " +
+    "                       ";
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.linkLabel4.Location = new System.Drawing.Point(29, 312);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(533, 12);
+            this.linkLabel4.TabIndex = 65;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "                                                                                 " +
+    "       ";
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.linkLabel3.Location = new System.Drawing.Point(20, 378);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(533, 12);
+            this.linkLabel3.TabIndex = 64;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "                                                                                 " +
+    "       ";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.linkLabel2.Location = new System.Drawing.Point(33, 445);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(533, 12);
+            this.linkLabel2.TabIndex = 63;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "                                                                                 " +
+    "       ";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.ForeColor = System.Drawing.Color.Blue;
+            this.button1.Location = new System.Drawing.Point(35, 33);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(594, 73);
+            this.button1.TabIndex = 62;
+            this.button1.Text = "明 医 实 名 就 医 刷 脸 注 册";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // FaceRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.AutoScroll = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(618, 1011);
-            this.Controls.Add(this.panelSuccess);
-            this.Controls.Add(this.panelFail);
+            this.ClientSize = new System.Drawing.Size(673, 1022);
+            this.Controls.Add(this.panelAll);
             this.Controls.Add(this.panelWait);
-            this.Controls.Add(this.panelCang);
-            this.Controls.Add(this.btnNofinsh);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.link2);
-            this.Controls.Add(this.linkReturns);
-            this.Controls.Add(this.link3);
-            this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.picIsShow);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.picText);
-            this.Controls.Add(this.txtPhone);
-            this.Controls.Add(this.txtYan);
-            this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.txtIDCard);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.btnAgree);
-            this.Controls.Add(this.btnNoAgree);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.DoubleBuffered = true;
-            this.Location = new System.Drawing.Point(1280, 0);
+            this.Location = new System.Drawing.Point(180, 0);
             this.MaximizeBox = false;
             this.Name = "FaceRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -542,6 +634,8 @@
             this.panelWaittwo.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panelAll.ResumeLayout(false);
+            this.panelAll.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -578,10 +672,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panelCang;
         private System.Windows.Forms.Panel panelFailTwo;
         private System.Windows.Forms.Panel panelSuccTwo;
         private System.Windows.Forms.Panel panelWaittwo;
         private System.Windows.Forms.Button btnNofinsh;
+        private System.Windows.Forms.Panel panelAll;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel6;
     }
 }
