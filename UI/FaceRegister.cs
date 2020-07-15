@@ -367,9 +367,7 @@ namespace UI
             }
             if (IsGetAndrid == 1)
             {
-                ReceiveMessage("");
-                //Task task = new Task(() => ReceiveMessage(""));
-                //task.Start();
+                ReceiveResultMessage("");
             }
 
             --failSecond;
@@ -463,15 +461,16 @@ namespace UI
             //等待中
             panelWait.Visible = true;
             panelWait.BackColor = Color.FromArgb(80,192,192,192);
-            //btnAgree.Visible = false;
-            //btnNoAgree.Visible = false;
 
+            if (File.Exists(System.IO.Path.GetFullPath(".\\") + "temp.jpg"))
+            {
+                File.Delete(System.IO.Path.GetFullPath(".\\") + "temp.jpg");
+            }
 
-            IsGetAndrid = 1;
             SendMessage("7", "1");
-            //byte[] arrImgss = new byte[1024 * 300];
-            //int length = 0;
-            //将客户端套接字接收到的数据存入内存缓冲区, 并获取其长度arrImgss, 0, 1000, SocketFlags.None
+
+         
+            IsGetAndrid = 1;
         }
 
 
@@ -893,22 +892,7 @@ namespace UI
         #endregion
 
 
-        #region 文件转二进制流
-        public byte[] StreamToBytes(Stream stream)
-        {
-
-            byte[] bytes = new byte[stream.Length];
-
-            stream.Read(bytes, 0, bytes.Length);
-
-            // 设置当前流的位置为流的开始 
-
-            stream.Seek(0, SeekOrigin.Begin);
-
-            return bytes;
-
-        }
-        #endregion
+   
 
 
         
@@ -1224,7 +1208,6 @@ namespace UI
 
             p.StandardInput.WriteLine(@"adb shell am broadcast -a NotifyServiceStop");
             Thread.Sleep(2000);
-            //p.StandardInput.WriteLine(@"adb forward tcp:60075 tcp:60076");
             p.StandardInput.WriteLine(@"adb forward tcp:60075 tcp:60076");
             Thread.Sleep(2000);
             p.StandardInput.WriteLine(@"adb shell am broadcast -a NotifyServiceStart");
@@ -1236,7 +1219,7 @@ namespace UI
             client.Connect(EPhost);
             SendMessage("6", "1");
             Thread.Sleep(500);
-
+            p.Close();
         }
         
         class SendData
@@ -1323,19 +1306,14 @@ namespace UI
             string sdata = Encoding.ASCII.GetString(receive1, 0, index).Replace("\n", "").Replace("\0", "").Replace("\t", "").Replace("\r", "");
         }
 
-        /// <summary>
-        /// 接收安卓服务端消息
-        /// </summary>
-        /// <param name="data"></param>
-        private void ReceiveMessage(string data)
+        private void ReceiveResultMessage(string data)
         {
-            
+
             if (client == null)
             {
                 ConnectAndroid();
             }
             byte[] arrImgss = new byte[1024 * 700];
-            
             int receiveLength = 0;
             int index = 0;
             string sdata = "";
@@ -1346,49 +1324,139 @@ namespace UI
                     //参数 数据缓存区  起始位置  数据长度  值的按位组合
                     receiveLength += client.Receive(arrImgss, index, client.ReceiveBufferSize, SocketFlags.None);
                     index += receiveLength;
-
                 }
                 sdata = Encoding.ASCII.GetString(arrImgss, 0, index).Replace("\n", "").Replace("\0", "").Replace("\t", "").Replace("\r", "");
+                byte[] outputb = Convert.FromBase64String(sdata);
+                sdata = Encoding.Default.GetString(outputb);
+                if (!string.IsNullOrEmpty(sdata))
+                {
+                    ReceiveData result = JsonConvert.DeserializeObject<ReceiveData>(sdata);
+                    if (result.data=="ok")
+                    {
+
+                        Process p = new Process(); //实例一个Process类，启动一个独立进程
+                        p.StartInfo.FileName = "cmd.exe"; //设定程序名
+                        p.StartInfo.UseShellExecute = false; //关闭Shell的使用
+                        p.StartInfo.RedirectStandardInput = true; //重定向标准输入
+                        p.StartInfo.RedirectStandardOutput = true; //重定向标准输出
+                        p.StartInfo.RedirectStandardError = true; //重定向错误输出
+                        p.StartInfo.CreateNoWindow = true; // 设置不显示窗口
+                        p.StartInfo.ErrorDialog = false;
+                        p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        p.Start();
+
+                        string ssdsd = System.IO.Path.GetFullPath(".\\") + "temp.jpg";
+
+                        p.StandardInput.WriteLine(@" adb pull /storage/emulated/0/b.jpg " + ssdsd);
+
+
+                        Thread.Sleep(2000);
+
+                        ReceiveMessage("");
+                    }
+                }
             }
             catch (Exception ex)
             {
                 SendMessage("7", "1");
                 throw;
             }
-            photoImg = Convert.FromBase64String(sdata);
 
-            if (receiveLength != 0)
-            {
-                try
-                {
-                    //读入MemoryStream对象
-                    MemoryStream memoryStream = new MemoryStream(photoImg);
-                    //memoryStream.Write(photoImg, 0, photoImg.Length);
-                    //转成图片
-                    Image image = Image.FromStream(memoryStream);
-
-                    picIsShow.BackgroundImage = image;
-                    
-                    memoryStream.Dispose();//释放占用资源
-                    memoryStream.Close();
-                    System.GC.Collect();//垃圾回收
-                                        //获取到图片信息后
-                    IsGetAndrid = 0;
-                    //线程之间跨平台操作
-                    Control.CheckForIllegalCrossThreadCalls = false;
-                    //退出等待
-                    panelWait.Visible = false;
-                }
-                catch (Exception ex)
-                {
-                    SendMessage("7", "1");
-                    throw;
-                }
-                
-            }
-          
 
         }
+
+        /// <summary>
+        /// 接收安卓服务端消息
+        /// </summary>
+        /// <param name="data"></param>
+        private void ReceiveMessage(string data)
+        {
+            FileStream jpgStream = new FileStream(System.IO.Path.GetFullPath(".\\") + "temp.jpg", FileMode.Open);
+            byte[] bytes = StreamToBytes(jpgStream);
+
+            picIsShow.BackgroundImage = Image.FromStream(jpgStream);
+            jpgStream.Close();
+            jpgStream.Dispose();
+            System.GC.Collect();//垃圾回收
+                                //获取到图片信息后
+            IsGetAndrid = 0;
+            //线程之间跨平台操作
+            Control.CheckForIllegalCrossThreadCalls = false;
+            //退出等待
+            panelWait.Visible = false;
+            #region 老版本获取图片
+
+
+            //byte[] arrImgss = new byte[1024 * 700];
+            //int receiveLength = 0;
+            //int index = 0;
+            //string sdata = "";
+            //try
+            //{
+            //    while (client.Available > 0)
+            //    {
+            //        //参数 数据缓存区  起始位置  数据长度  值的按位组合
+            //        receiveLength += client.Receive(arrImgss, index, client.ReceiveBufferSize, SocketFlags.None);
+            //        index += receiveLength;
+            //    }
+            //    sdata = Encoding.ASCII.GetString(arrImgss, 0, index).Replace("\n", "").Replace("\0", "").Replace("\t", "").Replace("\r", "");
+            //}
+            //catch (Exception ex)
+            //{
+            //    SendMessage("7", "1");
+            //    throw;
+            //}
+            //photoImg = Convert.FromBase64String(sdata);
+
+            //if (receiveLength != 0)
+            //{
+            //    try
+            //    {
+            //        //读入MemoryStream对象
+            //        MemoryStream memoryStream = new MemoryStream(photoImg);
+            //        //转成图片
+            //        Image image = Image.FromStream(memoryStream);
+
+            //        picIsShow.BackgroundImage = image;
+
+            //        memoryStream.Dispose();//释放占用资源
+            //        memoryStream.Close();
+            //        System.GC.Collect();//垃圾回收
+            //                            //获取到图片信息后
+            //        IsGetAndrid = 0;
+            //        //线程之间跨平台操作
+            //        Control.CheckForIllegalCrossThreadCalls = false;
+            //        //退出等待
+            //        panelWait.Visible = false;
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        SendMessage("7", "1");
+            //        throw;
+            //    }
+
+            //}
+            #endregion
+
+        }
+
+        #region 文件转二进制流
+        public byte[] StreamToBytes(Stream stream)
+        {
+
+            byte[] bytes = new byte[stream.Length];
+
+            stream.Read(bytes, 0, bytes.Length);
+
+            // 设置当前流的位置为流的开始 
+
+            stream.Seek(0, SeekOrigin.Begin);
+
+            return bytes;
+
+        }
+        #endregion
+
         public void isStartFun()
         {
             if (isStart == 0)
