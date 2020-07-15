@@ -45,12 +45,12 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnRegister = new System.Windows.Forms.Button();
             this.panelSuccess = new System.Windows.Forms.Panel();
-            this.panelSuccTwo = new System.Windows.Forms.Panel();
-            this.txtSuccess = new System.Windows.Forms.TextBox();
             this.panelFail = new System.Windows.Forms.Panel();
             this.panelFailTwo = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtZhuCeSuccess = new System.Windows.Forms.TextBox();
+            this.panelSuccTwo = new System.Windows.Forms.Panel();
+            this.txtSuccess = new System.Windows.Forms.TextBox();
             this.panelWait = new System.Windows.Forms.Panel();
             this.panelWaittwo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,6 +64,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnNofinsh = new System.Windows.Forms.Button();
             this.panelAll = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
@@ -74,9 +75,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).BeginInit();
             this.panelSuccess.SuspendLayout();
-            this.panelSuccTwo.SuspendLayout();
             this.panelFail.SuspendLayout();
             this.panelFailTwo.SuspendLayout();
+            this.panelSuccTwo.SuspendLayout();
             this.panelWait.SuspendLayout();
             this.panelWaittwo.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -91,7 +92,7 @@
             this.txtName.Location = new System.Drawing.Point(149, 139);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(317, 37);
+            this.txtName.Size = new System.Drawing.Size(165, 37);
             this.txtName.TabIndex = 0;
             this.txtName.Text = "请输入姓名";
             this.txtName.Click += new System.EventHandler(this.txtName_Click);
@@ -106,7 +107,7 @@
             this.txtIDCard.Location = new System.Drawing.Point(148, 207);
             this.txtIDCard.Multiline = true;
             this.txtIDCard.Name = "txtIDCard";
-            this.txtIDCard.Size = new System.Drawing.Size(352, 33);
+            this.txtIDCard.Size = new System.Drawing.Size(374, 33);
             this.txtIDCard.TabIndex = 1;
             this.txtIDCard.Text = "请输入身份证号";
             this.txtIDCard.Click += new System.EventHandler(this.txtIDCard_Click);
@@ -122,7 +123,7 @@
             this.txtAddress.Location = new System.Drawing.Point(153, 273);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(560, 36);
+            this.txtAddress.Size = new System.Drawing.Size(369, 36);
             this.txtAddress.TabIndex = 2;
             this.txtAddress.Text = "请输入地址";
             this.txtAddress.Click += new System.EventHandler(this.txtAddress_Click);
@@ -138,7 +139,7 @@
             this.txtPhone.Location = new System.Drawing.Point(149, 342);
             this.txtPhone.Multiline = true;
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(521, 37);
+            this.txtPhone.Size = new System.Drawing.Size(404, 37);
             this.txtPhone.TabIndex = 3;
             this.txtPhone.Text = "请输入手机号";
             this.txtPhone.Click += new System.EventHandler(this.txtPhone_Click);
@@ -188,9 +189,9 @@
             this.btnAgree.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAgree.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnAgree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgree.Location = new System.Drawing.Point(27, 808);
+            this.btnAgree.Location = new System.Drawing.Point(27, 818);
             this.btnAgree.Name = "btnAgree";
-            this.btnAgree.Size = new System.Drawing.Size(42, 51);
+            this.btnAgree.Size = new System.Drawing.Size(42, 41);
             this.btnAgree.TabIndex = 43;
             this.btnAgree.UseVisualStyleBackColor = false;
             this.btnAgree.Click += new System.EventHandler(this.btnAgree_Click);
@@ -228,9 +229,9 @@
             this.btnNoAgree.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnNoAgree.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnNoAgree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNoAgree.Location = new System.Drawing.Point(27, 809);
+            this.btnNoAgree.Location = new System.Drawing.Point(27, 818);
             this.btnNoAgree.Name = "btnNoAgree";
-            this.btnNoAgree.Size = new System.Drawing.Size(42, 51);
+            this.btnNoAgree.Size = new System.Drawing.Size(42, 41);
             this.btnNoAgree.TabIndex = 44;
             this.btnNoAgree.UseVisualStyleBackColor = false;
             this.btnNoAgree.Click += new System.EventHandler(this.btnNoAgree_Click);
@@ -252,7 +253,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Red;
-            this.linkLabel1.Location = new System.Drawing.Point(315, 1263);
+            this.linkLabel1.Location = new System.Drawing.Point(451, 962);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(143, 33);
@@ -285,40 +286,19 @@
             this.panelSuccess.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSuccess.Controls.Add(this.panelSuccTwo);
-            this.panelSuccess.Location = new System.Drawing.Point(343, 149);
+            this.panelSuccess.Location = new System.Drawing.Point(-2, -3);
             this.panelSuccess.Name = "panelSuccess";
-            this.panelSuccess.Size = new System.Drawing.Size(611, 1012);
+            this.panelSuccess.Size = new System.Drawing.Size(647, 1011);
             this.panelSuccess.TabIndex = 0;
-            // 
-            // panelSuccTwo
-            // 
-            this.panelSuccTwo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSuccTwo.BackgroundImage")));
-            this.panelSuccTwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelSuccTwo.Controls.Add(this.txtSuccess);
-            this.panelSuccTwo.Location = new System.Drawing.Point(87, 317);
-            this.panelSuccTwo.Name = "panelSuccTwo";
-            this.panelSuccTwo.Size = new System.Drawing.Size(453, 299);
-            this.panelSuccTwo.TabIndex = 1;
-            // 
-            // txtSuccess
-            // 
-            this.txtSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSuccess.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtSuccess.Location = new System.Drawing.Point(213, 246);
-            this.txtSuccess.Multiline = true;
-            this.txtSuccess.Name = "txtSuccess";
-            this.txtSuccess.Size = new System.Drawing.Size(33, 32);
-            this.txtSuccess.TabIndex = 0;
             // 
             // panelFail
             // 
             this.panelFail.BackColor = System.Drawing.Color.White;
             this.panelFail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelFail.Controls.Add(this.panelSuccess);
             this.panelFail.Controls.Add(this.panelFailTwo);
-            this.panelFail.Location = new System.Drawing.Point(189, 187);
+            this.panelFail.Location = new System.Drawing.Point(1, 0);
             this.panelFail.Name = "panelFail";
-            this.panelFail.Size = new System.Drawing.Size(611, 1011);
+            this.panelFail.Size = new System.Drawing.Size(647, 1011);
             this.panelFail.TabIndex = 51;
             // 
             // panelFailTwo
@@ -353,14 +333,33 @@
             this.txtZhuCeSuccess.Size = new System.Drawing.Size(78, 39);
             this.txtZhuCeSuccess.TabIndex = 1;
             // 
+            // panelSuccTwo
+            // 
+            this.panelSuccTwo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSuccTwo.BackgroundImage")));
+            this.panelSuccTwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelSuccTwo.Controls.Add(this.txtSuccess);
+            this.panelSuccTwo.Location = new System.Drawing.Point(87, 317);
+            this.panelSuccTwo.Name = "panelSuccTwo";
+            this.panelSuccTwo.Size = new System.Drawing.Size(453, 299);
+            this.panelSuccTwo.TabIndex = 1;
+            // 
+            // txtSuccess
+            // 
+            this.txtSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSuccess.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtSuccess.Location = new System.Drawing.Point(213, 246);
+            this.txtSuccess.Multiline = true;
+            this.txtSuccess.Name = "txtSuccess";
+            this.txtSuccess.Size = new System.Drawing.Size(33, 32);
+            this.txtSuccess.TabIndex = 0;
+            // 
             // panelWait
             // 
             this.panelWait.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelWait.Controls.Add(this.panelFail);
             this.panelWait.Controls.Add(this.panelWaittwo);
-            this.panelWait.Location = new System.Drawing.Point(621, 349);
+            this.panelWait.Location = new System.Drawing.Point(2, 4);
             this.panelWait.Name = "panelWait";
-            this.panelWait.Size = new System.Drawing.Size(611, 1012);
+            this.panelWait.Size = new System.Drawing.Size(647, 1011);
             this.panelWait.TabIndex = 54;
             // 
             // panelWaittwo
@@ -491,6 +490,7 @@
             // panelAll
             // 
             this.panelAll.BackColor = System.Drawing.Color.White;
+            this.panelAll.Controls.Add(this.label7);
             this.panelAll.Controls.Add(this.linkLabel6);
             this.panelAll.Controls.Add(this.linkLabel5);
             this.panelAll.Controls.Add(this.link2);
@@ -516,88 +516,105 @@
             this.panelAll.Controls.Add(this.picIsShow);
             this.panelAll.Controls.Add(this.linkReturns);
             this.panelAll.Controls.Add(this.btnRegister);
-            this.panelAll.Location = new System.Drawing.Point(2, 2);
+            this.panelAll.Location = new System.Drawing.Point(3, -2);
             this.panelAll.Name = "panelAll";
-            this.panelAll.Size = new System.Drawing.Size(667, 1044);
+            this.panelAll.Size = new System.Drawing.Size(647, 1011);
             this.panelAll.TabIndex = 62;
             this.panelAll.SizeChanged += new System.EventHandler(this.panelAll_SizeChanged);
+            this.panelAll.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAll_Paint);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 18F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label7.Location = new System.Drawing.Point(29, 468);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(230, 31);
+            this.label7.TabIndex = 68;
+            this.label7.Text = "请拍照进行人脸识别";
             // 
             // linkLabel6
             // 
+            this.linkLabel6.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.linkLabel6.AutoSize = true;
             this.linkLabel6.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel6.Location = new System.Drawing.Point(20, 179);
+            this.linkLabel6.Location = new System.Drawing.Point(16, 170);
             this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(629, 12);
+            this.linkLabel6.Size = new System.Drawing.Size(599, 12);
             this.linkLabel6.TabIndex = 67;
             this.linkLabel6.TabStop = true;
             this.linkLabel6.Text = "                                                                                 " +
-    "                       ";
+    "                  ";
             // 
             // linkLabel5
             // 
+            this.linkLabel5.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.linkLabel5.AutoSize = true;
             this.linkLabel5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel5.Location = new System.Drawing.Point(21, 243);
+            this.linkLabel5.Location = new System.Drawing.Point(16, 237);
             this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(733, 12);
+            this.linkLabel5.Size = new System.Drawing.Size(600, 12);
             this.linkLabel5.TabIndex = 66;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "                                                                                 " +
-    "                       ";
+    "    ";
             // 
             // linkLabel4
             // 
+            this.linkLabel4.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.linkLabel4.AutoSize = true;
             this.linkLabel4.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel4.Location = new System.Drawing.Point(29, 312);
+            this.linkLabel4.Location = new System.Drawing.Point(11, 302);
             this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(533, 12);
+            this.linkLabel4.Size = new System.Drawing.Size(611, 12);
             this.linkLabel4.TabIndex = 65;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "                                                                                 " +
-    "       ";
+    "                    ";
             // 
             // linkLabel3
             // 
+            this.linkLabel3.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel3.Location = new System.Drawing.Point(20, 378);
+            this.linkLabel3.Location = new System.Drawing.Point(11, 373);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(533, 12);
+            this.linkLabel3.Size = new System.Drawing.Size(611, 12);
             this.linkLabel3.TabIndex = 64;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "                                                                                 " +
-    "       ";
+    "                    ";
             // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel2.Location = new System.Drawing.Point(33, 445);
+            this.linkLabel2.Location = new System.Drawing.Point(11, 439);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(533, 12);
+            this.linkLabel2.Size = new System.Drawing.Size(611, 12);
             this.linkLabel2.TabIndex = 63;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "                                                                                 " +
-    "       ";
+    "                    ";
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("微软雅黑", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.ForeColor = System.Drawing.Color.Blue;
-            this.button1.Location = new System.Drawing.Point(35, 33);
+            this.button1.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.button1.Location = new System.Drawing.Point(35, 43);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(594, 73);
+            this.button1.Size = new System.Drawing.Size(594, 57);
             this.button1.TabIndex = 62;
-            this.button1.Text = "明 医 实 名 就 医 刷 脸 注 册";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // FaceRegister
@@ -605,10 +622,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(673, 1022);
+            this.ClientSize = new System.Drawing.Size(652, 1015);
             this.Controls.Add(this.panelAll);
             this.Controls.Add(this.panelWait);
+            this.Controls.Add(this.panelSuccess);
+            this.Controls.Add(this.panelFail);
             this.Controls.Add(this.linkLabel1);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.DoubleBuffered = true;
@@ -625,11 +645,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).EndInit();
             this.panelSuccess.ResumeLayout(false);
-            this.panelSuccTwo.ResumeLayout(false);
-            this.panelSuccTwo.PerformLayout();
             this.panelFail.ResumeLayout(false);
             this.panelFailTwo.ResumeLayout(false);
             this.panelFailTwo.PerformLayout();
+            this.panelSuccTwo.ResumeLayout(false);
+            this.panelSuccTwo.PerformLayout();
             this.panelWait.ResumeLayout(false);
             this.panelWaittwo.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -683,5 +703,6 @@
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.LinkLabel linkLabel6;
+        private System.Windows.Forms.Label label7;
     }
 }

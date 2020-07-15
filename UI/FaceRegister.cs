@@ -49,7 +49,7 @@ namespace UI
         //判断是否超过三次注册失败
         public string FirstRegi = "";
         public string SecondRegi = "";
-
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FaceRegister));
 
         public int ShibaiDao = 0;
         public int ChengGong = 0;
@@ -67,8 +67,8 @@ namespace UI
             {
                 //WebReference.WSFaces wsf = new WebReference.WSFaces();//我们的接口服务
                 //Paneljps.Visible = false;
-
-                WebFace.WSFaces wsf = new WebFace.WSFaces();
+                Test.WSFaces wsf = new Test.WSFaces();
+                //WebFace.WSFaces wsf = new WebFace.WSFaces();
                 yPhone = txtPhone.Text.Trim();
                 //Regex rx = new Regex(@"((^13[0-9]{1}[0-9]{8}|^15[0-9]{1}[0-9]{8}|^14[0-9]{1}[0-9]{8}|^16[0-9]{1}[0-9]{8}|^17[0-9]{1}[0-9]{8}|^18[0-9]{1}[0-9]{8}|^19[0-9]{1}[0-9]{8})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)");
                 if (!Phone(txtPhone.Text.Trim()))
@@ -114,7 +114,7 @@ namespace UI
             txtZhuCeSuccess.Visible = false;
 
             staus = 0;
-
+            
             //覆盖同意协议和注册按钮
             //panelCang.Visible = false;
             timer1.Start();
@@ -459,6 +459,7 @@ namespace UI
 
             isStartFun();
             //等待中
+           
             panelWait.Visible = true;
             panelWait.BackColor = Color.FromArgb(80,192,192,192);
 
@@ -676,7 +677,8 @@ namespace UI
             }
             #endregion
 
-            WebFace.WSFaces wsf = new WebFace.WSFaces();
+            Test.WSFaces wsf = new Test.WSFaces();
+            //WebFace.WSFaces wsf = new WebFace.WSFaces();
 
             #region 调用注册接口（公安）验证
             string result = wsf.AuthenPliceFace(Sidnum, SName, this.txtPhone.Text, SNation, Address, photoImg);
@@ -1498,7 +1500,7 @@ namespace UI
             Sidnum = ""; SName = ""; yPhone = ""; SNation = ""; Address = "";
             isStart = 0;
             picIsShow.Visible = true;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FaceRegister));
+          
             picIsShow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picIsShow.BackgroundImage")));
             //关闭摄像头
             //videPlayer.SignalToStop();
