@@ -45,15 +45,15 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnRegister = new System.Windows.Forms.Button();
             this.panelSuccess = new System.Windows.Forms.Panel();
+            this.panelWait = new System.Windows.Forms.Panel();
+            this.panelWaittwo = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelSuccTwo = new System.Windows.Forms.Panel();
+            this.txtSuccess = new System.Windows.Forms.TextBox();
             this.panelFail = new System.Windows.Forms.Panel();
             this.panelFailTwo = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtZhuCeSuccess = new System.Windows.Forms.TextBox();
-            this.panelSuccTwo = new System.Windows.Forms.Panel();
-            this.txtSuccess = new System.Windows.Forms.TextBox();
-            this.panelWait = new System.Windows.Forms.Panel();
-            this.panelWaittwo = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.linkReturns = new System.Windows.Forms.LinkLabel();
             this.txtFails = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -75,11 +75,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).BeginInit();
             this.panelSuccess.SuspendLayout();
-            this.panelFail.SuspendLayout();
-            this.panelFailTwo.SuspendLayout();
-            this.panelSuccTwo.SuspendLayout();
             this.panelWait.SuspendLayout();
             this.panelWaittwo.SuspendLayout();
+            this.panelSuccTwo.SuspendLayout();
+            this.panelFail.SuspendLayout();
+            this.panelFailTwo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelAll.SuspendLayout();
             this.SuspendLayout();
@@ -172,11 +172,12 @@
             // 
             this.picText.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picText.BackgroundImage")));
             this.picText.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picText.Location = new System.Drawing.Point(86, 818);
+            this.picText.Location = new System.Drawing.Point(75, 820);
             this.picText.Name = "picText";
             this.picText.Size = new System.Drawing.Size(436, 39);
             this.picText.TabIndex = 45;
             this.picText.TabStop = false;
+            this.picText.Click += new System.EventHandler(this.picText_Click);
             // 
             // btnAgree
             // 
@@ -286,17 +287,65 @@
             this.panelSuccess.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSuccess.Controls.Add(this.panelSuccTwo);
-            this.panelSuccess.Location = new System.Drawing.Point(-2, -3);
+            this.panelSuccess.Location = new System.Drawing.Point(1, 1);
             this.panelSuccess.Name = "panelSuccess";
             this.panelSuccess.Size = new System.Drawing.Size(647, 1011);
             this.panelSuccess.TabIndex = 0;
+            // 
+            // panelWait
+            // 
+            this.panelWait.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelWait.Controls.Add(this.panelWaittwo);
+            this.panelWait.Location = new System.Drawing.Point(2, 1);
+            this.panelWait.Name = "panelWait";
+            this.panelWait.Size = new System.Drawing.Size(647, 1011);
+            this.panelWait.TabIndex = 54;
+            // 
+            // panelWaittwo
+            // 
+            this.panelWaittwo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelWaittwo.BackgroundImage")));
+            this.panelWaittwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelWaittwo.Controls.Add(this.label1);
+            this.panelWaittwo.Location = new System.Drawing.Point(95, 360);
+            this.panelWaittwo.Name = "panelWaittwo";
+            this.panelWaittwo.Size = new System.Drawing.Size(458, 255);
+            this.panelWaittwo.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(116, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(209, 158);
+            this.label1.TabIndex = 0;
+            // 
+            // panelSuccTwo
+            // 
+            this.panelSuccTwo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSuccTwo.BackgroundImage")));
+            this.panelSuccTwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelSuccTwo.Controls.Add(this.txtSuccess);
+            this.panelSuccTwo.Location = new System.Drawing.Point(87, 317);
+            this.panelSuccTwo.Name = "panelSuccTwo";
+            this.panelSuccTwo.Size = new System.Drawing.Size(453, 299);
+            this.panelSuccTwo.TabIndex = 1;
+            // 
+            // txtSuccess
+            // 
+            this.txtSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSuccess.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtSuccess.Location = new System.Drawing.Point(213, 246);
+            this.txtSuccess.Multiline = true;
+            this.txtSuccess.Name = "txtSuccess";
+            this.txtSuccess.Size = new System.Drawing.Size(33, 32);
+            this.txtSuccess.TabIndex = 0;
             // 
             // panelFail
             // 
             this.panelFail.BackColor = System.Drawing.Color.White;
             this.panelFail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelFail.Controls.Add(this.panelFailTwo);
-            this.panelFail.Location = new System.Drawing.Point(1, 0);
+            this.panelFail.Location = new System.Drawing.Point(0, 4);
             this.panelFail.Name = "panelFail";
             this.panelFail.Size = new System.Drawing.Size(647, 1011);
             this.panelFail.TabIndex = 51;
@@ -332,54 +381,6 @@
             this.txtZhuCeSuccess.Name = "txtZhuCeSuccess";
             this.txtZhuCeSuccess.Size = new System.Drawing.Size(78, 39);
             this.txtZhuCeSuccess.TabIndex = 1;
-            // 
-            // panelSuccTwo
-            // 
-            this.panelSuccTwo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSuccTwo.BackgroundImage")));
-            this.panelSuccTwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelSuccTwo.Controls.Add(this.txtSuccess);
-            this.panelSuccTwo.Location = new System.Drawing.Point(87, 317);
-            this.panelSuccTwo.Name = "panelSuccTwo";
-            this.panelSuccTwo.Size = new System.Drawing.Size(453, 299);
-            this.panelSuccTwo.TabIndex = 1;
-            // 
-            // txtSuccess
-            // 
-            this.txtSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSuccess.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtSuccess.Location = new System.Drawing.Point(213, 246);
-            this.txtSuccess.Multiline = true;
-            this.txtSuccess.Name = "txtSuccess";
-            this.txtSuccess.Size = new System.Drawing.Size(33, 32);
-            this.txtSuccess.TabIndex = 0;
-            // 
-            // panelWait
-            // 
-            this.panelWait.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelWait.Controls.Add(this.panelWaittwo);
-            this.panelWait.Location = new System.Drawing.Point(2, 4);
-            this.panelWait.Name = "panelWait";
-            this.panelWait.Size = new System.Drawing.Size(647, 1011);
-            this.panelWait.TabIndex = 54;
-            // 
-            // panelWaittwo
-            // 
-            this.panelWaittwo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelWaittwo.BackgroundImage")));
-            this.panelWaittwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelWaittwo.Controls.Add(this.label1);
-            this.panelWaittwo.Location = new System.Drawing.Point(95, 360);
-            this.panelWaittwo.Name = "panelWaittwo";
-            this.panelWaittwo.Size = new System.Drawing.Size(458, 255);
-            this.panelWaittwo.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(116, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(209, 158);
-            this.label1.TabIndex = 0;
             // 
             // linkReturns
             // 
@@ -480,7 +481,7 @@
             this.btnNofinsh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNofinsh.Font = new System.Drawing.Font("微软雅黑", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnNofinsh.ForeColor = System.Drawing.Color.Blue;
-            this.btnNofinsh.Location = new System.Drawing.Point(25, 887);
+            this.btnNofinsh.Location = new System.Drawing.Point(25, 883);
             this.btnNofinsh.Name = "btnNofinsh";
             this.btnNofinsh.Size = new System.Drawing.Size(594, 91);
             this.btnNofinsh.TabIndex = 61;
@@ -521,7 +522,7 @@
             this.panelAll.Size = new System.Drawing.Size(647, 1011);
             this.panelAll.TabIndex = 62;
             this.panelAll.SizeChanged += new System.EventHandler(this.panelAll_SizeChanged);
-            this.panelAll.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAll_Paint);
+            this.panelAll.MouseLeave += new System.EventHandler(this.panelAll_MouseLeave);
             // 
             // label7
             // 
@@ -625,10 +626,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(652, 1015);
-            this.Controls.Add(this.panelAll);
             this.Controls.Add(this.panelWait);
             this.Controls.Add(this.panelSuccess);
             this.Controls.Add(this.panelFail);
+            this.Controls.Add(this.panelAll);
             this.Controls.Add(this.linkLabel1);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.DoubleBuffered = true;
@@ -645,13 +646,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).EndInit();
             this.panelSuccess.ResumeLayout(false);
+            this.panelWait.ResumeLayout(false);
+            this.panelWaittwo.ResumeLayout(false);
+            this.panelSuccTwo.ResumeLayout(false);
+            this.panelSuccTwo.PerformLayout();
             this.panelFail.ResumeLayout(false);
             this.panelFailTwo.ResumeLayout(false);
             this.panelFailTwo.PerformLayout();
-            this.panelSuccTwo.ResumeLayout(false);
-            this.panelSuccTwo.PerformLayout();
-            this.panelWait.ResumeLayout(false);
-            this.panelWaittwo.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelAll.ResumeLayout(false);

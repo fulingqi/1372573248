@@ -99,6 +99,9 @@ namespace UI
 
         private void FaceRegister_Load(object sender, EventArgs e)
         {
+
+            base.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - base.Width, Screen.PrimaryScreen.WorkingArea.Height - base.Height);
+            
             asc.controllInitializeSize(this);
             //起始同意
             btnAgree.Visible = true;
@@ -133,99 +136,7 @@ namespace UI
 
 
 
-        #region 刷身份证所用到的基类
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = 1)]
-        public struct IDCardData
-        {
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
-            public string Name; //姓名   
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 6)]
-            public string Sex;   //性别
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 20)]
-            public string Nation; //名族
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 18)]
-            public string Born; //出生日期
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 72)]
-            public string Address; //住址
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 38)]
-            public string IDCardNo; //身份证号
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
-            public string GrantDept; //发证机关
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 18)]
-            public string UserLifeBegin; // 有效开始日期
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 18)]
-            public string UserLifeEnd;  // 有效截止日期
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 38)]
-            public string reserved; // 保留
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 255)]
-            public string PhotoFileName; // 照片路径
-        }
-        /************************端口类API *************************/
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_GetCOMBaud", CharSet = CharSet.Ansi)]
-        public static extern int Syn_GetCOMBaud(int iPort, ref uint puiBaudRate);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetCOMBaud", CharSet = CharSet.Ansi)]
-        public static extern int Syn_SetCOMBaud(int iPort, uint uiCurrBaud, uint uiSetBaud);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_OpenPort", CharSet = CharSet.Ansi)]
-        public static extern int Syn_OpenPort(int iPort);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ClosePort", CharSet = CharSet.Ansi)]
-        public static extern int Syn_ClosePort(int iPort);
-        /**************************SAM类函数 **************************/
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetMaxRFByte", CharSet = CharSet.Ansi)]
-        public static extern int Syn_SetMaxRFByte(int iPort, byte ucByte, int iIfOpen);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ResetSAM", CharSet = CharSet.Ansi)]
-        public static extern int Syn_ResetSAM(int iPort, int iIfOpen);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_GetSAMStatus", CharSet = CharSet.Ansi)]
-        public static extern int Syn_GetSAMStatus(int iPort, int iIfOpen);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_GetSAMID", CharSet = CharSet.Ansi)]
-        public static extern int Syn_GetSAMID(int iPort, ref byte pucSAMID, int iIfOpen);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_GetSAMIDToStr", CharSet = CharSet.Ansi)]
-        public static extern int Syn_GetSAMIDToStr(int iPort, ref byte pcSAMID, int iIfOpen);
-        /*************************身份证卡类函数 ***************************/
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_StartFindIDCard", CharSet = CharSet.Ansi)]
-        public static extern int Syn_StartFindIDCard(int iPort, ref byte pucIIN, int iIfOpen);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SelectIDCard", CharSet = CharSet.Ansi)]
-        public static extern int Syn_SelectIDCard(int iPort, ref byte pucSN, int iIfOpen);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadBaseMsg", CharSet = CharSet.Ansi)]
-        public static extern int Syn_ReadBaseMsg(int iPort, ref byte pucCHMsg, ref uint puiCHMsgLen, ref byte pucPHMsg, ref uint puiPHMsgLen, int iIfOpen);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadBaseMsgToFile", CharSet = CharSet.Ansi)]
-        public static extern int Syn_ReadBaseMsgToFile(int iPort, ref byte pcCHMsgFileName, ref uint puiCHMsgFileLen, ref byte pcPHMsgFileName, ref uint puiPHMsgFileLen, int iIfOpen);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadBaseFPMsg", CharSet = CharSet.Ansi)]
-        public static extern int Syn_ReadBaseFPMsg(int iPort, ref byte pucCHMsg, ref uint puiCHMsgLen, ref byte pucPHMsg, ref uint puiPHMsgLen, ref byte pucFPMsg, ref uint puiFPMsgLen, int iIfOpen);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadBaseFPMsgToFile", CharSet = CharSet.Ansi)]
-        public static extern int Syn_ReadBaseFPMsgToFile(int iPort, ref byte pcCHMsgFileName, ref uint puiCHMsgFileLen, ref byte pcPHMsgFileName, ref uint puiPHMsgFileLen, ref byte pcFPMsgFileName, ref uint puiFPMsgFileLen, int iIfOpen);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadNewAppMsg", CharSet = CharSet.Ansi)]
-        public static extern int Syn_ReadNewAppMsg(int iPort, ref byte pucAppMsg, ref uint puiAppMsgLen, int iIfOpen);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_GetBmp", CharSet = CharSet.Ansi)]
-        public static extern int Syn_GetBmp(int iPort, ref byte Wlt_File);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadMsg", CharSet = CharSet.Ansi)]
-        public static extern int Syn_ReadMsg(int iPortID, int iIfOpen, ref IDCardData pIDCardData);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadFPMsg", CharSet = CharSet.Ansi)]
-        public static extern int Syn_ReadFPMsg(int iPortID, int iIfOpen, ref IDCardData pIDCardData, ref byte cFPhotoname);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_FindReader", CharSet = CharSet.Ansi)]
-        public static extern int Syn_FindReader();
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_FindUSBReader", CharSet = CharSet.Ansi)]
-        public static extern int Syn_FindUSBReader();
-        /***********************设置附加功能函数 ************************/
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetPhotoPath", CharSet = CharSet.Ansi)]
-        public static extern int Syn_SetPhotoPath(int iOption, ref byte cPhotoPath);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetPhotoType", CharSet = CharSet.Ansi)]
-        public static extern int Syn_SetPhotoType(int iType);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetPhotoName", CharSet = CharSet.Ansi)]
-        public static extern int Syn_SetPhotoName(int iType);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetSexType", CharSet = CharSet.Ansi)]
-        public static extern int Syn_SetSexType(int iType);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetNationType", CharSet = CharSet.Ansi)]
-        public static extern int Syn_SetNationType(int iType);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetBornType", CharSet = CharSet.Ansi)]
-        public static extern int Syn_SetBornType(int iType);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetUserLifeBType", CharSet = CharSet.Ansi)]
-        public static extern int Syn_SetUserLifeBType(int iType);
-        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetUserLifeEType", CharSet = CharSet.Ansi)]
-        public static extern int Syn_SetUserLifeEType(int iType, int iOption);
-
-        int m_iPort;
-
-        #endregion
+  
 
         #region 点击屏幕区域隐藏软键盘
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -550,7 +461,23 @@ namespace UI
 
         #region 注册按钮
 
+        private void panelAll_MouseLeave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.txtAddress.Text) && !string.IsNullOrEmpty(this.txtName.Text) && !string.IsNullOrEmpty(this.txtIDCard.Text) && !string.IsNullOrEmpty(this.txtYan.Text) && !string.IsNullOrEmpty(this.txtPhone.Text))
+            {
+                if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg != null && IsAgree == 1)
+                {
+                    //实名注册刷脸就医按钮隐藏
+                    //btnNofinsh.Visible = false;
 
+                    //panelCang.Visible = true;
+                    //panelCang.BackColor = Color.White;
+                    //btnRegister.Visible = true;
+                    YinCangButton();
+                }
+            }
+
+        }
         private void FaceRegister_MouseLeave(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(this.txtAddress.Text) && !string.IsNullOrEmpty(this.txtName.Text) && !string.IsNullOrEmpty(this.txtIDCard.Text) && !string.IsNullOrEmpty(this.txtYan.Text) && !string.IsNullOrEmpty(this.txtPhone.Text))
@@ -558,15 +485,24 @@ namespace UI
                 if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg!=null&&IsAgree==1)
                 {
                     //实名注册刷脸就医按钮隐藏
-                    btnNofinsh.Visible = false;
+                    //btnNofinsh.Visible = false;
 
                     //panelCang.Visible = true;
                     //panelCang.BackColor = Color.White;
-                    btnRegister.Visible = true;
+                    //btnRegister.Visible = true;
+                    YinCangButton();
                 }
             }
         }
+        private void YinCangButton()
+        {
+            picText.Visible = false;
+            btnNoAgree.Visible = false;
+            btnAgree.Visible = false;
+            btnNofinsh.Visible = false;
 
+            btnRegister.Visible = true;
+        }
         private void button10_Click(object sender, EventArgs e)
         {
             //所有的信息填完之后注册按钮变为蓝色
@@ -592,6 +528,12 @@ namespace UI
                 btnRegister.Visible = false;
             }
 
+        }
+        private void picText_Click(object sender, EventArgs e)
+        {
+            MingYiPrivacyPolicy m = new MingYiPrivacyPolicy();
+            m.StartPosition = FormStartPosition.CenterScreen;
+            m.Show();
         }
 
         private void Register()
@@ -1278,7 +1220,7 @@ namespace UI
             string str = Convert.ToBase64String(bytedata);
             byte[] data = Encoding.ASCII.GetBytes(str);
             
-            client.Send(data);
+          int a=  client.Send(data);
         }
 
 
@@ -1375,7 +1317,7 @@ namespace UI
         {
             FileStream jpgStream = new FileStream(System.IO.Path.GetFullPath(".\\") + "temp.jpg", FileMode.Open);
             byte[] bytes = StreamToBytes(jpgStream);
-
+            photoImg = bytes;
             picIsShow.BackgroundImage = Image.FromStream(jpgStream);
             jpgStream.Close();
             jpgStream.Dispose();
@@ -1497,6 +1439,7 @@ namespace UI
             this.txtIDCard.Text = "请输入身份证号";
             this.txtAddress.Text = "请输入地址";
             this.txtYan.Text = "请输入验证码";
+            this.link3.Text = "获取验证码";
             Sidnum = ""; SName = ""; yPhone = ""; SNation = ""; Address = "";
             isStart = 0;
             picIsShow.Visible = true;
@@ -1510,6 +1453,10 @@ namespace UI
             btnNoAgree.Visible = false;
             btnAgree.Visible = true;
             IsAgree = 1;
+
+
+            picText.Visible = true;
+            btnNofinsh.Visible = true;
             //btnNoAgree.BringToFront();
         }
 
@@ -1517,6 +1464,9 @@ namespace UI
         {
             asc.controlAutoSize(this);
         }
+        
+
+
         #endregion
 
         #region 自适应大小
@@ -1585,5 +1535,99 @@ namespace UI
         }
         #endregion
 
+
+        #region 刷身份证所用到的基类
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = 1)]
+        public struct IDCardData
+        {
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
+            public string Name; //姓名   
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 6)]
+            public string Sex;   //性别
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 20)]
+            public string Nation; //名族
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 18)]
+            public string Born; //出生日期
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 72)]
+            public string Address; //住址
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 38)]
+            public string IDCardNo; //身份证号
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
+            public string GrantDept; //发证机关
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 18)]
+            public string UserLifeBegin; // 有效开始日期
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 18)]
+            public string UserLifeEnd;  // 有效截止日期
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 38)]
+            public string reserved; // 保留
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 255)]
+            public string PhotoFileName; // 照片路径
+        }
+        /************************端口类API *************************/
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_GetCOMBaud", CharSet = CharSet.Ansi)]
+        public static extern int Syn_GetCOMBaud(int iPort, ref uint puiBaudRate);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetCOMBaud", CharSet = CharSet.Ansi)]
+        public static extern int Syn_SetCOMBaud(int iPort, uint uiCurrBaud, uint uiSetBaud);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_OpenPort", CharSet = CharSet.Ansi)]
+        public static extern int Syn_OpenPort(int iPort);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ClosePort", CharSet = CharSet.Ansi)]
+        public static extern int Syn_ClosePort(int iPort);
+        /**************************SAM类函数 **************************/
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetMaxRFByte", CharSet = CharSet.Ansi)]
+        public static extern int Syn_SetMaxRFByte(int iPort, byte ucByte, int iIfOpen);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ResetSAM", CharSet = CharSet.Ansi)]
+        public static extern int Syn_ResetSAM(int iPort, int iIfOpen);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_GetSAMStatus", CharSet = CharSet.Ansi)]
+        public static extern int Syn_GetSAMStatus(int iPort, int iIfOpen);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_GetSAMID", CharSet = CharSet.Ansi)]
+        public static extern int Syn_GetSAMID(int iPort, ref byte pucSAMID, int iIfOpen);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_GetSAMIDToStr", CharSet = CharSet.Ansi)]
+        public static extern int Syn_GetSAMIDToStr(int iPort, ref byte pcSAMID, int iIfOpen);
+        /*************************身份证卡类函数 ***************************/
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_StartFindIDCard", CharSet = CharSet.Ansi)]
+        public static extern int Syn_StartFindIDCard(int iPort, ref byte pucIIN, int iIfOpen);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SelectIDCard", CharSet = CharSet.Ansi)]
+        public static extern int Syn_SelectIDCard(int iPort, ref byte pucSN, int iIfOpen);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadBaseMsg", CharSet = CharSet.Ansi)]
+        public static extern int Syn_ReadBaseMsg(int iPort, ref byte pucCHMsg, ref uint puiCHMsgLen, ref byte pucPHMsg, ref uint puiPHMsgLen, int iIfOpen);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadBaseMsgToFile", CharSet = CharSet.Ansi)]
+        public static extern int Syn_ReadBaseMsgToFile(int iPort, ref byte pcCHMsgFileName, ref uint puiCHMsgFileLen, ref byte pcPHMsgFileName, ref uint puiPHMsgFileLen, int iIfOpen);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadBaseFPMsg", CharSet = CharSet.Ansi)]
+        public static extern int Syn_ReadBaseFPMsg(int iPort, ref byte pucCHMsg, ref uint puiCHMsgLen, ref byte pucPHMsg, ref uint puiPHMsgLen, ref byte pucFPMsg, ref uint puiFPMsgLen, int iIfOpen);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadBaseFPMsgToFile", CharSet = CharSet.Ansi)]
+        public static extern int Syn_ReadBaseFPMsgToFile(int iPort, ref byte pcCHMsgFileName, ref uint puiCHMsgFileLen, ref byte pcPHMsgFileName, ref uint puiPHMsgFileLen, ref byte pcFPMsgFileName, ref uint puiFPMsgFileLen, int iIfOpen);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadNewAppMsg", CharSet = CharSet.Ansi)]
+        public static extern int Syn_ReadNewAppMsg(int iPort, ref byte pucAppMsg, ref uint puiAppMsgLen, int iIfOpen);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_GetBmp", CharSet = CharSet.Ansi)]
+        public static extern int Syn_GetBmp(int iPort, ref byte Wlt_File);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadMsg", CharSet = CharSet.Ansi)]
+        public static extern int Syn_ReadMsg(int iPortID, int iIfOpen, ref IDCardData pIDCardData);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_ReadFPMsg", CharSet = CharSet.Ansi)]
+        public static extern int Syn_ReadFPMsg(int iPortID, int iIfOpen, ref IDCardData pIDCardData, ref byte cFPhotoname);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_FindReader", CharSet = CharSet.Ansi)]
+        public static extern int Syn_FindReader();
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_FindUSBReader", CharSet = CharSet.Ansi)]
+        public static extern int Syn_FindUSBReader();
+        /***********************设置附加功能函数 ************************/
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetPhotoPath", CharSet = CharSet.Ansi)]
+        public static extern int Syn_SetPhotoPath(int iOption, ref byte cPhotoPath);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetPhotoType", CharSet = CharSet.Ansi)]
+        public static extern int Syn_SetPhotoType(int iType);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetPhotoName", CharSet = CharSet.Ansi)]
+        public static extern int Syn_SetPhotoName(int iType);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetSexType", CharSet = CharSet.Ansi)]
+        public static extern int Syn_SetSexType(int iType);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetNationType", CharSet = CharSet.Ansi)]
+        public static extern int Syn_SetNationType(int iType);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetBornType", CharSet = CharSet.Ansi)]
+        public static extern int Syn_SetBornType(int iType);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetUserLifeBType", CharSet = CharSet.Ansi)]
+        public static extern int Syn_SetUserLifeBType(int iType);
+        [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetUserLifeEType", CharSet = CharSet.Ansi)]
+        public static extern int Syn_SetUserLifeEType(int iType, int iOption);
+
+        int m_iPort;
+
+        #endregion
     }
 }
