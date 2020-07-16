@@ -46,9 +46,7 @@ namespace UI
 
         public string errorMessage;
 
-        //判断是否超过三次注册失败
-        public string FirstRegi = "";
-        public string SecondRegi = "";
+        public int errorCount=0;
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FaceRegister));
 
         public int ShibaiDao = 0;
@@ -100,7 +98,7 @@ namespace UI
         private void FaceRegister_Load(object sender, EventArgs e)
         {
 
-            base.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - base.Width, Screen.PrimaryScreen.WorkingArea.Height - base.Height);
+            base.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - base.Width, Screen.PrimaryScreen.WorkingArea.Height - (base.Height-50));
             
             asc.controllInitializeSize(this);
             //起始同意
@@ -637,47 +635,17 @@ namespace UI
             }
             else
             {
-                if (string.IsNullOrEmpty(FirstRegi)&& string.IsNullOrEmpty(SecondRegi))
-                {
-                    FirstRegi = Sidnum;
-                }
-                else if (!string.IsNullOrEmpty(FirstRegi) && string.IsNullOrEmpty(SecondRegi))
-                {
-                    SecondRegi = Sidnum;
-                }
-                else if (FirstRegi == SecondRegi && SecondRegi != Sidnum)
-                {
-                    FirstRegi = SecondRegi;
-                    SecondRegi = Sidnum;
-                }
-                else if (FirstRegi != SecondRegi && SecondRegi != Sidnum)
-                {
-                    FirstRegi = SecondRegi;
-                    SecondRegi = Sidnum;
-                }
-                else if (FirstRegi != SecondRegi && SecondRegi == Sidnum)
-                {
-                    FirstRegi = SecondRegi;
-                    SecondRegi = Sidnum;
-                }
-                else if (!string.IsNullOrEmpty(FirstRegi) && !string.IsNullOrEmpty(SecondRegi)&&FirstRegi ==SecondRegi&& SecondRegi == Sidnum)
-                {
-                    ReturnUpLevel();
-                    FirstRegi = "";
-                    SecondRegi = "";
-                    SendMessage("6","1");
-                }
-                else
-                {
-
-                }
+                errorCount += 1;
                 errorMessage = obj["message"].ToString();
                 panelFail.Visible = true;
                 panelFail.BackColor = Color.FromArgb(80, 192, 192, 192);
                 textBox1.Visible = true;
                 textBox1.Enabled = true;
                 SendMessage("8", errorMessage);
-
+                if (errorCount==3)
+                {
+                    ReturnUpLevel();
+                }
             }
             isStart = 0;
             
@@ -1163,7 +1131,6 @@ namespace UI
             client.Connect(EPhost);
             SendMessage("6", "1");
             Thread.Sleep(500);
-            p.Close();
         }
         
         class SendData
@@ -1211,7 +1178,7 @@ namespace UI
         /// <param name="content"></param>
         private void SendMessage(string type, string content)
         {
-            if (client == null)
+            if (client==null)
             {
                 ConnectAndroid();
             }
@@ -1220,7 +1187,7 @@ namespace UI
             string str = Convert.ToBase64String(bytedata);
             byte[] data = Encoding.ASCII.GetBytes(str);
             
-          int a=  client.Send(data);
+           client.Send(data);
         }
 
 
@@ -1253,7 +1220,7 @@ namespace UI
         private void ReceiveResultMessage(string data)
         {
 
-            if (client == null)
+            if (client==null)
             {
                 ConnectAndroid();
             }
@@ -1424,7 +1391,7 @@ namespace UI
         {
             //ReveiveAndroid();
             //SendToAndroidData();
-
+            errorCount = 0;
             //实名注册刷脸就医按钮隐藏
             btnNofinsh.Visible = true;
 

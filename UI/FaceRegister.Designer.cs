@@ -45,11 +45,11 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnRegister = new System.Windows.Forms.Button();
             this.panelSuccess = new System.Windows.Forms.Panel();
+            this.panelSuccTwo = new System.Windows.Forms.Panel();
+            this.txtSuccess = new System.Windows.Forms.TextBox();
             this.panelWait = new System.Windows.Forms.Panel();
             this.panelWaittwo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelSuccTwo = new System.Windows.Forms.Panel();
-            this.txtSuccess = new System.Windows.Forms.TextBox();
             this.panelFail = new System.Windows.Forms.Panel();
             this.panelFailTwo = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -75,9 +75,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).BeginInit();
             this.panelSuccess.SuspendLayout();
+            this.panelSuccTwo.SuspendLayout();
             this.panelWait.SuspendLayout();
             this.panelWaittwo.SuspendLayout();
-            this.panelSuccTwo.SuspendLayout();
             this.panelFail.SuspendLayout();
             this.panelFailTwo.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -92,7 +92,7 @@
             this.txtName.Location = new System.Drawing.Point(149, 139);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(165, 37);
+            this.txtName.Size = new System.Drawing.Size(400, 37);
             this.txtName.TabIndex = 0;
             this.txtName.Text = "请输入姓名";
             this.txtName.Click += new System.EventHandler(this.txtName_Click);
@@ -107,7 +107,7 @@
             this.txtIDCard.Location = new System.Drawing.Point(148, 207);
             this.txtIDCard.Multiline = true;
             this.txtIDCard.Name = "txtIDCard";
-            this.txtIDCard.Size = new System.Drawing.Size(374, 33);
+            this.txtIDCard.Size = new System.Drawing.Size(400, 33);
             this.txtIDCard.TabIndex = 1;
             this.txtIDCard.Text = "请输入身份证号";
             this.txtIDCard.Click += new System.EventHandler(this.txtIDCard_Click);
@@ -123,7 +123,7 @@
             this.txtAddress.Location = new System.Drawing.Point(153, 273);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(369, 36);
+            this.txtAddress.Size = new System.Drawing.Size(400, 36);
             this.txtAddress.TabIndex = 2;
             this.txtAddress.Text = "请输入地址";
             this.txtAddress.Click += new System.EventHandler(this.txtAddress_Click);
@@ -155,7 +155,7 @@
             this.txtYan.Location = new System.Drawing.Point(153, 407);
             this.txtYan.Multiline = true;
             this.txtYan.Name = "txtYan";
-            this.txtYan.Size = new System.Drawing.Size(216, 37);
+            this.txtYan.Size = new System.Drawing.Size(400, 37);
             this.txtYan.TabIndex = 4;
             this.txtYan.Text = "请输入验证码";
             this.txtYan.Click += new System.EventHandler(this.txtYan_Click);
@@ -289,36 +289,8 @@
             this.panelSuccess.Controls.Add(this.panelSuccTwo);
             this.panelSuccess.Location = new System.Drawing.Point(1, 1);
             this.panelSuccess.Name = "panelSuccess";
-            this.panelSuccess.Size = new System.Drawing.Size(647, 1011);
+            this.panelSuccess.Size = new System.Drawing.Size(647, 1046);
             this.panelSuccess.TabIndex = 0;
-            // 
-            // panelWait
-            // 
-            this.panelWait.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelWait.Controls.Add(this.panelWaittwo);
-            this.panelWait.Location = new System.Drawing.Point(2, 1);
-            this.panelWait.Name = "panelWait";
-            this.panelWait.Size = new System.Drawing.Size(647, 1011);
-            this.panelWait.TabIndex = 54;
-            // 
-            // panelWaittwo
-            // 
-            this.panelWaittwo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelWaittwo.BackgroundImage")));
-            this.panelWaittwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelWaittwo.Controls.Add(this.label1);
-            this.panelWaittwo.Location = new System.Drawing.Point(95, 360);
-            this.panelWaittwo.Name = "panelWaittwo";
-            this.panelWaittwo.Size = new System.Drawing.Size(458, 255);
-            this.panelWaittwo.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(116, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(209, 158);
-            this.label1.TabIndex = 0;
             // 
             // panelSuccTwo
             // 
@@ -340,6 +312,34 @@
             this.txtSuccess.Size = new System.Drawing.Size(33, 32);
             this.txtSuccess.TabIndex = 0;
             // 
+            // panelWait
+            // 
+            this.panelWait.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelWait.Controls.Add(this.panelWaittwo);
+            this.panelWait.Location = new System.Drawing.Point(2, 1);
+            this.panelWait.Name = "panelWait";
+            this.panelWait.Size = new System.Drawing.Size(647, 1046);
+            this.panelWait.TabIndex = 54;
+            // 
+            // panelWaittwo
+            // 
+            this.panelWaittwo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelWaittwo.BackgroundImage")));
+            this.panelWaittwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelWaittwo.Controls.Add(this.label1);
+            this.panelWaittwo.Location = new System.Drawing.Point(95, 360);
+            this.panelWaittwo.Name = "panelWaittwo";
+            this.panelWaittwo.Size = new System.Drawing.Size(458, 255);
+            this.panelWaittwo.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(116, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(209, 158);
+            this.label1.TabIndex = 0;
+            // 
             // panelFail
             // 
             this.panelFail.BackColor = System.Drawing.Color.White;
@@ -347,7 +347,7 @@
             this.panelFail.Controls.Add(this.panelFailTwo);
             this.panelFail.Location = new System.Drawing.Point(0, 4);
             this.panelFail.Name = "panelFail";
-            this.panelFail.Size = new System.Drawing.Size(647, 1011);
+            this.panelFail.Size = new System.Drawing.Size(647, 1046);
             this.panelFail.TabIndex = 51;
             // 
             // panelFailTwo
@@ -519,7 +519,7 @@
             this.panelAll.Controls.Add(this.btnRegister);
             this.panelAll.Location = new System.Drawing.Point(3, -2);
             this.panelAll.Name = "panelAll";
-            this.panelAll.Size = new System.Drawing.Size(647, 1011);
+            this.panelAll.Size = new System.Drawing.Size(647, 1046);
             this.panelAll.TabIndex = 62;
             this.panelAll.SizeChanged += new System.EventHandler(this.panelAll_SizeChanged);
             this.panelAll.MouseLeave += new System.EventHandler(this.panelAll_MouseLeave);
@@ -546,6 +546,7 @@
             this.linkLabel6.Size = new System.Drawing.Size(599, 12);
             this.linkLabel6.TabIndex = 67;
             this.linkLabel6.TabStop = true;
+            this.linkLabel6.Enabled = true;
             this.linkLabel6.Text = "                                                                                 " +
     "                  ";
             // 
@@ -560,6 +561,7 @@
             this.linkLabel5.Size = new System.Drawing.Size(600, 12);
             this.linkLabel5.TabIndex = 66;
             this.linkLabel5.TabStop = true;
+            this.linkLabel5.Enabled = true;
             this.linkLabel5.Text = "                                                                                 " +
     "    ";
             // 
@@ -573,6 +575,7 @@
             this.linkLabel4.Size = new System.Drawing.Size(611, 12);
             this.linkLabel4.TabIndex = 65;
             this.linkLabel4.TabStop = true;
+            this.linkLabel4.Enabled = true;
             this.linkLabel4.Text = "                                                                                 " +
     "                    ";
             // 
@@ -586,6 +589,7 @@
             this.linkLabel3.Size = new System.Drawing.Size(611, 12);
             this.linkLabel3.TabIndex = 64;
             this.linkLabel3.TabStop = true;
+            this.linkLabel3.Enabled = true;
             this.linkLabel3.Text = "                                                                                 " +
     "                    ";
             // 
@@ -598,6 +602,7 @@
             this.linkLabel2.Size = new System.Drawing.Size(611, 12);
             this.linkLabel2.TabIndex = 63;
             this.linkLabel2.TabStop = true;
+            this.linkLabel2.Enabled = true;
             this.linkLabel2.Text = "                                                                                 " +
     "                    ";
             // 
@@ -625,7 +630,7 @@
             this.AutoScroll = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(652, 1015);
+            this.ClientSize = new System.Drawing.Size(652, 1050);
             this.Controls.Add(this.panelWait);
             this.Controls.Add(this.panelSuccess);
             this.Controls.Add(this.panelFail);
@@ -646,10 +651,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).EndInit();
             this.panelSuccess.ResumeLayout(false);
-            this.panelWait.ResumeLayout(false);
-            this.panelWaittwo.ResumeLayout(false);
             this.panelSuccTwo.ResumeLayout(false);
             this.panelSuccTwo.PerformLayout();
+            this.panelWait.ResumeLayout(false);
+            this.panelWaittwo.ResumeLayout(false);
             this.panelFail.ResumeLayout(false);
             this.panelFailTwo.ResumeLayout(false);
             this.panelFailTwo.PerformLayout();
