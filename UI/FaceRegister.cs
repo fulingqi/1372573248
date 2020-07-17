@@ -52,6 +52,8 @@ namespace UI
         public int ShibaiDao = 0;
         public int ChengGong = 0;
         AutoSizeFormClass asc = new AutoSizeFormClass();
+
+        AutoSizeFormTwoClass ascTwo = new AutoSizeFormTwoClass();
         public FaceRegister()
         {
             InitializeComponent();
@@ -63,8 +65,8 @@ namespace UI
         {
             try
             {
-                //WebReference.WSFaces wsf = new WebReference.WSFaces();//我们的接口服务
-                //Paneljps.Visible = false;
+                SendMessage("13","1");
+
                 Test.WSFaces wsf = new Test.WSFaces();
                 //WebFace.WSFaces wsf = new WebFace.WSFaces();
                 yPhone = txtPhone.Text.Trim();
@@ -87,19 +89,20 @@ namespace UI
                 string s = ex.Message;
                 Logging.LogFile(s);
             }
-
-
-            #region 倒计时事件
-            //timer1.Start();
-            #endregion
+            
         }
         #endregion
+
+        private void FaceRegister_SizeChanged(object sender, EventArgs e)
+        {
+            asc.controlAutoSize(this);
+        }
 
         private void FaceRegister_Load(object sender, EventArgs e)
         {
 
             base.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - base.Width, Screen.PrimaryScreen.WorkingArea.Height - (base.Height-50));
-            
+            ascTwo.Initialize(this);
             asc.controllInitializeSize(this);
             //起始同意
             btnAgree.Visible = true;
@@ -1502,6 +1505,96 @@ namespace UI
         }
         #endregion
 
+        #region 设定窗体自适应
+        public class AutoSizeFormTwoClass
+        {
+            public struct controlRect
+            {
+                public int Left;
+                public int Top;
+                public int Width;
+                public int Height;
+            }
+
+            private bool _Flag;
+            public bool Flag
+            {
+                get { return _Flag; }
+                set { _Flag = value; }
+            }
+
+            private int _Number;
+            public int Number
+            {
+                get { return _Number; }
+                set { _Number = value; }
+            }
+
+            private List<controlRect> oldCtrl;
+
+            public void Initialize(Form mForm)
+            {
+                oldCtrl = new List<controlRect>();
+                controlRect cR;
+
+                cR.Left = mForm.Left;
+                cR.Top = mForm.Top;
+                cR.Width = mForm.Width;
+                cR.Height = mForm.Height;
+
+                oldCtrl.Add(cR);
+
+                foreach (Control c in mForm.Controls)
+                {
+                    controlRect objCtrl;
+                    objCtrl.Left = c.Left;
+                    objCtrl.Top = c.Top;
+                    objCtrl.Width = c.Width;
+                    objCtrl.Height = c.Height;
+                    oldCtrl.Add(objCtrl);
+                }
+                Flag = true;
+                Number = mForm.Controls.Count;
+            }
+
+            public void ReSize(Form mForm)
+            {
+                if (!Flag) return;
+
+                float wScale = (float)mForm.Width / (float)oldCtrl[0].Width;
+                float hScale = (float)mForm.Height / (float)oldCtrl[0].Height;
+
+                int ctrLeft0, ctrTop0, ctrWidth0, ctrHeight0;
+                int ctrlNo = 1;
+
+                try
+                {
+                    if (mForm.Controls.Count != Number) return;
+                    foreach (Control c in mForm.Controls)
+                    {
+                        ctrLeft0 = oldCtrl[ctrlNo].Left;
+                        ctrTop0 = oldCtrl[ctrlNo].Top;
+                        ctrWidth0 = oldCtrl[ctrlNo].Width;
+                        ctrHeight0 = oldCtrl[ctrlNo].Height;
+
+                        c.Left = (int)(ctrLeft0 * wScale);
+                        c.Top = (int)(ctrTop0 * hScale);
+                        c.Width = (int)(ctrWidth0 * wScale);
+                        c.Height = (int)(ctrHeight0 * hScale);
+                        ctrlNo += 1;
+                    }
+                }
+                catch
+                {
+                    return;
+                }
+            }
+        }
+
+
+
+        #endregion
+
 
         #region 刷身份证所用到的基类
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = 1)]
@@ -1592,6 +1685,8 @@ namespace UI
         public static extern int Syn_SetUserLifeBType(int iType);
         [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetUserLifeEType", CharSet = CharSet.Ansi)]
         public static extern int Syn_SetUserLifeEType(int iType, int iOption);
+
+        
 
         int m_iPort;
 

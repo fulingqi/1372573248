@@ -546,7 +546,6 @@
             this.linkLabel6.Size = new System.Drawing.Size(599, 12);
             this.linkLabel6.TabIndex = 67;
             this.linkLabel6.TabStop = true;
-            this.linkLabel6.Enabled = true;
             this.linkLabel6.Text = "                                                                                 " +
     "                  ";
             // 
@@ -561,7 +560,6 @@
             this.linkLabel5.Size = new System.Drawing.Size(600, 12);
             this.linkLabel5.TabIndex = 66;
             this.linkLabel5.TabStop = true;
-            this.linkLabel5.Enabled = true;
             this.linkLabel5.Text = "                                                                                 " +
     "    ";
             // 
@@ -575,7 +573,6 @@
             this.linkLabel4.Size = new System.Drawing.Size(611, 12);
             this.linkLabel4.TabIndex = 65;
             this.linkLabel4.TabStop = true;
-            this.linkLabel4.Enabled = true;
             this.linkLabel4.Text = "                                                                                 " +
     "                    ";
             // 
@@ -589,7 +586,6 @@
             this.linkLabel3.Size = new System.Drawing.Size(611, 12);
             this.linkLabel3.TabIndex = 64;
             this.linkLabel3.TabStop = true;
-            this.linkLabel3.Enabled = true;
             this.linkLabel3.Text = "                                                                                 " +
     "                    ";
             // 
@@ -602,7 +598,6 @@
             this.linkLabel2.Size = new System.Drawing.Size(611, 12);
             this.linkLabel2.TabIndex = 63;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Enabled = true;
             this.linkLabel2.Text = "                                                                                 " +
     "                    ";
             // 
@@ -625,8 +620,8 @@
             // 
             // FaceRegister
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -646,6 +641,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FaceRegister_FormClosing);
             this.Load += new System.EventHandler(this.FaceRegister_Load);
             this.Shown += new System.EventHandler(this.FaceRegister_Shown);
+            this.SizeChanged += new System.EventHandler(this.FaceRegister_SizeChanged);
             this.MouseLeave += new System.EventHandler(this.FaceRegister_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.picText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).EndInit();
