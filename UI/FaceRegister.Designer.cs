@@ -87,12 +87,12 @@
             // txtName
             // 
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtName.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtName.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.txtName.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtName.Location = new System.Drawing.Point(149, 139);
+            this.txtName.Location = new System.Drawing.Point(93, 68);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(400, 37);
+            this.txtName.Size = new System.Drawing.Size(258, 21);
             this.txtName.TabIndex = 0;
             this.txtName.Text = "请输入姓名";
             this.txtName.Click += new System.EventHandler(this.txtName_Click);
@@ -102,12 +102,12 @@
             // txtIDCard
             // 
             this.txtIDCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtIDCard.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtIDCard.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.txtIDCard.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtIDCard.Location = new System.Drawing.Point(148, 207);
+            this.txtIDCard.Location = new System.Drawing.Point(90, 110);
             this.txtIDCard.Multiline = true;
             this.txtIDCard.Name = "txtIDCard";
-            this.txtIDCard.Size = new System.Drawing.Size(400, 33);
+            this.txtIDCard.Size = new System.Drawing.Size(267, 21);
             this.txtIDCard.TabIndex = 1;
             this.txtIDCard.Text = "请输入身份证号";
             this.txtIDCard.Click += new System.EventHandler(this.txtIDCard_Click);
@@ -118,12 +118,12 @@
             // txtAddress
             // 
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAddress.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtAddress.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.txtAddress.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtAddress.Location = new System.Drawing.Point(153, 273);
+            this.txtAddress.Location = new System.Drawing.Point(91, 157);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(400, 36);
+            this.txtAddress.Size = new System.Drawing.Size(252, 26);
             this.txtAddress.TabIndex = 2;
             this.txtAddress.Text = "请输入地址";
             this.txtAddress.Click += new System.EventHandler(this.txtAddress_Click);
@@ -134,12 +134,12 @@
             // txtPhone
             // 
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPhone.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtPhone.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.txtPhone.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtPhone.Location = new System.Drawing.Point(149, 342);
+            this.txtPhone.Location = new System.Drawing.Point(92, 205);
             this.txtPhone.Multiline = true;
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(404, 37);
+            this.txtPhone.Size = new System.Drawing.Size(251, 23);
             this.txtPhone.TabIndex = 3;
             this.txtPhone.Text = "请输入手机号";
             this.txtPhone.Click += new System.EventHandler(this.txtPhone_Click);
@@ -150,12 +150,12 @@
             // txtYan
             // 
             this.txtYan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtYan.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtYan.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.txtYan.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtYan.Location = new System.Drawing.Point(153, 407);
+            this.txtYan.Location = new System.Drawing.Point(93, 256);
             this.txtYan.Multiline = true;
             this.txtYan.Name = "txtYan";
-            this.txtYan.Size = new System.Drawing.Size(400, 37);
+            this.txtYan.Size = new System.Drawing.Size(141, 21);
             this.txtYan.TabIndex = 4;
             this.txtYan.Text = "请输入验证码";
             this.txtYan.Click += new System.EventHandler(this.txtYan_Click);
@@ -172,9 +172,9 @@
             // 
             this.picText.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picText.BackgroundImage")));
             this.picText.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picText.Location = new System.Drawing.Point(75, 820);
+            this.picText.Location = new System.Drawing.Point(69, 469);
             this.picText.Name = "picText";
-            this.picText.Size = new System.Drawing.Size(436, 39);
+            this.picText.Size = new System.Drawing.Size(285, 25);
             this.picText.TabIndex = 45;
             this.picText.TabStop = false;
             this.picText.Click += new System.EventHandler(this.picText_Click);
@@ -190,9 +190,9 @@
             this.btnAgree.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAgree.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnAgree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgree.Location = new System.Drawing.Point(27, 818);
+            this.btnAgree.Location = new System.Drawing.Point(37, 468);
             this.btnAgree.Name = "btnAgree";
-            this.btnAgree.Size = new System.Drawing.Size(42, 41);
+            this.btnAgree.Size = new System.Drawing.Size(26, 24);
             this.btnAgree.TabIndex = 43;
             this.btnAgree.UseVisualStyleBackColor = false;
             this.btnAgree.Click += new System.EventHandler(this.btnAgree_Click);
@@ -201,9 +201,9 @@
             // 
             this.picIsShow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picIsShow.BackgroundImage")));
             this.picIsShow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picIsShow.Location = new System.Drawing.Point(204, 514);
+            this.picIsShow.Location = new System.Drawing.Point(124, 324);
             this.picIsShow.Name = "picIsShow";
-            this.picIsShow.Size = new System.Drawing.Size(240, 248);
+            this.picIsShow.Size = new System.Drawing.Size(124, 129);
             this.picIsShow.TabIndex = 16;
             this.picIsShow.TabStop = false;
             this.picIsShow.Click += new System.EventHandler(this.picIsShow_Click);
@@ -212,9 +212,9 @@
             // 
             this.link2.BackgroundImage = global::UI.Properties.Resources.验证码;
             this.link2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.link2.Location = new System.Drawing.Point(494, 410);
+            this.link2.Location = new System.Drawing.Point(244, 256);
             this.link2.Name = "link2";
-            this.link2.Size = new System.Drawing.Size(125, 32);
+            this.link2.Size = new System.Drawing.Size(81, 21);
             this.link2.TabIndex = 5;
             this.link2.TabStop = false;
             this.link2.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -230,9 +230,9 @@
             this.btnNoAgree.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnNoAgree.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnNoAgree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNoAgree.Location = new System.Drawing.Point(27, 818);
+            this.btnNoAgree.Location = new System.Drawing.Point(37, 468);
             this.btnNoAgree.Name = "btnNoAgree";
-            this.btnNoAgree.Size = new System.Drawing.Size(42, 41);
+            this.btnNoAgree.Size = new System.Drawing.Size(26, 24);
             this.btnNoAgree.TabIndex = 44;
             this.btnNoAgree.UseVisualStyleBackColor = false;
             this.btnNoAgree.Click += new System.EventHandler(this.btnNoAgree_Click);
@@ -240,10 +240,10 @@
             // link3
             // 
             this.link3.BackColor = System.Drawing.Color.White;
-            this.link3.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.link3.Location = new System.Drawing.Point(501, 412);
+            this.link3.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.link3.Location = new System.Drawing.Point(240, 254);
             this.link3.Name = "link3";
-            this.link3.Size = new System.Drawing.Size(136, 34);
+            this.link3.Size = new System.Drawing.Size(103, 21);
             this.link3.TabIndex = 46;
             this.link3.TabStop = true;
             this.link3.Text = "获取验证码";
@@ -254,7 +254,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Red;
-            this.linkLabel1.Location = new System.Drawing.Point(451, 962);
+            this.linkLabel1.Location = new System.Drawing.Point(-6, 656);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(143, 33);
@@ -272,11 +272,11 @@
             this.btnRegister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnRegister.Font = new System.Drawing.Font("宋体", 15F);
             this.btnRegister.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegister.Location = new System.Drawing.Point(33, 883);
+            this.btnRegister.Location = new System.Drawing.Point(53, 504);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(586, 91);
+            this.btnRegister.Size = new System.Drawing.Size(243, 38);
             this.btnRegister.TabIndex = 48;
             this.btnRegister.Text = "注册";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -287,9 +287,9 @@
             this.panelSuccess.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSuccess.Controls.Add(this.panelSuccTwo);
-            this.panelSuccess.Location = new System.Drawing.Point(1, 1);
+            this.panelSuccess.Location = new System.Drawing.Point(2, 0);
             this.panelSuccess.Name = "panelSuccess";
-            this.panelSuccess.Size = new System.Drawing.Size(647, 1046);
+            this.panelSuccess.Size = new System.Drawing.Size(356, 575);
             this.panelSuccess.TabIndex = 0;
             // 
             // panelSuccTwo
@@ -297,28 +297,29 @@
             this.panelSuccTwo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSuccTwo.BackgroundImage")));
             this.panelSuccTwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSuccTwo.Controls.Add(this.txtSuccess);
-            this.panelSuccTwo.Location = new System.Drawing.Point(87, 317);
+            this.panelSuccTwo.Location = new System.Drawing.Point(136, 192);
             this.panelSuccTwo.Name = "panelSuccTwo";
-            this.panelSuccTwo.Size = new System.Drawing.Size(453, 299);
+            this.panelSuccTwo.Size = new System.Drawing.Size(308, 213);
             this.panelSuccTwo.TabIndex = 1;
             // 
             // txtSuccess
             // 
             this.txtSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSuccess.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtSuccess.Location = new System.Drawing.Point(213, 246);
+            this.txtSuccess.Font = new System.Drawing.Font("宋体", 17F);
+            this.txtSuccess.Location = new System.Drawing.Point(139, 174);
             this.txtSuccess.Multiline = true;
             this.txtSuccess.Name = "txtSuccess";
-            this.txtSuccess.Size = new System.Drawing.Size(33, 32);
+            this.txtSuccess.Size = new System.Drawing.Size(24, 25);
             this.txtSuccess.TabIndex = 0;
+            this.txtSuccess.Text = "这个是成功读秒";
             // 
             // panelWait
             // 
             this.panelWait.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelWait.Controls.Add(this.panelWaittwo);
-            this.panelWait.Location = new System.Drawing.Point(2, 1);
+            this.panelWait.Location = new System.Drawing.Point(-1, 1);
             this.panelWait.Name = "panelWait";
-            this.panelWait.Size = new System.Drawing.Size(647, 1046);
+            this.panelWait.Size = new System.Drawing.Size(356, 575);
             this.panelWait.TabIndex = 54;
             // 
             // panelWaittwo
@@ -326,18 +327,18 @@
             this.panelWaittwo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelWaittwo.BackgroundImage")));
             this.panelWaittwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelWaittwo.Controls.Add(this.label1);
-            this.panelWaittwo.Location = new System.Drawing.Point(95, 360);
+            this.panelWaittwo.Location = new System.Drawing.Point(20, 168);
             this.panelWaittwo.Name = "panelWaittwo";
-            this.panelWaittwo.Size = new System.Drawing.Size(458, 255);
+            this.panelWaittwo.Size = new System.Drawing.Size(304, 204);
             this.panelWaittwo.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(116, 14);
+            this.label1.Location = new System.Drawing.Point(78, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(209, 158);
+            this.label1.Size = new System.Drawing.Size(163, 127);
             this.label1.TabIndex = 0;
             // 
             // panelFail
@@ -345,9 +346,9 @@
             this.panelFail.BackColor = System.Drawing.Color.White;
             this.panelFail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelFail.Controls.Add(this.panelFailTwo);
-            this.panelFail.Location = new System.Drawing.Point(0, 4);
+            this.panelFail.Location = new System.Drawing.Point(-2, 2);
             this.panelFail.Name = "panelFail";
-            this.panelFail.Size = new System.Drawing.Size(647, 1046);
+            this.panelFail.Size = new System.Drawing.Size(356, 575);
             this.panelFail.TabIndex = 51;
             // 
             // panelFailTwo
@@ -356,9 +357,9 @@
             this.panelFailTwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelFailTwo.Controls.Add(this.textBox1);
             this.panelFailTwo.Controls.Add(this.txtZhuCeSuccess);
-            this.panelFailTwo.Location = new System.Drawing.Point(87, 323);
+            this.panelFailTwo.Location = new System.Drawing.Point(51, 146);
             this.panelFailTwo.Name = "panelFailTwo";
-            this.panelFailTwo.Size = new System.Drawing.Size(465, 305);
+            this.panelFailTwo.Size = new System.Drawing.Size(263, 213);
             this.panelFailTwo.TabIndex = 1;
             // 
             // textBox1
@@ -375,24 +376,24 @@
             // txtZhuCeSuccess
             // 
             this.txtZhuCeSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtZhuCeSuccess.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtZhuCeSuccess.Location = new System.Drawing.Point(76, 171);
+            this.txtZhuCeSuccess.Font = new System.Drawing.Font("宋体", 10F);
+            this.txtZhuCeSuccess.Location = new System.Drawing.Point(72, 160);
             this.txtZhuCeSuccess.Multiline = true;
             this.txtZhuCeSuccess.Name = "txtZhuCeSuccess";
-            this.txtZhuCeSuccess.Size = new System.Drawing.Size(78, 39);
+            this.txtZhuCeSuccess.Size = new System.Drawing.Size(120, 29);
             this.txtZhuCeSuccess.TabIndex = 1;
             // 
             // linkReturns
             // 
             this.linkReturns.AutoSize = true;
             this.linkReturns.BackColor = System.Drawing.Color.White;
-            this.linkReturns.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linkReturns.Font = new System.Drawing.Font("微软雅黑", 8F);
             this.linkReturns.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.linkReturns.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkReturns.LinkColor = System.Drawing.Color.Red;
-            this.linkReturns.Location = new System.Drawing.Point(262, 977);
+            this.linkReturns.Location = new System.Drawing.Point(131, 550);
             this.linkReturns.Name = "linkReturns";
-            this.linkReturns.Size = new System.Drawing.Size(130, 24);
+            this.linkReturns.Size = new System.Drawing.Size(63, 16);
             this.linkReturns.TabIndex = 53;
             this.linkReturns.TabStop = true;
             this.linkReturns.Text = "返回上一级";
@@ -420,10 +421,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 18F);
-            this.label2.Location = new System.Drawing.Point(17, 139);
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label2.Location = new System.Drawing.Point(17, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 31);
+            this.label2.Size = new System.Drawing.Size(75, 20);
             this.label2.TabIndex = 54;
             this.label2.Text = "姓      名：";
             // 
@@ -431,10 +432,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 18F);
-            this.label3.Location = new System.Drawing.Point(16, 208);
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label3.Location = new System.Drawing.Point(14, 111);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 31);
+            this.label3.Size = new System.Drawing.Size(79, 20);
             this.label3.TabIndex = 55;
             this.label3.Text = "身份证号：";
             // 
@@ -442,10 +443,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 18F);
-            this.label4.Location = new System.Drawing.Point(25, 273);
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label4.Location = new System.Drawing.Point(15, 157);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 31);
+            this.label4.Size = new System.Drawing.Size(75, 20);
             this.label4.TabIndex = 56;
             this.label4.Text = "地      址：";
             // 
@@ -453,10 +454,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Font = new System.Drawing.Font("微软雅黑", 18F);
-            this.label5.Location = new System.Drawing.Point(24, 342);
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label5.Location = new System.Drawing.Point(16, 205);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 31);
+            this.label5.Size = new System.Drawing.Size(73, 20);
             this.label5.TabIndex = 57;
             this.label5.Text = "手 机 号：";
             // 
@@ -464,10 +465,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Font = new System.Drawing.Font("微软雅黑", 18F);
-            this.label6.Location = new System.Drawing.Point(27, 409);
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label6.Location = new System.Drawing.Point(16, 255);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(124, 31);
+            this.label6.Size = new System.Drawing.Size(73, 20);
             this.label6.TabIndex = 58;
             this.label6.Text = "验 证 码：";
             // 
@@ -479,11 +480,11 @@
             this.btnNofinsh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnNofinsh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnNofinsh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNofinsh.Font = new System.Drawing.Font("微软雅黑", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnNofinsh.ForeColor = System.Drawing.Color.Blue;
-            this.btnNofinsh.Location = new System.Drawing.Point(25, 883);
+            this.btnNofinsh.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.btnNofinsh.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.btnNofinsh.Location = new System.Drawing.Point(53, 503);
             this.btnNofinsh.Name = "btnNofinsh";
-            this.btnNofinsh.Size = new System.Drawing.Size(594, 91);
+            this.btnNofinsh.Size = new System.Drawing.Size(243, 38);
             this.btnNofinsh.TabIndex = 61;
             this.btnNofinsh.Text = "实名注册    刷脸就医";
             this.btnNofinsh.UseVisualStyleBackColor = false;
@@ -517,22 +518,21 @@
             this.panelAll.Controls.Add(this.picIsShow);
             this.panelAll.Controls.Add(this.linkReturns);
             this.panelAll.Controls.Add(this.btnRegister);
-            this.panelAll.Location = new System.Drawing.Point(3, -2);
+            this.panelAll.Location = new System.Drawing.Point(3, 0);
             this.panelAll.Name = "panelAll";
-            this.panelAll.Size = new System.Drawing.Size(647, 1046);
+            this.panelAll.Size = new System.Drawing.Size(356, 575);
             this.panelAll.TabIndex = 62;
-            this.panelAll.SizeChanged += new System.EventHandler(this.panelAll_SizeChanged);
             this.panelAll.MouseLeave += new System.EventHandler(this.panelAll_MouseLeave);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Font = new System.Drawing.Font("微软雅黑", 18F);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label7.Location = new System.Drawing.Point(29, 468);
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(14, 293);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(230, 31);
+            this.label7.Size = new System.Drawing.Size(135, 20);
             this.label7.TabIndex = 68;
             this.label7.Text = "请拍照进行人脸识别";
             // 
@@ -540,14 +540,14 @@
             // 
             this.linkLabel6.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.linkLabel6.AutoSize = true;
+            this.linkLabel6.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linkLabel6.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel6.Location = new System.Drawing.Point(16, 170);
+            this.linkLabel6.Location = new System.Drawing.Point(11, 86);
             this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(599, 12);
+            this.linkLabel6.Size = new System.Drawing.Size(341, 11);
             this.linkLabel6.TabIndex = 67;
             this.linkLabel6.TabStop = true;
-            this.linkLabel6.Text = "                                                                                 " +
-    "                  ";
+            this.linkLabel6.Text = "                                                        ";
             // 
             // linkLabel5
             // 
@@ -555,51 +555,48 @@
             this.linkLabel5.AutoSize = true;
             this.linkLabel5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel5.Location = new System.Drawing.Point(16, 237);
+            this.linkLabel5.Location = new System.Drawing.Point(11, 130);
             this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(600, 12);
+            this.linkLabel5.Size = new System.Drawing.Size(341, 12);
             this.linkLabel5.TabIndex = 66;
             this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "                                                                                 " +
-    "    ";
+            this.linkLabel5.Text = "                                                ";
             // 
             // linkLabel4
             // 
             this.linkLabel4.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Font = new System.Drawing.Font("宋体", 8F);
             this.linkLabel4.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel4.Location = new System.Drawing.Point(11, 302);
+            this.linkLabel4.Location = new System.Drawing.Point(10, 178);
             this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(611, 12);
+            this.linkLabel4.Size = new System.Drawing.Size(341, 11);
             this.linkLabel4.TabIndex = 65;
             this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "                                                                                 " +
-    "                    ";
+            this.linkLabel4.Text = "                                                        ";
             // 
             // linkLabel3
             // 
             this.linkLabel3.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel3.Location = new System.Drawing.Point(11, 373);
+            this.linkLabel3.Location = new System.Drawing.Point(11, 227);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(611, 12);
+            this.linkLabel3.Size = new System.Drawing.Size(341, 12);
             this.linkLabel3.TabIndex = 64;
             this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "                                                                                 " +
-    "                    ";
+            this.linkLabel3.Text = "                                                        ";
             // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel2.Location = new System.Drawing.Point(11, 439);
+            this.linkLabel2.Location = new System.Drawing.Point(8, 276);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(611, 12);
+            this.linkLabel2.Size = new System.Drawing.Size(341, 12);
             this.linkLabel2.TabIndex = 63;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "                                                                                 " +
-    "                    ";
+            this.linkLabel2.Text = "                                                        ";
             // 
             // button1
             // 
@@ -612,9 +609,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("微软雅黑", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button1.Location = new System.Drawing.Point(35, 43);
+            this.button1.Location = new System.Drawing.Point(55, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(594, 57);
+            this.button1.Size = new System.Drawing.Size(242, 30);
             this.button1.TabIndex = 62;
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -622,10 +619,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(652, 1050);
+            this.ClientSize = new System.Drawing.Size(362, 579);
             this.Controls.Add(this.panelWait);
             this.Controls.Add(this.panelSuccess);
             this.Controls.Add(this.panelFail);
@@ -633,6 +630,7 @@
             this.Controls.Add(this.linkLabel1);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Location = new System.Drawing.Point(180, 0);
             this.MaximizeBox = false;
             this.Name = "FaceRegister";
