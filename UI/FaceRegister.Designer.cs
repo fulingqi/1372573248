@@ -287,37 +287,16 @@
             this.panelSuccess.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSuccess.Controls.Add(this.panelSuccTwo);
-            this.panelSuccess.Location = new System.Drawing.Point(2, 0);
+            this.panelSuccess.Location = new System.Drawing.Point(3, 0);
             this.panelSuccess.Name = "panelSuccess";
             this.panelSuccess.Size = new System.Drawing.Size(356, 575);
             this.panelSuccess.TabIndex = 0;
-            // 
-            // panelSuccTwo
-            // 
-            this.panelSuccTwo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSuccTwo.BackgroundImage")));
-            this.panelSuccTwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelSuccTwo.Controls.Add(this.txtSuccess);
-            this.panelSuccTwo.Location = new System.Drawing.Point(136, 192);
-            this.panelSuccTwo.Name = "panelSuccTwo";
-            this.panelSuccTwo.Size = new System.Drawing.Size(308, 213);
-            this.panelSuccTwo.TabIndex = 1;
-            // 
-            // txtSuccess
-            // 
-            this.txtSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSuccess.Font = new System.Drawing.Font("宋体", 17F);
-            this.txtSuccess.Location = new System.Drawing.Point(139, 174);
-            this.txtSuccess.Multiline = true;
-            this.txtSuccess.Name = "txtSuccess";
-            this.txtSuccess.Size = new System.Drawing.Size(24, 25);
-            this.txtSuccess.TabIndex = 0;
-            this.txtSuccess.Text = "这个是成功读秒";
             // 
             // panelWait
             // 
             this.panelWait.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelWait.Controls.Add(this.panelWaittwo);
-            this.panelWait.Location = new System.Drawing.Point(-1, 1);
+            this.panelWait.Location = new System.Drawing.Point(3, 1);
             this.panelWait.Name = "panelWait";
             this.panelWait.Size = new System.Drawing.Size(356, 575);
             this.panelWait.TabIndex = 54;
@@ -336,10 +315,31 @@
             // 
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(78, 6);
+            this.label1.Location = new System.Drawing.Point(101, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 127);
+            this.label1.Size = new System.Drawing.Size(95, 76);
             this.label1.TabIndex = 0;
+            // 
+            // panelSuccTwo
+            // 
+            this.panelSuccTwo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSuccTwo.BackgroundImage")));
+            this.panelSuccTwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelSuccTwo.Controls.Add(this.txtSuccess);
+            this.panelSuccTwo.Location = new System.Drawing.Point(39, 157);
+            this.panelSuccTwo.Name = "panelSuccTwo";
+            this.panelSuccTwo.Size = new System.Drawing.Size(238, 181);
+            this.panelSuccTwo.TabIndex = 1;
+            // 
+            // txtSuccess
+            // 
+            this.txtSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSuccess.Font = new System.Drawing.Font("宋体", 10F);
+            this.txtSuccess.Location = new System.Drawing.Point(109, 145);
+            this.txtSuccess.Multiline = true;
+            this.txtSuccess.Name = "txtSuccess";
+            this.txtSuccess.Size = new System.Drawing.Size(24, 25);
+            this.txtSuccess.TabIndex = 0;
+            this.txtSuccess.Text = "这个是成功读秒";
             // 
             // panelFail
             // 
@@ -357,19 +357,19 @@
             this.panelFailTwo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelFailTwo.Controls.Add(this.textBox1);
             this.panelFailTwo.Controls.Add(this.txtZhuCeSuccess);
-            this.panelFailTwo.Location = new System.Drawing.Point(51, 146);
+            this.panelFailTwo.Location = new System.Drawing.Point(74, 176);
             this.panelFailTwo.Name = "panelFailTwo";
-            this.panelFailTwo.Size = new System.Drawing.Size(263, 213);
+            this.panelFailTwo.Size = new System.Drawing.Size(192, 151);
             this.panelFailTwo.TabIndex = 1;
             // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(86, 232);
+            this.textBox1.Font = new System.Drawing.Font("宋体", 10F);
+            this.textBox1.Location = new System.Drawing.Point(24, 115);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(290, 40);
+            this.textBox1.Size = new System.Drawing.Size(151, 30);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -377,7 +377,7 @@
             // 
             this.txtZhuCeSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtZhuCeSuccess.Font = new System.Drawing.Font("宋体", 10F);
-            this.txtZhuCeSuccess.Location = new System.Drawing.Point(72, 160);
+            this.txtZhuCeSuccess.Location = new System.Drawing.Point(68, 168);
             this.txtZhuCeSuccess.Multiline = true;
             this.txtZhuCeSuccess.Name = "txtZhuCeSuccess";
             this.txtZhuCeSuccess.Size = new System.Drawing.Size(120, 29);
@@ -645,10 +645,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).EndInit();
             this.panelSuccess.ResumeLayout(false);
-            this.panelSuccTwo.ResumeLayout(false);
-            this.panelSuccTwo.PerformLayout();
             this.panelWait.ResumeLayout(false);
             this.panelWaittwo.ResumeLayout(false);
+            this.panelSuccTwo.ResumeLayout(false);
+            this.panelSuccTwo.PerformLayout();
             this.panelFail.ResumeLayout(false);
             this.panelFailTwo.ResumeLayout(false);
             this.panelFailTwo.PerformLayout();
