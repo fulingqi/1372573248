@@ -126,7 +126,7 @@ namespace API.Controllers
         }
 
         #region 门诊数据饼状图
-
+        [HttpGet]
         public EntityResult GetOutpatientData(string StateTime, string EndTime, string SPTXT, string K)
         {
             try
