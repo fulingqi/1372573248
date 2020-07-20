@@ -44,11 +44,11 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnRegister = new System.Windows.Forms.Button();
             this.panelSuccess = new System.Windows.Forms.Panel();
+            this.panelSuccTwo = new System.Windows.Forms.Panel();
+            this.txtSuccess = new System.Windows.Forms.TextBox();
             this.panelWait = new System.Windows.Forms.Panel();
             this.panelWaittwo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelSuccTwo = new System.Windows.Forms.Panel();
-            this.txtSuccess = new System.Windows.Forms.TextBox();
             this.panelFail = new System.Windows.Forms.Panel();
             this.panelFailTwo = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -75,9 +75,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).BeginInit();
             this.panelSuccess.SuspendLayout();
+            this.panelSuccTwo.SuspendLayout();
             this.panelWait.SuspendLayout();
             this.panelWaittwo.SuspendLayout();
-            this.panelSuccTwo.SuspendLayout();
             this.panelFail.SuspendLayout();
             this.panelFailTwo.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -217,6 +217,18 @@
             this.panelSuccess.Controls.Add(this.panelSuccTwo);
             this.panelSuccess.Name = "panelSuccess";
             // 
+            // panelSuccTwo
+            // 
+            resources.ApplyResources(this.panelSuccTwo, "panelSuccTwo");
+            this.panelSuccTwo.Controls.Add(this.txtSuccess);
+            this.panelSuccTwo.Name = "panelSuccTwo";
+            // 
+            // txtSuccess
+            // 
+            this.txtSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txtSuccess, "txtSuccess");
+            this.txtSuccess.Name = "txtSuccess";
+            // 
             // panelWait
             // 
             resources.ApplyResources(this.panelWait, "panelWait");
@@ -234,18 +246,6 @@
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            // 
-            // panelSuccTwo
-            // 
-            resources.ApplyResources(this.panelSuccTwo, "panelSuccTwo");
-            this.panelSuccTwo.Controls.Add(this.txtSuccess);
-            this.panelSuccTwo.Name = "panelSuccTwo";
-            // 
-            // txtSuccess
-            // 
-            this.txtSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.txtSuccess, "txtSuccess");
-            this.txtSuccess.Name = "txtSuccess";
             // 
             // panelFail
             // 
@@ -462,10 +462,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).EndInit();
             this.panelSuccess.ResumeLayout(false);
-            this.panelWait.ResumeLayout(false);
-            this.panelWaittwo.ResumeLayout(false);
             this.panelSuccTwo.ResumeLayout(false);
             this.panelSuccTwo.PerformLayout();
+            this.panelWait.ResumeLayout(false);
+            this.panelWaittwo.ResumeLayout(false);
             this.panelFail.ResumeLayout(false);
             this.panelFailTwo.ResumeLayout(false);
             this.panelFailTwo.PerformLayout();

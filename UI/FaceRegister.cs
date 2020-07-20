@@ -262,11 +262,7 @@ namespace UI
         private void timer1_Tick(object sender, EventArgs e)
         {
             ThreadPool.QueueUserWorkItem(ReadIdcardInfo, null);
-
-            //if (client == null)
-            //{
-                
-            //}
+            
             if (link3.Text != "获取验证码" && int.Parse(link3.Text.Substring(0, link3.Text.Length - 5)) > 0)
             {
 
@@ -277,7 +273,6 @@ namespace UI
                 link2.Enabled = true;
                 link3.Visible = false;
                 link2.Visible = true;
-                //timer1.Enabled = false;
             }
             if (IsGetAndrid == 1)
             {
@@ -291,7 +286,6 @@ namespace UI
                 this.textBox1.Visible = false;
                 textBox1.Enabled = false;
                 panelFail.Visible = false;
-
             }
             else
             {
@@ -371,9 +365,11 @@ namespace UI
         private void picIsShow_Click(object sender, EventArgs e)
         {
 
+
             isStartFun();
             //等待中
            
+
             panelWait.Visible = true;
             panelWait.BackColor = Color.FromArgb(80,192,192,192);
 
@@ -385,7 +381,7 @@ namespace UI
             SendMessage("7", "1");
             IsGetAndrid = 1;
 
-            YinCangButton();
+           
         }
 
 
@@ -643,6 +639,8 @@ namespace UI
                 SendMessage("8", errorMessage);
                 if (errorCount==3)
                 {
+                    Thread.Sleep(1000);
+                    SendMessage("14","1");
                     ReturnUpLevel();
                 }
             }
@@ -1372,6 +1370,7 @@ namespace UI
             if (isStart == 0)
             {
                 isStart = 1;
+                SendMessage("6", "1");
             }
         }
 
@@ -1387,16 +1386,12 @@ namespace UI
         #region 返回上一级
         private void ReturnUpLevel()
         {
-            SendMessage("6", "1");
-            isStart = 0;
-            //ReveiveAndroid();
-            //SendToAndroidData();
+           
             errorCount = 0;
             //实名注册刷脸就医按钮隐藏
             btnNofinsh.Visible = true;
 
             photoImg = null;
-            //panelCang.Visible = false;
             
             SendMessage("11", "1");
             failSecond =6;
@@ -1412,10 +1407,7 @@ namespace UI
             picIsShow.Visible = true;
           
             picIsShow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picIsShow.BackgroundImage")));
-            //关闭摄像头
-            //videPlayer.SignalToStop();
-            //videPlayer.Stop();
-
+            isStart = 0;
             //不同意协议
             btnNoAgree.Visible = false;
             btnAgree.Visible = true;
@@ -1424,7 +1416,6 @@ namespace UI
 
             picText.Visible = true;
             btnNofinsh.Visible = true;
-            //btnNoAgree.BringToFront();
         }
 
         private void panelAll_SizeChanged(object sender, EventArgs e)
