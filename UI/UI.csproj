@@ -64,6 +64,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
+    <Reference Include="AipSdk">
+      <HintPath>..\WebServer\bin\AipSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="AopSdk">
+      <HintPath>..\WebServer\bin\AopSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="F2FPayDll">
+      <HintPath>..\WebServer\bin\F2FPayDll.dll</HintPath>
+    </Reference>
     <Reference Include="IrisSkin4, Version=2006.3.22.45, Culture=neutral, PublicKeyToken=127be25a6db25e07, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\IrisSkin4.dll</HintPath>
@@ -130,6 +139,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FaceRegister.byn-ER.resx">
+      <DependentUpon>FaceRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FaceRegister.byn.resx">
+      <DependentUpon>FaceRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FaceRegister.resx">
       <DependentUpon>FaceRegister.cs</DependentUpon>
       <SubType>Designer</SubType>

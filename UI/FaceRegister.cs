@@ -20,6 +20,8 @@ using WebServer;
 using System.Diagnostics;
 using System.Net;
 using System.Threading.Tasks;
+using System.Xml;
+using Baidu.Aip;
 
 namespace UI
 {
@@ -67,8 +69,8 @@ namespace UI
             {
                 SendMessage("13","1");
 
-                Test.WSFaces wsf = new Test.WSFaces();
-                //WebFace.WSFaces wsf = new WebFace.WSFaces();
+                //Test.WSFaces wsf = new Test.WSFaces();
+                WebFace.WSFaces wsf = new WebFace.WSFaces();
                 yPhone = txtPhone.Text.Trim();
                 //Regex rx = new Regex(@"((^13[0-9]{1}[0-9]{8}|^15[0-9]{1}[0-9]{8}|^14[0-9]{1}[0-9]{8}|^16[0-9]{1}[0-9]{8}|^17[0-9]{1}[0-9]{8}|^18[0-9]{1}[0-9]{8}|^19[0-9]{1}[0-9]{8})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)");
                 if (!Phone(txtPhone.Text.Trim()))
@@ -76,7 +78,7 @@ namespace UI
                     MessageBox.Show("手机号码格式有误", "温馨提示", MessageBoxButtons.OK);
                     return;
                 }
-                yCode = wsf.VerificationCode(txtPhone.Text.Trim());//验证码
+                yCode = VerificationCode(txtPhone.Text.Trim());//wsf.VerificationCode(txtPhone.Text.Trim());//验证码
                 JObject obj = JObject.Parse(yCode);
                 yCode = obj["string"]["#text"].ToString();
                 link2.Enabled = false;
@@ -101,7 +103,7 @@ namespace UI
         private void FaceRegister_Load(object sender, EventArgs e)
         {
 
-            base.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - base.Width, Screen.PrimaryScreen.WorkingArea.Height - base.Height+20);
+            //base.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - base.Width, Screen.PrimaryScreen.WorkingArea.Height - base.Height+20);
             //ascTwo.Initialize(this);
             //asc.controllInitializeSize(this);
             //起始同意
@@ -381,9 +383,9 @@ namespace UI
             }
 
             SendMessage("7", "1");
-
-         
             IsGetAndrid = 1;
+
+            YinCangButton();
         }
 
 
@@ -485,12 +487,6 @@ namespace UI
             {
                 if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg!=null&&IsAgree==1)
                 {
-                    //实名注册刷脸就医按钮隐藏
-                    //btnNofinsh.Visible = false;
-
-                    //panelCang.Visible = true;
-                    //panelCang.BackColor = Color.White;
-                    //btnRegister.Visible = true;
                     YinCangButton();
                 }
             }
@@ -620,11 +616,11 @@ namespace UI
             }
             #endregion
 
-            Test.WSFaces wsf = new Test.WSFaces();
-            //WebFace.WSFaces wsf = new WebFace.WSFaces();
-
+            //Test.WSFaces wsf = new Test.WSFaces();
+            WebFace.WSFaces wsf = new WebFace.WSFaces();
+            Stream stream = new MemoryStream(photoImg);
             #region 调用注册接口（公安）验证
-            string result = wsf.AuthenPliceFace(Sidnum, SName, this.txtPhone.Text, SNation, Address, photoImg);
+            string result = AuthenPliceFace(Sidnum, SName, this.txtPhone.Text, SNation, Address, stream);//wsf.AuthenPliceFace(Sidnum, SName, this.txtPhone.Text, SNation, Address, photoImg);
 
             JObject obj = JObject.Parse(result);
             //结果码
@@ -1376,7 +1372,6 @@ namespace UI
             if (isStart == 0)
             {
                 isStart = 1;
-                SendMessage("6", "1");
             }
         }
 
@@ -1392,6 +1387,8 @@ namespace UI
         #region 返回上一级
         private void ReturnUpLevel()
         {
+            SendMessage("6", "1");
+            isStart = 0;
             //ReveiveAndroid();
             //SendToAndroidData();
             errorCount = 0;
@@ -1411,7 +1408,7 @@ namespace UI
             this.txtYan.Text = "请输入验证码";
             this.link3.Text = "获取验证码";
             Sidnum = ""; SName = ""; yPhone = ""; SNation = ""; Address = "";
-            isStart = 0;
+            
             picIsShow.Visible = true;
           
             picIsShow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picIsShow.BackgroundImage")));
@@ -1689,5 +1686,88 @@ namespace UI
         int m_iPort;
 
         #endregion
+
+
+
+        #region 短信接口和人脸注册接口
+        public string VerificationCode(string Phone)
+        {
+            string result = "";
+
+            Random random = new Random();
+            string mialcode = random.Next(100000, 999999).ToString();//随机生成一个验证码
+            string url = "http://121.42.164.134:11122/WSFaces.asmx/VerificationCode";
+
+            var request = WebRequest.Create(url) as HttpWebRequest;
+            if (request == null) throw new ArgumentNullException();
+            //request.ContentType = "application/json;charset=utf-8";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.Method = "Post";
+            string postData = "Phone=" + Phone;
+            var data = Encoding.UTF8.GetBytes(postData);
+            Stream postStream = request.GetRequestStream();
+            postStream.Write(data, 0, data.Length);
+            postStream.Close();
+            //发送请求并获取相应回应数据  
+
+            var response = request.GetResponse() as HttpWebResponse;
+            //return mialcode.ToString();
+
+
+
+            Stream instream = response.GetResponseStream();
+            StreamReader sr = new StreamReader(instream, Encoding.UTF8);
+            result = sr.ReadToEnd();
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(result);
+            result = JsonConvert.SerializeXmlNode(doc);
+            //JObject obj = JObject.Parse(result);
+            //result = obj["text"].ToString();//.SelectSingleNode("string").InnerText;
+
+            return result;
+        }
+
+        public static string AuthenPliceFace(string idcard, string name, string Phone, string Nation, string Address, Stream imgHead)
+        {
+            string result = "0";
+            try
+            {
+
+                string reqUrl = "http://121.42.164.134:9918/API/HealthCard/HealthCardGiter";
+                string encodeUrl = Utils.UriEncode(reqUrl);
+                HttpWebRequest request = WebRequest.Create(reqUrl) as HttpWebRequest;
+                //request.ContentType = "application/json;charset=utf-8";
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.Method = "POST";
+                byte[] img = new byte[imgHead.Length];
+                imgHead.Read(img, 0, img.Length);
+                string postData = "Idno=" + idcard + "&Name=" + name
+                    + "&Phone=" + Phone + "&Nation=" + Nation + "&Address=" + Address +
+                    "&Base64=" + Utils.UriEncode(Convert.ToBase64String(img));
+                var data = Encoding.UTF8.GetBytes(postData);
+                Stream postStream = request.GetRequestStream();
+                postStream.Write(data, 0, data.Length);
+                postStream.Close();
+                //发送请求并获取相应回应数据  
+                HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+                Stream instream = response.GetResponseStream();
+                result = "过程";
+                StreamReader sr = new StreamReader(instream, Encoding.UTF8);
+                result = sr.ReadToEnd();
+                //JObject jsonObj = JsonConvert.DeserializeObject<JObject>(result);
+                //result = jsonObj["result"].ToString();
+
+
+            }
+            catch (Exception ex)
+            {
+                Logging.LogFile("BaiDuAuthent-AuthenPliceFaceTwo:" + ex.Message);
+            }
+            return result;
+        }
+
+
+        #endregion
+
     }
 }
