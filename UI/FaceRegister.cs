@@ -1361,6 +1361,8 @@ namespace UI
             }
             catch (Exception ex)
             {
+                string s = ex.Message;
+                Logging.LogFile("发送拍照命令有误："+s);
                 SendMessage("7", "1");
                 throw;
             }
