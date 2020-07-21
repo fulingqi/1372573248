@@ -1426,6 +1426,39 @@
   <data name="panelSuccess.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
+  <data name="&gt;&gt;panelSuccTwo.Name" xml:space="preserve">
+    <value>panelSuccTwo</value>
+  </data>
+  <data name="&gt;&gt;panelSuccTwo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelSuccTwo.Parent" xml:space="preserve">
+    <value>panelSuccess</value>
+  </data>
+  <data name="&gt;&gt;panelSuccTwo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panelSuccess.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-2, -2</value>
+  </data>
+  <data name="panelSuccess.Size" type="System.Drawing.Size, System.Drawing">
+    <value>378, 577</value>
+  </data>
+  <data name="panelSuccess.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panelSuccess.Name" xml:space="preserve">
+    <value>panelSuccess</value>
+  </data>
+  <data name="&gt;&gt;panelSuccess.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelSuccess.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelSuccess.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="panelSuccTwo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAbsAAAD+CAIAAAAs6TwiAAAABGdBTUEAALGPC/xhBQAAYfJJREFUeF7t
@@ -1853,24 +1886,6 @@
   <data name="panelSuccTwo.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="txtSuccess.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10pt</value>
-  </data>
-  <data name="txtSuccess.Location" type="System.Drawing.Point, System.Drawing">
-    <value>109, 145</value>
-  </data>
-  <data name="txtSuccess.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtSuccess.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 25</value>
-  </data>
-  <data name="txtSuccess.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="txtSuccess.Text" xml:space="preserve">
-    <value>这个是成功读秒</value>
-  </data>
   <data name="&gt;&gt;txtSuccess.Name" xml:space="preserve">
     <value>txtSuccess</value>
   </data>
@@ -1904,26 +1919,35 @@
   <data name="&gt;&gt;panelSuccTwo.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="panelSuccess.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="txtSuccess.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10pt</value>
   </data>
-  <data name="panelSuccess.Size" type="System.Drawing.Size, System.Drawing">
-    <value>378, 577</value>
+  <data name="txtSuccess.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 145</value>
   </data>
-  <data name="panelSuccess.TabIndex" type="System.Int32, mscorlib">
+  <data name="txtSuccess.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtSuccess.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 25</value>
+  </data>
+  <data name="txtSuccess.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;panelSuccess.Name" xml:space="preserve">
-    <value>panelSuccess</value>
+  <data name="txtSuccess.Text" xml:space="preserve">
+    <value>这个是成功读秒</value>
   </data>
-  <data name="&gt;&gt;panelSuccess.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtSuccess.Name" xml:space="preserve">
+    <value>txtSuccess</value>
   </data>
-  <data name="&gt;&gt;panelSuccess.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;txtSuccess.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panelSuccess.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;txtSuccess.Parent" xml:space="preserve">
+    <value>panelSuccTwo</value>
+  </data>
+  <data name="&gt;&gt;txtSuccess.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="panelWait.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -3154,7 +3178,7 @@
     <value>0</value>
   </data>
   <data name="panelWaittwo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 191</value>
+    <value>30, 191</value>
   </data>
   <data name="panelWaittwo.Size" type="System.Drawing.Size, System.Drawing">
     <value>310, 164</value>
@@ -3175,7 +3199,7 @@
     <value>0</value>
   </data>
   <data name="panelWait.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, 1</value>
+    <value>0, 0</value>
   </data>
   <data name="panelWait.Size" type="System.Drawing.Size, System.Drawing">
     <value>367, 577</value>
@@ -3197,6 +3221,39 @@
   </data>
   <data name="panelFail.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
+  </data>
+  <data name="&gt;&gt;panelFailTwo.Name" xml:space="preserve">
+    <value>panelFailTwo</value>
+  </data>
+  <data name="&gt;&gt;panelFailTwo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelFailTwo.Parent" xml:space="preserve">
+    <value>panelFail</value>
+  </data>
+  <data name="&gt;&gt;panelFailTwo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panelFail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 3</value>
+  </data>
+  <data name="panelFail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>378, 576</value>
+  </data>
+  <data name="panelFail.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;panelFail.Name" xml:space="preserve">
+    <value>panelFail</value>
+  </data>
+  <data name="&gt;&gt;panelFail.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelFail.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelFail.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="panelFailTwo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4945,6 +5002,51 @@
   <data name="panelFailTwo.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
+  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
+    <value>textBox1</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+    <value>panelFailTwo</value>
+  </data>
+  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtZhuCeSuccess.Name" xml:space="preserve">
+    <value>txtZhuCeSuccess</value>
+  </data>
+  <data name="&gt;&gt;txtZhuCeSuccess.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtZhuCeSuccess.Parent" xml:space="preserve">
+    <value>panelFailTwo</value>
+  </data>
+  <data name="&gt;&gt;txtZhuCeSuccess.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panelFailTwo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 179</value>
+  </data>
+  <data name="panelFailTwo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 151</value>
+  </data>
+  <data name="panelFailTwo.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panelFailTwo.Name" xml:space="preserve">
+    <value>panelFailTwo</value>
+  </data>
+  <data name="&gt;&gt;panelFailTwo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelFailTwo.Parent" xml:space="preserve">
+    <value>panelFail</value>
+  </data>
+  <data name="&gt;&gt;panelFailTwo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="textBox1.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 10pt</value>
   </data>
@@ -5002,48 +5104,6 @@
   <data name="&gt;&gt;txtZhuCeSuccess.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="panelFailTwo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 179</value>
-  </data>
-  <data name="panelFailTwo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 151</value>
-  </data>
-  <data name="panelFailTwo.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panelFailTwo.Name" xml:space="preserve">
-    <value>panelFailTwo</value>
-  </data>
-  <data name="&gt;&gt;panelFailTwo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelFailTwo.Parent" xml:space="preserve">
-    <value>panelFail</value>
-  </data>
-  <data name="&gt;&gt;panelFailTwo.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panelFail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-3, -1</value>
-  </data>
-  <data name="panelFail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>378, 577</value>
-  </data>
-  <data name="panelFail.TabIndex" type="System.Int32, mscorlib">
-    <value>51</value>
-  </data>
-  <data name="&gt;&gt;panelFail.Name" xml:space="preserve">
-    <value>panelFail</value>
-  </data>
-  <data name="&gt;&gt;panelFail.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelFail.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelFail.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="linkReturns.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -5051,7 +5111,7 @@
     <value>微软雅黑, 8pt</value>
   </data>
   <data name="linkReturns.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 550</value>
+    <value>141, 550</value>
   </data>
   <data name="linkReturns.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 16</value>
@@ -5298,6 +5358,123 @@
   </data>
   <data name="&gt;&gt;btnNofinsh.ZOrder" xml:space="preserve">
     <value>13</value>
+  </data>
+  <data name="&gt;&gt;txtAddress.Name" xml:space="preserve">
+    <value>txtAddress</value>
+  </data>
+  <data name="&gt;&gt;txtAddress.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtAddress.Parent" xml:space="preserve">
+    <value>panelAll</value>
+  </data>
+  <data name="&gt;&gt;txtAddress.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>panelAll</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;linkLabel6.Name" xml:space="preserve">
+    <value>linkLabel6</value>
+  </data>
+  <data name="&gt;&gt;linkLabel6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabel6.Parent" xml:space="preserve">
+    <value>panelAll</value>
+  </data>
+  <data name="&gt;&gt;linkLabel6.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;linkLabel5.Name" xml:space="preserve">
+    <value>linkLabel5</value>
+  </data>
+  <data name="&gt;&gt;linkLabel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabel5.Parent" xml:space="preserve">
+    <value>panelAll</value>
+  </data>
+  <data name="&gt;&gt;linkLabel5.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;linkLabel4.Name" xml:space="preserve">
+    <value>linkLabel4</value>
+  </data>
+  <data name="&gt;&gt;linkLabel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabel4.Parent" xml:space="preserve">
+    <value>panelAll</value>
+  </data>
+  <data name="&gt;&gt;linkLabel4.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;linkLabel3.Name" xml:space="preserve">
+    <value>linkLabel3</value>
+  </data>
+  <data name="&gt;&gt;linkLabel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabel3.Parent" xml:space="preserve">
+    <value>panelAll</value>
+  </data>
+  <data name="&gt;&gt;linkLabel3.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;linkLabel2.Name" xml:space="preserve">
+    <value>linkLabel2</value>
+  </data>
+  <data name="&gt;&gt;linkLabel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabel2.Parent" xml:space="preserve">
+    <value>panelAll</value>
+  </data>
+  <data name="&gt;&gt;linkLabel2.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>panelAll</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="panelAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, 0</value>
+  </data>
+  <data name="panelAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 575</value>
+  </data>
+  <data name="panelAll.TabIndex" type="System.Int32, mscorlib">
+    <value>62</value>
+  </data>
+  <data name="&gt;&gt;panelAll.Name" xml:space="preserve">
+    <value>panelAll</value>
+  </data>
+  <data name="&gt;&gt;panelAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelAll.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelAll.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="txtAddress.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 9pt</value>
@@ -5782,27 +5959,6 @@
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
     <value>9</value>
-  </data>
-  <data name="panelAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, 0</value>
-  </data>
-  <data name="panelAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>370, 575</value>
-  </data>
-  <data name="panelAll.TabIndex" type="System.Int32, mscorlib">
-    <value>62</value>
-  </data>
-  <data name="&gt;&gt;panelAll.Name" xml:space="preserve">
-    <value>panelAll</value>
-  </data>
-  <data name="&gt;&gt;panelAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelAll.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelAll.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

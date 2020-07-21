@@ -368,7 +368,90 @@ namespace UI
 
             isStartFun();
             //等待中
-           
+            #region   检验是否正确
+            if (String.IsNullOrEmpty(txtName.Text) || txtName.Text == "请输入姓名")
+            {
+                MessageBox.Show("请输入姓名");
+                return;
+            }
+            if (String.IsNullOrEmpty(txtIDCard.Text) || txtIDCard.Text == "请输入身份证号")
+            {
+                MessageBox.Show("请输入身份证号");
+                return;
+            }
+            #region 验证身份证是否合法
+            String Mge = "";
+            Address = this.txtAddress.Text;
+            Sidnum = this.txtIDCard.Text.IndexOf('*') > 0 ? Sidnum : this.txtIDCard.Text;
+            SName = this.txtName.Text.IndexOf('*') > 0 ? SName : this.txtName.Text;
+            string cid = CheckCidInfo18(Sidnum);
+            if (cid != "")
+            {
+                Mge = cid;
+                MessageBox.Show(Mge);
+                return;
+            }
+            #region 验证手机号码是否合法
+            if (!Phone(txtPhone.Text.Trim()))
+            {
+                Mge = "手机号码格式错误";
+                MessageBox.Show(Mge);
+                return;
+            }
+            #endregion
+            #region 判断手机号与验证码是否合法
+            if (!String.IsNullOrEmpty(txtPhone.Text))
+            {
+                if (string.IsNullOrEmpty(yPhone))
+                {
+                    Mge = "请您获取验证码";
+                    MessageBox.Show("请您获取验证码");
+                    return;
+                }
+                if (txtPhone.Text != yPhone)//如果接收验证码的手机与文本框的手机不一致
+                {
+                    MessageBox.Show("手机号码不一致");
+                    return;
+                }
+                if (String.IsNullOrEmpty(txtYan.Text))//如果验证码为空
+                {
+                    MessageBox.Show("请输入验证码");
+                    return;
+                }
+                if (txtYan.Text.Trim() != yCode)//与发送的验证码不一致
+                {
+                    MessageBox.Show("验证码错误");
+                    return;
+                }
+            }
+            #endregion
+
+            #endregion
+            if (String.IsNullOrEmpty(txtAddress.Text) || txtAddress.Text == "请输入地址")
+            {
+                MessageBox.Show("请输入地址");
+                return;
+            }
+            if (String.IsNullOrEmpty(txtPhone.Text) || txtPhone.Text == "请输入手机号")
+            {
+                MessageBox.Show("请输入手机号");
+                return;
+            }
+            if (String.IsNullOrEmpty(txtYan.Text) || txtPhone.Text == "请输入验证码")
+            {
+                MessageBox.Show("请输入验证码");
+                return;
+            }
+            if (IsAgree == 0)
+            {
+                MessageBox.Show("请同意该协议！");
+                return;
+            }
+
+      
+
+
+            #endregion
 
             panelWait.Visible = true;
             panelWait.BackColor = Color.FromArgb(80,192,192,192);
@@ -380,8 +463,8 @@ namespace UI
 
             SendMessage("7", "1");
             IsGetAndrid = 1;
+            YinCangButton();
 
-           
         }
 
 
@@ -503,12 +586,7 @@ namespace UI
             {
                 if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg!=null&&IsAgree==1)
                 {
-                    //实名注册刷脸就医按钮隐藏
-                    btnNofinsh.Visible = false;
-
-                    //panelCang.Visible = true;
-                    //panelCang.BackColor = Color.White;
-                    btnRegister.Visible = true;
+                    
                     Register();
                 }
                 else
@@ -536,19 +614,14 @@ namespace UI
 
 
             #region   检验是否正确
-            if (String.IsNullOrEmpty(txtPhone.Text) || txtPhone.Text == "请输入手机号")
+            if (String.IsNullOrEmpty(txtName.Text) || txtName.Text == "请输入姓名")
             {
-                MessageBox.Show("请输入手机号");
+                MessageBox.Show("请输入姓名");
                 return;
             }
-            if (String.IsNullOrEmpty(txtYan.Text) || txtPhone.Text == "请输入验证码")
+            if (String.IsNullOrEmpty(txtIDCard.Text) || txtIDCard.Text == "请输入身份证号")
             {
-                MessageBox.Show("请输入验证码");
-                return;
-            }
-            if (IsAgree == 0)
-            {
-                MessageBox.Show("请同意该协议！");
+                MessageBox.Show("请输入身份证号");
                 return;
             }
             String Mge = "";
@@ -602,7 +675,28 @@ namespace UI
             #endregion
 
 
-
+            if (String.IsNullOrEmpty(txtAddress.Text) || txtAddress.Text == "请输入地址")
+            {
+                MessageBox.Show("请输入地址");
+                return;
+            }
+            if (String.IsNullOrEmpty(txtPhone.Text) || txtPhone.Text == "请输入手机号")
+            {
+                MessageBox.Show("请输入手机号");
+                return;
+            }
+            if (String.IsNullOrEmpty(txtYan.Text) || txtPhone.Text == "请输入验证码")
+            {
+                MessageBox.Show("请输入验证码");
+                return;
+            }
+            if (IsAgree == 0)
+            {
+                MessageBox.Show("请同意该协议！");
+                return;
+            }
+           
+            #endregion
 
             #region 图片
             if (photoImg == null)
@@ -649,13 +743,13 @@ namespace UI
             #endregion
 
 
+            
 
-            #endregion
 
             //photoImg = null;
         }
         #endregion
-
+        
         #region 身份证格式验证,以及15.18位互转方法
         /// <summary>
         /// 验证18位身份证格式
