@@ -992,20 +992,20 @@ namespace UI
         //private void timerSuccess_Tick(object sender, EventArgs e)
         //{
 
-            //--sucSecond;
-            //if (sucSecond ==0)
-            //{
-            //    this.txtSuccess.Text = "";
-                
-            //    timerSuccess.Enabled = false;
-            //    panelSuccess.Visible = false;
-            //    txtSuccess.Visible = false;
-            //}
-            //else
-            //{
-            //    this.txtSuccess.Text = sucSecond.ToString();
-            //}
-            
+        //--sucSecond;
+        //if (sucSecond ==0)
+        //{
+        //    this.txtSuccess.Text = "";
+
+        //    timerSuccess.Enabled = false;
+        //    panelSuccess.Visible = false;
+        //    txtSuccess.Visible = false;
+        //}
+        //else
+        //{
+        //    this.txtSuccess.Text = sucSecond.ToString();
+        //}
+
         //}
 
         /// <summary>
@@ -1016,21 +1016,21 @@ namespace UI
         //int failSecond =6;
         //private void timerfail_Tick(object sender, EventArgs e)
         //{
-            //--failSecond;
-            //if (failSecond == 0)
-            //{
-            //    this.textBox1.Text = "";
-            //    this.textBox1.Visible = false;
-            //    textBox1.Enabled = false;
-            //    panelFail.Visible = false;
-            //    timerfail.Stop();
-               
-            //}
-            //else
-            //{
-            //    this.textBox1.Text = errorMessage + failSecond.ToString();
-            //}
-           
+        //--failSecond;
+        //if (failSecond == 0)
+        //{
+        //    this.textBox1.Text = "";
+        //    this.textBox1.Visible = false;
+        //    textBox1.Enabled = false;
+        //    panelFail.Visible = false;
+        //    timerfail.Stop();
+
+        //}
+        //else
+        //{
+        //    this.textBox1.Text = errorMessage + failSecond.ToString();
+        //}
+
 
         //}
 
@@ -1063,6 +1063,7 @@ namespace UI
         //}
         #endregion
 
+            
         /// <summary>
         /// 返回上一级
         /// </summary>
@@ -1480,7 +1481,7 @@ namespace UI
         #region 返回上一级
         private void ReturnUpLevel()
         {
-           
+            linkReturns.Enabled = false;
             errorCount = 0;
             //实名注册刷脸就医按钮隐藏
             btnNofinsh.Visible = true;
@@ -1510,6 +1511,8 @@ namespace UI
 
             picText.Visible = true;
             btnNofinsh.Visible = true;
+            Thread.Sleep(1000);
+            linkReturns.Enabled = true;
         }
 
         private void panelAll_SizeChanged(object sender, EventArgs e)
