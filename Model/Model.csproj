@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgeFourPie.cs" />
+    <Compile Include="AgeFourPieComparer.cs" />
+    <Compile Include="AgePie.cs" />
+    <Compile Include="AgePieComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

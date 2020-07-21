@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using Model;
 
 namespace DAL
 {
@@ -55,29 +56,116 @@ namespace DAL
             DBHelper dB = new DBHelper();
 
             var result = dB.ProcHomeData(SP_Name, System.Data.CommandType.StoredProcedure, paras);
-            
+
             return result;
         }
-
+        /// <summary>
+        /// 门诊费用和药品收费金额1111111111
+        /// </summary>
+        /// <param name="StateTime"></param>
+        /// <param name="EndTime"></param>
+        /// <param name="SPTXT"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
         public List<BigDataHome> HomeBigDataGet(string StateTime, string EndTime, string SPTXT, string K)
         {
             try
             {
-                
+
                 DBHelper dB = new DBHelper();
-                string sql1 = "select sum(Topfees) as MZSFJE from Opusdule_one where TopfeeType=1 and [Data] between '"+StateTime+"' and '"+EndTime+"'";
-              
-                if (K == "C")
+
+                string strWhere = "";
+                //获取分表的表名
+                int StartYear = Convert.ToDateTime(StateTime).Year;
+                int EndYear = Convert.ToDateTime(EndTime).Year;
+                for (int i = StartYear; i <= EndYear; i++)
                 {
-                    sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '"+SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                    strWhere += i.ToString() + ",";
                 }
-                if (K == "Y")
+                strWhere = strWhere.TrimEnd(',');
+                string sqlSelTab = " SELECT tableName FROM dbo.TableRelation WHERE yearNum IN ( " + strWhere + ")";
+                List<Dictionary<string, object>> tableRela = dB.GetNewList(sqlSelTab, System.Data.CommandType.Text);
+                List<Dictionary<string, object>> mzrc = new List<Dictionary<string, object>>();
+                List<Dictionary<string, object>> mzrc1 = new List<Dictionary<string, object>>();
+                foreach (var item in tableRela)
                 {
-                    sql1 += " and HospCode='"+SPTXT+"'";
+                    foreach (var itemvalue in item.Values)
+                    {
+                        string tableName = itemvalue.ToString();
+
+                        string sql1 = "select sum(Topfees) as MZSFJE from Opusdule"+ tableName + " where TopfeeType=1 and [Data] between '" + StateTime + "' and '" + EndTime + "'";
+
+                        if (K == "C")
+                        {
+                            sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                        }
+                        if (K == "Y")
+                        {
+                            sql1 += " and HospCode='" + SPTXT + "'";
+                        }
+                        mzrc.AddRange(dB.GetNewList(sql1, System.Data.CommandType.Text));
+
+                        string sql2 = "select sum(Topfees) as ZYFYZE from Opusdule"+tableName+" where TopfeeType=2 and [Data] between '" + StateTime + "' and '" + EndTime + "'";
+
+                        if (K == "C")
+                        {
+                            sql2 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                        }
+                        if (K == "Y")
+                        {
+                            sql2 += " and HospCode='" + SPTXT + "'";
+                        }
+
+                       mzrc1 = dB.GetNewList(sql2, System.Data.CommandType.Text);
+
+                    }
                 }
 
-                List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
-                
+                #region 整合多表门诊费用和药品收费金额
+
+
+                string results = JsonConvert.SerializeObject(mzrc, Formatting.Indented);
+                List<int> ageList = JsonConvert.DeserializeObject<List<int>>(results);
+                List<int> resultList = null;
+
+                resultList.Add(ageList.Sum());
+
+                mzrc = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(JsonConvert.SerializeObject(resultList.ToList()));
+
+                string results1 = JsonConvert.SerializeObject(mzrc1, Formatting.Indented);
+                List<int> ageList1 = JsonConvert.DeserializeObject<List<int>>(results1);
+                List<int> resultList1 = null;
+
+                resultList1.Add(ageList1.Sum());
+
+                mzrc1 = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(JsonConvert.SerializeObject(resultList1.ToList()));
+
+                #endregion
+                //string sql1 = "select sum(Topfees) as MZSFJE from Opusdule_one where TopfeeType=1 and [Data] between '" + StateTime + "' and '" + EndTime + "'";
+
+                //if (K == "C")
+                //{
+                //    sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                //}
+                //if (K == "Y")
+                //{
+                //    sql1 += " and HospCode='" + SPTXT + "'";
+                //}
+
+                //List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+
+                //string sql2 = "select sum(Topfees) as ZYFYZE from Opusdule_one where TopfeeType=2 and [Data] between '" + StateTime + "' and '" + EndTime + "'";
+
+                //if (K == "C")
+                //{
+                //    sql2 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                //}
+                //if (K == "Y")
+                //{
+                //    sql2 += " and HospCode='" + SPTXT + "'";
+                //}
+
+                //List<Dictionary<string, object>> mzrc1 = dB.GetNewList(sql2, System.Data.CommandType.Text);
 
                 List<BigDataHome> list = new List<BigDataHome>();
                 list.Add(new BigDataHome
@@ -86,25 +174,9 @@ namespace DAL
                     data = new List<ItmeList>{
             new ItmeList { Name="门诊费用总额",SelectItmeList=mzrc }}
                 });
-
-
-                string sql2 = "select sum(Topfees) as ZYFYZE from Opusdule_one where TopfeeType=2 and [Data] between '" + StateTime + "' and '" + EndTime + "'";
-
-                if (K == "C")
-                {
-                    sql2 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
-                }
-                if (K == "Y")
-                {
-                    sql2 += " and HospCode='" + SPTXT + "'";
-                }
-
-                List<Dictionary<string, object>> mzrc1 = dB.GetNewList(sql2, System.Data.CommandType.Text);
-
-                
-                //付玲琪修改
+                //修改药品收费金额
                 list[0].data.Add(new ItmeList { Name = "药品收费金额", SelectItmeList = mzrc1 });
-                
+
                 return list;
             }
             catch (System.Exception ex)
@@ -114,7 +186,7 @@ namespace DAL
         }
 
         /// <summary>
-        /// 门诊收费趋势
+        /// 门诊收费趋势111111
         /// </summary>
         /// <param name="StateTime"></param>
         /// <param name="EndTime"></param>
@@ -125,20 +197,45 @@ namespace DAL
         {
             try
             {
-
                 DBHelper dB = new DBHelper();
-                string sql1 = "   select  CONVERT(nvarchar(10),Data,120) as [Data],sum(Topfees) as Topfees from Opusdule_one  where [Data] between '" + StateTime + "' and '"+EndTime+"'";
 
-                if (K == "C")
+
+                string strWhere = "";
+                //获取分表的表名
+                int StartYear = Convert.ToDateTime(StateTime).Year;
+                int EndYear = Convert.ToDateTime(EndTime).Year;
+                for (int i = StartYear; i <= EndYear; i++)
                 {
-                    sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                    strWhere += i.ToString() + ",";
                 }
-                if (K == "Y")
+                strWhere = strWhere.TrimEnd(',');
+                string sqlSelTab = " SELECT tableName FROM dbo.TableRelation WHERE yearNum IN ( " + strWhere + ")";
+                List<Dictionary<string, object>> tableRela = dB.GetNewList(sqlSelTab, System.Data.CommandType.Text);
+                List<Dictionary<string, object>> mzrc = new List<Dictionary<string, object>>();
+                foreach (var item in tableRela)
                 {
-                    sql1 += " and HospCode='" + SPTXT + "'";
+                    foreach (var itemvalue in item.Values)
+                    {
+                        string tableName = itemvalue.ToString();
+                        string sql1 = "   select  CONVERT(nvarchar(10),Data,120) as [Data],sum(Topfees) as Topfees from Opusdule"+tableName+"  where [Data] between '" + StateTime + "' and '" + EndTime + "'";
+
+                        if (K == "C")
+                        {
+                            sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                        }
+                        if (K == "Y")
+                        {
+                            sql1 += " and HospCode='" + SPTXT + "'";
+                        }
+                        sql1 += "  Group by  CONVERT(nvarchar(10),Data,120)  order by [Data] desc ";
+
+                        mzrc.AddRange(dB.GetNewList(sql1, System.Data.CommandType.Text));
+                    }
                 }
-                sql1 += "  Group by  CONVERT(nvarchar(10),Data,120)  order by [Data] desc ";
-                List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+
+
+               
+                //List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
 
 
                 List<BigDataHome> list = new List<BigDataHome>();
@@ -158,7 +255,7 @@ namespace DAL
         }
 
         /// <summary>
-        /// 当月门诊就医趋势
+        /// 当月门诊就医趋势11111111111
         /// </summary>
         /// <param name="StateTime"></param>
         /// <param name="EndTime"></param>
@@ -170,21 +267,41 @@ namespace DAL
             try
             {
                 DBHelper dB = new DBHelper();
-                string sql1 = "select CONVERT(nvarchar(10),WHIT.Data,120) as [Data],SUM(PsitDay) as PsitDay from Stocdata_one WHIT (NOLOCK) where [Data] between '" + StateTime+"' and '"+EndTime+"'";
 
-                if (K == "C")
+
+                string strWhere = "";
+                //获取分表的表名
+                int StartYear = Convert.ToDateTime(StateTime).Year;
+                int EndYear = Convert.ToDateTime(EndTime).Year;
+                for (int i = StartYear; i <= EndYear; i++)
                 {
-                    sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '"+SPTXT+"' and HospCode=MediTable.ORGCODE )";
+                    strWhere += i.ToString() + ",";
                 }
-                if (K == "Y")
+                strWhere = strWhere.TrimEnd(',');
+                string sqlSelTab = " SELECT tableName FROM dbo.TableRelation WHERE yearNum IN ( " + strWhere + ")";
+                List<Dictionary<string, object>> tableRela = dB.GetNewList(sqlSelTab, System.Data.CommandType.Text);
+                List<Dictionary<string, object>> mzrc = new List<Dictionary<string, object>>();
+                foreach (var item in tableRela)
                 {
-                    sql1 += " and HospCode='" + SPTXT + "'";
+                    foreach (var itemvalue in item.Values)
+                    {
+                        string tableName = itemvalue.ToString();
+                        string sql1 = "select CONVERT(nvarchar(10),WHIT.Data,120) as [Data],SUM(PsitDay) as PsitDay from Stocdata" + tableName + " WHIT (NOLOCK) where [Data] between '" + StateTime + "' and '" + EndTime + "'";
+
+                        if (K == "C")
+                        {
+                            sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
+                        }
+                        if (K == "Y")
+                        {
+                            sql1 += " and HospCode='" + SPTXT + "'";
+                        }
+                        sql1 += "  Group by CONVERT(nvarchar(10),WHIT.Data,120) order by [Data] desc ";
+
+                        mzrc.AddRange(dB.GetNewList(sql1, System.Data.CommandType.Text));
+                    }
                 }
-                sql1 += "  Group by CONVERT(nvarchar(10),WHIT.Data,120) order by [Data] desc ";
-
-                List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
-
-
+                //List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);               
                 List<BigDataHome> list = new List<BigDataHome>();
                 list.Add(new BigDataHome
                 {
@@ -203,7 +320,7 @@ namespace DAL
         }
 
         /// <summary>
-        /// 门诊人次SUM
+        /// 门诊人次SUM1111111111
         /// </summary>
         /// <param name="StateTime"></param>
         /// <param name="EndTime"></param>
@@ -235,7 +352,7 @@ namespace DAL
                     {
                         string tableName = itemvalue.ToString();
 
-                        string sql1 = "select SUM(PsitDay) as MZRC from  dbo.Stocdata"+ tableName + " WHIT (NOLOCK) where [Data] between '" + StateTime + "' and '" + EndTime + "' ";
+                        string sql1 = "select SUM(PsitDay) as MZRC from  dbo.Stocdata" + tableName + " WHIT (NOLOCK) where [Data] between '" + StateTime + "' and '" + EndTime + "' ";
 
                         if (K == "C")
                         {
@@ -257,7 +374,7 @@ namespace DAL
                 List<int> resultList = null;
 
                 resultList.Add(ageList.Sum());
-                
+
                 mzrc = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(JsonConvert.SerializeObject(resultList.ToList()));
 
                 #endregion
@@ -466,7 +583,7 @@ namespace DAL
         }
 
         /// <summary>
-        /// 门诊数据饼状图
+        /// 门诊数据饼状图1111111111
         /// </summary>
         /// <param name="StateTime"></param>
         /// <param name="EndTime"></param>
@@ -475,6 +592,7 @@ namespace DAL
         /// <returns></returns>
         public List<BigDataHome> IllTypeBigDataBySick(string StateTime, string EndTime, string SPTXT, string K)
         {
+            DBHelper dB = new DBHelper();
             List<string> BingType = new List<string>();
             BingType.Add("肺炎");
             BingType.Add("发热");
@@ -487,71 +605,77 @@ namespace DAL
                 message = "首页数据",
                 data = new List<ItmeList>()
             });
-            foreach (var item in BingType)
+
+
+            #region  门诊数据饼图分表
+            string strWhere = "";
+            //获取分表的表名
+            int StartYear = Convert.ToDateTime(StateTime).Year;
+            int EndYear = Convert.ToDateTime(EndTime).Year;
+            for (int i = StartYear; i <= EndYear; i++)
             {
-                string part = " ) s  WHERE s.Chename LIKE '%" + item + "%' ";
-                if (K == "C")
-                {
-                    part = " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE ) ) s  WHERE s.Chename LIKE '%" + item + "%'";
-                }
-                if (K == "Y")
-                {
-                    part = " and HospCode='" + SPTXT + "' ) s  WHERE s.Chename LIKE '%" + item + "%' ";
-                }
-
-                string sql1 = "SELECT '" + item + "' as name, 'ZoreToTwenty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age <=20  Group BY s.Sex " +
-                               "UNION ALL " +
-                               "SELECT '" + item + "' as name, 'TwentyToFourty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one  where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 21 And 40  Group BY s.Sex " +
-                               "UNION ALL " +
-                               "SELECT '" + item + "' as name, 'FourtyTOSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 41 And 60 Group BY s.Sex " +
-                              "UNION ALL " +
-                               "SELECT '" + item + "' as name, 'OnSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata_one where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ";
-                DBHelper dB = new DBHelper();
-
-                List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
-                list[0].data.Add(new ItmeList { Name = item, SelectItmeList = mzrc });
+                strWhere += i.ToString() + ",";
             }
-            //     foreach (var item in BingType)
-            //     {
-            //          string sql1 = "Select s.Sex,'" + item + "' as name,SUM(Case When age <=20 Then 1 Else 0 End) As ZoreToTwenty," +
-            // "Sum(Case When age Between 21 And 40 Then 1 Else 0 End) As TwentyToFourty," +
-            //"Sum(Case When age Between 41 And 60 Then 1 Else 0 End) As 'FourtyTOSixty'," +
-            //"Sum(Case When age >= 61 Then 1 Else 0 End) As OnSixty From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM Stocdata  where [Data] between '" + StateTime + "' and '" + EndTime+"'";
+            strWhere = strWhere.TrimEnd(',');
+            string sqlSelTab = " SELECT tableName FROM dbo.TableRelation WHERE yearNum IN ( " + strWhere + ")";
+            List<Dictionary<string, object>> tableRela = dB.GetNewList(sqlSelTab, System.Data.CommandType.Text);
+            //结果集
+            List<Dictionary<string, object>> mzrcs = new List<Dictionary<string, object>>();
+            //开始获取结果
+            foreach (var item in tableRela)
+            {
+                foreach (var itemvalue in item.Values)
+                {
+                    string tableName = itemvalue.ToString();
+                    foreach (var Sick in BingType)
+                    {
+                        string part = " ) s  WHERE s.Chename LIKE '%" + Sick + "%' ";
+                        if (K == "C")
+                        {
+                            part = " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE ) ) s  WHERE s.Chename LIKE '%" + item + "%'";
+                        }
+                        if (K == "Y")
+                        {
+                            part = " and HospCode='" + SPTXT + "' ) s  WHERE s.Chename LIKE '%" + Sick + "%' ";
+                        }
+
+                        string sql1 = "SELECT '" + Sick + "' as name, 'ZoreToTwenty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang,s.Sex From (SELECT *, datediff(year, Birthday, getdate()) AS age FROM Stocdata" + tableName + " where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age <=20  Group BY s.Sex " +
+                                       "UNION ALL " +
+                                       "SELECT '" + Sick + "' as name, 'TwentyToFourty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata" + tableName + "  where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 21 And 40  Group BY s.Sex " +
+                                       "UNION ALL " +
+                                       "SELECT '" + Sick + "' as name, 'FourtyTOSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata" + tableName + " where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age Between 41 And 60 Group BY s.Sex " +
+                                      "UNION ALL " +
+                                       "SELECT '" + Sick + "' as name, 'OnSixty'AS AgeDuan, SUM(TnoiDay) AS ShuLiang, s.Sex From(SELECT*, datediff(year, Birthday, getdate()) AS age FROM Stocdata" + tableName + " where [Data] between '" + StateTime + "' and '" + EndTime + "'  " + part + "AND  age >=61 Group BY s.Sex ";
+
+                        List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
+                        list[0].data.Add(new ItmeList { Name = Sick, SelectItmeList = mzrc });
+                    }
+                }
+            }
+
+            #endregion
+            #region 门诊根据年龄饼图（整合多表查询结果）
+
+            string results = JsonConvert.SerializeObject(mzrcs, Formatting.Indented);
+            List<AgeFourPie> ageList = JsonConvert.DeserializeObject<List<AgeFourPie>>(results);
+            List<AgeFourPie> resultList = JsonConvert.DeserializeObject<List<AgeFourPie>>(results);
+            foreach (var item in resultList)
+            {
+                var stre = ageList.Where(m => m.AgeDuan == item.AgeDuan && m.Sex == item.Sex).ToList();
+                item.ShuLiang = ageList.Where(m => m.AgeDuan == item.AgeDuan && m.Sex == item.Sex).Sum(m => long.Parse(m.ShuLiang)).ToString();
+            }
+            //Distinct(new AgeFourPieComparer()).ToList()
+            mzrcs = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(JsonConvert.SerializeObject(resultList.Distinct(new AgeFourPieComparer()).ToList()));
+
+            #endregion
 
 
-            //         //string sql1 = "select SUM(TnoiDay) as MZRC from InberTable WITH (NOLOCK) where [Data] between " + StateTime + " and " + EndTime;
-            //         DBHelper dB = new DBHelper();
-            //         if (K == "C")
-            //         {
-            //             sql1 += " and exists (SELECT ORGCODE FROM  MediTable where ADMINISTRATIVECODE like '" + SPTXT + "' and HospCode=MediTable.ORGCODE )";
-            //         }
-            //         if (K == "Y")
-            //         {
-            //             sql1 += " and HospCode='" + SPTXT + "'";
-            //         }
-
-
-            //         //if (item != "其他")
-            //         //{
-
-            //             sql1 += ") s WHERE s.DiseName LIKE '%" + item + "%' GROUP BY s.Sex";
-            //         //}
-            //         //else
-            //         //{
-            //         //    sql1 += "WHERE s.DiseName NOT LIKE '%发热%' and s.DiseName NOT LIKE '%肺炎%' and s.DiseName NOT LIKE '%心脏病%' and s.DiseName NOT LIKE '%糖尿病%' GROUP BY s.Sex";
-            //         //}
-            //         List<Dictionary<string, object>> mzrc = dB.GetNewList(sql1, System.Data.CommandType.Text);
-
-            //         list[0].data.Add(new ItmeList { Name = "病种", SelectItmeList = mzrc });
-
-
-            //     }
 
             return list;
         }
 
         /// <summary>
-        /// 门诊数据饼图
+        /// 门诊数据饼图（年龄7个分类）
         /// </summary>
         /// <param name="StateTime"></param>
         /// <param name="EndTime"></param>
@@ -568,7 +692,7 @@ namespace DAL
                 message = "首页数据",
                 data = new List<ItmeList>()
             });
-            
+            #region  分表
             string strWhere = "";
             //获取分表的表名
             int StartYear = Convert.ToDateTime(StateTime).Year;
@@ -578,7 +702,7 @@ namespace DAL
                 strWhere += i.ToString() + ",";
             }
             strWhere = strWhere.TrimEnd(',');
-            string sqlSelTab = " SELECT tableName FROM dbo.TableRelation WHERE yearNum IN ( "+strWhere+")";
+            string sqlSelTab = " SELECT tableName FROM dbo.TableRelation WHERE yearNum IN ( " + strWhere + ")";
             List<Dictionary<string, object>> tableRela = dB.GetNewList(sqlSelTab, System.Data.CommandType.Text);
             //结果集
             List<Dictionary<string, object>> mzrcs = new List<Dictionary<string, object>>();
@@ -614,6 +738,8 @@ namespace DAL
                     mzrcs.AddRange(dB.GetNewList(sql1, System.Data.CommandType.Text));
                 }
             }
+
+            #endregion
             #region 门诊根据年龄饼图（整合多表查询结果）
 
             string results = JsonConvert.SerializeObject(mzrcs, Formatting.Indented);
@@ -624,11 +750,12 @@ namespace DAL
                 var stre = ageList.Where(m => m.AgeDuan == item.AgeDuan && m.Sex == item.Sex).ToList();
                 item.ShuLiang = ageList.Where(m => m.AgeDuan == item.AgeDuan && m.Sex == item.Sex).Sum(m => long.Parse(m.ShuLiang)).ToString();
             }
+            
             //var resultse = resultList.Distinct(new AgePieComparer()).ToList();
             mzrcs = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(JsonConvert.SerializeObject(resultList.Distinct(new AgePieComparer()).ToList()));
 
             #endregion
-
+            
             list[0].data.Add(new ItmeList { Name = "门诊根据年龄饼图", SelectItmeList = mzrcs });
             return list;
         }
@@ -670,41 +797,7 @@ namespace DAL
             return list;
         }
         #endregion
-      
-    }
-    /// <summary>
-    ///  饼图
-    /// </summary>
-    public class AgePie
-    {
-        /// <summary>
-        /// 年龄阶段所有的人数
-        /// </summary>
-        public string ShuLiang { get; set; }
-        /// <summary>
-        /// 年龄阶段
-        /// </summary>
-        public string AgeDuan { get; set; }
-        /// <summary>
-        /// 性别
-        /// </summary>
-        public string Sex { get; set; }
-    }
-    /// <summary>
-    ///  去除list集合重复对象
-    /// </summary>
-    public class AgePieComparer : IEqualityComparer<AgePie>  
-    {
-        public bool Equals(AgePie x, AgePie y)
-        {
-            return x.AgeDuan == y.AgeDuan
-              && x.Sex == y.Sex
-              && x.ShuLiang == y.ShuLiang;
-        }
 
-        public int GetHashCode(AgePie obj)
-        {
-            return 1;
-        }
     }
+    
 }
