@@ -61,7 +61,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnNofinsh = new System.Windows.Forms.Button();
             this.panelAll = new System.Windows.Forms.Panel();
             this.txtAddress = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -70,7 +69,8 @@
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).BeginInit();
@@ -82,6 +82,8 @@
             this.panelFailTwo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelAll.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -326,20 +328,10 @@
             this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Name = "label6";
             // 
-            // btnNofinsh
-            // 
-            this.btnNofinsh.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.btnNofinsh, "btnNofinsh");
-            this.btnNofinsh.FlatAppearance.BorderSize = 0;
-            this.btnNofinsh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnNofinsh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnNofinsh.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.btnNofinsh.Name = "btnNofinsh";
-            this.btnNofinsh.UseVisualStyleBackColor = false;
-            // 
             // panelAll
             // 
             this.panelAll.BackColor = System.Drawing.Color.White;
+            this.panelAll.Controls.Add(this.pictureBox2);
             this.panelAll.Controls.Add(this.txtAddress);
             this.panelAll.Controls.Add(this.label7);
             this.panelAll.Controls.Add(this.linkLabel6);
@@ -349,11 +341,10 @@
             this.panelAll.Controls.Add(this.linkLabel4);
             this.panelAll.Controls.Add(this.linkLabel3);
             this.panelAll.Controls.Add(this.linkLabel2);
-            this.panelAll.Controls.Add(this.button1);
+            this.panelAll.Controls.Add(this.pictureBox1);
             this.panelAll.Controls.Add(this.label2);
             this.panelAll.Controls.Add(this.btnNoAgree);
             this.panelAll.Controls.Add(this.btnAgree);
-            this.panelAll.Controls.Add(this.btnNofinsh);
             this.panelAll.Controls.Add(this.txtName);
             this.panelAll.Controls.Add(this.label6);
             this.panelAll.Controls.Add(this.txtIDCard);
@@ -427,16 +418,17 @@
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.TabStop = true;
             // 
-            // button1
+            // pictureBox1
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = false;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
             // 
             // FaceRegister
             // 
@@ -473,6 +465,8 @@
             this.panel2.PerformLayout();
             this.panelAll.ResumeLayout(false);
             this.panelAll.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -512,10 +506,10 @@
         private System.Windows.Forms.Panel panelFailTwo;
         private System.Windows.Forms.Panel panelSuccTwo;
         private System.Windows.Forms.Panel panelWaittwo;
-        private System.Windows.Forms.Button btnNofinsh;
+        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panelAll;
         private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel linkLabel5;
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.LinkLabel linkLabel3;

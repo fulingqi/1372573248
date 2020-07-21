@@ -48,7 +48,7 @@ namespace UI
 
         public string errorMessage;
 
-        public int errorCount=0;
+        public int errorCount = 0;
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FaceRegister));
 
         public int ShibaiDao = 0;
@@ -67,7 +67,7 @@ namespace UI
         {
             try
             {
-                SendMessage("13","1");
+                SendMessage("13", "1");
 
                 //Test.WSFaces wsf = new Test.WSFaces();
                 WebFace.WSFaces wsf = new WebFace.WSFaces();
@@ -91,7 +91,7 @@ namespace UI
                 string s = ex.Message;
                 Logging.LogFile(s);
             }
-            
+
         }
         #endregion
 
@@ -111,7 +111,7 @@ namespace UI
             btnNoAgree.Visible = false;
             //关闭等待
             panelWait.Visible = false;
-            
+
             //在窗体加载时隐藏lbl1标签
             link3.Visible = false;
             //成功和失败的界面隐藏
@@ -120,7 +120,7 @@ namespace UI
             txtZhuCeSuccess.Visible = false;
 
             staus = 0;
-            
+
             //覆盖同意协议和注册按钮
             //panelCang.Visible = false;
             timer1.Start();
@@ -139,7 +139,7 @@ namespace UI
 
 
 
-  
+
 
         #region 点击屏幕区域隐藏软键盘
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -238,7 +238,7 @@ namespace UI
         private void txtYan_Click(object sender, EventArgs e)
         {
 
-           // Paneljps.Visible = true;
+            // Paneljps.Visible = true;
         }
         #endregion
 
@@ -258,11 +258,11 @@ namespace UI
         #region 获取验证码倒计时
 
         int sucSecond = 6;
-        int failSecond =6;
+        int failSecond = 6;
         private void timer1_Tick(object sender, EventArgs e)
         {
             ThreadPool.QueueUserWorkItem(ReadIdcardInfo, null);
-            
+
             if (link3.Text != "获取验证码" && int.Parse(link3.Text.Substring(0, link3.Text.Length - 5)) > 0)
             {
 
@@ -304,7 +304,7 @@ namespace UI
                 this.txtSuccess.Text = sucSecond.ToString();
             }
 
-           
+
         }
         #endregion
 
@@ -359,7 +359,7 @@ namespace UI
                 Logging.LogFile(s);
             }
         }
-        byte[] photoImg =null;
+        byte[] photoImg = null;
 
         //打开摄像头
         private void picIsShow_Click(object sender, EventArgs e)
@@ -448,13 +448,13 @@ namespace UI
                 return;
             }
 
-      
+
 
 
             #endregion
 
             panelWait.Visible = true;
-            panelWait.BackColor = Color.FromArgb(80,192,192,192);
+            panelWait.BackColor = Color.FromArgb(80, 192, 192, 192);
 
             if (File.Exists(System.IO.Path.GetFullPath(".\\") + "temp.jpg"))
             {
@@ -473,7 +473,7 @@ namespace UI
 
         //private void timer4_Tick(object sender, EventArgs e)
         //{
-            
+
         //}
         public void ReadIdcardInfo(object s)
         {
@@ -515,7 +515,7 @@ namespace UI
                     if (nRet == 0)
                     {
                         Control.CheckForIllegalCrossThreadCalls = false;
-                        
+
                         SName = CardMsg.Name.Trim(); //完整姓名
                         txtName.Text = SName.Substring(0, 1) + "*" + SName.Substring(SName.Length - 1, 1); //加密后的姓名
                         if (SName.Length == 2)
@@ -564,7 +564,7 @@ namespace UI
         {
             if (!string.IsNullOrEmpty(this.txtAddress.Text) && !string.IsNullOrEmpty(this.txtName.Text) && !string.IsNullOrEmpty(this.txtIDCard.Text) && !string.IsNullOrEmpty(this.txtYan.Text) && !string.IsNullOrEmpty(this.txtPhone.Text))
             {
-                if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg!=null&&IsAgree==1)
+                if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg != null && IsAgree == 1)
                 {
                     YinCangButton();
                 }
@@ -575,8 +575,8 @@ namespace UI
             picText.Visible = false;
             btnNoAgree.Visible = false;
             btnAgree.Visible = false;
-            btnNofinsh.Visible = false;
-
+            //btnNofinsh.Visible = false;
+            pictureBox2.Visible = false;
             btnRegister.Visible = true;
         }
         private void button10_Click(object sender, EventArgs e)
@@ -584,9 +584,9 @@ namespace UI
             //所有的信息填完之后注册按钮变为蓝色
             if (!string.IsNullOrEmpty(this.txtAddress.Text) && !string.IsNullOrEmpty(this.txtName.Text) && !string.IsNullOrEmpty(this.txtIDCard.Text) && !string.IsNullOrEmpty(this.txtYan.Text) && !string.IsNullOrEmpty(this.txtPhone.Text))
             {
-                if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg!=null&&IsAgree==1)
+                if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg != null && IsAgree == 1)
                 {
-                    
+
                     Register();
                 }
                 else
@@ -695,7 +695,7 @@ namespace UI
                 MessageBox.Show("请同意该协议！");
                 return;
             }
-           
+
             #endregion
 
             #region 图片
@@ -731,25 +731,20 @@ namespace UI
                 textBox1.Visible = true;
                 textBox1.Enabled = true;
                 SendMessage("8", errorMessage);
-                if (errorCount==3)
+                if (errorCount == 3)
                 {
                     Thread.Sleep(1000);
-                    SendMessage("14","1");
+                    SendMessage("14", "1");
                     ReturnUpLevel();
                 }
             }
-            isStart = 0;
-            
+            //isStart = 0;
+
             #endregion
 
-
-            
-
-
-            //photoImg = null;
         }
         #endregion
-        
+
         #region 身份证格式验证,以及15.18位互转方法
         /// <summary>
         /// 验证18位身份证格式
@@ -895,10 +890,10 @@ namespace UI
         #endregion
 
 
-   
 
 
-        
+
+
         private void FaceRegister_Shown(object sender, EventArgs e)
         {
             #region 寻找身份证读卡器
@@ -970,7 +965,7 @@ namespace UI
         }
 
 
-        
+
 
         #region 设置若用户30秒内无任何操作则显示MDI遮罩层
 
@@ -1063,7 +1058,7 @@ namespace UI
         //}
         #endregion
 
-            
+
         /// <summary>
         /// 返回上一级
         /// </summary>
@@ -1126,7 +1121,7 @@ namespace UI
                 this.txtName.Text = "请输入验证码";
             }
         }
-        
+
         private void txtName_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(this.txtName.Text))
@@ -1176,8 +1171,8 @@ namespace UI
                 this.txtPhone.Text = "请输入手机号";
             }
         }
-        
-        
+
+
 
 
         private void txtYan_Leave(object sender, EventArgs e)
@@ -1224,7 +1219,7 @@ namespace UI
             SendMessage("6", "1");
             Thread.Sleep(500);
         }
-        
+
         class SendData
         {
             public string type { get; set; }
@@ -1270,7 +1265,7 @@ namespace UI
         /// <param name="content"></param>
         private void SendMessage(string type, string content)
         {
-            if (client==null)
+            if (client == null)
             {
                 ConnectAndroid();
             }
@@ -1278,8 +1273,8 @@ namespace UI
             byte[] bytedata = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(model));
             string str = Convert.ToBase64String(bytedata);
             byte[] data = Encoding.ASCII.GetBytes(str);
-            
-           client.Send(data);
+
+            client.Send(data);
         }
 
 
@@ -1312,7 +1307,7 @@ namespace UI
         private void ReceiveResultMessage(string data)
         {
 
-            if (client==null)
+            if (client == null)
             {
                 ConnectAndroid();
             }
@@ -1334,7 +1329,7 @@ namespace UI
                 if (!string.IsNullOrEmpty(sdata))
                 {
                     ReceiveData result = JsonConvert.DeserializeObject<ReceiveData>(sdata);
-                    if (result.data=="ok")
+                    if (result.data == "ok")
                     {
 
                         Process p = new Process(); //实例一个Process类，启动一个独立进程
@@ -1353,8 +1348,8 @@ namespace UI
                         p.StandardInput.WriteLine(@" adb pull /storage/emulated/0/b.jpg " + ssdsd);
 
 
+                        Logging.LogFile("接收到的图片路径：" + ssdsd);
                         Thread.Sleep(2000);
-
                         ReceiveMessage("");
                     }
                 }
@@ -1362,7 +1357,7 @@ namespace UI
             catch (Exception ex)
             {
                 string s = ex.Message;
-                Logging.LogFile("发送拍照命令有误："+s);
+                Logging.LogFile("发送拍照命令有误：" + s);
                 SendMessage("7", "1");
                 throw;
             }
@@ -1468,6 +1463,7 @@ namespace UI
             {
                 isStart = 1;
                 SendMessage("6", "1");
+                Thread.Sleep(2000);
             }
         }
 
@@ -1476,7 +1472,7 @@ namespace UI
             public string result { get; set; }
             public string data { get; set; }
         }
-        
+
 
         #endregion
 
@@ -1484,14 +1480,15 @@ namespace UI
         private void ReturnUpLevel()
         {
             linkReturns.Enabled = false;
+          
             errorCount = 0;
             //实名注册刷脸就医按钮隐藏
-            btnNofinsh.Visible = true;
+            //btnNofinsh.Visible = true;
+            pictureBox2.Visible = true;
 
             photoImg = null;
-            
-            SendMessage("11", "1");
-            failSecond =6;
+
+            failSecond = 6;
             sucSecond = 6;
             this.txtName.Text = "请输入姓名";
             this.txtPhone.Text = "请输入手机号";
@@ -1500,11 +1497,11 @@ namespace UI
             this.txtYan.Text = "请输入验证码";
             this.link3.Text = "获取验证码";
             Sidnum = ""; SName = ""; yPhone = ""; SNation = ""; Address = "";
-            
+
             picIsShow.Visible = true;
-          
+
             picIsShow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picIsShow.BackgroundImage")));
-            isStart = 0;
+           
             //不同意协议
             btnNoAgree.Visible = false;
             btnAgree.Visible = true;
@@ -1512,8 +1509,15 @@ namespace UI
 
 
             picText.Visible = true;
-            btnNofinsh.Visible = true;
-            Thread.Sleep(1000);
+
+            pictureBox2.Visible = true;
+            //btnNofinsh.Visible = true;
+            
+          
+            
+            SendMessage("11", "1");
+            Thread.Sleep(2000);
+            isStart = 0;
             linkReturns.Enabled = true;
         }
 
@@ -1521,166 +1525,11 @@ namespace UI
         {
             //asc.controlAutoSize(this);
         }
-        
+
 
 
         #endregion
-
-        //#region 自适应大小
-        //class AutoSizeFormClass
-        //{
-        //    //(1).声明结构,只记录窗体和其控件的初始位置和大小。  
-        //    public struct controlRect
-        //    {
-        //        public int Left;
-        //        public int Top;
-        //        public int Width;
-        //        public int Height;
-        //    }
-        //    //(2).声明 1个对象  
-        //    //注意这里不能使用控件列表记录 List<Control> nCtrl;，因为控件的关联性，记录的始终是当前的大小。  
-        //    public List<controlRect> oldCtrl;
-        //    //int ctrl_first = 0;  
-        //    //(3). 创建两个函数  
-        //    //(3.1)记录窗体和其控件的初始位置和大小,  
-        //    public void controllInitializeSize(Form mForm)
-        //    {
-        //        // if (ctrl_first == 0)  
-        //        {
-        //            //  ctrl_first = 1;  
-        //            oldCtrl = new List<controlRect>();
-        //            controlRect cR;
-        //            cR.Left = mForm.Left; cR.Top = mForm.Top; cR.Width = mForm.Width; cR.Height = mForm.Height;
-        //            oldCtrl.Add(cR);
-        //            foreach (Control c in mForm.Controls)
-        //            {
-        //                controlRect objCtrl;
-        //                objCtrl.Left = c.Left; objCtrl.Top = c.Top; objCtrl.Width = c.Width; objCtrl.Height = c.Height;
-        //                oldCtrl.Add(objCtrl);
-        //            }
-        //        }
-        //        // this.WindowState = (System.Windows.Forms.FormWindowState)(2);//记录完控件的初始位置和大小后，再最大化  
-        //        //0 - Normalize , 1 - Minimize,2- Maximize  
-        //    }
-        //    //(3.2)控件自适应大小,  
-        //    public void controlAutoSize(Form mForm)
-        //    {
-        //        //int wLeft0 = oldCtrl[0].Left; ;//窗体最初的位置  
-        //        //int wTop0 = oldCtrl[0].Top;  
-        //        ////int wLeft1 = this.Left;//窗体当前的位置  
-        //        //int wTop1 = this.Top;  
-        //        float wScale = (float)mForm.Width / (float)oldCtrl[0].Width;//新旧窗体之间的比例，与最早的旧窗体  
-        //        float hScale = (float)mForm.Height / (float)oldCtrl[0].Height;//.Height;  
-        //        int ctrLeft0, ctrTop0, ctrWidth0, ctrHeight0;
-        //        int ctrlNo = 1;//第1个是窗体自身的 Left,Top,Width,Height，所以窗体控件从ctrlNo=1开始  
-        //        foreach (Control c in mForm.Controls)
-        //        {
-        //            ctrLeft0 = oldCtrl[ctrlNo].Left;
-        //            ctrTop0 = oldCtrl[ctrlNo].Top;
-        //            ctrWidth0 = oldCtrl[ctrlNo].Width;
-        //            ctrHeight0 = oldCtrl[ctrlNo].Height;
-        //            //c.Left = (int)((ctrLeft0 - wLeft0) * wScale) + wLeft1;//新旧控件之间的线性比例  
-        //            //c.Top = (int)((ctrTop0 - wTop0) * h) + wTop1;  
-        //            c.Left = (int)((ctrLeft0) * wScale);//新旧控件之间的线性比例。控件位置只相对于窗体，所以不能加 + wLeft1  
-        //            c.Top = (int)((ctrTop0) * hScale);//  
-        //            c.Width = (int)(ctrWidth0 * wScale);//只与最初的大小相关，所以不能与现在的宽度相乘 (int)(c.Width * w);  
-        //            c.Height = (int)(ctrHeight0 * hScale);//  
-        //            ctrlNo += 1;
-        //        }
-        //    }
-        //}
-        //#endregion
-
-        //#region 设定窗体自适应
-        //public class AutoSizeFormTwoClass
-        //{
-        //    public struct controlRect
-        //    {
-        //        public int Left;
-        //        public int Top;
-        //        public int Width;
-        //        public int Height;
-        //    }
-
-        //    private bool _Flag;
-        //    public bool Flag
-        //    {
-        //        get { return _Flag; }
-        //        set { _Flag = value; }
-        //    }
-
-        //    private int _Number;
-        //    public int Number
-        //    {
-        //        get { return _Number; }
-        //        set { _Number = value; }
-        //    }
-
-        //    private List<controlRect> oldCtrl;
-
-        //    public void Initialize(Form mForm)
-        //    {
-        //        oldCtrl = new List<controlRect>();
-        //        controlRect cR;
-
-        //        cR.Left = mForm.Left;
-        //        cR.Top = mForm.Top;
-        //        cR.Width = mForm.Width;
-        //        cR.Height = mForm.Height;
-
-        //        oldCtrl.Add(cR);
-
-        //        foreach (Control c in mForm.Controls)
-        //        {
-        //            controlRect objCtrl;
-        //            objCtrl.Left = c.Left;
-        //            objCtrl.Top = c.Top;
-        //            objCtrl.Width = c.Width;
-        //            objCtrl.Height = c.Height;
-        //            oldCtrl.Add(objCtrl);
-        //        }
-        //        Flag = true;
-        //        Number = mForm.Controls.Count;
-        //    }
-
-        //    public void ReSize(Form mForm)
-        //    {
-        //        if (!Flag) return;
-
-        //        float wScale = (float)mForm.Width / (float)oldCtrl[0].Width;
-        //        float hScale = (float)mForm.Height / (float)oldCtrl[0].Height;
-
-        //        int ctrLeft0, ctrTop0, ctrWidth0, ctrHeight0;
-        //        int ctrlNo = 1;
-
-        //        try
-        //        {
-        //            if (mForm.Controls.Count != Number) return;
-        //            foreach (Control c in mForm.Controls)
-        //            {
-        //                ctrLeft0 = oldCtrl[ctrlNo].Left;
-        //                ctrTop0 = oldCtrl[ctrlNo].Top;
-        //                ctrWidth0 = oldCtrl[ctrlNo].Width;
-        //                ctrHeight0 = oldCtrl[ctrlNo].Height;
-
-        //                c.Left = (int)(ctrLeft0 * wScale);
-        //                c.Top = (int)(ctrTop0 * hScale);
-        //                c.Width = (int)(ctrWidth0 * wScale);
-        //                c.Height = (int)(ctrHeight0 * hScale);
-        //                ctrlNo += 1;
-        //            }
-        //        }
-        //        catch
-        //        {
-        //            return;
-        //        }
-        //    }
-        //}
-
-
-
-        //#endregion
-
+        
 
         #region 刷身份证所用到的基类
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = 1)]
@@ -1771,7 +1620,7 @@ namespace UI
         public static extern int Syn_SetUserLifeBType(int iType);
         [DllImport("SynIDCardAPI.dll", EntryPoint = "Syn_SetUserLifeEType", CharSet = CharSet.Ansi)]
         public static extern int Syn_SetUserLifeEType(int iType, int iOption);
-        
+
 
         int m_iPort;
 
@@ -1816,6 +1665,7 @@ namespace UI
 
             return result;
         }
+        
 
         public static string AuthenPliceFace(string idcard, string name, string Phone, string Nation, string Address, Stream imgHead)
         {
@@ -1858,6 +1708,70 @@ namespace UI
 
 
         #endregion
+    //    #region 更新程序
+    //    public void func()
+    //    {
 
-    }
+    //        string jsonReb = n.Vc();
+    //        //Tuser["version"].ToString() 本地安卓版本号
+    //        string mac = Tuser["mac"].ToString();
+    //        JObject vc = JsonConvert.DeserializeObject<JObject>(jsonReb);
+    //        //vc["Msg"].ToString() 服务器安卓版本号
+    //        double bd = Convert.ToDouble(Tuser["version"].ToString());
+
+    //        double bda = Convert.ToDouble(vc["Msg"].ToString());
+    //        if (Convert.ToDouble(Tuser["version"].ToString()) < Convert.ToDouble(vc["Msg"].ToString()))//当本地版本号小于服务器版本号
+    //        {
+    //            XmlNode xml = n.SoftwarePackage("An", mac);
+    //            XmlDocument xmldoc = new XmlDocument();
+    //            xmldoc.LoadXml(xml.OuterXml);
+
+    //            XmlElement root = xmldoc.DocumentElement;
+    //            xmldoc.Save(Application.StartupPath + @"\Android.xml");
+
+    //            UpdateApp();
+    //            InsAPK();
+    //        }
+    //    }
+    
+
+    //        private void UpdateApp()
+    //        {
+    //            try
+    //            {
+    //                System.Diagnostics.Process[] ps = System.Diagnostics.Process.GetProcesses();
+    //                foreach (System.Diagnostics.Process p in ps)
+    //                {
+    //                    if (p.ProcessName.ToLower() == "customerapplication")
+    //                    {
+    //                        p.Kill();
+    //                        break;
+    //                    }
+    //                }
+    //                XmlDocument doc = new XmlDocument();
+    //                doc.Load(Application.StartupPath + @"\Android.xml");
+    //                XmlElement root = doc.DocumentElement;
+    //                XmlNode updateNode = root.SelectSingleNode("filelist");
+    //                int count = int.Parse(updateNode.Attributes["count"].Value);
+    //                for (int i = 0; i < count; i++)
+    //                {
+    //                    XmlNode itemNode = updateNode.ChildNodes[i];
+    //                    string fileName = itemNode.Attributes["name"].Value;
+    //                    FileInfo fi = new FileInfo(fileName);
+    //                    //fi.Delete();
+    //                    FileStream fs = File.Open(fileName, FileMode.Create, FileAccess.Write);
+    //                    fs.Write(System.Convert.FromBase64String(itemNode.SelectSingleNode("value").InnerText), 0, int.Parse(itemNode.Attributes["size"].Value));
+    //                    fs.Close();
+    //                }
+    //                File.Delete(Application.StartupPath + @"\Android.xml");
+
+    //            }
+    //            catch (Exception ex)
+    //            {
+    //                MessageBox.Show(ex.ToString());
+    //            }
+    //        }
+    //#endregion
+
+}
 }
