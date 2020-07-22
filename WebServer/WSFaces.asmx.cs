@@ -213,6 +213,32 @@ namespace WebServer
 
         }
         #endregion
+        /// <summary>
+        /// 检验数据库是否存在该用户
+        /// row=0可以注册
+        /// row=1用户已注册
+        /// row=3身份证号已注册
+        /// row=4手机号已注册
+        /// </summary>
+        /// <param name="Phone"></param>
+        /// <param name="IDCard"></param>
+        /// <returns></returns>
+        [WebMethod(Description ="检验134数据库是否存在该用户")]
+        public static int CheckIDCard(string Phone, string IDCard)
+        {
+            int result = 0;
+            try
+            {
+                UserInfoBLL usbll = new UserInfoBLL();
+                result= usbll.CheckIDCard(Phone,IDCard);
+            }
+            catch
+            {
+                return result;
+            }
+
+            return result;
+        }
 
         //#region 公安验证原来
         //[WebMethod(Description = "公安验证")]
@@ -232,7 +258,7 @@ namespace WebServer
         //    return result;
         //}
 
-        
+
         //#endregion
 
 
@@ -317,9 +343,7 @@ namespace WebServer
 
 
             }
-#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
             catch (Exception ex)
-#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
             {
                 //PUBLIC_FUNCTION.LogFile("用户注册出现异常[UserRegister],原因:" + ex.Message);
 

@@ -79,5 +79,21 @@ namespace BLL
             UserInfoDAL dal = new UserInfoDAL();
             return dal.sssa(Name,Sex,CardID,brithday);
         }
+
+        /// <summary>
+        /// 检验数据库是否存在该用户
+        /// row=0可以注册
+        /// row=1用户已注册
+        /// row=3身份证号已注册
+        /// row=4手机号已注册
+        /// </summary>
+        /// <param name="Phone"></param>
+        /// <param name="IDCard"></param>
+        /// <returns></returns>
+        public int CheckIDCard(string Phone, string IDCard)
+        {
+            UserInfoDAL dal = new UserInfoDAL();
+            return dal.CheckIDCard(Phone,IDCard);
+        }
     }
 }

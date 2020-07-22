@@ -49,7 +49,7 @@ namespace WebServer
         }
 
         /// <summary>
-        /// 公安验证*****
+        /// 公安验证*****再用
         /// </summary>
         /// <param name="idcard"></param>
         /// <param name="name"></param>

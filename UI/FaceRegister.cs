@@ -22,6 +22,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Xml;
 using Baidu.Aip;
+using BLL;
 
 namespace UI
 {
@@ -53,6 +54,8 @@ namespace UI
 
         public int ShibaiDao = 0;
         public int ChengGong = 0;
+
+        public bool IsStartIDCard = true;
         //AutoSizeFormClass asc = new AutoSizeFormClass();
 
         //AutoSizeFormTwoClass ascTwo = new AutoSizeFormTwoClass();
@@ -261,8 +264,11 @@ namespace UI
         int failSecond = 6;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            ThreadPool.QueueUserWorkItem(ReadIdcardInfo, null);
-
+            if (IsStartIDCard)
+            {
+                //ReadIdcardInfo();
+                ThreadPool.QueueUserWorkItem(ReadIdcardInfo, null);
+            }
             if (link3.Text != "获取验证码" && int.Parse(link3.Text.Substring(0, link3.Text.Length - 5)) > 0)
             {
 
@@ -477,6 +483,8 @@ namespace UI
         //}
         public void ReadIdcardInfo(object s)
         {
+            IsStartIDCard = false;
+
             #region 读取身份证信息
             IDCardData CardMsg = new IDCardData();
             int nRet, nPort, iPhotoType;
@@ -537,6 +545,8 @@ namespace UI
                 }
             }
             #endregion
+
+            IsStartIDCard = true;
         }
         #endregion
 
@@ -705,16 +715,59 @@ namespace UI
                 return;
             }
             #endregion
-
-            //Test.WSFaces wsf = new Test.WSFaces();
-            WebFace.WSFaces wsf = new WebFace.WSFaces();
+            //本机
+            Test.WSFaces wsf = new Test.WSFaces();
+           // 服务器
+           // WebFace.WSFaces wsf = new WebFace.WSFaces();
             Stream stream = new MemoryStream(photoImg);
+            string PhoneNum = this.txtPhone.Text;
             #region 调用注册接口（公安）验证
-            string result = AuthenPliceFace(Sidnum, SName, this.txtPhone.Text, SNation, Address, stream);//wsf.AuthenPliceFace(Sidnum, SName, this.txtPhone.Text, SNation, Address, photoImg);
+
+            #region 访问自己数据库判断是否存在用户
+
+            
+            //UserInfoBLL bll = new UserInfoBLL();
+
+            ///// row=0可以注册
+            ///// row=1用户已注册
+            ///// row=3身份证号已注册
+            ///// row=4手机号已注册
+            //int checkResult = bll.CheckIDCard(PhoneNum, Sidnum);
+            //string strs = "";
+            //JObject obj = null;
+            //if (checkResult == 0)
+            //{
+            //    string result = AuthenPliceFace(Sidnum, SName, PhoneNum, SNation, Address, stream);//wsf.AuthenPliceFace(Sidnum, SName, this.txtPhone.Text, SNation, Address, photoImg);
+
+            //    obj = JObject.Parse(result);
+            //    //结果码
+            //    strs = obj["code"].ToString();
+            //}
+            //else if (checkResult == 1)
+            //{
+            //    strs = "2";
+            //    errorMessage = "用户已注册";
+            //}
+            //else if (checkResult == 3)
+            //{
+            //    strs = "3";
+            //    errorMessage = "身份证号已注册";
+            //}
+            //else
+            //{
+            //    strs = "4";
+            //    errorMessage = "手机号已注册";
+            //}
+
+            #endregion
+
+            string result = AuthenPliceFace(Sidnum, SName, PhoneNum, SNation, Address, stream);//wsf.AuthenPliceFace(Sidnum, SName, this.txtPhone.Text, SNation, Address, photoImg);
 
             JObject obj = JObject.Parse(result);
             //结果码
             string strs = obj["code"].ToString();
+
+
             if (strs == "1")
             {
                 panelSuccess.Visible = true;
@@ -724,8 +777,11 @@ namespace UI
             }
             else
             {
-                errorCount += 1;
-                errorMessage = obj["message"].ToString();
+                errorCount += 1;;
+                if (obj!=null)
+                {
+                    errorMessage = obj["message"].ToString();
+                }
                 panelFail.Visible = true;
                 panelFail.BackColor = Color.FromArgb(80, 192, 192, 192);
                 textBox1.Visible = true;

@@ -226,5 +226,45 @@ namespace DAL
             return row;
         }
 
+        /// <summary>
+        /// row=0可以注册
+        /// row=1用户已注册
+        /// row=3身份证号已注册
+        /// row=4手机号已注册
+        /// </summary>
+        /// <param name="Phone"></param>
+        /// <param name="IDCard"></param>
+        /// <returns></returns>
+        public int CheckIDCard(string Phone, string IDCard)
+        {
+            int row = 0;
+            SqlParameter[] paras = new SqlParameter[] {
+                new SqlParameter("@IDCard",IDCard),
+                new SqlParameter("@Phone",Phone) };
+            string sSQL = "SELECT COUNT(1)  FROM dbo.UserInfo WHERE IDno=@IDCard OR Phone=@Phone ";
+            try
+            {
+                row =(int)Core.SQLHelper.EXECUTE_SCALAR(sSQL, paras);
+                if (row==2)
+                {
+                    string selIDCard = "SELECT COUNT(1)  FROM dbo.UserInfo WHERE IDno=@IDCard";
+                    if ((int)Core.SQLHelper.EXECUTE_SCALAR(selIDCard,paras[0]) >0)
+                    {
+                        row = 3;
+                    }
+                    string selPhone = "SELECT COUNT(1)  FROM dbo.UserInfo WHERE Phone = @Phone";
+                    if ((int)Core.SQLHelper.EXECUTE_SCALAR(selPhone, paras[1]) > 0)
+                    {
+                        row = 4;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Core.Logging.LogFile("判断134数据库是否存在，原因:" + ex.Message);
+            }
+            return row;
+        }
+
     }
 }
