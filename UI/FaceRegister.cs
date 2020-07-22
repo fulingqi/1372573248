@@ -70,7 +70,6 @@ namespace UI
         {
             try
             {
-                SendMessage("13", "1");
 
                 //Test.WSFaces wsf = new Test.WSFaces();
                 WebFace.WSFaces wsf = new WebFace.WSFaces();
@@ -81,6 +80,10 @@ namespace UI
                     MessageBox.Show("手机号码格式有误", "温馨提示", MessageBoxButtons.OK);
                     return;
                 }
+
+                Thread.Sleep(500);
+                SendMessage("13", "1");
+
                 yCode = VerificationCode(txtPhone.Text.Trim());//wsf.VerificationCode(txtPhone.Text.Trim());//验证码
                 JObject obj = JObject.Parse(yCode);
                 yCode = obj["string"]["#text"].ToString();
@@ -88,6 +91,7 @@ namespace UI
                 link3.Text = "30 秒后重试";
                 link2.Visible = false;
                 link3.Visible = true;
+
             }
             catch (Exception ex)
             {
@@ -553,33 +557,33 @@ namespace UI
 
         #region 注册按钮
 
-        private void panelAll_MouseLeave(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(this.txtAddress.Text) && !string.IsNullOrEmpty(this.txtName.Text) && !string.IsNullOrEmpty(this.txtIDCard.Text) && !string.IsNullOrEmpty(this.txtYan.Text) && !string.IsNullOrEmpty(this.txtPhone.Text))
-            {
-                if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg != null && IsAgree == 1)
-                {
-                    //实名注册刷脸就医按钮隐藏
-                    //btnNofinsh.Visible = false;
+        //private void panelAll_MouseLeave(object sender, EventArgs e)
+        //{
+        //    if (!string.IsNullOrEmpty(this.txtAddress.Text) && !string.IsNullOrEmpty(this.txtName.Text) && !string.IsNullOrEmpty(this.txtIDCard.Text) && !string.IsNullOrEmpty(this.txtYan.Text) && !string.IsNullOrEmpty(this.txtPhone.Text))
+        //    {
+        //        if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg != null && IsAgree == 1)
+        //        {
+        //            //实名注册刷脸就医按钮隐藏
+        //            //btnNofinsh.Visible = false;
 
-                    //panelCang.Visible = true;
-                    //panelCang.BackColor = Color.White;
-                    //btnRegister.Visible = true;
-                    YinCangButton();
-                }
-            }
+        //            //panelCang.Visible = true;
+        //            //panelCang.BackColor = Color.White;
+        //            //btnRegister.Visible = true;
+        //            YinCangButton();
+        //        }
+        //    }
 
-        }
-        private void FaceRegister_MouseLeave(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(this.txtAddress.Text) && !string.IsNullOrEmpty(this.txtName.Text) && !string.IsNullOrEmpty(this.txtIDCard.Text) && !string.IsNullOrEmpty(this.txtYan.Text) && !string.IsNullOrEmpty(this.txtPhone.Text))
-            {
-                if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg != null && IsAgree == 1)
-                {
-                    YinCangButton();
-                }
-            }
-        }
+        //}
+        //private void FaceRegister_MouseLeave(object sender, EventArgs e)
+        //{
+        //    if (!string.IsNullOrEmpty(this.txtAddress.Text) && !string.IsNullOrEmpty(this.txtName.Text) && !string.IsNullOrEmpty(this.txtIDCard.Text) && !string.IsNullOrEmpty(this.txtYan.Text) && !string.IsNullOrEmpty(this.txtPhone.Text))
+        //    {
+        //        if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg != null && IsAgree == 1)
+        //        {
+        //            YinCangButton();
+        //        }
+        //    }
+        //}
         private void YinCangButton()
         {
             picText.Visible = false;
@@ -789,7 +793,7 @@ namespace UI
                 SendMessage("8", errorMessage);
                 if (errorCount == 3)
                 {
-                    Thread.Sleep(1000);
+                    Thread.Sleep(500);
                     SendMessage("14", "1");
                     ReturnUpLevel();
                 }
@@ -1023,96 +1027,6 @@ namespace UI
 
 
 
-        #region 设置若用户30秒内无任何操作则显示MDI遮罩层
-
-        int x, y;
-        DateTime start;
-        bool ff = true;
-
-        private void FaceRegister_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            System.Environment.Exit(0);
-        }
-
-        /// <summary>
-        /// 成功注册后倒计时
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //int sucSecond = 6;
-        //private void timerSuccess_Tick(object sender, EventArgs e)
-        //{
-
-        //--sucSecond;
-        //if (sucSecond ==0)
-        //{
-        //    this.txtSuccess.Text = "";
-
-        //    timerSuccess.Enabled = false;
-        //    panelSuccess.Visible = false;
-        //    txtSuccess.Visible = false;
-        //}
-        //else
-        //{
-        //    this.txtSuccess.Text = sucSecond.ToString();
-        //}
-
-        //}
-
-        /// <summary>
-        /// 注册失败倒计时
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //int failSecond =6;
-        //private void timerfail_Tick(object sender, EventArgs e)
-        //{
-        //--failSecond;
-        //if (failSecond == 0)
-        //{
-        //    this.textBox1.Text = "";
-        //    this.textBox1.Visible = false;
-        //    textBox1.Enabled = false;
-        //    panelFail.Visible = false;
-        //    timerfail.Stop();
-
-        //}
-        //else
-        //{
-        //    this.textBox1.Text = errorMessage + failSecond.ToString();
-        //}
-
-
-        //}
-
-
-        //private void timer3_Tick(object sender, EventArgs e)
-        //{
-        //    int x1 = Control.MousePosition.X;
-        //    int y1 = Control.MousePosition.Y;
-
-        //    if ((x == x1) && (y == y1) && ff)
-        //    {
-        //        start = DateTime.Now;
-        //        ff = false;
-        //    }
-        //    if (x != x1 || y != y1)
-        //    {
-        //        x = x1;
-        //        y = y1;
-        //        start = DateTime.Now;
-        //        ff = true;
-        //    }
-        //    TimeSpan ts = DateTime.Now.Subtract(start);
-
-        //    if (ts.Seconds == 30)
-        //    {
-        //        timer3.Stop();
-        //        timer4.Stop();
-        //        staus = 1;
-        //    }
-        //}
-        #endregion
 
 
         /// <summary>
@@ -1150,31 +1064,6 @@ namespace UI
             if (this.txtAddress.Text == "请输入地址")
             {
                 this.txtAddress.Text = "";
-            }
-        }
-
-
-        private void ReturnResult()
-        {
-            if (string.IsNullOrEmpty(this.txtAddress.Text))
-            {
-                this.txtAddress.Text = "请输入地址";
-            }
-            if (string.IsNullOrEmpty(this.txtIDCard.Text))
-            {
-                this.txtIDCard.Text = "请输入身份证号";
-            }
-            if (string.IsNullOrEmpty(this.txtName.Text))
-            {
-                this.txtName.Text = "请输入姓名";
-            }
-            if (string.IsNullOrEmpty(this.txtPhone.Text))
-            {
-                this.txtName.Text = "请输入手机号";
-            }
-            if (string.IsNullOrEmpty(this.txtYan.Text))
-            {
-                this.txtName.Text = "请输入验证码";
             }
         }
 
@@ -1440,60 +1329,6 @@ namespace UI
             Control.CheckForIllegalCrossThreadCalls = false;
             //退出等待
             panelWait.Visible = false;
-            #region 老版本获取图片
-
-
-            //byte[] arrImgss = new byte[1024 * 700];
-            //int receiveLength = 0;
-            //int index = 0;
-            //string sdata = "";
-            //try
-            //{
-            //    while (client.Available > 0)
-            //    {
-            //        //参数 数据缓存区  起始位置  数据长度  值的按位组合
-            //        receiveLength += client.Receive(arrImgss, index, client.ReceiveBufferSize, SocketFlags.None);
-            //        index += receiveLength;
-            //    }
-            //    sdata = Encoding.ASCII.GetString(arrImgss, 0, index).Replace("\n", "").Replace("\0", "").Replace("\t", "").Replace("\r", "");
-            //}
-            //catch (Exception ex)
-            //{
-            //    SendMessage("7", "1");
-            //    throw;
-            //}
-            //photoImg = Convert.FromBase64String(sdata);
-
-            //if (receiveLength != 0)
-            //{
-            //    try
-            //    {
-            //        //读入MemoryStream对象
-            //        MemoryStream memoryStream = new MemoryStream(photoImg);
-            //        //转成图片
-            //        Image image = Image.FromStream(memoryStream);
-
-            //        picIsShow.BackgroundImage = image;
-
-            //        memoryStream.Dispose();//释放占用资源
-            //        memoryStream.Close();
-            //        System.GC.Collect();//垃圾回收
-            //                            //获取到图片信息后
-            //        IsGetAndrid = 0;
-            //        //线程之间跨平台操作
-            //        Control.CheckForIllegalCrossThreadCalls = false;
-            //        //退出等待
-            //        panelWait.Visible = false;
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        SendMessage("7", "1");
-            //        throw;
-            //    }
-
-            //}
-            #endregion
-
         }
 
         #region 文件转二进制流
@@ -1568,20 +1403,16 @@ namespace UI
 
             pictureBox2.Visible = true;
             //btnNofinsh.Visible = true;
-            
-          
-            
+
+
+
+            Thread.Sleep(1000);
             SendMessage("11", "1");
             Thread.Sleep(2000);
             isStart = 0;
             linkReturns.Enabled = true;
         }
-
-        private void panelAll_SizeChanged(object sender, EventArgs e)
-        {
-            //asc.controlAutoSize(this);
-        }
-
+        
 
 
         #endregion
@@ -1764,70 +1595,74 @@ namespace UI
 
 
         #endregion
-    //    #region 更新程序
-    //    public void func()
-    //    {
+        #region 更新程序
+        public void func()
+        {
 
-    //        string jsonReb = n.Vc();
-    //        //Tuser["version"].ToString() 本地安卓版本号
-    //        string mac = Tuser["mac"].ToString();
-    //        JObject vc = JsonConvert.DeserializeObject<JObject>(jsonReb);
-    //        //vc["Msg"].ToString() 服务器安卓版本号
-    //        double bd = Convert.ToDouble(Tuser["version"].ToString());
+            string jsonReb = n.Vc();
+            //Tuser["version"].ToString() 本地安卓版本号
+            string mac = Tuser["mac"].ToString();
+            JObject vc = JsonConvert.DeserializeObject<JObject>(jsonReb);
+            //vc["Msg"].ToString() 服务器安卓版本号
+            double bd = Convert.ToDouble(Tuser["version"].ToString());
 
-    //        double bda = Convert.ToDouble(vc["Msg"].ToString());
-    //        if (Convert.ToDouble(Tuser["version"].ToString()) < Convert.ToDouble(vc["Msg"].ToString()))//当本地版本号小于服务器版本号
-    //        {
-    //            XmlNode xml = n.SoftwarePackage("An", mac);
-    //            XmlDocument xmldoc = new XmlDocument();
-    //            xmldoc.LoadXml(xml.OuterXml);
+            double bda = Convert.ToDouble(vc["Msg"].ToString());
+            if (Convert.ToDouble(Tuser["version"].ToString()) < Convert.ToDouble(vc["Msg"].ToString()))//当本地版本号小于服务器版本号
+            {
+                XmlNode xml = n.SoftwarePackage("An", mac);
+                XmlDocument xmldoc = new XmlDocument();
+                xmldoc.LoadXml(xml.OuterXml);
 
-    //            XmlElement root = xmldoc.DocumentElement;
-    //            xmldoc.Save(Application.StartupPath + @"\Android.xml");
+                XmlElement root = xmldoc.DocumentElement;
+                xmldoc.Save(Application.StartupPath + @"\Android.xml");
 
-    //            UpdateApp();
-    //            InsAPK();
-    //        }
-    //    }
-    
+                UpdateApp();
+                InsAPK();
+            }
+        }
 
-    //        private void UpdateApp()
-    //        {
-    //            try
-    //            {
-    //                System.Diagnostics.Process[] ps = System.Diagnostics.Process.GetProcesses();
-    //                foreach (System.Diagnostics.Process p in ps)
-    //                {
-    //                    if (p.ProcessName.ToLower() == "customerapplication")
-    //                    {
-    //                        p.Kill();
-    //                        break;
-    //                    }
-    //                }
-    //                XmlDocument doc = new XmlDocument();
-    //                doc.Load(Application.StartupPath + @"\Android.xml");
-    //                XmlElement root = doc.DocumentElement;
-    //                XmlNode updateNode = root.SelectSingleNode("filelist");
-    //                int count = int.Parse(updateNode.Attributes["count"].Value);
-    //                for (int i = 0; i < count; i++)
-    //                {
-    //                    XmlNode itemNode = updateNode.ChildNodes[i];
-    //                    string fileName = itemNode.Attributes["name"].Value;
-    //                    FileInfo fi = new FileInfo(fileName);
-    //                    //fi.Delete();
-    //                    FileStream fs = File.Open(fileName, FileMode.Create, FileAccess.Write);
-    //                    fs.Write(System.Convert.FromBase64String(itemNode.SelectSingleNode("value").InnerText), 0, int.Parse(itemNode.Attributes["size"].Value));
-    //                    fs.Close();
-    //                }
-    //                File.Delete(Application.StartupPath + @"\Android.xml");
+        private void InsAPK()
+        {
 
-    //            }
-    //            catch (Exception ex)
-    //            {
-    //                MessageBox.Show(ex.ToString());
-    //            }
-    //        }
-    //#endregion
+        }
 
-}
+        private void UpdateApp()
+        {
+            try
+            {
+                System.Diagnostics.Process[] ps = System.Diagnostics.Process.GetProcesses();
+                foreach (System.Diagnostics.Process p in ps)
+                {
+                    if (p.ProcessName.ToLower() == "customerapplication")
+                    {
+                        p.Kill();
+                        break;
+                    }
+                }
+                XmlDocument doc = new XmlDocument();
+                doc.Load(Application.StartupPath + @"\Android.xml");
+                XmlElement root = doc.DocumentElement;
+                XmlNode updateNode = root.SelectSingleNode("filelist");
+                int count = int.Parse(updateNode.Attributes["count"].Value);
+                for (int i = 0; i < count; i++)
+                {
+                    XmlNode itemNode = updateNode.ChildNodes[i];
+                    string fileName = itemNode.Attributes["name"].Value;
+                    FileInfo fi = new FileInfo(fileName);
+                    //fi.Delete();
+                    FileStream fs = File.Open(fileName, FileMode.Create, FileAccess.Write);
+                    fs.Write(System.Convert.FromBase64String(itemNode.SelectSingleNode("value").InnerText), 0, int.Parse(itemNode.Attributes["size"].Value));
+                    fs.Close();
+                }
+                File.Delete(Application.StartupPath + @"\Android.xml");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        #endregion
+
+    }
 }

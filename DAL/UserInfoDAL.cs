@@ -37,6 +37,27 @@ namespace DAL
             }
             return row;
         }
+        
+        /// <summary>
+        /// 添加短信记录
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int AddShortMess(Models.ShortMessage model)
+        {
+            int row = 0;
+            string sql = "INSERT INTO dbo.ShortMessageTable (HospCode,MACAddress,PhoneNum,AuthCode,SendMessDate) VALUES( '"+model.HospCode+"','"+model.MACAddress+"','"+model.PhoneNum+"','"+model.AuthCode+"','"+model.SendMessDate+"' )";
+            try
+            {
+                row = Core.SQLHelper.EXECUTE_NONQUERY(sql);
+            }
+            catch (Exception ex)
+            {
+                Core.Logging.LogFile("插入数据失败[AddShortMess],原因："+ex.Message);
+                throw;
+            }
+            return row;
+        }
 
         /// <summary>
         /// 根据身份证与手机号进行查询

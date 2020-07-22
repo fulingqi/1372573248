@@ -16,6 +16,17 @@ namespace BLL
             UserInfoDAL dal = new UserInfoDAL();
             return dal.GetUserInfo(Phone, IDno);
         }
+        /// <summary>
+        /// 添加短信记录
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int AddShortMess(Models.ShortMessage model)
+        {
+            UserInfoDAL dal = new UserInfoDAL();
+            return dal.AddShortMess(model);
+        }
+
 
         public int AddUser(Models.UserInfoModel.UserInfo usfo)
         {

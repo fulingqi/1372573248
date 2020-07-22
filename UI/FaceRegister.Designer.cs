@@ -359,7 +359,6 @@
             this.panelAll.Controls.Add(this.btnRegister);
             resources.ApplyResources(this.panelAll, "panelAll");
             this.panelAll.Name = "panelAll";
-            this.panelAll.MouseLeave += new System.EventHandler(this.panelAll_MouseLeave);
             // 
             // txtAddress
             // 
@@ -440,16 +439,14 @@
             this.Controls.Add(this.panelFail);
             this.Controls.Add(this.panelAll);
             this.Controls.Add(this.linkLabel1);
-            this.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FaceRegister";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FaceRegister_FormClosing);
             this.Load += new System.EventHandler(this.FaceRegister_Load);
             this.Shown += new System.EventHandler(this.FaceRegister_Shown);
             this.SizeChanged += new System.EventHandler(this.FaceRegister_SizeChanged);
-            this.MouseLeave += new System.EventHandler(this.FaceRegister_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.picText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).EndInit();

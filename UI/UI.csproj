@@ -132,6 +132,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\WebDevice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\WebFace\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -186,6 +191,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\Test\WSFaces.wsdl" />
+    <None Include="Web References\WebDevice\NtitServer.wsdl" />
+    <None Include="Web References\WebDevice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\WebFace\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -225,6 +235,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>UI_WebNtit_LiShuiServer</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://121.42.164.134:9909/NtitServer.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebDevice\</RelPath>
+      <UpdateFromURL>http://121.42.164.134:9909/NtitServer.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UI_WebDevice_NtitServer</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:4862/LiShuiServer.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -370,6 +391,7 @@
     <Content Include="Resources\添加人脸.png" />
     <Content Include="Resources\灰注册.png" />
     <Content Include="Resources\组 1.png" />
+    <None Include="Web References\WebDevice\NtitServer.disco" />
     <None Include="Web References\WebFace\WSFaces.disco" />
     <None Include="Resources\服务协议.png" />
     <None Include="Resources\添加人像.png" />

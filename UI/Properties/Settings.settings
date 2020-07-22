@@ -14,5 +14,8 @@
     <Setting Name="UI_WebFace_WSFaces" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://10.178.227.93:1020/WSFaces.asmx</Value>
     </Setting>
+    <Setting Name="UI_WebDevice_NtitServer" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://121.42.164.134:9909/NtitServer.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

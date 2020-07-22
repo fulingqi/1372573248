@@ -1,0 +1,1919 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://tempuri.org/AbstractTypes" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="VerificationCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificationCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerificationCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OneDWan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="byt" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OneDWanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OneDWanResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BaseOneDWan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="byt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Hc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BaseOneDWanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BaseOneDWanResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Detection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="byt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Hc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DetectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DetectionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuickResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ORDERID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PAYMENT" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="REMARK1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="REMARK2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RETURNTYPE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TIMEOUT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PUB" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MERCHANTID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="POSID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BRANCHID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CURCODE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TXCODE" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuickResponseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuickResponseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddBillInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InstitutionalID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RealName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IDno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VisitCard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SocialSecurity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Detailed" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TotalPrice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InvNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remark1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remark2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddBillInfoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateBill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InvNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateBillResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Pay100">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MERFLAG" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MERCHANTID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="POSID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TERMNO1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TERMNO2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BRANCHID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ORDERID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QRCODE" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AMOUNT" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="TXCODE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PROINFO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="REMARK1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="REMARK2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Pay100Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pay100Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Pay001">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MERFLAG" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MERCHANTID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="POSID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TERMNO1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TERMNO2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BRANCHID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ORDERID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QRCODE" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AMOUNT" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="TXCODE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PROINFO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="REMARK1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="REMARK2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PUB" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Pay001Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pay001Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LunXun">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MERFLAG" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MERCHANTID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="POSID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TERMNO1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TERMNO2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BRANCHID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ORDERID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="QRYTIME" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="QRCODETYPE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TXCODE" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LunXunResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LunXunResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectUserInfoByIDno">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IDno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectUserInfoByIDnoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectUserInfoByIDnoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DDCX">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MERFLAG" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MERCHANTID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="POSID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TERMNO1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TERMNO2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BRANCHID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ORDERID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TXCODE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QRCODETYPE" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DDCXResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DDCXResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FaceDest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Idno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FaceDestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FaceDestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Refund">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefundResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RefundResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVer">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetVerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAppDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppDataResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SoftwarePackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="App" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MAC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="T" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SoftwarePackageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SoftwarePackageResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Vc">
+        <s:complexType />
+      </s:element>
+      <s:element name="VcResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VcResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEqTerInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ENum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEqTerInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEqTerInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserEqTer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HospCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ENum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserEqTerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InserEqTerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankNumInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HospCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankNumInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBankNumInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+    </s:schema>
+    <s:schema targetNamespace="http://tempuri.org/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="VerificationCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificationCode" />
+  </wsdl:message>
+  <wsdl:message name="VerificationCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificationCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="OneDWanSoapIn">
+    <wsdl:part name="parameters" element="tns:OneDWan" />
+  </wsdl:message>
+  <wsdl:message name="OneDWanSoapOut">
+    <wsdl:part name="parameters" element="tns:OneDWanResponse" />
+  </wsdl:message>
+  <wsdl:message name="BaseOneDWanSoapIn">
+    <wsdl:part name="parameters" element="tns:BaseOneDWan" />
+  </wsdl:message>
+  <wsdl:message name="BaseOneDWanSoapOut">
+    <wsdl:part name="parameters" element="tns:BaseOneDWanResponse" />
+  </wsdl:message>
+  <wsdl:message name="DetectionSoapIn">
+    <wsdl:part name="parameters" element="tns:Detection" />
+  </wsdl:message>
+  <wsdl:message name="DetectionSoapOut">
+    <wsdl:part name="parameters" element="tns:DetectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuickResponseSoapIn">
+    <wsdl:part name="parameters" element="tns:QuickResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuickResponseSoapOut">
+    <wsdl:part name="parameters" element="tns:QuickResponseResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddBillInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:AddBillInfo" />
+  </wsdl:message>
+  <wsdl:message name="AddBillInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:AddBillInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBillSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBill" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBillSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="Pay100SoapIn">
+    <wsdl:part name="parameters" element="tns:Pay100" />
+  </wsdl:message>
+  <wsdl:message name="Pay100SoapOut">
+    <wsdl:part name="parameters" element="tns:Pay100Response" />
+  </wsdl:message>
+  <wsdl:message name="Pay001SoapIn">
+    <wsdl:part name="parameters" element="tns:Pay001" />
+  </wsdl:message>
+  <wsdl:message name="Pay001SoapOut">
+    <wsdl:part name="parameters" element="tns:Pay001Response" />
+  </wsdl:message>
+  <wsdl:message name="LunXunSoapIn">
+    <wsdl:part name="parameters" element="tns:LunXun" />
+  </wsdl:message>
+  <wsdl:message name="LunXunSoapOut">
+    <wsdl:part name="parameters" element="tns:LunXunResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectUserInfoByIDnoSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectUserInfoByIDno" />
+  </wsdl:message>
+  <wsdl:message name="SelectUserInfoByIDnoSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectUserInfoByIDnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DDCXSoapIn">
+    <wsdl:part name="parameters" element="tns:DDCX" />
+  </wsdl:message>
+  <wsdl:message name="DDCXSoapOut">
+    <wsdl:part name="parameters" element="tns:DDCXResponse" />
+  </wsdl:message>
+  <wsdl:message name="FaceDestSoapIn">
+    <wsdl:part name="parameters" element="tns:FaceDest" />
+  </wsdl:message>
+  <wsdl:message name="FaceDestSoapOut">
+    <wsdl:part name="parameters" element="tns:FaceDestResponse" />
+  </wsdl:message>
+  <wsdl:message name="RefundSoapIn">
+    <wsdl:part name="parameters" element="tns:Refund" />
+  </wsdl:message>
+  <wsdl:message name="RefundSoapOut">
+    <wsdl:part name="parameters" element="tns:RefundResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVer" />
+  </wsdl:message>
+  <wsdl:message name="GetVerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppData" />
+  </wsdl:message>
+  <wsdl:message name="GetAppDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SoftwarePackageSoapIn">
+    <wsdl:part name="parameters" element="tns:SoftwarePackage" />
+  </wsdl:message>
+  <wsdl:message name="SoftwarePackageSoapOut">
+    <wsdl:part name="parameters" element="tns:SoftwarePackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="VcSoapIn">
+    <wsdl:part name="parameters" element="tns:Vc" />
+  </wsdl:message>
+  <wsdl:message name="VcSoapOut">
+    <wsdl:part name="parameters" element="tns:VcResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEqTerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEqTerInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetEqTerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEqTerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserEqTerSoapIn">
+    <wsdl:part name="parameters" element="tns:InserEqTer" />
+  </wsdl:message>
+  <wsdl:message name="InserEqTerSoapOut">
+    <wsdl:part name="parameters" element="tns:InserEqTerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankNumInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankNumInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetBankNumInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankNumInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificationCodeHttpGetIn">
+    <wsdl:part name="Phone" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificationCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="OneDWanHttpGetIn">
+    <wsdl:part name="byt" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="OneDWanHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="BaseOneDWanHttpGetIn">
+    <wsdl:part name="byt" type="s:string" />
+    <wsdl:part name="Hc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BaseOneDWanHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DetectionHttpGetIn">
+    <wsdl:part name="byt" type="s:string" />
+    <wsdl:part name="Hc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DetectionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="QuickResponseHttpGetIn">
+    <wsdl:part name="ORDERID" type="s:string" />
+    <wsdl:part name="PAYMENT" type="s:string" />
+    <wsdl:part name="REMARK1" type="s:string" />
+    <wsdl:part name="REMARK2" type="s:string" />
+    <wsdl:part name="RETURNTYPE" type="s:string" />
+    <wsdl:part name="TIMEOUT" type="s:string" />
+    <wsdl:part name="PUB" type="s:string" />
+    <wsdl:part name="MERCHANTID" type="s:string" />
+    <wsdl:part name="POSID" type="s:string" />
+    <wsdl:part name="BRANCHID" type="s:string" />
+    <wsdl:part name="CURCODE" type="s:string" />
+    <wsdl:part name="TXCODE" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="QuickResponseHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddBillInfoHttpGetIn">
+    <wsdl:part name="InstitutionalID" type="s:string" />
+    <wsdl:part name="RealName" type="s:string" />
+    <wsdl:part name="IDno" type="s:string" />
+    <wsdl:part name="VisitCard" type="s:string" />
+    <wsdl:part name="SocialSecurity" type="s:string" />
+    <wsdl:part name="Detailed" type="s:string" />
+    <wsdl:part name="TotalPrice" type="s:string" />
+    <wsdl:part name="InvNum" type="s:string" />
+    <wsdl:part name="Remark1" type="s:string" />
+    <wsdl:part name="Remark2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddBillInfoHttpGetOut" />
+  <wsdl:message name="UpdateBillHttpGetIn">
+    <wsdl:part name="InvNum" type="s:string" />
+    <wsdl:part name="OrderID" type="s:string" />
+    <wsdl:part name="State" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBillHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="Pay100HttpGetIn">
+    <wsdl:part name="MERFLAG" type="s:string" />
+    <wsdl:part name="MERCHANTID" type="s:string" />
+    <wsdl:part name="POSID" type="s:string" />
+    <wsdl:part name="TERMNO1" type="s:string" />
+    <wsdl:part name="TERMNO2" type="s:string" />
+    <wsdl:part name="BRANCHID" type="s:string" />
+    <wsdl:part name="ORDERID" type="s:string" />
+    <wsdl:part name="QRCODE" type="s:string" />
+    <wsdl:part name="AMOUNT" type="s:string" />
+    <wsdl:part name="TXCODE" type="s:string" />
+    <wsdl:part name="PROINFO" type="s:string" />
+    <wsdl:part name="REMARK1" type="s:string" />
+    <wsdl:part name="REMARK2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Pay100HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Pay001HttpGetIn">
+    <wsdl:part name="MERFLAG" type="s:string" />
+    <wsdl:part name="MERCHANTID" type="s:string" />
+    <wsdl:part name="POSID" type="s:string" />
+    <wsdl:part name="TERMNO1" type="s:string" />
+    <wsdl:part name="TERMNO2" type="s:string" />
+    <wsdl:part name="BRANCHID" type="s:string" />
+    <wsdl:part name="ORDERID" type="s:string" />
+    <wsdl:part name="QRCODE" type="s:string" />
+    <wsdl:part name="AMOUNT" type="s:string" />
+    <wsdl:part name="TXCODE" type="s:string" />
+    <wsdl:part name="PROINFO" type="s:string" />
+    <wsdl:part name="REMARK1" type="s:string" />
+    <wsdl:part name="REMARK2" type="s:string" />
+    <wsdl:part name="PUB" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Pay001HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LunXunHttpGetIn">
+    <wsdl:part name="MERFLAG" type="s:string" />
+    <wsdl:part name="MERCHANTID" type="s:string" />
+    <wsdl:part name="POSID" type="s:string" />
+    <wsdl:part name="TERMNO1" type="s:string" />
+    <wsdl:part name="TERMNO2" type="s:string" />
+    <wsdl:part name="BRANCHID" type="s:string" />
+    <wsdl:part name="ORDERID" type="s:string" />
+    <wsdl:part name="QRYTIME" type="s:string" />
+    <wsdl:part name="QRCODETYPE" type="s:string" />
+    <wsdl:part name="TXCODE" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LunXunHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectUserInfoByIDnoHttpGetIn">
+    <wsdl:part name="IDno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectUserInfoByIDnoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DDCXHttpGetIn">
+    <wsdl:part name="MERFLAG" type="s:string" />
+    <wsdl:part name="MERCHANTID" type="s:string" />
+    <wsdl:part name="POSID" type="s:string" />
+    <wsdl:part name="TERMNO1" type="s:string" />
+    <wsdl:part name="TERMNO2" type="s:string" />
+    <wsdl:part name="BRANCHID" type="s:string" />
+    <wsdl:part name="ORDERID" type="s:string" />
+    <wsdl:part name="TXCODE" type="s:string" />
+    <wsdl:part name="QRCODETYPE" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DDCXHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FaceDestHttpGetIn">
+    <wsdl:part name="Idno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FaceDestHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RefundHttpGetIn">
+    <wsdl:part name="Order" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RefundHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVerHttpGetIn" />
+  <wsdl:message name="GetVerHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAppDataHttpGetIn" />
+  <wsdl:message name="GetAppDataHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SoftwarePackageHttpGetIn">
+    <wsdl:part name="App" type="s:string" />
+    <wsdl:part name="MAC" type="s:string" />
+    <wsdl:part name="T" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SoftwarePackageHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="VcHttpGetIn" />
+  <wsdl:message name="VcHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEqTerInfoHttpGetIn">
+    <wsdl:part name="ENum" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEqTerInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InserEqTerHttpGetIn">
+    <wsdl:part name="HospCode" type="s:string" />
+    <wsdl:part name="ENum" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InserEqTerHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetBankNumInfoHttpGetIn">
+    <wsdl:part name="HospCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBankNumInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificationCodeHttpPostIn">
+    <wsdl:part name="Phone" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificationCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="OneDWanHttpPostIn">
+    <wsdl:part name="byt" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="OneDWanHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="BaseOneDWanHttpPostIn">
+    <wsdl:part name="byt" type="s:string" />
+    <wsdl:part name="Hc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BaseOneDWanHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DetectionHttpPostIn">
+    <wsdl:part name="byt" type="s:string" />
+    <wsdl:part name="Hc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DetectionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="QuickResponseHttpPostIn">
+    <wsdl:part name="ORDERID" type="s:string" />
+    <wsdl:part name="PAYMENT" type="s:string" />
+    <wsdl:part name="REMARK1" type="s:string" />
+    <wsdl:part name="REMARK2" type="s:string" />
+    <wsdl:part name="RETURNTYPE" type="s:string" />
+    <wsdl:part name="TIMEOUT" type="s:string" />
+    <wsdl:part name="PUB" type="s:string" />
+    <wsdl:part name="MERCHANTID" type="s:string" />
+    <wsdl:part name="POSID" type="s:string" />
+    <wsdl:part name="BRANCHID" type="s:string" />
+    <wsdl:part name="CURCODE" type="s:string" />
+    <wsdl:part name="TXCODE" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="QuickResponseHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddBillInfoHttpPostIn">
+    <wsdl:part name="InstitutionalID" type="s:string" />
+    <wsdl:part name="RealName" type="s:string" />
+    <wsdl:part name="IDno" type="s:string" />
+    <wsdl:part name="VisitCard" type="s:string" />
+    <wsdl:part name="SocialSecurity" type="s:string" />
+    <wsdl:part name="Detailed" type="s:string" />
+    <wsdl:part name="TotalPrice" type="s:string" />
+    <wsdl:part name="InvNum" type="s:string" />
+    <wsdl:part name="Remark1" type="s:string" />
+    <wsdl:part name="Remark2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddBillInfoHttpPostOut" />
+  <wsdl:message name="UpdateBillHttpPostIn">
+    <wsdl:part name="InvNum" type="s:string" />
+    <wsdl:part name="OrderID" type="s:string" />
+    <wsdl:part name="State" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBillHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="Pay100HttpPostIn">
+    <wsdl:part name="MERFLAG" type="s:string" />
+    <wsdl:part name="MERCHANTID" type="s:string" />
+    <wsdl:part name="POSID" type="s:string" />
+    <wsdl:part name="TERMNO1" type="s:string" />
+    <wsdl:part name="TERMNO2" type="s:string" />
+    <wsdl:part name="BRANCHID" type="s:string" />
+    <wsdl:part name="ORDERID" type="s:string" />
+    <wsdl:part name="QRCODE" type="s:string" />
+    <wsdl:part name="AMOUNT" type="s:string" />
+    <wsdl:part name="TXCODE" type="s:string" />
+    <wsdl:part name="PROINFO" type="s:string" />
+    <wsdl:part name="REMARK1" type="s:string" />
+    <wsdl:part name="REMARK2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Pay100HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Pay001HttpPostIn">
+    <wsdl:part name="MERFLAG" type="s:string" />
+    <wsdl:part name="MERCHANTID" type="s:string" />
+    <wsdl:part name="POSID" type="s:string" />
+    <wsdl:part name="TERMNO1" type="s:string" />
+    <wsdl:part name="TERMNO2" type="s:string" />
+    <wsdl:part name="BRANCHID" type="s:string" />
+    <wsdl:part name="ORDERID" type="s:string" />
+    <wsdl:part name="QRCODE" type="s:string" />
+    <wsdl:part name="AMOUNT" type="s:string" />
+    <wsdl:part name="TXCODE" type="s:string" />
+    <wsdl:part name="PROINFO" type="s:string" />
+    <wsdl:part name="REMARK1" type="s:string" />
+    <wsdl:part name="REMARK2" type="s:string" />
+    <wsdl:part name="PUB" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Pay001HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LunXunHttpPostIn">
+    <wsdl:part name="MERFLAG" type="s:string" />
+    <wsdl:part name="MERCHANTID" type="s:string" />
+    <wsdl:part name="POSID" type="s:string" />
+    <wsdl:part name="TERMNO1" type="s:string" />
+    <wsdl:part name="TERMNO2" type="s:string" />
+    <wsdl:part name="BRANCHID" type="s:string" />
+    <wsdl:part name="ORDERID" type="s:string" />
+    <wsdl:part name="QRYTIME" type="s:string" />
+    <wsdl:part name="QRCODETYPE" type="s:string" />
+    <wsdl:part name="TXCODE" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LunXunHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectUserInfoByIDnoHttpPostIn">
+    <wsdl:part name="IDno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectUserInfoByIDnoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DDCXHttpPostIn">
+    <wsdl:part name="MERFLAG" type="s:string" />
+    <wsdl:part name="MERCHANTID" type="s:string" />
+    <wsdl:part name="POSID" type="s:string" />
+    <wsdl:part name="TERMNO1" type="s:string" />
+    <wsdl:part name="TERMNO2" type="s:string" />
+    <wsdl:part name="BRANCHID" type="s:string" />
+    <wsdl:part name="ORDERID" type="s:string" />
+    <wsdl:part name="TXCODE" type="s:string" />
+    <wsdl:part name="QRCODETYPE" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DDCXHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FaceDestHttpPostIn">
+    <wsdl:part name="Idno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FaceDestHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RefundHttpPostIn">
+    <wsdl:part name="Order" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RefundHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVerHttpPostIn" />
+  <wsdl:message name="GetVerHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAppDataHttpPostIn" />
+  <wsdl:message name="GetAppDataHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SoftwarePackageHttpPostIn">
+    <wsdl:part name="App" type="s:string" />
+    <wsdl:part name="MAC" type="s:string" />
+    <wsdl:part name="T" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SoftwarePackageHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="VcHttpPostIn" />
+  <wsdl:message name="VcHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEqTerInfoHttpPostIn">
+    <wsdl:part name="ENum" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEqTerInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InserEqTerHttpPostIn">
+    <wsdl:part name="HospCode" type="s:string" />
+    <wsdl:part name="ENum" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InserEqTerHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetBankNumInfoHttpPostIn">
+    <wsdl:part name="HospCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBankNumInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="NtitServerSoap">
+    <wsdl:operation name="VerificationCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送手机验证码</wsdl:documentation>
+      <wsdl:input message="tns:VerificationCodeSoapIn" />
+      <wsdl:output message="tns:VerificationCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OneDWan">
+      <wsdl:input message="tns:OneDWanSoapIn" />
+      <wsdl:output message="tns:OneDWanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BaseOneDWan">
+      <wsdl:input message="tns:BaseOneDWanSoapIn" />
+      <wsdl:output message="tns:BaseOneDWanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Detection">
+      <wsdl:input message="tns:DetectionSoapIn" />
+      <wsdl:output message="tns:DetectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuickResponse">
+      <wsdl:input message="tns:QuickResponseSoapIn" />
+      <wsdl:output message="tns:QuickResponseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBillInfo">
+      <wsdl:input message="tns:AddBillInfoSoapIn" />
+      <wsdl:output message="tns:AddBillInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBill">
+      <wsdl:input message="tns:UpdateBillSoapIn" />
+      <wsdl:output message="tns:UpdateBillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Pay100">
+      <wsdl:input message="tns:Pay100SoapIn" />
+      <wsdl:output message="tns:Pay100SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Pay001">
+      <wsdl:input message="tns:Pay001SoapIn" />
+      <wsdl:output message="tns:Pay001SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LunXun">
+      <wsdl:input message="tns:LunXunSoapIn" />
+      <wsdl:output message="tns:LunXunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserInfoByIDno">
+      <wsdl:input message="tns:SelectUserInfoByIDnoSoapIn" />
+      <wsdl:output message="tns:SelectUserInfoByIDnoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DDCX">
+      <wsdl:input message="tns:DDCXSoapIn" />
+      <wsdl:output message="tns:DDCXSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FaceDest">
+      <wsdl:input message="tns:FaceDestSoapIn" />
+      <wsdl:output message="tns:FaceDestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Refund">
+      <wsdl:input message="tns:RefundSoapIn" />
+      <wsdl:output message="tns:RefundSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVer">
+      <wsdl:input message="tns:GetVerSoapIn" />
+      <wsdl:output message="tns:GetVerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppData">
+      <wsdl:input message="tns:GetAppDataSoapIn" />
+      <wsdl:output message="tns:GetAppDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SoftwarePackage">
+      <wsdl:input message="tns:SoftwarePackageSoapIn" />
+      <wsdl:output message="tns:SoftwarePackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Vc">
+      <wsdl:input message="tns:VcSoapIn" />
+      <wsdl:output message="tns:VcSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEqTerInfo">
+      <wsdl:input message="tns:GetEqTerInfoSoapIn" />
+      <wsdl:output message="tns:GetEqTerInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserEqTer">
+      <wsdl:input message="tns:InserEqTerSoapIn" />
+      <wsdl:output message="tns:InserEqTerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankNumInfo">
+      <wsdl:input message="tns:GetBankNumInfoSoapIn" />
+      <wsdl:output message="tns:GetBankNumInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="NtitServerHttpGet">
+    <wsdl:operation name="VerificationCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送手机验证码</wsdl:documentation>
+      <wsdl:input message="tns:VerificationCodeHttpGetIn" />
+      <wsdl:output message="tns:VerificationCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OneDWan">
+      <wsdl:input message="tns:OneDWanHttpGetIn" />
+      <wsdl:output message="tns:OneDWanHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BaseOneDWan">
+      <wsdl:input message="tns:BaseOneDWanHttpGetIn" />
+      <wsdl:output message="tns:BaseOneDWanHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Detection">
+      <wsdl:input message="tns:DetectionHttpGetIn" />
+      <wsdl:output message="tns:DetectionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuickResponse">
+      <wsdl:input message="tns:QuickResponseHttpGetIn" />
+      <wsdl:output message="tns:QuickResponseHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBillInfo">
+      <wsdl:input message="tns:AddBillInfoHttpGetIn" />
+      <wsdl:output message="tns:AddBillInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBill">
+      <wsdl:input message="tns:UpdateBillHttpGetIn" />
+      <wsdl:output message="tns:UpdateBillHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Pay100">
+      <wsdl:input message="tns:Pay100HttpGetIn" />
+      <wsdl:output message="tns:Pay100HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Pay001">
+      <wsdl:input message="tns:Pay001HttpGetIn" />
+      <wsdl:output message="tns:Pay001HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LunXun">
+      <wsdl:input message="tns:LunXunHttpGetIn" />
+      <wsdl:output message="tns:LunXunHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserInfoByIDno">
+      <wsdl:input message="tns:SelectUserInfoByIDnoHttpGetIn" />
+      <wsdl:output message="tns:SelectUserInfoByIDnoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DDCX">
+      <wsdl:input message="tns:DDCXHttpGetIn" />
+      <wsdl:output message="tns:DDCXHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FaceDest">
+      <wsdl:input message="tns:FaceDestHttpGetIn" />
+      <wsdl:output message="tns:FaceDestHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Refund">
+      <wsdl:input message="tns:RefundHttpGetIn" />
+      <wsdl:output message="tns:RefundHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVer">
+      <wsdl:input message="tns:GetVerHttpGetIn" />
+      <wsdl:output message="tns:GetVerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppData">
+      <wsdl:input message="tns:GetAppDataHttpGetIn" />
+      <wsdl:output message="tns:GetAppDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SoftwarePackage">
+      <wsdl:input message="tns:SoftwarePackageHttpGetIn" />
+      <wsdl:output message="tns:SoftwarePackageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Vc">
+      <wsdl:input message="tns:VcHttpGetIn" />
+      <wsdl:output message="tns:VcHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEqTerInfo">
+      <wsdl:input message="tns:GetEqTerInfoHttpGetIn" />
+      <wsdl:output message="tns:GetEqTerInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserEqTer">
+      <wsdl:input message="tns:InserEqTerHttpGetIn" />
+      <wsdl:output message="tns:InserEqTerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankNumInfo">
+      <wsdl:input message="tns:GetBankNumInfoHttpGetIn" />
+      <wsdl:output message="tns:GetBankNumInfoHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="NtitServerHttpPost">
+    <wsdl:operation name="VerificationCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送手机验证码</wsdl:documentation>
+      <wsdl:input message="tns:VerificationCodeHttpPostIn" />
+      <wsdl:output message="tns:VerificationCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OneDWan">
+      <wsdl:input message="tns:OneDWanHttpPostIn" />
+      <wsdl:output message="tns:OneDWanHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BaseOneDWan">
+      <wsdl:input message="tns:BaseOneDWanHttpPostIn" />
+      <wsdl:output message="tns:BaseOneDWanHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Detection">
+      <wsdl:input message="tns:DetectionHttpPostIn" />
+      <wsdl:output message="tns:DetectionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuickResponse">
+      <wsdl:input message="tns:QuickResponseHttpPostIn" />
+      <wsdl:output message="tns:QuickResponseHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBillInfo">
+      <wsdl:input message="tns:AddBillInfoHttpPostIn" />
+      <wsdl:output message="tns:AddBillInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBill">
+      <wsdl:input message="tns:UpdateBillHttpPostIn" />
+      <wsdl:output message="tns:UpdateBillHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Pay100">
+      <wsdl:input message="tns:Pay100HttpPostIn" />
+      <wsdl:output message="tns:Pay100HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Pay001">
+      <wsdl:input message="tns:Pay001HttpPostIn" />
+      <wsdl:output message="tns:Pay001HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LunXun">
+      <wsdl:input message="tns:LunXunHttpPostIn" />
+      <wsdl:output message="tns:LunXunHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserInfoByIDno">
+      <wsdl:input message="tns:SelectUserInfoByIDnoHttpPostIn" />
+      <wsdl:output message="tns:SelectUserInfoByIDnoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DDCX">
+      <wsdl:input message="tns:DDCXHttpPostIn" />
+      <wsdl:output message="tns:DDCXHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FaceDest">
+      <wsdl:input message="tns:FaceDestHttpPostIn" />
+      <wsdl:output message="tns:FaceDestHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Refund">
+      <wsdl:input message="tns:RefundHttpPostIn" />
+      <wsdl:output message="tns:RefundHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVer">
+      <wsdl:input message="tns:GetVerHttpPostIn" />
+      <wsdl:output message="tns:GetVerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppData">
+      <wsdl:input message="tns:GetAppDataHttpPostIn" />
+      <wsdl:output message="tns:GetAppDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SoftwarePackage">
+      <wsdl:input message="tns:SoftwarePackageHttpPostIn" />
+      <wsdl:output message="tns:SoftwarePackageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Vc">
+      <wsdl:input message="tns:VcHttpPostIn" />
+      <wsdl:output message="tns:VcHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEqTerInfo">
+      <wsdl:input message="tns:GetEqTerInfoHttpPostIn" />
+      <wsdl:output message="tns:GetEqTerInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserEqTer">
+      <wsdl:input message="tns:InserEqTerHttpPostIn" />
+      <wsdl:output message="tns:InserEqTerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankNumInfo">
+      <wsdl:input message="tns:GetBankNumInfoHttpPostIn" />
+      <wsdl:output message="tns:GetBankNumInfoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NtitServerSoap" type="tns:NtitServerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerificationCode">
+      <soap:operation soapAction="http://tempuri.org/VerificationCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OneDWan">
+      <soap:operation soapAction="http://tempuri.org/OneDWan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BaseOneDWan">
+      <soap:operation soapAction="http://tempuri.org/BaseOneDWan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Detection">
+      <soap:operation soapAction="http://tempuri.org/Detection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuickResponse">
+      <soap:operation soapAction="http://tempuri.org/QuickResponse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBillInfo">
+      <soap:operation soapAction="http://tempuri.org/AddBillInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBill">
+      <soap:operation soapAction="http://tempuri.org/UpdateBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pay100">
+      <soap:operation soapAction="http://tempuri.org/Pay100" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pay001">
+      <soap:operation soapAction="http://tempuri.org/Pay001" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LunXun">
+      <soap:operation soapAction="http://tempuri.org/LunXun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserInfoByIDno">
+      <soap:operation soapAction="http://tempuri.org/SelectUserInfoByIDno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DDCX">
+      <soap:operation soapAction="http://tempuri.org/DDCX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FaceDest">
+      <soap:operation soapAction="http://tempuri.org/FaceDest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Refund">
+      <soap:operation soapAction="http://tempuri.org/Refund" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVer">
+      <soap:operation soapAction="http://tempuri.org/GetVer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppData">
+      <soap:operation soapAction="http://tempuri.org/GetAppData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SoftwarePackage">
+      <soap:operation soapAction="http://tempuri.org/SoftwarePackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Vc">
+      <soap:operation soapAction="http://tempuri.org/Vc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEqTerInfo">
+      <soap:operation soapAction="http://tempuri.org/GetEqTerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserEqTer">
+      <soap:operation soapAction="http://tempuri.org/InserEqTer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankNumInfo">
+      <soap:operation soapAction="http://tempuri.org/GetBankNumInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NtitServerSoap12" type="tns:NtitServerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerificationCode">
+      <soap12:operation soapAction="http://tempuri.org/VerificationCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OneDWan">
+      <soap12:operation soapAction="http://tempuri.org/OneDWan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BaseOneDWan">
+      <soap12:operation soapAction="http://tempuri.org/BaseOneDWan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Detection">
+      <soap12:operation soapAction="http://tempuri.org/Detection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuickResponse">
+      <soap12:operation soapAction="http://tempuri.org/QuickResponse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBillInfo">
+      <soap12:operation soapAction="http://tempuri.org/AddBillInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBill">
+      <soap12:operation soapAction="http://tempuri.org/UpdateBill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pay100">
+      <soap12:operation soapAction="http://tempuri.org/Pay100" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pay001">
+      <soap12:operation soapAction="http://tempuri.org/Pay001" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LunXun">
+      <soap12:operation soapAction="http://tempuri.org/LunXun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserInfoByIDno">
+      <soap12:operation soapAction="http://tempuri.org/SelectUserInfoByIDno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DDCX">
+      <soap12:operation soapAction="http://tempuri.org/DDCX" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FaceDest">
+      <soap12:operation soapAction="http://tempuri.org/FaceDest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Refund">
+      <soap12:operation soapAction="http://tempuri.org/Refund" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVer">
+      <soap12:operation soapAction="http://tempuri.org/GetVer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppData">
+      <soap12:operation soapAction="http://tempuri.org/GetAppData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SoftwarePackage">
+      <soap12:operation soapAction="http://tempuri.org/SoftwarePackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Vc">
+      <soap12:operation soapAction="http://tempuri.org/Vc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEqTerInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetEqTerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserEqTer">
+      <soap12:operation soapAction="http://tempuri.org/InserEqTer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankNumInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetBankNumInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NtitServerHttpGet" type="tns:NtitServerHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="VerificationCode">
+      <http:operation location="/VerificationCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OneDWan">
+      <http:operation location="/OneDWan" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BaseOneDWan">
+      <http:operation location="/BaseOneDWan" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Detection">
+      <http:operation location="/Detection" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuickResponse">
+      <http:operation location="/QuickResponse" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBillInfo">
+      <http:operation location="/AddBillInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBill">
+      <http:operation location="/UpdateBill" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pay100">
+      <http:operation location="/Pay100" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pay001">
+      <http:operation location="/Pay001" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LunXun">
+      <http:operation location="/LunXun" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserInfoByIDno">
+      <http:operation location="/SelectUserInfoByIDno" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DDCX">
+      <http:operation location="/DDCX" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FaceDest">
+      <http:operation location="/FaceDest" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Refund">
+      <http:operation location="/Refund" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVer">
+      <http:operation location="/GetVer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppData">
+      <http:operation location="/GetAppData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SoftwarePackage">
+      <http:operation location="/SoftwarePackage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Vc">
+      <http:operation location="/Vc" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEqTerInfo">
+      <http:operation location="/GetEqTerInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserEqTer">
+      <http:operation location="/InserEqTer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankNumInfo">
+      <http:operation location="/GetBankNumInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NtitServerHttpPost" type="tns:NtitServerHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="VerificationCode">
+      <http:operation location="/VerificationCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OneDWan">
+      <http:operation location="/OneDWan" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BaseOneDWan">
+      <http:operation location="/BaseOneDWan" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Detection">
+      <http:operation location="/Detection" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuickResponse">
+      <http:operation location="/QuickResponse" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBillInfo">
+      <http:operation location="/AddBillInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBill">
+      <http:operation location="/UpdateBill" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pay100">
+      <http:operation location="/Pay100" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pay001">
+      <http:operation location="/Pay001" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LunXun">
+      <http:operation location="/LunXun" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserInfoByIDno">
+      <http:operation location="/SelectUserInfoByIDno" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DDCX">
+      <http:operation location="/DDCX" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FaceDest">
+      <http:operation location="/FaceDest" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Refund">
+      <http:operation location="/Refund" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVer">
+      <http:operation location="/GetVer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppData">
+      <http:operation location="/GetAppData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SoftwarePackage">
+      <http:operation location="/SoftwarePackage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Vc">
+      <http:operation location="/Vc" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEqTerInfo">
+      <http:operation location="/GetEqTerInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserEqTer">
+      <http:operation location="/InserEqTer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankNumInfo">
+      <http:operation location="/GetBankNumInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NtitServer">
+    <wsdl:port name="NtitServerSoap" binding="tns:NtitServerSoap">
+      <soap:address location="http://121.42.164.134:9909/NtitServer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NtitServerSoap12" binding="tns:NtitServerSoap12">
+      <soap12:address location="http://121.42.164.134:9909/NtitServer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NtitServerHttpGet" binding="tns:NtitServerHttpGet">
+      <http:address location="http://121.42.164.134:9909/NtitServer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NtitServerHttpPost" binding="tns:NtitServerHttpPost">
+      <http:address location="http://121.42.164.134:9909/NtitServer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
