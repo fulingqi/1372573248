@@ -75,7 +75,7 @@ namespace UI.WebDevice {
         
         /// <remarks/>
         public NtitServer() {
-            this.Url = global::UI.Properties.Settings.Default.UI_WebReference_NtitServer;
+            this.Url = global::UI.Properties.Settings.Default.UI_WebFace_WSFaces;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;

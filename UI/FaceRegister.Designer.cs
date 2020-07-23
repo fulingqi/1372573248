@@ -62,15 +62,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panelAll = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtAddress = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).BeginInit();
@@ -331,16 +331,16 @@
             // panelAll
             // 
             this.panelAll.BackColor = System.Drawing.Color.White;
+            this.panelAll.Controls.Add(this.label12);
+            this.panelAll.Controls.Add(this.label11);
+            this.panelAll.Controls.Add(this.label10);
+            this.panelAll.Controls.Add(this.label9);
+            this.panelAll.Controls.Add(this.label8);
             this.panelAll.Controls.Add(this.pictureBox2);
             this.panelAll.Controls.Add(this.txtAddress);
             this.panelAll.Controls.Add(this.label7);
-            this.panelAll.Controls.Add(this.linkLabel6);
-            this.panelAll.Controls.Add(this.linkLabel5);
             this.panelAll.Controls.Add(this.link2);
             this.panelAll.Controls.Add(this.link3);
-            this.panelAll.Controls.Add(this.linkLabel4);
-            this.panelAll.Controls.Add(this.linkLabel3);
-            this.panelAll.Controls.Add(this.linkLabel2);
             this.panelAll.Controls.Add(this.pictureBox1);
             this.panelAll.Controls.Add(this.label2);
             this.panelAll.Controls.Add(this.btnNoAgree);
@@ -360,6 +360,41 @@
             resources.ApplyResources(this.panelAll, "panelAll");
             this.panelAll.Name = "panelAll";
             // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.BackColor = System.Drawing.Color.White;
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label12.Name = "label12";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label11.Name = "label11";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label10.Name = "label10";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label9.Name = "label9";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label8.Name = "label8";
+            // 
             // txtAddress
             // 
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -377,45 +412,6 @@
             this.label7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label7.Name = "label7";
-            // 
-            // linkLabel6
-            // 
-            this.linkLabel6.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            resources.ApplyResources(this.linkLabel6, "linkLabel6");
-            this.linkLabel6.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.TabStop = true;
-            // 
-            // linkLabel5
-            // 
-            this.linkLabel5.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            resources.ApplyResources(this.linkLabel5, "linkLabel5");
-            this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.TabStop = true;
-            // 
-            // linkLabel4
-            // 
-            this.linkLabel4.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            resources.ApplyResources(this.linkLabel4, "linkLabel4");
-            this.linkLabel4.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.TabStop = true;
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            resources.ApplyResources(this.linkLabel3, "linkLabel3");
-            this.linkLabel3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.TabStop = true;
-            // 
-            // linkLabel2
-            // 
-            resources.ApplyResources(this.linkLabel2, "linkLabel2");
-            this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.TabStop = true;
             // 
             // pictureBox1
             // 
@@ -505,12 +501,12 @@
         private System.Windows.Forms.Panel panelWaittwo;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panelAll;
-        private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.LinkLabel linkLabel5;
-        private System.Windows.Forms.LinkLabel linkLabel4;
-        private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.LinkLabel linkLabel6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }

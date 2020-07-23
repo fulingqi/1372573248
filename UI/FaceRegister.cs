@@ -56,9 +56,6 @@ namespace UI
         public int ChengGong = 0;
 
         public bool IsStartIDCard = true;
-        //AutoSizeFormClass asc = new AutoSizeFormClass();
-
-        //AutoSizeFormTwoClass ascTwo = new AutoSizeFormTwoClass();
         public FaceRegister()
         {
             InitializeComponent();
@@ -110,9 +107,8 @@ namespace UI
         private void FaceRegister_Load(object sender, EventArgs e)
         {
 
-            //base.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - base.Width, Screen.PrimaryScreen.WorkingArea.Height - base.Height+20);
-            //ascTwo.Initialize(this);
-            //asc.controllInitializeSize(this);
+            //Inse();
+            //Inse();
             //起始同意
             btnAgree.Visible = true;
             btnNoAgree.Visible = false;
@@ -131,18 +127,9 @@ namespace UI
             //覆盖同意协议和注册按钮
             //panelCang.Visible = false;
             timer1.Start();
-            Task t1 = new Task(() =>
-            {
-                ConnectAndroid();
-            });
-            //启动Task
-            t1.Start();
+           
         }
-
-        //private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        //{
-
-        //}
+        
 
 
 
@@ -286,6 +273,7 @@ namespace UI
             }
             if (IsGetAndrid == 1)
             {
+                //获取安卓端的照片
                 ReceiveResultMessage("");
             }
 
@@ -497,13 +485,6 @@ namespace UI
             byte[] pucIIN = new byte[4];
             byte[] pucSN = new byte[8];
             nPort = m_iPort;
-            //if (pictureBox1.Image != null)
-            //{
-            //    pictureBox1.Image.Dispose();
-            //    pictureBox1.Image = null;
-            //}
-            //Syn_SetPhotoPath(0,ref cPath[0]);	//设置照片路径	iOption 路径选项	0=C:	1=当前路径	2=指定路径
-            //cPhotoPath	绝对路径,仅在iOption=2时有效
             iPhotoType = 0;
             Syn_SetPhotoType(0); //0 = bmp ,1 = jpg , 2 = base64 , 3 = WLT ,4 = 不生成
             Syn_SetPhotoName(2); // 生成照片文件名 0=tmp 1=姓名 2=身份证号 3=姓名_身份证号 
@@ -557,33 +538,7 @@ namespace UI
 
         #region 注册按钮
 
-        //private void panelAll_MouseLeave(object sender, EventArgs e)
-        //{
-        //    if (!string.IsNullOrEmpty(this.txtAddress.Text) && !string.IsNullOrEmpty(this.txtName.Text) && !string.IsNullOrEmpty(this.txtIDCard.Text) && !string.IsNullOrEmpty(this.txtYan.Text) && !string.IsNullOrEmpty(this.txtPhone.Text))
-        //    {
-        //        if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg != null && IsAgree == 1)
-        //        {
-        //            //实名注册刷脸就医按钮隐藏
-        //            //btnNofinsh.Visible = false;
-
-        //            //panelCang.Visible = true;
-        //            //panelCang.BackColor = Color.White;
-        //            //btnRegister.Visible = true;
-        //            YinCangButton();
-        //        }
-        //    }
-
-        //}
-        //private void FaceRegister_MouseLeave(object sender, EventArgs e)
-        //{
-        //    if (!string.IsNullOrEmpty(this.txtAddress.Text) && !string.IsNullOrEmpty(this.txtName.Text) && !string.IsNullOrEmpty(this.txtIDCard.Text) && !string.IsNullOrEmpty(this.txtYan.Text) && !string.IsNullOrEmpty(this.txtPhone.Text))
-        //    {
-        //        if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg != null && IsAgree == 1)
-        //        {
-        //            YinCangButton();
-        //        }
-        //    }
-        //}
+       
         private void YinCangButton()
         {
             picText.Visible = false;
@@ -956,6 +911,14 @@ namespace UI
 
         private void FaceRegister_Shown(object sender, EventArgs e)
         {
+
+            Task t1 = new Task(() =>
+            {
+                ConnectAndroid();
+            });
+            //启动Task
+            t1.Start();
+
             #region 寻找身份证读卡器
             string stmp;
             int i, nRet;
@@ -1163,6 +1126,10 @@ namespace UI
             client.Connect(EPhost);
             SendMessage("6", "1");
             Thread.Sleep(500);
+            //获取版本号
+            SendMessage("15","1");
+            Thread.Sleep(500);
+            ReceiveResultMessage("");
         }
 
         class SendData
@@ -1175,30 +1142,72 @@ namespace UI
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             isStartFun();
-            SendMessage("1", this.txtName.Text);
+            if (txtName.Text != "请输入姓名")
+            {
+                this.txtName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
+                SendMessage("1", this.txtName.Text);
+            }
+            else
+            {
+                this.txtName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
+
+            }
         }
 
         private void txtIDCard_TextChanged(object sender, EventArgs e)
         {
             isStartFun();
-            SendMessage("2", this.txtIDCard.Text);
+            if (txtIDCard.Text != "请输入身份证号")
+            {
+                this.txtIDCard.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
+                SendMessage("2", this.txtIDCard.Text);
+            }
+            else
+            {
+                this.txtIDCard.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
+            }
         }
         private void txtAddress_TextChanged(object sender, EventArgs e)
         {
             isStartFun();
-            SendMessage("3", this.txtAddress.Text);
+            if (txtAddress.Text != "请输入地址")
+            {
+                this.txtAddress.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
+                SendMessage("3", this.txtAddress.Text);
+            }
+            else
+            {
+                this.txtAddress.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
+            }
         }
 
         private void txtPhone_TextChanged(object sender, EventArgs e)
         {
             isStartFun();
-            SendMessage("4", this.txtPhone.Text);
+            if (txtPhone.Text!="请输入手机号")
+            {
+                this.txtPhone.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
+                SendMessage("4", this.txtPhone.Text);
+            }
+            else
+            {
+                this.txtPhone.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
+            }
+            
         }
 
         private void txtYan_TextChanged(object sender, EventArgs e)
         {
             isStartFun();
-            SendMessage("5", this.txtYan.Text);
+            if (txtYan.Text != "请输入验证码")
+            {
+                this.txtYan.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
+                SendMessage("5", this.txtYan.Text);
+            }
+            else
+            {
+                this.txtYan.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
+            }
         }
 
         #endregion
@@ -1222,33 +1231,7 @@ namespace UI
             client.Send(data);
         }
 
-
-        private void fun1()
-        {
-            byte[] aaaaa = Encoding.ASCII.GetBytes("TAKEPHOTO");  //通信时实际发送的是字节数组，所以要将发送消息转换字节
-            client.Send(aaaaa);
-
-            Thread.Sleep(1000);
-
-            byte[] receive1 = new byte[2048 * 2000 * 2];
-            //int length1 = ClientSocket.Receive(receive1);//length 接收字节数组长度
-            string dataa = string.Empty; Thread.Sleep(2000);
-            //string sdata = Encoding.ASCII.GetString(receive1, 0, length1).Replace("\n", "").Replace("\0", "").Replace("\t", "").Replace("\r", "");
-            //LogFile(sdata);
-
-            int receiveLength = 0;
-            int index = 0;
-            while (client.Available > 0)
-            {
-                Thread.Sleep(500);                              //参数 数据缓存区  起始位置  数据长度  值的按位组合
-                receiveLength += client.Receive(receive1, index, client.ReceiveBufferSize, SocketFlags.None);
-                index += receiveLength;
-
-            }
-            MessageBox.Show(index.ToString());
-            string sdata = Encoding.ASCII.GetString(receive1, 0, index).Replace("\n", "").Replace("\0", "").Replace("\t", "").Replace("\r", "");
-        }
-
+        
         private void ReceiveResultMessage(string data)
         {
 
@@ -1276,7 +1259,6 @@ namespace UI
                     ReceiveData result = JsonConvert.DeserializeObject<ReceiveData>(sdata);
                     if (result.data == "ok")
                     {
-
                         Process p = new Process(); //实例一个Process类，启动一个独立进程
                         p.StartInfo.FileName = "cmd.exe"; //设定程序名
                         p.StartInfo.UseShellExecute = false; //关闭Shell的使用
@@ -1296,6 +1278,11 @@ namespace UI
                         Logging.LogFile("接收到的图片路径：" + ssdsd);
                         Thread.Sleep(2000);
                         ReceiveMessage("");
+                    }
+                    //接收设备号
+                    if (result.result=="12")
+                    {
+                        string datas = result.data;
                     }
                 }
             }
@@ -1596,35 +1583,69 @@ namespace UI
 
         #endregion
         #region 更新程序
-        public void func()
-        {
+        //public void func()
+        //{
 
-            string jsonReb = n.Vc();
-            //Tuser["version"].ToString() 本地安卓版本号
-            string mac = Tuser["mac"].ToString();
-            JObject vc = JsonConvert.DeserializeObject<JObject>(jsonReb);
-            //vc["Msg"].ToString() 服务器安卓版本号
-            double bd = Convert.ToDouble(Tuser["version"].ToString());
+        //    string jsonReb = n.Vc();
+        //    //Tuser["version"].ToString() 本地安卓版本号
+        //    string mac = Tuser["mac"].ToString();
+        //    JObject vc = JsonConvert.DeserializeObject<JObject>(jsonReb);
+        //    //vc["Msg"].ToString() 服务器安卓版本号
+        //    double bd = Convert.ToDouble(Tuser["version"].ToString());
 
-            double bda = Convert.ToDouble(vc["Msg"].ToString());
-            if (Convert.ToDouble(Tuser["version"].ToString()) < Convert.ToDouble(vc["Msg"].ToString()))//当本地版本号小于服务器版本号
-            {
-                XmlNode xml = n.SoftwarePackage("An", mac);
-                XmlDocument xmldoc = new XmlDocument();
-                xmldoc.LoadXml(xml.OuterXml);
+        //    double bda = Convert.ToDouble(vc["Msg"].ToString());
+        //    if (Convert.ToDouble(Tuser["version"].ToString()) < Convert.ToDouble(vc["Msg"].ToString()))//当本地版本号小于服务器版本号
+        //    {
+        //        XmlNode xml = n.SoftwarePackage("An", mac);
+        //        XmlDocument xmldoc = new XmlDocument();
+        //        xmldoc.LoadXml(xml.OuterXml);
 
-                XmlElement root = xmldoc.DocumentElement;
-                xmldoc.Save(Application.StartupPath + @"\Android.xml");
+        //        XmlElement root = xmldoc.DocumentElement;
+        //        xmldoc.Save(Application.StartupPath + @"\Android.xml");
 
-                UpdateApp();
-                InsAPK();
-            }
-        }
+        //        UpdateApp();
+        //        InsAPK();
+        //    }
+        //}
 
         private void InsAPK()
         {
-
+            Inse();
         }
+        #region 安装程序并连接
+        public void Inse()
+        {
+            try
+            {
+                Process p = new Process(); //实例一个Process类，启动一个独立进程
+                p.StartInfo.FileName = "cmd.exe"; //设定程序名
+                p.StartInfo.UseShellExecute = false; //关闭Shell的使用
+                p.StartInfo.RedirectStandardInput = true; //重定向标准输入
+                p.StartInfo.RedirectStandardOutput = true; //重定向标准输出
+                p.StartInfo.RedirectStandardError = true; //重定向错误输出
+                p.StartInfo.CreateNoWindow = true; // 设置不显示窗口
+                p.StartInfo.ErrorDialog = false;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.Start();
+
+                #region ADB安装程序
+                p.StandardInput.WriteLine(@"adb uninstall com.mingyi.register.card");
+                Thread.Sleep(1000);
+                string path = Application.StartupPath + "\\register.apk";
+                p.StandardInput.WriteLine(@"adb install " + path);
+                Thread.Sleep(1000);
+                p.StandardInput.WriteLine(@"adb shell am start -n com.mingyi.register.card/.MainActivity");
+                Thread.Sleep(1000);
+                ConnectAndroid();//连接
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                Logging.LogFile("安装并连接" + ex.ToString());
+                Inse();
+            }
+        }
+        #endregion
 
         private void UpdateApp()
         {
@@ -1663,6 +1684,6 @@ namespace UI
             }
         }
         #endregion
-
+        
     }
 }
