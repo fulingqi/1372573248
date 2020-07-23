@@ -78,9 +78,10 @@ namespace UI
                     return;
                 }
 
-                Thread.Sleep(500);
-                SendMessage("13", "1");
 
+
+                SendMessage("13", "1");
+                Thread.Sleep(500);
                 yCode = VerificationCode(txtPhone.Text.Trim());//wsf.VerificationCode(txtPhone.Text.Trim());//验证码
                 JObject obj = JObject.Parse(yCode);
                 yCode = obj["string"]["#text"].ToString();
@@ -157,7 +158,7 @@ namespace UI
         #region 软键盘手动输入数字
 
 
-        TextBox tmpTextBox = null;//定义全局变量储存光标所在的textbox
+        RichTextBox tmpTextBox = null;//定义全局变量储存光标所在的textbox
         private void button11_Click(object sender, EventArgs e)
         {
             if (tmpTextBox == null)
@@ -247,7 +248,7 @@ namespace UI
                 this.txtYan.Text = "";
             }
 
-            tmpTextBox = (TextBox)sender;
+            tmpTextBox = (RichTextBox)sender;
         }
         #region 获取验证码倒计时
 
@@ -322,7 +323,7 @@ namespace UI
             {
                 this.txtPhone.Text = "";
             }
-            tmpTextBox = (TextBox)sender;
+            tmpTextBox = (RichTextBox)sender;
         }
         //private FilterInfoCollection videoDevices;
         public static Bitmap imgFace;
@@ -1115,11 +1116,11 @@ namespace UI
             p.Start();
 
             p.StandardInput.WriteLine(@"adb shell am broadcast -a NotifyServiceStop");
-            Thread.Sleep(1000);
+            Thread.Sleep(1500);
             p.StandardInput.WriteLine(@"adb forward tcp:60075 tcp:60076");
-            Thread.Sleep(1000);
+            Thread.Sleep(1500);
             p.StandardInput.WriteLine(@"adb shell am broadcast -a NotifyServiceStart");
-            Thread.Sleep(1000);
+            Thread.Sleep(1500);
 
             IPAddress myIP = IPAddress.Parse("127.0.0.1");
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -1128,9 +1129,9 @@ namespace UI
             SendMessage("6", "1");
             Thread.Sleep(500);
             //获取版本号
-            SendMessage("15","1");
-            Thread.Sleep(500);
-            ReceiveResultMessage("");
+            //SendMessage("15","1");
+            //Thread.Sleep(500);
+            //ReceiveResultMessage("");
         }
 
         class SendData

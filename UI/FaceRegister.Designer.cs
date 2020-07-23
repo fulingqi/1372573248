@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FaceRegister));
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtIDCard = new System.Windows.Forms.TextBox();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtYan = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.RichTextBox();
+            this.txtIDCard = new System.Windows.Forms.RichTextBox();
+            this.txtPhone = new System.Windows.Forms.RichTextBox();
+            this.txtYan = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.picText = new System.Windows.Forms.PictureBox();
             this.btnAgree = new System.Windows.Forms.Button();
@@ -166,6 +166,7 @@
             // 
             this.link2.BackgroundImage = global::UI.Properties.Resources.验证码;
             resources.ApplyResources(this.link2, "link2");
+            this.link2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.link2.Name = "link2";
             this.link2.TabStop = false;
             this.link2.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -466,12 +467,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtIDCard;
+        private System.Windows.Forms.RichTextBox txtName;
+        private System.Windows.Forms.RichTextBox txtIDCard;
         private System.Windows.Forms.RichTextBox txtAddress;
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.TextBox txtYan;
+        private System.Windows.Forms.RichTextBox txtPhone;
+        private System.Windows.Forms.RichTextBox txtYan;
         private System.Windows.Forms.PictureBox link2;
         private System.Windows.Forms.PictureBox picIsShow;
         private System.Windows.Forms.Timer timer1;

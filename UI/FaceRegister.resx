@@ -119,15 +119,25 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="txtName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 10pt</value>
+    <value>微软雅黑, 9.75pt</value>
   </data>
   <data name="txtName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 64</value>
+    <value>91, 63</value>
   </data>
-  <data name="txtName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 18</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtName.MaxLength" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="txtName.ScrollBars" type="System.Windows.Forms.RichTextBoxScrollBars, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="txtName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 24</value>
+  </data>
   <data name="txtName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -138,7 +148,7 @@
     <value>txtName</value>
   </data>
   <data name="&gt;&gt;txtName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtName.Parent" xml:space="preserve">
     <value>panelAll</value>
@@ -147,13 +157,22 @@
     <value>15</value>
   </data>
   <data name="txtIDCard.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 10pt</value>
+    <value>微软雅黑, 9.75pt</value>
   </data>
   <data name="txtIDCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 106</value>
+    <value>91, 104</value>
+  </data>
+  <data name="txtIDCard.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtIDCard.MaxLength" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="txtIDCard.ScrollBars" type="System.Windows.Forms.RichTextBoxScrollBars, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="txtIDCard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>267, 18</value>
+    <value>258, 24</value>
   </data>
   <data name="txtIDCard.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -165,7 +184,7 @@
     <value>txtIDCard</value>
   </data>
   <data name="&gt;&gt;txtIDCard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtIDCard.Parent" xml:space="preserve">
     <value>panelAll</value>
@@ -174,13 +193,22 @@
     <value>17</value>
   </data>
   <data name="txtPhone.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 10pt</value>
+    <value>微软雅黑, 9.75pt</value>
   </data>
   <data name="txtPhone.Location" type="System.Drawing.Point, System.Drawing">
-    <value>92, 207</value>
+    <value>93, 207</value>
+  </data>
+  <data name="txtPhone.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtPhone.MaxLength" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="txtPhone.ScrollBars" type="System.Windows.Forms.RichTextBoxScrollBars, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="txtPhone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 18</value>
+    <value>258, 24</value>
   </data>
   <data name="txtPhone.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -192,7 +220,7 @@
     <value>txtPhone</value>
   </data>
   <data name="&gt;&gt;txtPhone.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtPhone.Parent" xml:space="preserve">
     <value>panelAll</value>
@@ -201,13 +229,22 @@
     <value>22</value>
   </data>
   <data name="txtYan.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 10pt</value>
+    <value>微软雅黑, 9.75pt</value>
   </data>
   <data name="txtYan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 256</value>
+    <value>92, 253</value>
+  </data>
+  <data name="txtYan.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtYan.MaxLength" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="txtYan.ScrollBars" type="System.Windows.Forms.RichTextBoxScrollBars, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="txtYan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 18</value>
+    <value>141, 21</value>
   </data>
   <data name="txtYan.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -219,7 +256,7 @@
     <value>txtYan</value>
   </data>
   <data name="&gt;&gt;txtYan.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtYan.Parent" xml:space="preserve">
     <value>panelAll</value>
@@ -488,7 +525,6 @@
         VCqVqsCkIKhSqVQqlUqlUqlUBSVj/g/BT6qkOaM/awAAAABJRU5ErkJggg==
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="picText.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
@@ -2569,7 +2605,7 @@
     <value>0</value>
   </data>
   <data name="panelWait.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, -1</value>
+    <value>5, 2</value>
   </data>
   <data name="panelWait.Size" type="System.Drawing.Size, System.Drawing">
     <value>367, 577</value>
@@ -3050,7 +3086,7 @@
     <value>1</value>
   </data>
   <data name="panelSuccess.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-4, 3</value>
+    <value>-2, 1</value>
   </data>
   <data name="panelSuccess.Size" type="System.Drawing.Size, System.Drawing">
     <value>378, 577</value>
@@ -3068,36 +3104,6 @@
     <value>panelFail</value>
   </data>
   <data name="&gt;&gt;panelSuccess.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="txtSuccess.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10pt</value>
-  </data>
-  <data name="txtSuccess.Location" type="System.Drawing.Point, System.Drawing">
-    <value>109, 145</value>
-  </data>
-  <data name="txtSuccess.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtSuccess.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 25</value>
-  </data>
-  <data name="txtSuccess.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="txtSuccess.Text" xml:space="preserve">
-    <value>这个是成功读秒</value>
-  </data>
-  <data name="&gt;&gt;txtSuccess.Name" xml:space="preserve">
-    <value>txtSuccess</value>
-  </data>
-  <data name="&gt;&gt;txtSuccess.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtSuccess.Parent" xml:space="preserve">
-    <value>panelSuccTwo</value>
-  </data>
-  <data name="&gt;&gt;txtSuccess.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="label1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -3205,6 +3211,36 @@
     <value>panelWaittwo</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtSuccess.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10pt</value>
+  </data>
+  <data name="txtSuccess.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 145</value>
+  </data>
+  <data name="txtSuccess.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtSuccess.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 25</value>
+  </data>
+  <data name="txtSuccess.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtSuccess.Text" xml:space="preserve">
+    <value>这个是成功读秒</value>
+  </data>
+  <data name="&gt;&gt;txtSuccess.Name" xml:space="preserve">
+    <value>txtSuccess</value>
+  </data>
+  <data name="&gt;&gt;txtSuccess.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSuccess.Parent" xml:space="preserve">
+    <value>panelSuccTwo</value>
+  </data>
+  <data name="&gt;&gt;txtSuccess.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="panelFail.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
@@ -5003,7 +5039,7 @@
     <value>1</value>
   </data>
   <data name="panelFail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 1</value>
+    <value>-2, 1</value>
   </data>
   <data name="panelFail.Size" type="System.Drawing.Size, System.Drawing">
     <value>378, 576</value>
@@ -5981,7 +6017,7 @@
     <value>微软雅黑, 9pt</value>
   </data>
   <data name="txtAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 143</value>
+    <value>91, 144</value>
   </data>
   <data name="txtAddress.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
