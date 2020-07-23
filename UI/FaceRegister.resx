@@ -144,7 +144,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;txtName.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="txtIDCard.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 10pt</value>
@@ -171,7 +171,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;txtIDCard.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="txtPhone.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 10pt</value>
@@ -198,7 +198,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;txtPhone.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="txtYan.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 10pt</value>
@@ -225,7 +225,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;txtYan.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -511,7 +511,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;picText.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="btnAgree.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -538,7 +538,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;btnAgree.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="picIsShow.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1203,7 +1203,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;picIsShow.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>24</value>
   </data>
   <data name="link2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -1227,7 +1227,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;link2.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btnNoAgree.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -1254,7 +1254,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;btnNoAgree.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="link3.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 12pt</value>
@@ -1281,7 +1281,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;link3.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="linkLabel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1314,7 +1314,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;linkLabel1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>1</value>
   </data>
   <data name="btnRegister.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1409,7 +1409,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;btnRegister.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>26</value>
   </data>
   <data name="panelSuccess.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -2569,7 +2569,7 @@
     <value>0</value>
   </data>
   <data name="panelWait.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 0</value>
+    <value>0, -1</value>
   </data>
   <data name="panelWait.Size" type="System.Drawing.Size, System.Drawing">
     <value>367, 577</value>
@@ -3050,7 +3050,7 @@
     <value>1</value>
   </data>
   <data name="panelSuccess.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-3, 0</value>
+    <value>-4, 3</value>
   </data>
   <data name="panelSuccess.Size" type="System.Drawing.Size, System.Drawing">
     <value>378, 577</value>
@@ -3065,7 +3065,7 @@
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panelSuccess.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panelFail</value>
   </data>
   <data name="&gt;&gt;panelSuccess.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -3209,39 +3209,6 @@
   </data>
   <data name="panelFail.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
-  </data>
-  <data name="&gt;&gt;panelFailTwo.Name" xml:space="preserve">
-    <value>panelFailTwo</value>
-  </data>
-  <data name="&gt;&gt;panelFailTwo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelFailTwo.Parent" xml:space="preserve">
-    <value>panelFail</value>
-  </data>
-  <data name="&gt;&gt;panelFailTwo.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panelFail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-2, 1</value>
-  </data>
-  <data name="panelFail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>378, 576</value>
-  </data>
-  <data name="panelFail.TabIndex" type="System.Int32, mscorlib">
-    <value>51</value>
-  </data>
-  <data name="&gt;&gt;panelFail.Name" xml:space="preserve">
-    <value>panelFail</value>
-  </data>
-  <data name="&gt;&gt;panelFail.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelFail.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelFail.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="panelFailTwo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5033,6 +5000,27 @@
     <value>panelFail</value>
   </data>
   <data name="&gt;&gt;panelFailTwo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panelFail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 1</value>
+  </data>
+  <data name="panelFail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>378, 576</value>
+  </data>
+  <data name="panelFail.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;panelFail.Name" xml:space="preserve">
+    <value>panelFail</value>
+  </data>
+  <data name="&gt;&gt;panelFail.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelFail.Parent" xml:space="preserve">
+    <value>panelAll</value>
+  </data>
+  <data name="&gt;&gt;panelFail.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="textBox1.Font" type="System.Drawing.Font, System.Drawing">
@@ -5120,7 +5108,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;linkReturns.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>25</value>
   </data>
   <data name="txtFails.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 21.75pt</value>
@@ -5192,7 +5180,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5222,7 +5210,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5252,7 +5240,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5282,7 +5270,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5312,136 +5300,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;label12.Name" xml:space="preserve">
-    <value>label12</value>
-  </data>
-  <data name="&gt;&gt;label12.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
-    <value>panelAll</value>
-  </data>
-  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;label11.Name" xml:space="preserve">
-    <value>label11</value>
-  </data>
-  <data name="&gt;&gt;label11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
-    <value>panelAll</value>
-  </data>
-  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label10.Name" xml:space="preserve">
-    <value>label10</value>
-  </data>
-  <data name="&gt;&gt;label10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
-    <value>panelAll</value>
-  </data>
-  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label9.Name" xml:space="preserve">
-    <value>label9</value>
-  </data>
-  <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
-    <value>panelAll</value>
-  </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;label8.Name" xml:space="preserve">
-    <value>label8</value>
-  </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>panelAll</value>
-  </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
-    <value>pictureBox2</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.Parent" xml:space="preserve">
-    <value>panelAll</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;txtAddress.Name" xml:space="preserve">
-    <value>txtAddress</value>
-  </data>
-  <data name="&gt;&gt;txtAddress.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtAddress.Parent" xml:space="preserve">
-    <value>panelAll</value>
-  </data>
-  <data name="&gt;&gt;txtAddress.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>panelAll</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>panelAll</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="panelAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, 0</value>
-  </data>
-  <data name="panelAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>370, 575</value>
-  </data>
-  <data name="panelAll.TabIndex" type="System.Int32, mscorlib">
-    <value>62</value>
-  </data>
-  <data name="&gt;&gt;panelAll.Name" xml:space="preserve">
-    <value>panelAll</value>
-  </data>
-  <data name="&gt;&gt;panelAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelAll.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelAll.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>16</value>
   </data>
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5453,7 +5312,7 @@
     <value>NoControl</value>
   </data>
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 229</value>
+    <value>12, 228</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>341, 12</value>
@@ -5474,7 +5333,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5486,7 +5345,7 @@
     <value>NoControl</value>
   </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 277</value>
+    <value>12, 275</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>341, 12</value>
@@ -5507,7 +5366,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5519,7 +5378,7 @@
     <value>NoControl</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 187</value>
+    <value>12, 183</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>341, 12</value>
@@ -5540,7 +5399,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5552,7 +5411,7 @@
     <value>NoControl</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 125</value>
+    <value>12, 127</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>341, 12</value>
@@ -5573,7 +5432,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5582,7 +5441,7 @@
     <value>宋体, 9pt, style=Underline</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 85</value>
+    <value>14, 85</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>341, 12</value>
@@ -5603,7 +5462,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6116,7 +5975,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="txtAddress.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 9pt</value>
@@ -6149,7 +6008,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;txtAddress.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -6179,7 +6038,7 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6450,7 +6309,28 @@
     <value>panelAll</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
+  </data>
+  <data name="panelAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, 0</value>
+  </data>
+  <data name="panelAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 575</value>
+  </data>
+  <data name="panelAll.TabIndex" type="System.Int32, mscorlib">
+    <value>62</value>
+  </data>
+  <data name="&gt;&gt;panelAll.Name" xml:space="preserve">
+    <value>panelAll</value>
+  </data>
+  <data name="&gt;&gt;panelAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelAll.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelAll.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -8459,7 +8339,7 @@
     <value>Stretch</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>362, 579</value>
+    <value>365, 580</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -1114,11 +1114,11 @@ namespace UI
             p.Start();
 
             p.StandardInput.WriteLine(@"adb shell am broadcast -a NotifyServiceStop");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
             p.StandardInput.WriteLine(@"adb forward tcp:60075 tcp:60076");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
             p.StandardInput.WriteLine(@"adb shell am broadcast -a NotifyServiceStart");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             IPAddress myIP = IPAddress.Parse("127.0.0.1");
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -1393,9 +1393,9 @@ namespace UI
 
 
 
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             SendMessage("11", "1");
-            Thread.Sleep(2000);
+            Thread.Sleep(1500);
             isStart = 0;
             linkReturns.Enabled = true;
         }
