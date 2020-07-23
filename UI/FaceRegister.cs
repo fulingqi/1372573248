@@ -733,6 +733,7 @@ namespace UI
                 panelSuccess.BackColor = Color.FromArgb(80, 192, 192, 192);
                 txtSuccess.Visible = true;
                 SendMessage("8", "success");
+                ReturnUpLevel();
             }
             else
             {
