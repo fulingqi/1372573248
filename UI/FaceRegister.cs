@@ -743,6 +743,10 @@ namespace UI
                 {
                     errorMessage = obj["message"].ToString();
                 }
+                if (strs=="104")
+                {
+                    errorMessage = errorMessage.Remove(16,6); 
+                }
                 panelFail.Visible = true;
                 panelFail.BackColor = Color.FromArgb(80, 192, 192, 192);
                 textBox1.Visible = true;
