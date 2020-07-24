@@ -1633,13 +1633,15 @@ namespace UI
             //if (Convert.ToDouble(vc) < Convert.ToDouble(vc["Msg"].ToString()))//当本地版本号小于服务器版本号
              if (localbb < serverbb)//当本地版本号小于服务器版本号
              {
-
+               
                 XmlNode xml = n.SoftwarePackage("An", mac, "b");
                 XmlDocument xmldoc = new XmlDocument();
                 xmldoc.LoadXml(xml.OuterXml);
 
                 XmlElement root = xmldoc.DocumentElement;
                 xmldoc.Save(Application.StartupPath + @"\Android.xml");
+                //安卓程序更新时间
+                n.InserEqTer(vc["Data"]["HospCode"].ToString(), mac);
 
                 UpdateApp();
                 InsAPK();
