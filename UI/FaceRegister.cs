@@ -89,6 +89,7 @@ namespace UI
                 link3.Text = "30 秒后重试";
                 link2.Visible = false;
                 link3.Visible = true;
+                link3.Enabled = false;
 
             }
             catch (Exception ex)
@@ -258,7 +259,6 @@ namespace UI
         {
             if (IsStartIDCard)
             {
-                //ReadIdcardInfo();
                 ThreadPool.QueueUserWorkItem(ReadIdcardInfo, null);
             }
             if (link3.Text != "获取验证码" && int.Parse(link3.Text.Substring(0, link3.Text.Length - 5)) > 0)
@@ -270,6 +270,7 @@ namespace UI
             {
                 link2.Enabled = true;
                 link3.Visible = false;
+                link3.Enabled = true;
                 link2.Visible = true;
             }
             if (IsGetAndrid == 1)
@@ -743,10 +744,10 @@ namespace UI
                 {
                     errorMessage = obj["message"].ToString();
                 }
-                if (strs=="104")
-                {
-                    errorMessage = errorMessage.Remove(16,6); 
-                }
+                //if (strs=="104")
+                //{
+                //    errorMessage = errorMessage.Remove(16,6); 
+                //}
                 panelFail.Visible = true;
                 panelFail.BackColor = Color.FromArgb(80, 192, 192, 192);
                 textBox1.Visible = true;
@@ -1130,12 +1131,22 @@ namespace UI
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPEndPoint EPhost = new IPEndPoint(myIP, int.Parse("60075"));
             client.Connect(EPhost);
+
+            SendConnectMessage("CONNECT");
+            Thread.Sleep(1000);
+            string datas =  ReceiveMacMessage();
+
+            if (!string.IsNullOrEmpty(datas))
+            {
+                func(datas);
+            }
+
             SendMessage("6", "1");
             Thread.Sleep(500);
-            //获取版本号
-            //SendMessage("15","1");
-            //Thread.Sleep(500);
-            //ReceiveResultMessage("");
+           
+
+            
+         
         }
 
         class SendData
@@ -1237,7 +1248,20 @@ namespace UI
             client.Send(data);
         }
 
-        
+        private void SendConnectMessage(string content)
+        {
+            if (client == null)
+            {
+                ConnectAndroid();
+            }
+            byte[] bytedata = Encoding.UTF8.GetBytes(content);
+            string str = Convert.ToBase64String(bytedata);
+            byte[] data = Encoding.ASCII.GetBytes(str);
+
+            client.Send(data);
+        }
+
+
         private void ReceiveResultMessage(string data)
         {
 
@@ -1284,11 +1308,6 @@ namespace UI
                         Logging.LogFile("接收到的图片路径：" + ssdsd);
                         Thread.Sleep(2000);
                         ReceiveMessage("");
-                    }
-                    //接收设备号
-                    if (result.result=="12")
-                    {
-                        string datas = result.data;
                     }
                 }
             }
@@ -1589,30 +1608,85 @@ namespace UI
 
         #endregion
         #region 更新程序
-        //public void func()
-        //{
+        public void func(string data)
+        {
+            //mac号
+            //获取版本号
+            SendMessage("15", "1");
+            Thread.Sleep(500);
 
-        //    string jsonReb = n.Vc();
-        //    //Tuser["version"].ToString() 本地安卓版本号
-        //    string mac = Tuser["mac"].ToString();
-        //    JObject vc = JsonConvert.DeserializeObject<JObject>(jsonReb);
-        //    //vc["Msg"].ToString() 服务器安卓版本号
-        //    double bd = Convert.ToDouble(Tuser["version"].ToString());
+            JObject Tuser = (JObject)JsonConvert.DeserializeObject(data);
+            //获取设备信息
+            WebDevice.NtitServer n = new WebDevice.NtitServer();
 
-        //    double bda = Convert.ToDouble(vc["Msg"].ToString());
-        //    if (Convert.ToDouble(Tuser["version"].ToString()) < Convert.ToDouble(vc["Msg"].ToString()))//当本地版本号小于服务器版本号
-        //    {
-        //        XmlNode xml = n.SoftwarePackage("An", mac);
-        //        XmlDocument xmldoc = new XmlDocument();
-        //        xmldoc.LoadXml(xml.OuterXml);
+            
+            //Tuser["version"].ToString() 本地安卓版本号
+            string mac = Tuser["mac"].ToString();
 
-        //        XmlElement root = xmldoc.DocumentElement;
-        //        xmldoc.Save(Application.StartupPath + @"\Android.xml");
+            string jsonReb = n.GetEqTerInfo(mac);
+            JObject vc = JsonConvert.DeserializeObject<JObject>(jsonReb);
+            //vc["Msg"].ToString() 服务器安卓版本号
+            double localbb = Convert.ToDouble(Tuser["version"].ToString());
 
-        //        UpdateApp();
-        //        InsAPK();
-        //    }
-        //}
+            double serverbb = Convert.ToDouble(vc["Data"]["Android"].ToString());
+            //if (Convert.ToDouble(vc) < Convert.ToDouble(vc["Msg"].ToString()))//当本地版本号小于服务器版本号
+             if (localbb < serverbb)//当本地版本号小于服务器版本号
+             {
+
+                XmlNode xml = n.SoftwarePackage("An", mac, "b");
+                XmlDocument xmldoc = new XmlDocument();
+                xmldoc.LoadXml(xml.OuterXml);
+
+                XmlElement root = xmldoc.DocumentElement;
+                xmldoc.Save(Application.StartupPath + @"\Android.xml");
+
+                UpdateApp();
+                InsAPK();
+            }
+        }
+
+        /// <summary>
+        /// 接收版本 mac地址
+        /// </summary>
+        /// <param name="data"></param>
+        private string ReceiveMacMessage()
+        {
+
+            if (client == null)
+            {
+                ConnectAndroid();
+            }
+            byte[] arrImgss = new byte[1024 * 700];
+            int receiveLength = 0;
+            int index = 0;
+            string sdata = "";
+            try
+            {
+                while (client.Available > 0)
+                {
+                    //参数 数据缓存区  起始位置  数据长度  值的按位组合
+                    receiveLength += client.Receive(arrImgss, index, client.ReceiveBufferSize, SocketFlags.None);
+                    index += receiveLength;
+                }
+                sdata = Encoding.ASCII.GetString(arrImgss, 0, index).Replace("\n", "").Replace("\0", "").Replace("\t", "").Replace("\r", "");
+                byte[] outputb = Convert.FromBase64String(sdata);
+                sdata = Encoding.Default.GetString(outputb);
+                
+                if (!string.IsNullOrEmpty(sdata))
+                {
+                    return sdata;
+                }
+            }
+            catch (Exception ex)
+            {
+                string s = ex.Message;
+                Logging.LogFile("获取版本号和mac地址：" + s);
+              
+                throw;
+            }
+            return "";
+
+        }
 
         private void InsAPK()
         {

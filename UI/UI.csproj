@@ -142,11 +142,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <Compile Include="Web References\WebNtit\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FaceRegister.byn-ER.resx">
       <DependentUpon>FaceRegister.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,11 +196,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\WebFace\WSFaces.wsdl" />
-    <None Include="Web References\WebNtit\LiShuiServer.wsdl" />
-    <None Include="Web References\WebNtit\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -224,17 +214,6 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>UI_WebFace_WSFaces</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://10.178.227.93:1109/LiShuiServer.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\WebNtit\</RelPath>
-      <UpdateFromURL>http://10.178.227.93:1109/LiShuiServer.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>UI_WebNtit_LiShuiServer</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://121.42.164.134:9909/NtitServer.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -402,7 +381,6 @@
     <None Include="Resources\9-1注册.png" />
     <None Include="Resources\明医刷脸就医系统.png" />
     <None Include="Resources\9-1注册 %281%29.png" />
-    <None Include="Web References\WebNtit\LiShuiServer.disco" />
     <None Include="Web References\LS\LiShuiServer.disco" />
     <None Include="Resources\确认信息.png" />
     <None Include="Resources\icon-qr.png" />
