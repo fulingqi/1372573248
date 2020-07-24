@@ -1138,6 +1138,7 @@ namespace UI
 
             if (!string.IsNullOrEmpty(datas))
             {
+                //更新安卓程序
                 func(datas);
             }
 
@@ -1612,8 +1613,8 @@ namespace UI
         {
             //mac号
             //获取版本号
-            SendMessage("15", "1");
-            Thread.Sleep(500);
+            //SendMessage("15", "1");
+           //Thread.Sleep(500);
 
             JObject Tuser = (JObject)JsonConvert.DeserializeObject(data);
             //获取设备信息
@@ -1693,6 +1694,10 @@ namespace UI
             Inse();
         }
         #region 安装程序并连接
+
+        /// <summary>
+        /// 安卓机安装最新版本
+        /// </summary>
         public void Inse()
         {
             try
@@ -1727,6 +1732,9 @@ namespace UI
         }
         #endregion
 
+        /// <summary>
+        /// 更新安卓安装包
+        /// </summary>
         private void UpdateApp()
         {
             try
