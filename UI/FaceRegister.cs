@@ -1,6 +1,4 @@
-﻿using AForge.Video;
-using AForge.Video.DirectShow;
-using Core;
+﻿using Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -23,6 +21,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using Baidu.Aip;
 using BLL;
+using System.Reflection;
 
 namespace UI
 {
@@ -109,8 +108,6 @@ namespace UI
         private void FaceRegister_Load(object sender, EventArgs e)
         {
 
-            //Inse();
-            //Inse();
             //起始同意
             btnAgree.Visible = true;
             btnNoAgree.Visible = false;
@@ -131,7 +128,7 @@ namespace UI
             timer1.Start();
            
         }
-        
+
 
 
 
@@ -346,19 +343,19 @@ namespace UI
         }
         #endregion
 
-        private void video_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            try
-            {
-                imgFace = (Bitmap)eventArgs.Frame.Clone();
-                ClearMemory();
-            }
-            catch (Exception ex)
-            {
-                string s = ex.Message;
-                Logging.LogFile(s);
-            }
-        }
+        //private void video_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        //{
+        //    try
+        //    {
+        //        imgFace = (Bitmap)eventArgs.Frame.Clone();
+        //        ClearMemory();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string s = ex.Message;
+        //        Logging.LogFile(s);
+        //    }
+        //}
         byte[] photoImg = null;
 
         //打开摄像头
@@ -1646,6 +1643,24 @@ namespace UI
                 UpdateApp();
                 InsAPK();
             }
+            //本地程序版本号
+            string str = AssemblyFileVersion();
+            str =str.Remove(str.Length -4, 4);
+            double dw =Convert.ToDouble(str);
+
+            //服务器程序版本号
+            double Winv = Convert.ToDouble(vc["Data"]["WinV"].ToString());
+
+            if (dw !=Winv)//判断Winform程序升级或者降级
+            {
+
+                //执行更新程序
+                System.Diagnostics.Process.Start("AutoUpdate.exe", mac);
+
+                //关闭本程序
+                System.Environment.Exit(0);
+
+            }
         }
 
         /// <summary>
@@ -1773,7 +1788,28 @@ namespace UI
                 MessageBox.Show(ex.ToString());
             }
         }
+
+
+        /// <summary>
+        /// 获取本地Winform程序版本号
+        /// </summary>
+        /// <returns></returns>
+        public string AssemblyFileVersion()
+        {
+
+            object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyFileVersionAttribute), false);
+            if (attributes.Length == 0)
+            {
+                return "";
+            }
+            else
+            {
+                return ((AssemblyFileVersionAttribute)attributes[0]).Version;
+            }
+
+        }
+
         #endregion
-        
+
     }
 }
