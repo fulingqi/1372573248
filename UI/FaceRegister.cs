@@ -1657,7 +1657,7 @@ namespace UI
 
             double serverbb = Convert.ToDouble(vc["Data"]["Android"].ToString());
             //if (Convert.ToDouble(vc) < Convert.ToDouble(vc["Msg"].ToString()))//当本地版本号小于服务器版本号
-             if (localbb < serverbb)//当本地版本号小于服务器版本号
+             if (localbb != serverbb)//当本地版本号小于服务器版本号
              {
                
                 XmlNode xml = n.SoftwarePackage("An", mac, "b");

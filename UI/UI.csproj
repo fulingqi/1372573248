@@ -118,12 +118,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FaceRegister.byn-ER.resx">
-      <DependentUpon>FaceRegister.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FaceRegister.byn.resx">
-      <DependentUpon>FaceRegister.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FaceRegister.resx">
       <DependentUpon>FaceRegister.cs</DependentUpon>
       <SubType>Designer</SubType>
