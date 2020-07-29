@@ -71,6 +71,9 @@
             this.txtAddress = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelConnectWait = new System.Windows.Forms.Panel();
+            this.panelConnectWaitTwo = new System.Windows.Forms.Panel();
+            this.labelconnect = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIsShow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).BeginInit();
@@ -82,6 +85,8 @@
             this.panelFailTwo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelAll.SuspendLayout();
+            this.panelConnectWait.SuspendLayout();
+            this.panelConnectWaitTwo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -426,6 +431,24 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
+            // panelConnectWait
+            // 
+            resources.ApplyResources(this.panelConnectWait, "panelConnectWait");
+            this.panelConnectWait.Controls.Add(this.panelConnectWaitTwo);
+            this.panelConnectWait.Name = "panelConnectWait";
+            // 
+            // panelConnectWaitTwo
+            // 
+            resources.ApplyResources(this.panelConnectWaitTwo, "panelConnectWaitTwo");
+            this.panelConnectWaitTwo.Controls.Add(this.labelconnect);
+            this.panelConnectWaitTwo.Name = "panelConnectWaitTwo";
+            // 
+            // labelconnect
+            // 
+            this.labelconnect.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            resources.ApplyResources(this.labelconnect, "labelconnect");
+            this.labelconnect.Name = "labelconnect";
+            // 
             // FaceRegister
             // 
             resources.ApplyResources(this, "$this");
@@ -434,6 +457,7 @@
             this.Controls.Add(this.panelWait);
             this.Controls.Add(this.panelSuccess);
             this.Controls.Add(this.panelFail);
+            this.Controls.Add(this.panelConnectWait);
             this.Controls.Add(this.panelAll);
             this.Controls.Add(this.linkLabel1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -461,6 +485,8 @@
             this.panelAll.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelConnectWait.ResumeLayout(false);
+            this.panelConnectWaitTwo.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -508,5 +534,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panelConnectWait;
+        private System.Windows.Forms.Panel panelConnectWaitTwo;
+        private System.Windows.Forms.Label labelconnect;
     }
 }

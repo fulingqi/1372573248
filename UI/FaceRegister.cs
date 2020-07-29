@@ -55,6 +55,12 @@ namespace UI
         public int ChengGong = 0;
 
         public bool IsStartIDCard = true;
+
+        public DateTime GetMessageStart; //获取验证码时间
+        public DateTime GetMessageEnd; //使用验证码时间
+
+
+
         public FaceRegister()
         {
             InitializeComponent();
@@ -83,13 +89,14 @@ namespace UI
                 Thread.Sleep(500);
                 yCode = VerificationCode(txtPhone.Text.Trim());//wsf.VerificationCode(txtPhone.Text.Trim());//验证码
                 JObject obj = JObject.Parse(yCode);
+               
                 yCode = obj["string"]["#text"].ToString();
                 link2.Enabled = false;
                 link3.Text = "30 秒后重试";
                 link2.Visible = false;
                 link3.Visible = true;
                 link3.Enabled = false;
-
+                GetMessageStart = DateTime.Now;
             }
             catch (Exception ex)
             {
@@ -113,7 +120,8 @@ namespace UI
             btnNoAgree.Visible = false;
             //关闭等待
             panelWait.Visible = false;
-
+            //连接安卓设备等待中
+            panelConnectWait.Visible = false;
             //在窗体加载时隐藏lbl1标签
             link3.Visible = false;
             //成功和失败的界面隐藏
@@ -342,20 +350,7 @@ namespace UI
             }
         }
         #endregion
-
-        //private void video_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        //{
-        //    try
-        //    {
-        //        imgFace = (Bitmap)eventArgs.Frame.Clone();
-        //        ClearMemory();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        string s = ex.Message;
-        //        Logging.LogFile(s);
-        //    }
-        //}
+        
         byte[] photoImg = null;
 
         //打开摄像头
@@ -635,6 +630,13 @@ namespace UI
                 if (txtYan.Text.Trim() != yCode)//与发送的验证码不一致
                 {
                     MessageBox.Show("验证码错误");
+                    return;
+                }
+                GetMessageEnd = DateTime.Now;
+                TimeSpan time = GetMessageEnd - GetMessageStart;
+                if (time.TotalMinutes>5)
+                {
+                    MessageBox.Show("验证码失效");
                     return;
                 }
             }
@@ -1106,6 +1108,10 @@ namespace UI
         Socket client = null;
         private void ConnectAndroid()
         {
+            //线程之间跨平台操作
+            Control.CheckForIllegalCrossThreadCalls = false;
+            panelConnectWait.Visible = true;
+            panelConnectWait.BackColor = Color.FromArgb(80, 192, 192, 192);
             Process p = new Process(); //实例一个Process类，启动一个独立进程
             p.StartInfo.FileName = "cmd.exe"; //设定程序名
             p.StartInfo.UseShellExecute = false; //关闭Shell的使用
@@ -1118,16 +1124,23 @@ namespace UI
             p.Start();
 
             p.StandardInput.WriteLine(@"adb shell am broadcast -a NotifyServiceStop");
-            Thread.Sleep(1500);
+            Thread.Sleep(2000);
             p.StandardInput.WriteLine(@"adb forward tcp:60075 tcp:60076");
-            Thread.Sleep(1500);
+            Thread.Sleep(2000);
             p.StandardInput.WriteLine(@"adb shell am broadcast -a NotifyServiceStart");
-            Thread.Sleep(1500);
+            Thread.Sleep(2000);
 
             IPAddress myIP = IPAddress.Parse("127.0.0.1");
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPEndPoint EPhost = new IPEndPoint(myIP, int.Parse("60075"));
-            client.Connect(EPhost);
+            try
+            {
+                client.Connect(EPhost);
+            }
+            catch (Exception ex)
+            {
+                ConnectAndroid();
+            }
 
             SendConnectMessage("CONNECT");
             Thread.Sleep(1000);
@@ -1141,10 +1154,10 @@ namespace UI
 
             SendMessage("6", "1");
             Thread.Sleep(500);
-           
+            panelConnectWait.Visible = false;
 
-            
-         
+
+
         }
 
         class SendData
@@ -1242,8 +1255,16 @@ namespace UI
             byte[] bytedata = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(model));
             string str = Convert.ToBase64String(bytedata);
             byte[] data = Encoding.ASCII.GetBytes(str);
-
-            client.Send(data);
+            try
+            {
+                client.Send(data);
+            }
+            catch (Exception ex )
+            {
+                ConnectAndroid();
+                
+            }
+           
         }
 
         private void SendConnectMessage(string content)
@@ -1256,7 +1277,15 @@ namespace UI
             string str = Convert.ToBase64String(bytedata);
             byte[] data = Encoding.ASCII.GetBytes(str);
 
-            client.Send(data);
+            try
+            {
+                client.Send(data);
+            }
+            catch (Exception ex)
+            {
+                ConnectAndroid();
+
+            }
         }
 
 
@@ -1645,13 +1674,13 @@ namespace UI
             }
             //本地程序版本号
             string str = AssemblyFileVersion();
-            str =str.Remove(str.Length -4, 4);
-            double dw =Convert.ToDouble(str);
+            str = str.Remove(str.Length - 4, 4);
+            double dw = Convert.ToDouble(str);
 
             //服务器程序版本号
             double Winv = Convert.ToDouble(vc["Data"]["WinV"].ToString());
 
-            if (dw !=Winv)//判断Winform程序升级或者降级
+            if (dw != Winv)//判断Winform程序升级或者降级
             {
 
                 //执行更新程序
