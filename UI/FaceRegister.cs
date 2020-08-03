@@ -59,7 +59,8 @@ namespace UI
         public DateTime GetMessageStart; //获取验证码时间
         public DateTime GetMessageEnd; //使用验证码时间
 
-
+        public DateTime GetImageStart;
+        public DateTime GetImageEnd;
 
         public FaceRegister()
         {
@@ -452,7 +453,7 @@ namespace UI
             {
                 File.Delete(System.IO.Path.GetFullPath(".\\") + "temp.jpg");
             }
-
+            GetImageStart = DateTime.Now;
             SendMessage("7", "1");
             IsGetAndrid = 1;
             YinCangButton();
@@ -549,7 +550,6 @@ namespace UI
             {
                 if (this.txtIDCard.Text != "请输入身份证号" && this.txtName.Text != "请输入姓名" && this.txtPhone.Text != "请输入手机号" && this.txtAddress.Text != "请输入地址" && this.txtYan.Text != "请输入验证码" && photoImg != null && IsAgree == 1)
                 {
-
                     Register();
                 }
                 else
@@ -1291,7 +1291,7 @@ namespace UI
 
         private void ReceiveResultMessage(string data)
         {
-
+            GetImageEnd = DateTime.Now;
             if (client == null)
             {
                 ConnectAndroid();
@@ -1326,15 +1326,23 @@ namespace UI
                         p.StartInfo.ErrorDialog = false;
                         p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                         p.Start();
-
                         string ssdsd = System.IO.Path.GetFullPath(".\\") + "temp.jpg";
-
                         p.StandardInput.WriteLine(@" adb pull /storage/emulated/0/b.jpg " + ssdsd);
-
-
                         Logging.LogFile("接收到的图片路径：" + ssdsd);
                         Thread.Sleep(2000);
                         ReceiveMessage("");
+                    }
+                }
+                else
+                {
+                    TimeSpan time = GetImageEnd - GetImageStart;
+                    if (time.TotalSeconds>=31)
+                    {
+                        IsGetAndrid = 0;
+                        //线程之间跨平台操作
+                        Control.CheckForIllegalCrossThreadCalls = false;
+                        //退出等待
+                        panelWait.Visible = false;
                     }
                 }
             }
@@ -1672,24 +1680,23 @@ namespace UI
                 UpdateApp();
                 InsAPK();
             }
-            //本地程序版本号
-            string str = AssemblyFileVersion();
-            str = str.Remove(str.Length - 4, 4);
-            double dw = Convert.ToDouble(str);
+            ////本地程序版本号
+            //string str = AssemblyFileVersion();
+            //str = str.Remove(str.Length - 4, 4);
+            //double dw = Convert.ToDouble(str);
 
-            //服务器程序版本号
-            double Winv = Convert.ToDouble(vc["Data"]["WinV"].ToString());
+            ////服务器程序版本号
+            //double Winv = Convert.ToDouble(vc["Data"]["WinV"].ToString());
 
-            if (dw != Winv)//判断Winform程序升级或者降级
-            {
+            //if (dw != Winv)//判断Winform程序升级或者降级
+            //{
 
-                //执行更新程序
-                System.Diagnostics.Process.Start("AutoUpdate.exe", mac);
+            //    //执行更新程序
+            //    System.Diagnostics.Process.Start("AutoUpdate.exe", mac);
 
-                //关闭本程序
-                System.Environment.Exit(0);
-
-            }
+            //    //关闭本程序
+            //    System.Environment.Exit(0);
+            //}
         }
 
         /// <summary>
