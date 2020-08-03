@@ -100,8 +100,6 @@
             this.txtName.Click += new System.EventHandler(this.txtName_Click);
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
-            this.txtName.Multiline = false;
-            this.txtName.WordWrap = false;
             // 
             // txtIDCard
             // 
@@ -113,8 +111,6 @@
             this.txtIDCard.TextChanged += new System.EventHandler(this.txtIDCard_TextChanged);
             this.txtIDCard.Enter += new System.EventHandler(this.txtIDCard_Enter);
             this.txtIDCard.Leave += new System.EventHandler(this.txtIDCard_Leave);
-            this.txtName.Multiline = false;
-            this.txtName.WordWrap = false;
             // 
             // txtPhone
             // 
@@ -126,8 +122,6 @@
             this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             this.txtPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
             this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
-            this.txtName.Multiline = false;
-            this.txtName.WordWrap = false;
             // 
             // txtYan
             // 
@@ -139,8 +133,6 @@
             this.txtYan.TextChanged += new System.EventHandler(this.txtYan_TextChanged);
             this.txtYan.Enter += new System.EventHandler(this.txtYan_Enter);
             this.txtYan.Leave += new System.EventHandler(this.txtYan_Leave);
-            this.txtName.Multiline = false;
-            this.txtName.WordWrap = false;
             // 
             // timer1
             // 
@@ -425,7 +417,6 @@
             this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             this.txtAddress.Enter += new System.EventHandler(this.txtAddress_Enter);
             this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
-           
             // 
             // label7
             // 
