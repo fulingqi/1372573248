@@ -160,6 +160,38 @@ namespace UI
             return Regex.Replace(param, "(.{" + (len < 12 ? 3 : 6) + "})(.*)(.{4})", "$1" + "****" + "$3");
 
         }
+        public String replaceStrAndName(String param)
+        {
+            int len = param.Trim().Length;
+            if (len == 1||len==0)
+            {
+                return param;
+            }
+            else if(len==2)
+            {
+                return param.Substring(0, 1) + "*" ;
+            }
+            else if(len==3)
+            {
+                return param.Substring(0, 1) + "*" + param.Substring(param.Length - 1, 1);
+            }
+            else
+            {
+                return param.Substring(0, 1) + "**" + param.Substring(param.Length - 1, 1);
+            }
+           
+
+        }
+        public String replaceStrAnd(String param)
+        {
+            int len = param.Length;
+            if (len<6)
+            {
+                return param;
+            }
+            return Regex.Replace(param, "(.{" + (len < 12 ? 3 : 6) + "})(.*)(.{4})", "$1" + "****" + "$3");
+
+        }
         #endregion
 
         #region 软键盘手动输入数字
@@ -1173,12 +1205,11 @@ namespace UI
             if (txtName.Text != "请输入姓名")
             {
                 this.txtName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
-                SendMessage("1", this.txtName.Text);
+                SendMessage("1", replaceStrAndName(this.txtName.Text));
             }
             else
             {
                 this.txtName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
-
             }
         }
 
@@ -1188,7 +1219,7 @@ namespace UI
             if (txtIDCard.Text != "请输入身份证号")
             {
                 this.txtIDCard.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
-                SendMessage("2", this.txtIDCard.Text);
+                SendMessage("2", replaceStrAnd(this.txtIDCard.Text).Trim());
             }
             else
             {
@@ -1201,7 +1232,7 @@ namespace UI
             if (txtAddress.Text != "请输入地址")
             {
                 this.txtAddress.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
-                SendMessage("3", this.txtAddress.Text);
+                SendMessage("3", replaceStrAnd(this.txtAddress.Text).Trim());
             }
             else
             {
@@ -1215,7 +1246,7 @@ namespace UI
             if (txtPhone.Text!="请输入手机号")
             {
                 this.txtPhone.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
-                SendMessage("4", this.txtPhone.Text);
+                SendMessage("4", replaceStrAnd(this.txtPhone.Text).Trim());
             }
             else
             {
