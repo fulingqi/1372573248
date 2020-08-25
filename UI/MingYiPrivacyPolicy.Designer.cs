@@ -41,6 +41,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(551, 624);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // MingYiPrivacyPolicy
             // 
@@ -51,7 +52,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MingYiPrivacyPolicy";
-            this.Text = "MingYiPrivacyPolicy";
+            this.Text = "明医隐私政策";
             this.ResumeLayout(false);
 
         }

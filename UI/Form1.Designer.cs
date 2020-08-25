@@ -56,10 +56,6 @@
             this.button333 = new System.Windows.Forms.Button();
             this.button222 = new System.Windows.Forms.Button();
             this.button111 = new System.Windows.Forms.Button();
-            this.panelSuccess = new System.Windows.Forms.Panel();
-            this.panelSmallFail = new System.Windows.Forms.Panel();
-            this.txtError = new System.Windows.Forms.TextBox();
-            this.panelSmallSuccess = new System.Windows.Forms.Panel();
             this.txtTimeNow = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -67,34 +63,40 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.picHeader = new System.Windows.Forms.PictureBox();
-            this.panelAll = new System.Windows.Forms.Panel();
-            this.txtAddress = new System.Windows.Forms.RichTextBox();
-            this.picExit = new System.Windows.Forms.PictureBox();
-            this.labExit = new System.Windows.Forms.Label();
-            this.labBottom = new System.Windows.Forms.Label();
-            this.picBottom = new System.Windows.Forms.PictureBox();
-            this.labTIshi2 = new System.Windows.Forms.Label();
-            this.labCountDown = new System.Windows.Forms.Label();
-            this.labTime = new System.Windows.Forms.Label();
-            this.labTishi = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
             this.labHead = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.labTishi = new System.Windows.Forms.Label();
+            this.labTime = new System.Windows.Forms.Label();
+            this.labCountDown = new System.Windows.Forms.Label();
+            this.labTIshi2 = new System.Windows.Forms.Label();
+            this.picBottom = new System.Windows.Forms.PictureBox();
+            this.labBottom = new System.Windows.Forms.Label();
+            this.labExit = new System.Windows.Forms.Label();
+            this.picExit = new System.Windows.Forms.PictureBox();
+            this.txtAddress = new System.Windows.Forms.RichTextBox();
+            this.panelSuccess = new System.Windows.Forms.Panel();
+            this.panelSmallFail = new System.Windows.Forms.Panel();
+            this.txtError = new System.Windows.Forms.TextBox();
+            this.panelSmallSuccess = new System.Windows.Forms.Panel();
+            this.panelMessage = new System.Windows.Forms.Panel();
+            this.txtErrorMessage = new System.Windows.Forms.TextBox();
+            this.panelAll = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.link2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHict)).BeginInit();
             this.Paneljp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeader)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBottom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.panelSuccess.SuspendLayout();
             this.panelSmallFail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHeader)).BeginInit();
+            this.panelMessage.SuspendLayout();
             this.panelAll.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBottom)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -503,49 +505,6 @@
             this.button111.Text = "1";
             this.button111.UseVisualStyleBackColor = false;
             // 
-            // panelSuccess
-            // 
-            this.panelSuccess.BackColor = System.Drawing.Color.Transparent;
-            this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelSuccess.Controls.Add(this.button2);
-            this.panelSuccess.Controls.Add(this.panelSmallFail);
-            this.panelSuccess.Controls.Add(this.panelSmallSuccess);
-            this.panelSuccess.Location = new System.Drawing.Point(0, 1);
-            this.panelSuccess.Name = "panelSuccess";
-            this.panelSuccess.Size = new System.Drawing.Size(1280, 726);
-            this.panelSuccess.TabIndex = 58;
-            this.panelSuccess.Click += new System.EventHandler(this.panelSuccess_Click);
-            // 
-            // panelSmallFail
-            // 
-            this.panelSmallFail.BackColor = System.Drawing.Color.Transparent;
-            this.panelSmallFail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSmallFail.BackgroundImage")));
-            this.panelSmallFail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelSmallFail.Controls.Add(this.txtError);
-            this.panelSmallFail.Location = new System.Drawing.Point(505, 304);
-            this.panelSmallFail.Name = "panelSmallFail";
-            this.panelSmallFail.Size = new System.Drawing.Size(367, 268);
-            this.panelSmallFail.TabIndex = 0;
-            // 
-            // txtError
-            // 
-            this.txtError.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtError.Location = new System.Drawing.Point(32, 216);
-            this.txtError.Multiline = true;
-            this.txtError.Name = "txtError";
-            this.txtError.Size = new System.Drawing.Size(311, 21);
-            this.txtError.TabIndex = 0;
-            this.txtError.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panelSmallSuccess
-            // 
-            this.panelSmallSuccess.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSmallSuccess.BackgroundImage")));
-            this.panelSmallSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelSmallSuccess.Location = new System.Drawing.Point(505, 304);
-            this.panelSmallSuccess.Name = "panelSmallSuccess";
-            this.panelSmallSuccess.Size = new System.Drawing.Size(367, 268);
-            this.panelSmallSuccess.TabIndex = 0;
-            // 
             // txtTimeNow
             // 
             this.txtTimeNow.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -624,9 +583,286 @@
             this.picHeader.TabIndex = 64;
             this.picHeader.TabStop = false;
             // 
+            // labHead
+            // 
+            this.labHead.AutoSize = true;
+            this.labHead.BackColor = System.Drawing.Color.Blue;
+            this.labHead.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.labHead.ForeColor = System.Drawing.Color.White;
+            this.labHead.Location = new System.Drawing.Point(558, 10);
+            this.labHead.Name = "labHead";
+            this.labHead.Size = new System.Drawing.Size(233, 30);
+            this.labHead.TabIndex = 65;
+            this.labHead.Text = "明医实名就医刷脸注册";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label1.Location = new System.Drawing.Point(256, 485);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 21);
+            this.label1.TabIndex = 66;
+            this.label1.Text = "我已阅读并同意";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("微软雅黑", 11.75F);
+            this.linkLabel1.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.linkLabel1.Location = new System.Drawing.Point(375, 485);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(106, 21);
+            this.linkLabel1.TabIndex = 68;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "明医隐私政策";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline);
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label9.Location = new System.Drawing.Point(215, 209);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(257, 12);
+            this.label9.TabIndex = 74;
+            this.label9.Text = "                                          ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label7.Location = new System.Drawing.Point(215, 274);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(257, 12);
+            this.label7.TabIndex = 75;
+            this.label7.Text = "                                          ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline);
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label8.Location = new System.Drawing.Point(215, 335);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(257, 12);
+            this.label8.TabIndex = 76;
+            this.label8.Text = "                                          ";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline);
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label10.Location = new System.Drawing.Point(215, 392);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(257, 12);
+            this.label10.TabIndex = 77;
+            this.label10.Text = "                                          ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline);
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label11.Location = new System.Drawing.Point(215, 455);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(257, 12);
+            this.label11.TabIndex = 78;
+            this.label11.Text = "                                          ";
+            // 
+            // labTishi
+            // 
+            this.labTishi.AutoSize = true;
+            this.labTishi.Font = new System.Drawing.Font("微软雅黑", 18F);
+            this.labTishi.ForeColor = System.Drawing.Color.SandyBrown;
+            this.labTishi.Location = new System.Drawing.Point(781, 547);
+            this.labTishi.Name = "labTishi";
+            this.labTishi.Size = new System.Drawing.Size(254, 31);
+            this.labTishi.TabIndex = 79;
+            this.labTishi.Text = "将身份证放置在感应区";
+            // 
+            // labTime
+            // 
+            this.labTime.AutoSize = true;
+            this.labTime.BackColor = System.Drawing.Color.Transparent;
+            this.labTime.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.labTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labTime.ForeColor = System.Drawing.Color.White;
+            this.labTime.Location = new System.Drawing.Point(48, 21);
+            this.labTime.Name = "labTime";
+            this.labTime.Size = new System.Drawing.Size(35, 12);
+            this.labTime.TabIndex = 80;
+            this.labTime.Text = "q2132";
+            // 
+            // labCountDown
+            // 
+            this.labCountDown.AutoSize = true;
+            this.labCountDown.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.labCountDown.ForeColor = System.Drawing.Color.Orange;
+            this.labCountDown.Location = new System.Drawing.Point(1185, 17);
+            this.labCountDown.Name = "labCountDown";
+            this.labCountDown.Size = new System.Drawing.Size(41, 20);
+            this.labCountDown.TabIndex = 81;
+            this.labCountDown.Text = "1111";
+            // 
+            // labTIshi2
+            // 
+            this.labTIshi2.AutoSize = true;
+            this.labTIshi2.Font = new System.Drawing.Font("微软雅黑", 18F);
+            this.labTIshi2.ForeColor = System.Drawing.Color.SandyBrown;
+            this.labTIshi2.Location = new System.Drawing.Point(781, 586);
+            this.labTIshi2.Name = "labTIshi2";
+            this.labTIshi2.Size = new System.Drawing.Size(0, 31);
+            this.labTIshi2.TabIndex = 82;
+            // 
+            // picBottom
+            // 
+            this.picBottom.BackColor = System.Drawing.Color.Navy;
+            this.picBottom.Location = new System.Drawing.Point(0, 731);
+            this.picBottom.Name = "picBottom";
+            this.picBottom.Size = new System.Drawing.Size(1277, 73);
+            this.picBottom.TabIndex = 83;
+            this.picBottom.TabStop = false;
+            // 
+            // labBottom
+            // 
+            this.labBottom.AutoSize = true;
+            this.labBottom.BackColor = System.Drawing.Color.Navy;
+            this.labBottom.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.labBottom.ForeColor = System.Drawing.Color.White;
+            this.labBottom.Location = new System.Drawing.Point(485, 737);
+            this.labBottom.Name = "labBottom";
+            this.labBottom.Size = new System.Drawing.Size(303, 20);
+            this.labBottom.TabIndex = 84;
+            this.labBottom.Text = "由明壹信息科技（上海）有限公司提供技术支持";
+            this.labBottom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labExit
+            // 
+            this.labExit.AutoSize = true;
+            this.labExit.BackColor = System.Drawing.Color.Navy;
+            this.labExit.ForeColor = System.Drawing.Color.White;
+            this.labExit.Location = new System.Drawing.Point(1122, 743);
+            this.labExit.Name = "labExit";
+            this.labExit.Size = new System.Drawing.Size(29, 12);
+            this.labExit.TabIndex = 85;
+            this.labExit.Text = "退出";
+            this.labExit.Click += new System.EventHandler(this.labExit_Click);
+            // 
+            // picExit
+            // 
+            this.picExit.BackColor = System.Drawing.Color.Navy;
+            this.picExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picExit.BackgroundImage")));
+            this.picExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picExit.Location = new System.Drawing.Point(1153, 737);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(25, 20);
+            this.picExit.TabIndex = 86;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAddress.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtAddress.ForeColor = System.Drawing.Color.Black;
+            this.txtAddress.Location = new System.Drawing.Point(234, 292);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(0);
+            this.txtAddress.MaxLength = 300;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(260, 46);
+            this.txtAddress.TabIndex = 7;
+            this.txtAddress.Text = "";
+            this.txtAddress.Click += new System.EventHandler(this.txtAddress_Click);
+            this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
+            this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
+            // 
+            // panelSuccess
+            // 
+            this.panelSuccess.BackColor = System.Drawing.Color.Transparent;
+            this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelSuccess.Controls.Add(this.panelSmallFail);
+            this.panelSuccess.Controls.Add(this.panelSmallSuccess);
+            this.panelSuccess.Location = new System.Drawing.Point(0, -4);
+            this.panelSuccess.Name = "panelSuccess";
+            this.panelSuccess.Size = new System.Drawing.Size(1300, 816);
+            this.panelSuccess.TabIndex = 58;
+            this.panelSuccess.Click += new System.EventHandler(this.panelSuccess_Click);
+            // 
+            // panelSmallFail
+            // 
+            this.panelSmallFail.BackColor = System.Drawing.Color.Transparent;
+            this.panelSmallFail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSmallFail.BackgroundImage")));
+            this.panelSmallFail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelSmallFail.Controls.Add(this.txtError);
+            this.panelSmallFail.Location = new System.Drawing.Point(505, 304);
+            this.panelSmallFail.Name = "panelSmallFail";
+            this.panelSmallFail.Size = new System.Drawing.Size(367, 268);
+            this.panelSmallFail.TabIndex = 0;
+            // 
+            // txtError
+            // 
+            this.txtError.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtError.Location = new System.Drawing.Point(32, 216);
+            this.txtError.Multiline = true;
+            this.txtError.Name = "txtError";
+            this.txtError.Size = new System.Drawing.Size(311, 21);
+            this.txtError.TabIndex = 0;
+            this.txtError.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelSmallSuccess
+            // 
+            this.panelSmallSuccess.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSmallSuccess.BackgroundImage")));
+            this.panelSmallSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelSmallSuccess.Location = new System.Drawing.Point(505, 304);
+            this.panelSmallSuccess.Name = "panelSmallSuccess";
+            this.panelSmallSuccess.Size = new System.Drawing.Size(367, 268);
+            this.panelSmallSuccess.TabIndex = 0;
+            // 
+            // panelMessage
+            // 
+            this.panelMessage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMessage.BackgroundImage")));
+            this.panelMessage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelMessage.Controls.Add(this.txtErrorMessage);
+            this.panelMessage.Location = new System.Drawing.Point(448, 341);
+            this.panelMessage.Name = "panelMessage";
+            this.panelMessage.Size = new System.Drawing.Size(343, 259);
+            this.panelMessage.TabIndex = 1;
+            this.panelMessage.Click += new System.EventHandler(this.panelMessage_Click);
+            // 
+            // txtErrorMessage
+            // 
+            this.txtErrorMessage.BackColor = System.Drawing.Color.White;
+            this.txtErrorMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtErrorMessage.Location = new System.Drawing.Point(25, 142);
+            this.txtErrorMessage.Multiline = true;
+            this.txtErrorMessage.Name = "txtErrorMessage";
+            this.txtErrorMessage.ReadOnly = true;
+            this.txtErrorMessage.Size = new System.Drawing.Size(287, 84);
+            this.txtErrorMessage.TabIndex = 1;
+            this.txtErrorMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtErrorMessage.Click += new System.EventHandler(this.txtErrorMessage_Click);
+            this.txtErrorMessage.TextChanged += new System.EventHandler(this.txtErrorMessage_TextChanged);
+            // 
             // panelAll
             // 
             this.panelAll.BackColor = System.Drawing.Color.White;
+            this.panelAll.Controls.Add(this.panelSuccess);
             this.panelAll.Controls.Add(this.txtAddress);
             this.panelAll.Controls.Add(this.picExit);
             this.panelAll.Controls.Add(this.labExit);
@@ -664,230 +900,12 @@
             this.panelAll.Controls.Add(this.txtName);
             this.panelAll.Controls.Add(this.btnNoAgree);
             this.panelAll.Controls.Add(this.link3);
-            this.panelAll.Location = new System.Drawing.Point(0, -1);
+            this.panelAll.Controls.Add(this.panelMessage);
+            this.panelAll.Location = new System.Drawing.Point(0, 12);
             this.panelAll.Name = "panelAll";
-            this.panelAll.Size = new System.Drawing.Size(1280, 778);
+            this.panelAll.Size = new System.Drawing.Size(1300, 816);
             this.panelAll.TabIndex = 57;
             this.panelAll.Click += new System.EventHandler(this.panelAll_Click);
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAddress.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtAddress.ForeColor = System.Drawing.Color.Black;
-            this.txtAddress.Location = new System.Drawing.Point(234, 292);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(0);
-            this.txtAddress.MaxLength = 300;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(260, 46);
-            this.txtAddress.TabIndex = 7;
-            this.txtAddress.Text = "";
-            this.txtAddress.Click += new System.EventHandler(this.txtAddress_Click);
-            this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
-            this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
-            // 
-            // picExit
-            // 
-            this.picExit.BackColor = System.Drawing.Color.Navy;
-            this.picExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picExit.BackgroundImage")));
-            this.picExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picExit.Location = new System.Drawing.Point(1153, 737);
-            this.picExit.Name = "picExit";
-            this.picExit.Size = new System.Drawing.Size(25, 20);
-            this.picExit.TabIndex = 86;
-            this.picExit.TabStop = false;
-            this.picExit.Click += new System.EventHandler(this.picExit_Click);
-            // 
-            // labExit
-            // 
-            this.labExit.AutoSize = true;
-            this.labExit.BackColor = System.Drawing.Color.Navy;
-            this.labExit.ForeColor = System.Drawing.Color.White;
-            this.labExit.Location = new System.Drawing.Point(1122, 743);
-            this.labExit.Name = "labExit";
-            this.labExit.Size = new System.Drawing.Size(29, 12);
-            this.labExit.TabIndex = 85;
-            this.labExit.Text = "退出";
-            this.labExit.Click += new System.EventHandler(this.labExit_Click);
-            // 
-            // labBottom
-            // 
-            this.labBottom.AutoSize = true;
-            this.labBottom.BackColor = System.Drawing.Color.Navy;
-            this.labBottom.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.labBottom.ForeColor = System.Drawing.Color.White;
-            this.labBottom.Location = new System.Drawing.Point(485, 737);
-            this.labBottom.Name = "labBottom";
-            this.labBottom.Size = new System.Drawing.Size(303, 20);
-            this.labBottom.TabIndex = 84;
-            this.labBottom.Text = "由明壹信息科技（上海）有限公司提供技术支持";
-            this.labBottom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // picBottom
-            // 
-            this.picBottom.BackColor = System.Drawing.Color.Navy;
-            this.picBottom.Location = new System.Drawing.Point(0, 725);
-            this.picBottom.Name = "picBottom";
-            this.picBottom.Size = new System.Drawing.Size(1277, 73);
-            this.picBottom.TabIndex = 83;
-            this.picBottom.TabStop = false;
-            // 
-            // labTIshi2
-            // 
-            this.labTIshi2.AutoSize = true;
-            this.labTIshi2.Font = new System.Drawing.Font("微软雅黑", 18F);
-            this.labTIshi2.ForeColor = System.Drawing.Color.SandyBrown;
-            this.labTIshi2.Location = new System.Drawing.Point(781, 586);
-            this.labTIshi2.Name = "labTIshi2";
-            this.labTIshi2.Size = new System.Drawing.Size(0, 31);
-            this.labTIshi2.TabIndex = 82;
-            // 
-            // labCountDown
-            // 
-            this.labCountDown.AutoSize = true;
-            this.labCountDown.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.labCountDown.ForeColor = System.Drawing.Color.Orange;
-            this.labCountDown.Location = new System.Drawing.Point(1185, 17);
-            this.labCountDown.Name = "labCountDown";
-            this.labCountDown.Size = new System.Drawing.Size(41, 20);
-            this.labCountDown.TabIndex = 81;
-            this.labCountDown.Text = "1111";
-            // 
-            // labTime
-            // 
-            this.labTime.AutoSize = true;
-            this.labTime.BackColor = System.Drawing.Color.Transparent;
-            this.labTime.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.labTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labTime.ForeColor = System.Drawing.Color.White;
-            this.labTime.Location = new System.Drawing.Point(48, 21);
-            this.labTime.Name = "labTime";
-            this.labTime.Size = new System.Drawing.Size(35, 12);
-            this.labTime.TabIndex = 80;
-            this.labTime.Text = "q2132";
-            // 
-            // labTishi
-            // 
-            this.labTishi.AutoSize = true;
-            this.labTishi.Font = new System.Drawing.Font("微软雅黑", 18F);
-            this.labTishi.ForeColor = System.Drawing.Color.SandyBrown;
-            this.labTishi.Location = new System.Drawing.Point(781, 547);
-            this.labTishi.Name = "labTishi";
-            this.labTishi.Size = new System.Drawing.Size(254, 31);
-            this.labTishi.TabIndex = 79;
-            this.labTishi.Text = "将身份证放置在感应区";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline);
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11.Location = new System.Drawing.Point(215, 455);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(257, 12);
-            this.label11.TabIndex = 78;
-            this.label11.Text = "                                          ";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline);
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(215, 392);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(257, 12);
-            this.label10.TabIndex = 77;
-            this.label10.Text = "                                          ";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline);
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(215, 335);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(257, 12);
-            this.label8.TabIndex = 76;
-            this.label8.Text = "                                          ";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(215, 274);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(257, 12);
-            this.label7.TabIndex = 75;
-            this.label7.Text = "                                          ";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline);
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(215, 209);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(257, 12);
-            this.label9.TabIndex = 74;
-            this.label9.Text = "                                          ";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("微软雅黑", 11.75F);
-            this.linkLabel1.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.linkLabel1.Location = new System.Drawing.Point(375, 485);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(106, 21);
-            this.linkLabel1.TabIndex = 68;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "明医隐私政策";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label1.Location = new System.Drawing.Point(256, 485);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 21);
-            this.label1.TabIndex = 66;
-            this.label1.Text = "我已阅读并同意";
-            // 
-            // labHead
-            // 
-            this.labHead.AutoSize = true;
-            this.labHead.BackColor = System.Drawing.Color.Blue;
-            this.labHead.Font = new System.Drawing.Font("微软雅黑", 16F);
-            this.labHead.ForeColor = System.Drawing.Color.White;
-            this.labHead.Location = new System.Drawing.Point(558, 10);
-            this.labHead.Name = "labHead";
-            this.labHead.Size = new System.Drawing.Size(233, 30);
-            this.labHead.TabIndex = 65;
-            this.labHead.Text = "明医实名就医刷脸注册";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(302, 119);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "关机";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -895,15 +913,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1264, 781);
-            this.Controls.Add(this.panelSuccess);
+            this.ClientSize = new System.Drawing.Size(1284, 781);
             this.Controls.Add(this.panelAll);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "明医注册";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -913,14 +933,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.link2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHict)).EndInit();
             this.Paneljp.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picHeader)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBottom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.panelSuccess.ResumeLayout(false);
             this.panelSmallFail.ResumeLayout(false);
             this.panelSmallFail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHeader)).EndInit();
+            this.panelMessage.ResumeLayout(false);
+            this.panelMessage.PerformLayout();
             this.panelAll.ResumeLayout(false);
             this.panelAll.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBottom)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -943,6 +965,7 @@
         private System.Windows.Forms.Button btnook;
         private System.Windows.Forms.Button btndelete;
         private System.Windows.Forms.Button button000;
+        private System.Windows.Forms.Button button999;
         private System.Windows.Forms.Button button777;
         private System.Windows.Forms.Button button888;
         private System.Windows.Forms.Button button666;
@@ -951,10 +974,6 @@
         private System.Windows.Forms.Button button333;
         private System.Windows.Forms.Button button222;
         private System.Windows.Forms.Button button111;
-        private System.Windows.Forms.Panel panelSuccess;
-        private System.Windows.Forms.Panel panelSmallFail;
-        private System.Windows.Forms.TextBox txtError;
-        private System.Windows.Forms.Panel panelSmallSuccess;
         private System.Windows.Forms.TextBox txtTimeNow;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -962,14 +981,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox picHeader;
-        private System.Windows.Forms.Panel panelAll;
         private System.Windows.Forms.Label labHead;
-        private System.Windows.Forms.Button button999;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label labTishi;
@@ -981,7 +998,13 @@
         private System.Windows.Forms.Label labExit;
         private System.Windows.Forms.PictureBox picExit;
         private System.Windows.Forms.RichTextBox txtAddress;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panelSuccess;
+        private System.Windows.Forms.Panel panelSmallFail;
+        private System.Windows.Forms.TextBox txtError;
+        private System.Windows.Forms.Panel panelSmallSuccess;
+        private System.Windows.Forms.Panel panelMessage;
+        private System.Windows.Forms.TextBox txtErrorMessage;
+        private System.Windows.Forms.Panel panelAll;
     }
 }
 
