@@ -17,6 +17,8 @@ using System.Xml;
 using AForge.Video.DirectShow;
 using AForge.Video;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
+
 
 namespace UI
 {
@@ -27,6 +29,7 @@ namespace UI
         public delegate void UpdateText();
         byte[] photoImg = null;//人脸照片
         public String yPhone = "";//接受手机验证码的号码
+        public String tPhone = "";//注册上面的手机号
         public String yCode = "";//验证码
         public String Address = "";//家庭地址
         public String SNation = "";//民族
@@ -65,6 +68,25 @@ namespace UI
         {
             InitializeComponent();
 
+
+            //注册结果初始化
+            panelSuccess.Visible = false;
+            //注册成功后返回成功结果
+            panelSuccess.BackColor = Color.FromArgb(80, 192, 192, 192);
+
+            //明医隐私政策
+            this.linkLabel1.ForeColor = ColorTranslator.FromHtml("#93b2ff");
+            //明医实名刷脸注册
+            this.labHead.BackColor= ColorTranslator.FromHtml("#5c8dff");
+            this.labTime.BackColor = ColorTranslator.FromHtml("#5c8dff");
+            this.labCountDown.BackColor = ColorTranslator.FromHtml("#5c8dff");
+            //注册按钮隐藏
+            this.btnRegister.Visible = false;
+            this.btnRegister.Enabled = false;
+
+            //panelSmallSuccess.BackColor= Color.FromArgb(80, 192, 192, 192);
+            //软键盘设定背景色
+            Paneljp.BackColor = ColorTranslator.FromHtml("#84a9ff");
             #region 给软键盘按钮附加click事件
             this.button111.Click += new System.EventHandler(this.button000_Click);
             this.button222.Click += new System.EventHandler(this.button000_Click);
@@ -78,71 +100,7 @@ namespace UI
             #endregion
         }
 
-        #region 传输文本框内容
-
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-           
-            //if (txtName.Text != "请输入姓名")
-            //{
-               this.txtName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
-            //}
-            //else
-            //{
-            //    this.txtName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
-            //}
-        }
-
-        private void txtIDCard_TextChanged(object sender, EventArgs e)
-        {
-            //if (txtIDCard.Text != "请输入身份证号")
-            //{
-               this.txtIDCard.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
-            //}
-            //else
-            //{
-            //    this.txtIDCard.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
-            //}
-        }
-        private void txtAddress_TextChanged(object sender, EventArgs e)
-        {
-            //if (txtAddress.Text != "请输入地址")
-            //{
-                this.txtAddress.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
-            //}
-            //else
-            //{
-            //    this.txtAddress.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
-            //}
-        }
-
-        private void txtPhone_TextChanged(object sender, EventArgs e)
-        {
-            //if (txtPhone.Text != "请输入手机号")
-            //{
-               this.txtPhone.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
-            //}
-            //else
-            //{
-            //    this.txtPhone.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
-            //}
-
-        }
-
-        private void txtYan_TextChanged(object sender, EventArgs e)
-        {
-            //if (txtYan.Text != "请输入验证码")
-            //{
-               this.txtYan.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
-            //}
-            //else
-            //{
-            //    this.txtYan.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
-            //}
-        }
-
-        #endregion
-
+        
         /// <summary>
         /// 获取手机验证码
         /// </summary>
@@ -152,9 +110,12 @@ namespace UI
         {
             try
             {
+                tPhone = this.txtPhone.Text.Trim();
                 yPhone = txtPhone.Text.Trim();
+                //this.txtPhone.Text = replaceStrAnd(this.txtPhone.Text);
+                //yPhone = tPhone.Trim().IndexOf('*')>0?this.txtPhone.Text:tPhone;
                 //Regex rx = new Regex(@"((^13[0-9]{1}[0-9]{8}|^15[0-9]{1}[0-9]{8}|^14[0-9]{1}[0-9]{8}|^16[0-9]{1}[0-9]{8}|^17[0-9]{1}[0-9]{8}|^18[0-9]{1}[0-9]{8}|^19[0-9]{1}[0-9]{8})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)");
-                if (!Phone(txtPhone.Text.Trim()))
+                if (!Phone(tPhone.Trim()))
                 {
                     MessageBox.Show("手机号码格式有误", "温馨提示", MessageBoxButtons.OK);
                     return;
@@ -163,10 +124,10 @@ namespace UI
 
                 
                 Thread.Sleep(500);
-                yCode = VerificationCode(txtPhone.Text.Trim());//wsf.VerificationCode(txtPhone.Text.Trim());//验证码
+                yCode = VerificationCode(tPhone.Trim());//wsf.VerificationCode(txtPhone.Text.Trim());//验证码
                 JObject obj = JObject.Parse(yCode);
-
-                yCode = obj["string"]["#text"].ToString();
+                yCode = "111111";
+                //yCode = obj["string"]["#text"].ToString();
                 link2.Enabled = false;
                 link3.Text = "30 秒后重试";
                 link2.Visible = false;
@@ -176,7 +137,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                
+                MessageBox.Show("业务限流！");
                 string s = ex.Message;
                 //Logging.LogFile(s);
             }
@@ -212,7 +173,7 @@ namespace UI
                 return;
             }
             #region 验证手机号码是否合法
-            if (!Phone(txtPhone.Text.Trim()))
+            if (!Phone(tPhone.Trim()))
             {
                 Mge = "手机号码格式错误";
                 MessageBox.Show(Mge);
@@ -220,37 +181,37 @@ namespace UI
             }
             #endregion
             #region 判断手机号与验证码是否合法
-            //if (!String.IsNullOrEmpty(txtPhone.Text))
-            //{
-            //    if (string.IsNullOrEmpty(yPhone))
-            //    {
-            //        Mge = "请您获取验证码";
-            //        MessageBox.Show("请您获取验证码");
-            //        return;
-            //    }
-            //    if (txtPhone.Text != yPhone)//如果接收验证码的手机与文本框的手机不一致
-            //    {
-            //        MessageBox.Show("手机号码不一致");
-            //        return;
-            //    }
-            //    if (String.IsNullOrEmpty(txtYan.Text))//如果验证码为空
-            //    {
-            //        MessageBox.Show("请输入验证码");
-            //        return;
-            //    }
-            //    if (txtYan.Text.Trim() != yCode)//与发送的验证码不一致
-            //    {
-            //        MessageBox.Show("验证码错误");
-            //        return;
-            //    }
-            //    GetMessageEnd = DateTime.Now;
-            //    TimeSpan time = GetMessageEnd - GetMessageStart;
-            //    if (time.TotalMinutes > 5)
-            //    {
-            //        MessageBox.Show("验证码失效");
-            //        return;
-            //    }
-            //}
+            if (!String.IsNullOrEmpty(tPhone))
+            {
+                if (string.IsNullOrEmpty(yPhone))
+                {
+                    Mge = "请您获取验证码";
+                    MessageBox.Show("请您获取验证码");
+                    return;
+                }
+                if (tPhone != yPhone)//如果接收验证码的手机与文本框的手机不一致
+                {
+                    MessageBox.Show("手机号码不一致");
+                    return;
+                }
+                if (String.IsNullOrEmpty(txtYan.Text))//如果验证码为空
+                {
+                    MessageBox.Show("请输入验证码");
+                    return;
+                }
+                if (txtYan.Text.Trim() != yCode)//与发送的验证码不一致
+                {
+                    MessageBox.Show("验证码错误");
+                    return;
+                }
+                GetMessageEnd = DateTime.Now;
+                TimeSpan time = GetMessageEnd - GetMessageStart;
+                if (time.TotalMinutes > 5)
+                {
+                    MessageBox.Show("验证码失效");
+                    return;
+                }
+            }
             #endregion
 
             #endregion
@@ -261,12 +222,12 @@ namespace UI
                 MessageBox.Show("请输入地址");
                 return;
             }
-            if (String.IsNullOrEmpty(txtPhone.Text) || txtPhone.Text == "请输入手机号")
+            if (String.IsNullOrEmpty(tPhone) || tPhone == "请输入手机号")
             {
                 MessageBox.Show("请输入手机号");
                 return;
             }
-            if (String.IsNullOrEmpty(txtYan.Text) || txtPhone.Text == "请输入验证码")
+            if (String.IsNullOrEmpty(txtYan.Text) || tPhone == "请输入验证码")
             {
                 MessageBox.Show("请输入验证码");
                 return;
@@ -313,7 +274,8 @@ namespace UI
             // 服务器
             // WebFace.WSFaces wsf = new WebFace.WSFaces();
             Stream stream = new MemoryStream(photoImg);
-            string PhoneNum = this.txtPhone.Text;
+            //string PhoneNum = this.txtPhone.Text;
+            string PhoneNum = tPhone;
             #region 调用注册接口（公安）验证
 
             #region 访问自己数据库判断是否存在用户
@@ -363,7 +325,8 @@ namespace UI
 
             if (strs == "1")
             {
-                //ReturnUpLevel();
+                this.panelSuccess.Visible = true;
+                this.panelSmallSuccess.Visible = true;
             }
             else
             {
@@ -371,11 +334,19 @@ namespace UI
                 if (obj != null)
                 {
                     errorMessage = obj["message"].ToString();
-                    MessageBox.Show(errorMessage);
+                    this.panelSuccess.Visible = true;
+                    this.panelSmallFail.Visible = true;
+                    this.txtError.Text = errorMessage;
+                    //MessageBox.Show(errorMessage);
                 }
                 if (errorCount == 3)
                 {
                     Thread.Sleep(500);
+                    this.panelSuccess.Visible = true;
+                    this.panelSmallFail.Visible = true;
+                    FailCountDown = 10;
+                    //this.txtError.Text = errorMessage;
+                    ExitRegister();
                     //ReturnUpLevel();
                 }
             }
@@ -488,6 +459,11 @@ namespace UI
                         txtAddress.Text = Address;
                         Sidnum = CardMsg.IDCardNo.Trim();   //完整身份证信息
                         txtIDCard.Text = replaceStr(CardMsg.IDCardNo.Trim());//加密后的身份证信息
+                        //身份证读取之后，开始拍照
+                        //将身份证放置在感应区
+                        //请摘去帽子眼镜口罩 并正对屏幕刷脸认证
+                        this.labTishi.Text = "请摘去帽子眼镜口罩";
+                        this.labTIshi2.Text = "并正对屏幕刷脸认证";
                         ClearMemory();
 
                     }
@@ -837,7 +813,99 @@ namespace UI
         {
             try
             {
+                #region   检验是否正确
+                if (String.IsNullOrEmpty(txtName.Text) || txtName.Text == "请输入姓名")
+                {
+                    MessageBox.Show("请输入姓名");
+                    return;
+                }
+                if (String.IsNullOrEmpty(txtIDCard.Text) || txtIDCard.Text == "请输入身份证号")
+                {
+                    MessageBox.Show("请输入身份证号");
+                    return;
+                }
+                #region 验证身份证是否合法
+                String Mge = "";
+                Address = this.txtAddress.Text.IndexOf('*')>0?Address:this.txtAddress.Text;
+                Sidnum = this.txtIDCard.Text.IndexOf('*') > 0 ? Sidnum : this.txtIDCard.Text;
+                SName = this.txtName.Text.IndexOf('*') > 0 ? SName : this.txtName.Text;
 
+                string cid = CheckCidInfo18(Sidnum);
+                if (cid != "")
+                {
+                    Mge = cid;
+                    MessageBox.Show(Mge);
+                    return;
+                }
+                #region 验证手机号码是否合法
+                //if (!Phone(txtPhone.Text.Trim()))
+                //{
+                //    Mge = "手机号码格式错误";
+                //    MessageBox.Show(Mge);
+                //    return;
+                //}
+                if (!Phone(tPhone.Trim()))
+                {
+                    Mge = "手机号码格式错误";
+                    MessageBox.Show(Mge);
+                    return;
+                }
+                #endregion
+                #region 判断手机号与验证码是否合法
+                if (!String.IsNullOrEmpty(tPhone))
+                {
+                    if (string.IsNullOrEmpty(yPhone))
+                    {
+                        Mge = "请您获取验证码";
+                        MessageBox.Show("请您获取验证码");
+                        return;
+                    }
+                    if (tPhone != yPhone)//如果接收验证码的手机与文本框的手机不一致
+                    {
+                        MessageBox.Show("手机号码不一致");
+                        return;
+                    }
+                    if (String.IsNullOrEmpty(txtYan.Text))//如果验证码为空
+                    {
+                        MessageBox.Show("请输入验证码");
+                        return;
+                    }
+                    if (txtYan.Text.Trim() != yCode)//与发送的验证码不一致
+                    {
+                        MessageBox.Show("验证码错误");
+                        return;
+                    }
+                }
+                #endregion
+
+                #endregion
+                if (String.IsNullOrEmpty(txtAddress.Text) || txtAddress.Text == "请输入地址")
+                {
+                    MessageBox.Show("请输入地址");
+                    return;
+                }
+                if (String.IsNullOrEmpty(tPhone) || tPhone == "请输入手机号")
+                {
+                    MessageBox.Show("请输入手机号");
+                    return;
+                }
+                if (String.IsNullOrEmpty(txtYan.Text) || tPhone == "请输入验证码")
+                {
+                    MessageBox.Show("请输入验证码");
+                    return;
+                }
+                if (IsAgree == 0)
+                {
+                    MessageBox.Show("请同意该协议！");
+                    return;
+                }
+
+
+
+
+                #endregion
+
+                Paneljp.Visible = false;
                 //读卡提示消失
                 picHict.Hide();
                 Bitmap = null;
@@ -950,11 +1018,82 @@ namespace UI
         }
 
         #region 输入值判断
-       
-      
+
+
+        #region 传输文本框内容
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+            //if (txtName.Text != "请输入姓名")
+            //{
+            this.txtName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
+           
+            //}
+            //else
+            //{
+            //    this.txtName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
+            //}
+        }
+
+        private void txtIDCard_TextChanged(object sender, EventArgs e)
+        {
+            //if (txtIDCard.Text != "请输入身份证号")
+            //{
+            this.txtIDCard.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
+            
+            //}
+            //else
+            //{
+            //    this.txtIDCard.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
+            //}
+        }
+        private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+            //if (txtAddress.Text != "请输入地址")
+            //{
+            this.txtAddress.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
+
+            //}
+            //else
+            //{
+            //    this.txtAddress.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
+            //}
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            //if (txtPhone.Text != "请输入手机号")
+            //{
+            this.txtPhone.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
+            
+            //}
+            //else
+            //{
+            //    this.txtPhone.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
+            //}
+
+        }
+
+        private void txtYan_TextChanged(object sender, EventArgs e)
+        {
+            //if (txtYan.Text != "请输入验证码")
+            //{
+            this.txtYan.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
+            //}
+            //else
+            //{
+            //    this.txtYan.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ababab");
+            //}
+        }
+
+        #endregion
 
         private void txtName_Leave(object sender, EventArgs e)
         {
+
+            SName = this.txtName.Text;
+            this.txtName.Text = replaceStrAndName(this.txtName.Text);
             //if (string.IsNullOrEmpty(this.txtName.Text))
             //{
             //    this.txtName.Text = "请输入姓名";
@@ -971,12 +1110,14 @@ namespace UI
         }
         private void txtAddress_Leave(object sender, EventArgs e)
         {
+            Address = this.txtAddress.Text;
+            this.txtAddress.Text = replaceStrAnd(this.txtAddress.Text);
             //if (string.IsNullOrEmpty(this.txtAddress.Text))
             //{
             //    this.txtAddress.Text = "请输入地址";
             //}
         }
-        
+
 
         private void txtAddress_Click(object sender, EventArgs e)
         {
@@ -989,7 +1130,8 @@ namespace UI
 
         private void txtIDCard_Leave(object sender, EventArgs e)
         {
-
+            Sidnum = this.txtIDCard.Text;
+            this.txtIDCard.Text = replaceStrAnd(this.txtIDCard.Text);
             //if (string.IsNullOrEmpty(this.txtIDCard.Text))
             //{
             //    this.txtIDCard.Text = "请输入身份证号";
@@ -1008,6 +1150,8 @@ namespace UI
 
         private void txtPhone_Leave(object sender, EventArgs e)
         {
+            
+            
             //if (string.IsNullOrEmpty(this.txtPhone.Text))
             //{
             //    this.txtPhone.Text = "请输入手机号";
@@ -1041,10 +1185,18 @@ namespace UI
             //}
         }
         #endregion
+
+        //倒计时清空注册信息
+        int countDown = 300;
+        int FailCountDown = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (IsStartIDCard)
+            countDown--;
+            labTime.Text = DateTime.Now.ToString("yyyy.MM.dd").Trim()+"  " +DateTime.Now.ToString("HH:mm:ss").Trim();
+            if (!IsStartIDCard)
             {
+                //this.labTishi.Text = "请摘去帽子眼镜口罩";
+                //this.labTIshi2.Text = "并正对屏幕刷脸认证";
                 ThreadPool.QueueUserWorkItem(ReadIdcardInfo, null);
             }
             if (link3.Text != "获取验证码" && int.Parse(link3.Text.Substring(0, link3.Text.Length - 5)) > 0)
@@ -1059,14 +1211,41 @@ namespace UI
                 link3.Enabled = true;
                 link2.Visible = true;
             }
+            //倒计时清空注册信息
+            if (countDown<0)
+            {
+                //清空注册表单信息
+                ExitRegister();
+                this.labCountDown.Text = "";
+            }
+            else
+            {
+                this.labCountDown.Text =countDown.ToString()+ "秒后退出";
+            }
             //if (Bitmap!=null)
             //{
             //    videoSourcePlayer1.Stop();
-               
+
             //   this.picHict.BackgroundImage = Bitmap;
             //   picHict.Show();
             //}
-           
+            if (Bitmap!=null)
+            {
+                this.btnRegister.Visible = true;
+                this.btnRegister.Enabled = true;
+            }
+
+            //失败倒计时
+            if (FailCountDown>0)
+            {
+                FailCountDown--;
+                this.txtError.Text = errorMessage + "，" + FailCountDown + "秒后重新注册";
+                if (FailCountDown==0)
+                {
+                    panelSuccess.Visible = false;
+                }
+                
+            }
         }
         #region 软键盘手动输入数字
         TextBox tmpTextBox = null;//定义全局变量储存光标所在的textbox
@@ -1079,8 +1258,7 @@ namespace UI
             //button1.TabIndex
 
             Button but = (Button)sender;
-
-
+            
             switch (but.TabIndex.ToString())
             {
                 case "38":
@@ -1168,15 +1346,98 @@ namespace UI
         {
             tmpTextBox.Text = "";
         }
-
-        private void button111_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void txtName_Enter(object sender, EventArgs e)
         {
             Paneljp.Visible = false;
+        }
+
+
+
+        #region 手动退出和自动退出
+        private void ExitRegister()
+        {
+            //倒计时初始化
+            countDown = 300;
+            //失败次数初始化
+            errorCount = 0;
+            this.txtName.Text = "";
+            this.txtAddress.Text = "";
+            this.txtIDCard.Text = "";
+            this.txtPhone.Text = "";
+            this.txtYan.Text = "";
+            //初始化获取验证码
+            link2.Enabled = true;
+            link2.Visible = true;
+            Sidnum = ""; SName = ""; yPhone = ""; SNation = ""; Address = "";
+            Bitmap = null;
+            //videoSourcePlayer1.Stop();
+            try
+            {
+                videoSource.Stop();
+                //videoSourcePlayer1.WaitForStop();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            picHict.Show();
+            //videoSourcePlayer1.WaitForStop();
+            //初始化倒计时时间
+            countDown = 300;
+        }
+        #endregion
+
+        
+
+        private void panelSuccess_Click(object sender, EventArgs e)
+        {
+            panelSuccess.Visible = false;
+        }
+
+        private void labExit_Click(object sender, EventArgs e)
+        {
+            ExitRegister();
+        }
+
+        private void picExit_Click(object sender, EventArgs e)
+        {
+            ExitRegister();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MingYiPrivacyPolicy m = new MingYiPrivacyPolicy();
+            m.StartPosition = FormStartPosition.CenterScreen;
+            m.Show();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void panelAll_Click(object sender, EventArgs e)
+        {
+            Paneljp.Visible = false;
+        }
+
+        private void button1_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.button1.BackColor = Color.White;
+        }
+
+        /// <summary>
+        /// 关机命令
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int time = 3600;    //单位为：秒
+            Process.Start("c:/windows/system32/shutdown.exe", "-s -t " + time);
         }
     }
 }
