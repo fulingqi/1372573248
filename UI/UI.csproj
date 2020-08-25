@@ -54,13 +54,38 @@
     <ApplicationIcon>cbp63-m1ed6-001.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AipSdk">
-      <HintPath>..\WebServer\bin\AipSdk.dll</HintPath>
+    <Reference Include="AForge, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AForge.dll</HintPath>
     </Reference>
-    <Reference Include="AopSdk">
-      <HintPath>..\WebServer\bin\AopSdk.dll</HintPath>
+    <Reference Include="AForge.Controls, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a8ac264d1dc6b9d9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AForge.Controls.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="AForge.Imaging, Version=2.0.0.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.0.0.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="AipSdk, Version=3.3.1.21176, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AipSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="AopSdk, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AopSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\FaceRegisterProject\FaceRegisterProject\AForge\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.EnterpriseServices" />
@@ -83,89 +108,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FaceRegister.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FaceRegister.Designer.cs">
-      <DependentUpon>FaceRegister.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="MingYiPrivacyPolicy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MingYiPrivacyPolicy.Designer.cs">
-      <DependentUpon>MingYiPrivacyPolicy.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Web References\LS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\Test\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\WebDevice\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\WebFace\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="FaceRegister.resx">
-      <DependentUpon>FaceRegister.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MingYiPrivacyPolicy.resx">
-      <DependentUpon>MingYiPrivacyPolicy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="app.config" />
+    <None Include="Img\注册键盘_slices.zip" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Web References\LS\LiShuiServer.wsdl" />
-    <None Include="Web References\LS\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\Test\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\Test\WSFaces.wsdl" />
-    <None Include="Web References\WebDevice\NtitServer.wsdl" />
-    <None Include="Web References\WebDevice\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\WebFace\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\WebFace\WSFaces.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -174,194 +142,55 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://10.178.227.93:1020/">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\WebFace\</RelPath>
-      <UpdateFromURL>http://10.178.227.93:1020/</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>UI_WebFace_WSFaces</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://121.42.164.134:9909/NtitServer.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\WebDevice\</RelPath>
-      <UpdateFromURL>http://121.42.164.134:9909/NtitServer.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>UI_WebDevice_NtitServer</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:4862/LiShuiServer.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\LS\</RelPath>
-      <UpdateFromURL>http://localhost:4862/LiShuiServer.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>UI_jiami_LiShuiServer</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:4862/WSFaces.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\Test\</RelPath>
-      <UpdateFromURL>http://localhost:4862/WSFaces.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>UI_Test_WSFaces</CachedSettingsPropName>
-    </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Web References\Test\WSFaces.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{af586840-0306-4b77-8875-09d240d56cf5}</Project>
-      <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{872df769-f9cf-4d2e-ae6c-b945cc94afe8}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{f0627217-be8b-4c39-8236-fbddfc2cf53e}</Project>
-      <Name>Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebServer\WebServer.csproj">
-      <Project>{2BFDBFD9-0140-46A7-8DC4-035D3B712DC5}</Project>
-      <Name>WebServer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="cbp63-m1ed6-001.ico" />
-    <Content Include="Img1.0\bg-01.jpg" />
-    <Content Include="Img1.0\jpg-01.png" />
-    <Content Include="Img1.0\jpg-02.png" />
-    <Content Include="Img1.0\姓名：身份证号：手机号：.png" />
-    <Content Include="Img1.0\姓身份证手机验证码.png" />
-    <Content Include="Img1.0\提示.png" />
-    <Content Include="Img1.0\正在认证中.......png" />
-    <Content Include="Img1.0\确认信息.png" />
-    <Content Include="Img1.0\获取身份证信息.png" />
-    <Content Include="Img1.0\获取验证码.png" />
-    <Content Include="Img1.0\返回首页.png" />
-    <Content Include="Img1.0\键盘\icon-00.png" />
-    <Content Include="Img1.0\键盘\icon-01.png" />
-    <Content Include="Img1.0\键盘\icon-02.png" />
-    <Content Include="Img1.0\键盘\icon-03.png" />
-    <Content Include="Img1.0\键盘\icon-04.png" />
-    <Content Include="Img1.0\键盘\icon-05.png" />
-    <Content Include="Img1.0\键盘\icon-06.png" />
-    <Content Include="Img1.0\键盘\icon-07.png" />
-    <Content Include="Img1.0\键盘\icon-08.png" />
-    <Content Include="Img1.0\键盘\icon-09.png" />
-    <Content Include="Img1.0\键盘\icon-hs.png" />
-    <Content Include="Img1.0\键盘\icon-qr.png" />
-    <Content Include="Img1.0\键盘\jpg-bg.png" />
-    <Content Include="img1.1\22.gif" />
-    <Content Include="img1.1\bg-01.jpg" />
-    <Content Include="img1.1\jpg-01.png" />
-    <Content Include="img1.1\jpg-02.png" />
-    <Content Include="img1.1\姓名：身份证号：手机号：验证码：.png" />
-    <Content Include="img1.1\提示.png" />
-    <Content Include="img1.1\明医隐私政策.png" />
-    <Content Include="img1.1\正在认证中.png" />
-    <Content Include="img1.1\温馨提示拷贝.png" />
-    <Content Include="img1.1\确认信息.png" />
-    <Content Include="img1.1\获取验证码.png" />
-    <Content Include="img1.1\读取身份证.png" />
-    <Content Include="img1.1\键盘\icon-00.png" />
-    <Content Include="img1.1\键盘\icon-01.png" />
-    <Content Include="img1.1\键盘\icon-02.png" />
-    <Content Include="img1.1\键盘\icon-03.png" />
-    <Content Include="img1.1\键盘\icon-04.png" />
-    <Content Include="img1.1\键盘\icon-05.png" />
-    <Content Include="img1.1\键盘\icon-06.png" />
-    <Content Include="img1.1\键盘\icon-07.png" />
-    <Content Include="img1.1\键盘\icon-08.png" />
-    <Content Include="img1.1\键盘\icon-09.png" />
-    <Content Include="img1.1\键盘\icon-hs.png" />
-    <Content Include="img1.1\键盘\icon-qr.png" />
-    <Content Include="img1.1\键盘\jpg-bg.png" />
-    <Content Include="img1.1\键盘小\icon-00.png" />
-    <Content Include="img1.1\键盘小\icon-01.png" />
-    <Content Include="img1.1\键盘小\icon-02.png" />
-    <Content Include="img1.1\键盘小\icon-03.png" />
-    <Content Include="img1.1\键盘小\icon-04.png" />
-    <Content Include="img1.1\键盘小\icon-05.png" />
-    <Content Include="img1.1\键盘小\icon-06.png" />
-    <Content Include="img1.1\键盘小\icon-07.png" />
-    <Content Include="img1.1\键盘小\icon-08.png" />
-    <Content Include="img1.1\键盘小\icon-09.png" />
-    <Content Include="img1.1\键盘小\icon-hs.png" />
-    <Content Include="img1.1\键盘小\icon-qr.png" />
-    <Content Include="img1.1\键盘小\jpg-bg.png" />
-    <Content Include="Img\20190124161517.png" />
-    <Content Include="Img\bg-01.png" />
-    <Content Include="Img\bg-02.jpg" />
-    <Content Include="Img\bg-02.png" />
-    <Content Include="Img\bg-03.jpg" />
-    <Content Include="Img\bg-05.png" />
-    <Content Include="Img\form-02.jpg" />
-    <Content Include="Img\icon-01.png" />
-    <Content Include="Img\icon-02.png" />
-    <Content Include="Img\icon-04.png" />
-    <Content Include="Img\icon-05.png" />
-    <Content Include="Img\icon-06.png" />
-    <Content Include="Img\icon-entry.jpg" />
-    <Content Include="Img\jpg-01.png" />
-    <Content Include="Img\logo1.ico" />
-    <Content Include="Img\ts-01.png" />
-    <Content Include="Img\ts-02.png" />
-    <Content Include="Img\ts-ok.png" />
-    <Content Include="Img\zfb.png" />
-    <Content Include="Img\图层5.png" />
-    <Content Include="Img\提示：请您摘去眼镜帽子并对准摄像头做脸部识别认证.png" />
-    <Content Include="Resources\9-1注册-弹框.png" />
-    <Content Include="Resources\9-1注册-弹框注册失败.png" />
-    <Content Include="Resources\fail.png" />
-    <Content Include="Resources\success.png" />
-    <Content Include="Resources\timg.gif" />
-    <Content Include="Resources\Wait.png" />
-    <Content Include="Resources\Wait2.png" />
-    <Content Include="Resources\加载中.gif" />
-    <Content Include="Resources\加载中Small.gif" />
-    <Content Include="Resources\同意协议.png" />
-    <Content Include="Resources\注册.png" />
-    <Content Include="Resources\注册拍照加载中.png" />
-    <Content Include="Resources\添加人脸.png" />
-    <Content Include="Resources\灰注册.png" />
-    <Content Include="Resources\组 1.png" />
-    <None Include="Web References\WebDevice\NtitServer.disco" />
-    <None Include="Web References\WebFace\WSFaces.disco" />
-    <None Include="Resources\服务协议.png" />
-    <None Include="Resources\添加人像.png" />
-    <None Include="Resources\注册icon.png" />
-    <None Include="Resources\icon_checked mark.png" />
-    <None Include="Resources\icon_Unchecked.png" />
-    <None Include="Resources\验证码.png" />
-    <None Include="Resources\9-1注册.png" />
-    <None Include="Resources\明医刷脸就医系统.png" />
-    <None Include="Resources\9-1注册 %281%29.png" />
-    <None Include="Web References\LS\LiShuiServer.disco" />
-    <None Include="Resources\确认信息.png" />
-    <None Include="Resources\icon-qr.png" />
-    <None Include="Resources\icon-00.png" />
-    <None Include="Resources\icon-09.png" />
-    <None Include="Resources\icon-08.png" />
-    <None Include="Resources\icon-07.png" />
-    <None Include="Resources\获取验证码.png" />
-    <None Include="Resources\姓身份证手机验证码.png" />
-    <None Include="Resources\jpg-02.png" />
-    <None Include="Img\矩形9.png" />
+    <Content Include="Img\0.png" />
+    <Content Include="Img\1.png" />
+    <Content Include="Img\2.png" />
+    <Content Include="Img\3.png" />
+    <Content Include="Img\4.png" />
+    <Content Include="Img\5.png" />
+    <Content Include="Img\6.png" />
+    <Content Include="Img\7.png" />
+    <Content Include="Img\8.png" />
+    <Content Include="Img\9.png" />
+    <Content Include="Img\First.png" />
+    <Content Include="Img\First1080.png" />
+    <Content Include="Img\GetYanCode.png" />
+    <Content Include="Img\hs.png" />
+    <Content Include="Img\icon_checked mark.png" />
+    <Content Include="Img\icon_Unchecked.png" />
+    <Content Include="Img\qk.png" />
+    <Content Include="Img\Second.png" />
+    <Content Include="Img\姓     名： 身份证号： 地     址： 手 机 号： 验 证 码：.png" />
+    <Content Include="Img\注册.png" />
+    <Content Include="Img\注册键盘_slices\0.png" />
+    <Content Include="Img\注册键盘_slices\1.png" />
+    <Content Include="Img\注册键盘_slices\2.png" />
+    <Content Include="Img\注册键盘_slices\3.png" />
+    <Content Include="Img\注册键盘_slices\4.png" />
+    <Content Include="Img\注册键盘_slices\5.png" />
+    <Content Include="Img\注册键盘_slices\6.png" />
+    <Content Include="Img\注册键盘_slices\7.png" />
+    <Content Include="Img\注册键盘_slices\8.png" />
+    <Content Include="Img\注册键盘_slices\9.png" />
+    <Content Include="Img\注册键盘_slices\hs.png" />
+    <Content Include="Img\注册键盘_slices\icon_checked mark.png" />
+    <Content Include="Img\注册键盘_slices\icon_Unchecked.png" />
+    <Content Include="Img\注册键盘_slices\qk.png" />
+    <Content Include="Img\注册键盘_slices\姓     名： 身份证号： 地     址： 手 机 号： 验 证 码：.png" />
+    <Content Include="Img\注册键盘_slices\矩形 11 拷贝.png" />
+    <Content Include="Img\注册键盘_slices\矩形 13.png" />
+    <Content Include="Img\注册键盘_slices\矩形 28.png" />
+    <Content Include="Img\注册键盘_slices\组 1 拷贝.png" />
+    <Content Include="Img\注册键盘_slices\获取验证码.png" />
+    <Content Include="Img\注册键盘_slices\请摘去帽子眼镜口罩 并正对屏幕刷脸认证.png" />
+    <Content Include="Img\注册键盘_slices\返回%281%29.png" />
+    <Content Include="Img\矩形 11 拷贝.png" />
+    <Content Include="Img\矩形 13.png" />
+    <Content Include="Img\矩形 28.png" />
+    <Content Include="Img\组 1 拷贝.png" />
+    <Content Include="Img\请摘去帽子眼镜口罩 并正对屏幕刷脸认证.png" />
+    <Content Include="Img\返回%281%29.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -369,6 +198,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

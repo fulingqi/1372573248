@@ -22,45 +22,5 @@ namespace UI.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4862/WSFaces.asmx")]
-        public string UI_Test_WSFaces {
-            get {
-                return ((string)(this["UI_Test_WSFaces"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4862/LiShuiServer.asmx")]
-        public string UI_jiami_LiShuiServer {
-            get {
-                return ((string)(this["UI_jiami_LiShuiServer"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://10.178.227.93:1020/WSFaces.asmx")]
-        public string UI_WebFace_WSFaces {
-            get {
-                return ((string)(this["UI_WebFace_WSFaces"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://121.42.164.134:9909/NtitServer.asmx")]
-        public string UI_WebDevice_NtitServer {
-            get {
-                return ((string)(this["UI_WebDevice_NtitServer"]));
-            }
-        }
     }
 }

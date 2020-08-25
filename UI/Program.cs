@@ -34,16 +34,7 @@ namespace UI
             {
                 //copyDLL();              
                 Application.EnableVisualStyles();
-                //Application.Run(new FaceRegister());//刷脸注册外显
-
-
-
-               Application.Run(new FaceRegister());//刷脸注册
-                //Application.Run(new TS_Mask());//刷脸注册
-               // Application.Run(new BrushFace());//刷脸就医
-                //Application.Run(new ManualInput());//刷脸就医—人工输入
-                //Application.Run(new FaceBrush());
-                //Application.Run(new MingYiPrivacyPolicy());
+                Application.Run(new Form1());//刷脸注册
             }
             else
             {
