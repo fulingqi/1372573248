@@ -130,11 +130,11 @@ namespace UI
                 yPhone = txtPhone.Text.Trim();
                 Thread.Sleep(500);
 
-                //yCode = VerificationCode(tPhone.Trim());
-                //JObject obj = JObject.Parse(yCode);
-                //yCode = obj["string"]["#text"].ToString();
+                yCode = VerificationCode(tPhone.Trim());
+                JObject obj = JObject.Parse(yCode);
+                yCode = obj["string"]["#text"].ToString();
 
-                yCode = "111111";
+                //yCode = "111111";
 
 
                 link2.Enabled = false;
@@ -958,7 +958,7 @@ namespace UI
             //string url = "http://121.42.164.134:11122/WSFaces.asmx/VerificationCode";
             //string url = "http://121.42.164.134:11122/WSFaces.asmx/GetShortMessageCode";
             //string url = "http://10.178.227.93:1108/NtitServer.asmx/GetShortMessageCode";
-            string url = "http://121.42.164.134:9909/WSFaces.asmx/GetShortMessageCode";
+            string url = "http://121.42.164.134:9909/NtitServer.asmx/GetShortMessageCode";
             var request = WebRequest.Create(url) as HttpWebRequest;
             if (request == null) throw new ArgumentNullException();
             //request.ContentType = "application/json;charset=utf-8";

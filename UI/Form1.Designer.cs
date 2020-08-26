@@ -144,13 +144,13 @@
             // txtName
             // 
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtName.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.txtName.Font = new System.Drawing.Font("微软雅黑", 20F);
             this.txtName.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtName.Location = new System.Drawing.Point(379, 233);
+            this.txtName.Location = new System.Drawing.Point(352, 243);
             this.txtName.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(264, 30);
+            this.txtName.Size = new System.Drawing.Size(264, 55);
             this.txtName.TabIndex = 5;
             this.txtName.Click += new System.EventHandler(this.txtName_Click);
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
@@ -160,13 +160,13 @@
             // txtIDCard
             // 
             this.txtIDCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtIDCard.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.txtIDCard.Font = new System.Drawing.Font("微软雅黑", 20F);
             this.txtIDCard.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtIDCard.Location = new System.Drawing.Point(392, 358);
+            this.txtIDCard.Location = new System.Drawing.Point(348, 358);
             this.txtIDCard.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtIDCard.Multiline = true;
             this.txtIDCard.Name = "txtIDCard";
-            this.txtIDCard.Size = new System.Drawing.Size(353, 30);
+            this.txtIDCard.Size = new System.Drawing.Size(425, 55);
             this.txtIDCard.TabIndex = 6;
             this.txtIDCard.Click += new System.EventHandler(this.txtIDCard_Click);
             this.txtIDCard.TextChanged += new System.EventHandler(this.txtIDCard_TextChanged);
@@ -175,9 +175,9 @@
             // txtPhone
             // 
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPhone.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.txtPhone.Font = new System.Drawing.Font("微软雅黑", 20F);
             this.txtPhone.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtPhone.Location = new System.Drawing.Point(373, 614);
+            this.txtPhone.Location = new System.Drawing.Point(352, 607);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtPhone.Multiline = true;
             this.txtPhone.Name = "txtPhone";
@@ -191,9 +191,9 @@
             // txtYan
             // 
             this.txtYan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtYan.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.txtYan.Font = new System.Drawing.Font("微软雅黑", 20F);
             this.txtYan.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.txtYan.Location = new System.Drawing.Point(377, 748);
+            this.txtYan.Location = new System.Drawing.Point(348, 756);
             this.txtYan.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtYan.Multiline = true;
             this.txtYan.Name = "txtYan";
@@ -226,7 +226,7 @@
             // 
             // videoSourcePlayer1
             // 
-            this.videoSourcePlayer1.Location = new System.Drawing.Point(1149, 231);
+            this.videoSourcePlayer1.Location = new System.Drawing.Point(1329, 225);
             this.videoSourcePlayer1.Margin = new System.Windows.Forms.Padding(4);
             this.videoSourcePlayer1.Name = "videoSourcePlayer1";
             this.videoSourcePlayer1.Size = new System.Drawing.Size(836, 679);
@@ -239,7 +239,7 @@
             this.picHict.BackColor = System.Drawing.Color.White;
             this.picHict.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picHict.BackgroundImage")));
             this.picHict.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHict.Location = new System.Drawing.Point(1149, 231);
+            this.picHict.Location = new System.Drawing.Point(1329, 225);
             this.picHict.Margin = new System.Windows.Forms.Padding(4);
             this.picHict.Name = "picHict";
             this.picHict.Size = new System.Drawing.Size(836, 679);
@@ -488,12 +488,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 20F);
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(211, 358);
+            this.label3.Location = new System.Drawing.Point(150, 358);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 35);
+            this.label3.Size = new System.Drawing.Size(190, 45);
             this.label3.TabIndex = 60;
             this.label3.Text = "身份证号：";
             // 
@@ -501,12 +501,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 20F);
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(214, 493);
+            this.label4.Location = new System.Drawing.Point(150, 484);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(144, 35);
+            this.label4.Size = new System.Drawing.Size(182, 45);
             this.label4.TabIndex = 61;
             this.label4.Text = "地      址：";
             // 
@@ -514,12 +514,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 20F);
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(217, 614);
+            this.label5.Location = new System.Drawing.Point(150, 614);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(139, 35);
+            this.label5.Size = new System.Drawing.Size(176, 45);
             this.label5.TabIndex = 62;
             this.label5.Text = "手 机 号：";
             // 
@@ -527,12 +527,12 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 20F);
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(217, 745);
+            this.label6.Location = new System.Drawing.Point(150, 756);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(139, 35);
+            this.label6.Size = new System.Drawing.Size(176, 45);
             this.label6.TabIndex = 63;
             this.label6.Text = "验 证 码：";
             // 
@@ -540,12 +540,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 20F);
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(211, 233);
+            this.label2.Location = new System.Drawing.Point(150, 243);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 35);
+            this.label2.Size = new System.Drawing.Size(182, 45);
             this.label2.TabIndex = 59;
             this.label2.Text = "姓      名：";
             // 
@@ -638,7 +638,7 @@
             this.label8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Underline);
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(349, 511);
+            this.label8.Location = new System.Drawing.Point(355, 528);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(425, 20);
@@ -682,7 +682,7 @@
             this.labTishi.AutoSize = true;
             this.labTishi.Font = new System.Drawing.Font("微软雅黑", 30F);
             this.labTishi.ForeColor = System.Drawing.Color.SandyBrown;
-            this.labTishi.Location = new System.Drawing.Point(1267, 981);
+            this.labTishi.Location = new System.Drawing.Point(1469, 965);
             this.labTishi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labTishi.Name = "labTishi";
             this.labTishi.Size = new System.Drawing.Size(578, 65);
@@ -721,7 +721,7 @@
             this.labTIshi2.AutoSize = true;
             this.labTIshi2.Font = new System.Drawing.Font("微软雅黑", 30F);
             this.labTIshi2.ForeColor = System.Drawing.Color.SandyBrown;
-            this.labTIshi2.Location = new System.Drawing.Point(1282, 1086);
+            this.labTIshi2.Location = new System.Drawing.Point(1469, 1044);
             this.labTIshi2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labTIshi2.Name = "labTIshi2";
             this.labTIshi2.Size = new System.Drawing.Size(0, 65);
@@ -780,13 +780,13 @@
             // txtAddress
             // 
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAddress.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.txtAddress.Font = new System.Drawing.Font("微软雅黑", 14F);
             this.txtAddress.ForeColor = System.Drawing.Color.Black;
-            this.txtAddress.Location = new System.Drawing.Point(390, 444);
+            this.txtAddress.Location = new System.Drawing.Point(359, 470);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(0);
             this.txtAddress.MaxLength = 300;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(347, 71);
+            this.txtAddress.Size = new System.Drawing.Size(347, 58);
             this.txtAddress.TabIndex = 7;
             this.txtAddress.Text = "";
             this.txtAddress.Click += new System.EventHandler(this.txtAddress_Click);
@@ -989,8 +989,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(2142, 1372);
-            this.Controls.Add(this.panelAll);
             this.Controls.Add(this.panelSuccess);
+            this.Controls.Add(this.panelAll);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
