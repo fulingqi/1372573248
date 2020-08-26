@@ -67,6 +67,7 @@ namespace UI
         public Form1()
         {
             InitializeComponent();
+            //linkT2.Visible = false;
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
             //错误信息提示
@@ -808,8 +809,13 @@ namespace UI
         public Bitmap Bitmap;
         FilterInfoCollection videoDevices;
         private VideoCaptureDevice videoSource;
-        public int selectedDeviceIndex = 1;
+        public int selectedDeviceIndex =0;
         private Point point;
+        /// <summary>
+        /// 连接摄像头
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -1080,8 +1086,8 @@ namespace UI
 
         private void txtName_Leave(object sender, EventArgs e)
         {
-
-            SName = this.txtName.Text;
+            
+            SName = this.txtName.Text.IndexOf('*') > 0 ? SName : this.txtName.Text;
             this.txtName.Text = replaceStrAndName(this.txtName.Text);
             //if (string.IsNullOrEmpty(this.txtName.Text))
             //{
@@ -1099,7 +1105,7 @@ namespace UI
         }
         private void txtAddress_Leave(object sender, EventArgs e)
         {
-            Address = this.txtAddress.Text;
+            Address = this.txtAddress.Text.IndexOf('*')>0?Address:this.txtAddress.Text;
             this.txtAddress.Text = replaceStrAnd(this.txtAddress.Text);
             //if (string.IsNullOrEmpty(this.txtAddress.Text))
             //{
@@ -1111,6 +1117,7 @@ namespace UI
         private void txtAddress_Click(object sender, EventArgs e)
         {
             Paneljp.Visible = false;
+            panelMessage.Visible = false;
             this.txtAddress.Text = replaceStrAnd(this.txtAddress.Text);
             //if (this.txtAddress.Text == "请输入地址")
             //{
@@ -1132,6 +1139,7 @@ namespace UI
         private void txtIDCard_Click(object sender, EventArgs e)
         {
             Paneljp.Visible = false;
+            panelMessage.Visible = false;
             //if (this.txtIDCard.Text == "请输入身份证号")
             //{
             //    this.txtIDCard.Text = "";
@@ -1152,6 +1160,7 @@ namespace UI
         private void txtPhone_Click(object sender, EventArgs e)
         {
             Paneljp.Visible = true;
+            panelMessage.Visible = false;
             //if (this.txtPhone.Text== "请输入手机号")
             //{
             //    this.txtPhone.Text = "";
@@ -1161,6 +1170,8 @@ namespace UI
         private void txtYan_Click(object sender, EventArgs e)
         {
             Paneljp.Visible = true;
+
+            panelMessage.Visible = false;
             //if (this.txtYan.Text== "请输入验证码")
             //{
             //    this.txtYan.Text = "";
@@ -1378,6 +1389,7 @@ namespace UI
             this.txtIDCard.Text = "";
             this.txtPhone.Text = "";
             this.txtYan.Text = "";
+            this.labTishi.Text = "请将身份证放置在感应区";
             //初始化获取验证码
             link2.Enabled = true;
             link2.Visible = true;
@@ -1465,15 +1477,211 @@ namespace UI
         {
             this.panelMessage.Visible = false;
         }
-
-        private void txtErrorMessage_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void txtErrorMessage_Click(object sender, EventArgs e)
         {
             this.panelMessage.Visible = false;
+        }
+
+        private void picError_Click(object sender, EventArgs e)
+        {
+            this.panelMessage.Visible = false;
+        }
+
+        private void picHeader_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelSmallFail_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelAll_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void videoSourcePlayer1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picHict_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Paneljp_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button999_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button777_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button888_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button666_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button555_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button444_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button333_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button222_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button111_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTimeNow_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labHead_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labTishi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labCountDown_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labTIshi2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picBottom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labBottom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelSuccess_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtError_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelSmallSuccess_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelMessage_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtErrorMessage_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

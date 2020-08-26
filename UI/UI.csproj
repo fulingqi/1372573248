@@ -130,6 +130,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="app.config" />
+    <None Include="Img1920\1.2注册-键盘-切图_slices.zip" />
     <None Include="Img\注册键盘_slices.zip" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
@@ -155,6 +156,29 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cbp63-m1ed6-001.ico" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\icon_checked mark%402x.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\icon_checked mark.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\icon_Unchecked%402x.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\icon_Unchecked.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\感应区 拷贝%402x.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\感应区 拷贝.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\按键%402x.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\按键.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\矩形 11 拷贝%402x.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\矩形 11 拷贝.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\矩形 12%402x.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\矩形 12.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\矩形 13%402x.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\矩形 13.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\矩形 28%402x.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\矩形 28.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\矩形 8 拷贝 4%402x.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\矩形 8 拷贝 4.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\返回%281%29%402x.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\返回%281%29.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\顶部 拷贝%402x.png" />
+    <Content Include="Img1920\1.2注册-键盘-切图_slices\顶部 拷贝.png" />
+    <Content Include="Img1920\Register1920.png" />
     <Content Include="Img\0.png" />
     <Content Include="Img\1.png" />
     <Content Include="Img\2.png" />
