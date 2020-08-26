@@ -579,7 +579,7 @@
             this.picHeader.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picHeader.Location = new System.Drawing.Point(0, 0);
             this.picHeader.Name = "picHeader";
-            this.picHeader.Size = new System.Drawing.Size(1280, 66);
+            this.picHeader.Size = new System.Drawing.Size(1288, 66);
             this.picHeader.TabIndex = 64;
             this.picHeader.TabStop = false;
             // 
@@ -589,7 +589,7 @@
             this.labHead.BackColor = System.Drawing.Color.Blue;
             this.labHead.Font = new System.Drawing.Font("微软雅黑", 16F);
             this.labHead.ForeColor = System.Drawing.Color.White;
-            this.labHead.Location = new System.Drawing.Point(558, 10);
+            this.labHead.Location = new System.Drawing.Point(552, 10);
             this.labHead.Name = "labHead";
             this.labHead.Size = new System.Drawing.Size(233, 30);
             this.labHead.TabIndex = 65;
@@ -735,7 +735,7 @@
             this.picBottom.BackColor = System.Drawing.Color.Navy;
             this.picBottom.Location = new System.Drawing.Point(0, 731);
             this.picBottom.Name = "picBottom";
-            this.picBottom.Size = new System.Drawing.Size(1277, 73);
+            this.picBottom.Size = new System.Drawing.Size(1320, 73);
             this.picBottom.TabIndex = 83;
             this.picBottom.TabStop = false;
             // 
@@ -798,7 +798,7 @@
             this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSuccess.Controls.Add(this.panelSmallFail);
             this.panelSuccess.Controls.Add(this.panelSmallSuccess);
-            this.panelSuccess.Location = new System.Drawing.Point(0, -4);
+            this.panelSuccess.Location = new System.Drawing.Point(2, -4);
             this.panelSuccess.Name = "panelSuccess";
             this.panelSuccess.Size = new System.Drawing.Size(1300, 816);
             this.panelSuccess.TabIndex = 58;
@@ -862,7 +862,7 @@
             // panelAll
             // 
             this.panelAll.BackColor = System.Drawing.Color.White;
-            this.panelAll.Controls.Add(this.panelSuccess);
+            this.panelAll.Controls.Add(this.panelMessage);
             this.panelAll.Controls.Add(this.txtAddress);
             this.panelAll.Controls.Add(this.picExit);
             this.panelAll.Controls.Add(this.labExit);
@@ -900,10 +900,9 @@
             this.panelAll.Controls.Add(this.txtName);
             this.panelAll.Controls.Add(this.btnNoAgree);
             this.panelAll.Controls.Add(this.link3);
-            this.panelAll.Controls.Add(this.panelMessage);
-            this.panelAll.Location = new System.Drawing.Point(0, 12);
+            this.panelAll.Location = new System.Drawing.Point(0, 5);
             this.panelAll.Name = "panelAll";
-            this.panelAll.Size = new System.Drawing.Size(1300, 816);
+            this.panelAll.Size = new System.Drawing.Size(1331, 816);
             this.panelAll.TabIndex = 57;
             this.panelAll.Click += new System.EventHandler(this.panelAll_Click);
             // 
@@ -914,6 +913,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1284, 781);
+            this.Controls.Add(this.panelSuccess);
             this.Controls.Add(this.panelAll);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.DoubleBuffered = true;

@@ -127,12 +127,15 @@ namespace UI
 
                 tPhone = this.txtPhone.Text.Trim();
                 yPhone = txtPhone.Text.Trim();
-                
                 Thread.Sleep(500);
-                yCode = VerificationCode(tPhone.Trim());//wsf.VerificationCode(txtPhone.Text.Trim());//验证码
-                JObject obj = JObject.Parse(yCode);
-                yCode = "111111";
+
+                //yCode = VerificationCode(tPhone.Trim());//wsf.VerificationCode(txtPhone.Text.Trim());//验证码
+                //JObject obj = JObject.Parse(yCode);
                 //yCode = obj["string"]["#text"].ToString();
+
+                yCode = "111111";
+
+
                 link2.Enabled = false;
                 link3.Text = "30 秒后重试";
                 link2.Visible = false;
@@ -173,8 +176,8 @@ namespace UI
             string cid = CheckCidInfo18(Sidnum);
             if (cid != "")
             {
-                Mge = cid;
-                ShowMessage(Mge);
+                
+                ShowMessage(cid);
                 return;
             }
       
@@ -194,8 +197,7 @@ namespace UI
             #region 验证手机号码是否合法
             if (!Phone(tPhone.Trim()))
             {
-                Mge = "手机号码格式错误";
-                ShowMessage(Mge);
+                ShowMessage("手机号码格式错误");
                 return;
             }
             #endregion
@@ -455,7 +457,7 @@ namespace UI
                         }
                         SNation = CardMsg.Nation.Trim();
                         Address = CardMsg.Address.Trim();
-                        txtAddress.Text = Address;
+                        txtAddress.Text = replaceStrAnd(Address);
                         Sidnum = CardMsg.IDCardNo.Trim();   //完整身份证信息
                         txtIDCard.Text = replaceStr(CardMsg.IDCardNo.Trim());//加密后的身份证信息
                         //身份证读取之后，开始拍照
@@ -806,7 +808,7 @@ namespace UI
         public Bitmap Bitmap;
         FilterInfoCollection videoDevices;
         private VideoCaptureDevice videoSource;
-        public int selectedDeviceIndex = 0;
+        public int selectedDeviceIndex = 1;
         private Point point;
         private void button1_Click(object sender, EventArgs e)
         {
@@ -904,10 +906,9 @@ namespace UI
                 // set NewFrame event handler
                 videoSourcePlayer1.Start();
                 videoSource.NewFrame += new NewFrameEventHandler(Asda);
-              
-                
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return;
                 throw;
@@ -969,7 +970,9 @@ namespace UI
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            btnRegister.Enabled = false;
             Register();
+            btnRegister.Enabled = true;
         }
         
 
@@ -1108,6 +1111,7 @@ namespace UI
         private void txtAddress_Click(object sender, EventArgs e)
         {
             Paneljp.Visible = false;
+            this.txtAddress.Text = replaceStrAnd(this.txtAddress.Text);
             //if (this.txtAddress.Text == "请输入地址")
             //{
             //    this.txtAddress.Text = "";
@@ -1219,6 +1223,11 @@ namespace UI
             {
                 this.btnRegister.Visible = true;
                 this.btnRegister.Enabled = true;
+            }
+            else
+            {
+                this.btnRegister.Visible = false;
+                this.btnRegister.Enabled = false;
             }
 
             //失败倒计时
@@ -1344,6 +1353,22 @@ namespace UI
         #region 手动退出和自动退出
         private void ExitRegister()
         {
+            try
+            {
+                if (videoSource != null)
+                {
+                    videoSource.Stop();
+                }
+
+                //videoSourcePlayer1.WaitForStop();
+            }
+            catch (Exception)
+            {
+
+            }
+            Bitmap = null;
+            btnRegister.Visible = false;
+            btnRegister.Enabled = false;
             //倒计时初始化
             countDown = 300;
             //失败次数初始化
@@ -1357,21 +1382,10 @@ namespace UI
             link2.Enabled = true;
             link2.Visible = true;
             Sidnum = ""; SName = ""; yPhone = ""; SNation = ""; Address = "";
-            Bitmap = null;
+            
+            
             //videoSourcePlayer1.Stop();
-            try
-            {
-                if (videoSource!=null)
-                {
-                    videoSource.Stop();
-                }
-                
-                //videoSourcePlayer1.WaitForStop();
-            }
-            catch (Exception )
-            {
-                
-            }
+           
             picHict.Show();
             //videoSourcePlayer1.WaitForStop();
             //初始化倒计时时间
@@ -1434,16 +1448,16 @@ namespace UI
         /// 提示错误信息
         /// </summary>
         /// <param name="Message">错误信息</param>
-        private void MessageShow(string Message)
+        private void ShowMessage(string Message)
         {
             this.panelMessage.Visible = true;
             this.txtErrorMessage.Text = Message;
         }
-        private void ShowMessage(string Message)
-        {
-            MessageBox form = new MessageBox(Message);
-            form.Show();
-        }
+        //private void ShowMessage(string Message)
+        //{
+        //    MessageBox form = new MessageBox(Message);
+        //    form.Show();
+        //}
         #endregion
         
 
