@@ -130,7 +130,7 @@ namespace UI
                 yPhone = txtPhone.Text.Trim();
                 Thread.Sleep(500);
 
-                //yCode = VerificationCode(tPhone.Trim());//wsf.VerificationCode(txtPhone.Text.Trim());//验证码
+                //yCode = VerificationCode(tPhone.Trim());
                 //JObject obj = JObject.Parse(yCode);
                 //yCode = obj["string"]["#text"].ToString();
 
@@ -368,6 +368,16 @@ namespace UI
         }
         #endregion
         #region 人脸注册
+        /// <summary>
+        /// 人脸注册接口
+        /// </summary>
+        /// <param name="idcard"></param>
+        /// <param name="name"></param>
+        /// <param name="Phone"></param>
+        /// <param name="Nation"></param>
+        /// <param name="Address"></param>
+        /// <param name="imgHead"></param>
+        /// <returns></returns>
         public static string AuthenPliceFace(string idcard, string name, string Phone, string Nation, string Address, Stream imgHead)
         {
             string result = "0";
@@ -375,6 +385,7 @@ namespace UI
             {
 
                 string reqUrl = "http://121.42.164.134:9918/API/HealthCard/HealthCardGiter";
+                //string reqUrl = "http://10.178.227.93:1109/API/HealthCard/HealthCardGiter";
                 string encodeUrl = Utils.UriEncode(reqUrl);
                 HttpWebRequest request = WebRequest.Create(reqUrl) as HttpWebRequest;
                 request.ContentType = "application/x-www-form-urlencoded";
@@ -809,6 +820,7 @@ namespace UI
         public Bitmap Bitmap;
         FilterInfoCollection videoDevices;
         private VideoCaptureDevice videoSource;
+        //摄像头
         public int selectedDeviceIndex =0;
         private Point point;
         /// <summary>
@@ -942,9 +954,11 @@ namespace UI
         public string VerificationCode(string Phone)
         {
             string result = "";
-            
+
             //string url = "http://121.42.164.134:11122/WSFaces.asmx/VerificationCode";
-            string url = "http://121.42.164.134:9909/NtitServer.asmx/GetShortMessageCode";
+            //string url = "http://121.42.164.134:11122/WSFaces.asmx/GetShortMessageCode";
+            //string url = "http://10.178.227.93:1108/NtitServer.asmx/GetShortMessageCode";
+            string url = "http://121.42.164.134:9909/WSFaces.asmx/GetShortMessageCode";
             var request = WebRequest.Create(url) as HttpWebRequest;
             if (request == null) throw new ArgumentNullException();
             //request.ContentType = "application/json;charset=utf-8";
@@ -1489,199 +1503,7 @@ namespace UI
             this.panelMessage.Visible = false;
         }
 
-        private void picHeader_Click(object sender, EventArgs e)
-        {
+    
 
-        }
-
-        private void panelSmallFail_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelAll_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void videoSourcePlayer1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picHict_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Paneljp_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button999_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button777_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button888_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button666_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button555_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button444_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button333_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button222_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button111_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTimeNow_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labHead_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labTishi_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labTime_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labCountDown_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labTIshi2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picBottom_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labBottom_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelSuccess_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtError_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelSmallSuccess_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelMessage_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtErrorMessage_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

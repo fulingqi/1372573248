@@ -233,20 +233,18 @@
             this.videoSourcePlayer1.TabIndex = 53;
             this.videoSourcePlayer1.Text = "videoSourcePlayer1";
             this.videoSourcePlayer1.VideoSource = null;
-            this.videoSourcePlayer1.Click += new System.EventHandler(this.videoSourcePlayer1_Click);
             // 
             // picHict
             // 
             this.picHict.BackColor = System.Drawing.Color.White;
             this.picHict.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picHict.BackgroundImage")));
             this.picHict.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHict.Location = new System.Drawing.Point(1150, 232);
+            this.picHict.Location = new System.Drawing.Point(1149, 231);
             this.picHict.Margin = new System.Windows.Forms.Padding(4);
             this.picHict.Name = "picHict";
             this.picHict.Size = new System.Drawing.Size(836, 679);
             this.picHict.TabIndex = 55;
             this.picHict.TabStop = false;
-            this.picHict.Click += new System.EventHandler(this.picHict_Click);
             // 
             // Paneljp
             // 
@@ -269,7 +267,6 @@
             this.Paneljp.Name = "Paneljp";
             this.Paneljp.Size = new System.Drawing.Size(355, 401);
             this.Paneljp.TabIndex = 56;
-            this.Paneljp.Paint += new System.Windows.Forms.PaintEventHandler(this.Paneljp_Paint);
             // 
             // btnook
             // 
@@ -341,7 +338,6 @@
             this.button999.TabIndex = 37;
             this.button999.Text = "9";
             this.button999.UseVisualStyleBackColor = false;
-            this.button999.Click += new System.EventHandler(this.button999_Click);
             // 
             // button777
             // 
@@ -359,7 +355,6 @@
             this.button777.TabIndex = 35;
             this.button777.Text = "7";
             this.button777.UseVisualStyleBackColor = false;
-            this.button777.Click += new System.EventHandler(this.button777_Click);
             // 
             // button888
             // 
@@ -377,7 +372,6 @@
             this.button888.TabIndex = 36;
             this.button888.Text = "8";
             this.button888.UseVisualStyleBackColor = false;
-            this.button888.Click += new System.EventHandler(this.button888_Click);
             // 
             // button666
             // 
@@ -395,7 +389,6 @@
             this.button666.TabIndex = 34;
             this.button666.Text = "6";
             this.button666.UseVisualStyleBackColor = false;
-            this.button666.Click += new System.EventHandler(this.button666_Click);
             // 
             // button555
             // 
@@ -413,7 +406,6 @@
             this.button555.TabIndex = 33;
             this.button555.Text = "5";
             this.button555.UseVisualStyleBackColor = false;
-            this.button555.Click += new System.EventHandler(this.button555_Click);
             // 
             // button444
             // 
@@ -431,7 +423,6 @@
             this.button444.TabIndex = 32;
             this.button444.Text = "4";
             this.button444.UseVisualStyleBackColor = false;
-            this.button444.Click += new System.EventHandler(this.button444_Click);
             // 
             // button333
             // 
@@ -449,7 +440,6 @@
             this.button333.TabIndex = 31;
             this.button333.Text = "3";
             this.button333.UseVisualStyleBackColor = false;
-            this.button333.Click += new System.EventHandler(this.button333_Click);
             // 
             // button222
             // 
@@ -467,7 +457,6 @@
             this.button222.TabIndex = 30;
             this.button222.Text = "2";
             this.button222.UseVisualStyleBackColor = false;
-            this.button222.Click += new System.EventHandler(this.button222_Click);
             // 
             // button111
             // 
@@ -485,7 +474,6 @@
             this.button111.TabIndex = 29;
             this.button111.Text = "1";
             this.button111.UseVisualStyleBackColor = false;
-            this.button111.Click += new System.EventHandler(this.button111_Click);
             // 
             // txtTimeNow
             // 
@@ -495,7 +483,6 @@
             this.txtTimeNow.Name = "txtTimeNow";
             this.txtTimeNow.Size = new System.Drawing.Size(133, 18);
             this.txtTimeNow.TabIndex = 57;
-            this.txtTimeNow.TextChanged += new System.EventHandler(this.txtTimeNow_TextChanged);
             // 
             // label3
             // 
@@ -509,7 +496,6 @@
             this.label3.Size = new System.Drawing.Size(150, 35);
             this.label3.TabIndex = 60;
             this.label3.Text = "身份证号：";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -517,13 +503,12 @@
             this.label4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 16F);
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(217, 493);
+            this.label4.Location = new System.Drawing.Point(214, 493);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(144, 35);
             this.label4.TabIndex = 61;
             this.label4.Text = "地      址：";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -537,7 +522,6 @@
             this.label5.Size = new System.Drawing.Size(139, 35);
             this.label5.TabIndex = 62;
             this.label5.Text = "手 机 号：";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -551,7 +535,6 @@
             this.label6.Size = new System.Drawing.Size(139, 35);
             this.label6.TabIndex = 63;
             this.label6.Text = "验 证 码：";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label2
             // 
@@ -565,7 +548,6 @@
             this.label2.Size = new System.Drawing.Size(144, 35);
             this.label2.TabIndex = 59;
             this.label2.Text = "姓      名：";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // picHeader
             // 
@@ -577,7 +559,6 @@
             this.picHeader.Size = new System.Drawing.Size(2587, 106);
             this.picHeader.TabIndex = 64;
             this.picHeader.TabStop = false;
-            this.picHeader.Click += new System.EventHandler(this.picHeader_Click);
             // 
             // labHead
             // 
@@ -591,7 +572,6 @@
             this.labHead.Size = new System.Drawing.Size(360, 45);
             this.labHead.TabIndex = 65;
             this.labHead.Text = "明医实名就医刷脸注册";
-            this.labHead.Click += new System.EventHandler(this.labHead_Click);
             // 
             // label1
             // 
@@ -605,7 +585,6 @@
             this.label1.Size = new System.Drawing.Size(152, 27);
             this.label1.TabIndex = 66;
             this.label1.Text = "我已阅读并同意";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // linkLabel1
             // 
@@ -636,7 +615,6 @@
             this.label9.TabIndex = 74;
             this.label9.Text = "                                                                                 " +
     "                       ";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label7
             // 
@@ -652,7 +630,6 @@
             this.label7.TabIndex = 75;
             this.label7.Text = "                                                                                 " +
     "                       ";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -668,7 +645,6 @@
             this.label8.TabIndex = 76;
             this.label8.Text = "                                                                                 " +
     "                       ";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label10
             // 
@@ -685,7 +661,6 @@
             this.label10.Text = "                                                                                 " +
     "                     ";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label11
             // 
@@ -701,7 +676,6 @@
             this.label11.TabIndex = 78;
             this.label11.Text = "                                                                                 " +
     "                       ";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // labTishi
             // 
@@ -714,7 +688,6 @@
             this.labTishi.Size = new System.Drawing.Size(578, 65);
             this.labTishi.TabIndex = 79;
             this.labTishi.Text = "请将身份证放置在感应区";
-            this.labTishi.Click += new System.EventHandler(this.labTishi_Click);
             // 
             // labTime
             // 
@@ -730,7 +703,6 @@
             this.labTime.Size = new System.Drawing.Size(84, 31);
             this.labTime.TabIndex = 80;
             this.labTime.Text = "11111";
-            this.labTime.Click += new System.EventHandler(this.labTime_Click);
             // 
             // labCountDown
             // 
@@ -743,7 +715,6 @@
             this.labCountDown.Size = new System.Drawing.Size(50, 23);
             this.labCountDown.TabIndex = 81;
             this.labCountDown.Text = "1111";
-            this.labCountDown.Click += new System.EventHandler(this.labCountDown_Click);
             // 
             // labTIshi2
             // 
@@ -755,7 +726,6 @@
             this.labTIshi2.Name = "labTIshi2";
             this.labTIshi2.Size = new System.Drawing.Size(0, 65);
             this.labTIshi2.TabIndex = 82;
-            this.labTIshi2.Click += new System.EventHandler(this.labTIshi2_Click);
             // 
             // picBottom
             // 
@@ -766,7 +736,6 @@
             this.picBottom.Size = new System.Drawing.Size(2587, 79);
             this.picBottom.TabIndex = 83;
             this.picBottom.TabStop = false;
-            this.picBottom.Click += new System.EventHandler(this.picBottom_Click);
             // 
             // labBottom
             // 
@@ -781,7 +750,6 @@
             this.labBottom.TabIndex = 84;
             this.labBottom.Text = "由明壹信息科技（上海）有限公司提供技术支持";
             this.labBottom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labBottom.Click += new System.EventHandler(this.labBottom_Click);
             // 
             // labExit
             // 
@@ -837,7 +805,6 @@
             this.panelSuccess.Size = new System.Drawing.Size(2800, 1502);
             this.panelSuccess.TabIndex = 58;
             this.panelSuccess.Click += new System.EventHandler(this.panelSuccess_Click);
-            this.panelSuccess.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSuccess_Paint);
             // 
             // panelSmallFail
             // 
@@ -850,7 +817,6 @@
             this.panelSmallFail.Name = "panelSmallFail";
             this.panelSmallFail.Size = new System.Drawing.Size(489, 335);
             this.panelSmallFail.TabIndex = 0;
-            this.panelSmallFail.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSmallFail_Paint);
             // 
             // txtError
             // 
@@ -864,7 +830,6 @@
             this.txtError.Size = new System.Drawing.Size(415, 43);
             this.txtError.TabIndex = 0;
             this.txtError.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtError.TextChanged += new System.EventHandler(this.txtError_TextChanged);
             // 
             // panelSmallSuccess
             // 
@@ -875,7 +840,6 @@
             this.panelSmallSuccess.Name = "panelSmallSuccess";
             this.panelSmallSuccess.Size = new System.Drawing.Size(489, 335);
             this.panelSmallSuccess.TabIndex = 0;
-            this.panelSmallSuccess.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSmallSuccess_Paint);
             // 
             // panelMessage
             // 
@@ -888,7 +852,6 @@
             this.panelMessage.Size = new System.Drawing.Size(569, 348);
             this.panelMessage.TabIndex = 1;
             this.panelMessage.Click += new System.EventHandler(this.panelMessage_Click);
-            this.panelMessage.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMessage_Paint);
             // 
             // picError
             // 
@@ -914,7 +877,6 @@
             this.txtErrorMessage.TabIndex = 1;
             this.txtErrorMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtErrorMessage.Click += new System.EventHandler(this.txtErrorMessage_Click);
-            this.txtErrorMessage.TextChanged += new System.EventHandler(this.txtErrorMessage_TextChanged);
             // 
             // panelAll
             // 
@@ -958,13 +920,12 @@
             this.panelAll.Controls.Add(this.btnNoAgree);
             this.panelAll.Controls.Add(this.link3);
             this.panelAll.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.panelAll.Location = new System.Drawing.Point(1, 2);
+            this.panelAll.Location = new System.Drawing.Point(4, 4);
             this.panelAll.Margin = new System.Windows.Forms.Padding(4);
             this.panelAll.Name = "panelAll";
             this.panelAll.Size = new System.Drawing.Size(2800, 1502);
             this.panelAll.TabIndex = 57;
             this.panelAll.Click += new System.EventHandler(this.panelAll_Click);
-            this.panelAll.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAll_Paint);
             // 
             // btnRegister
             // 
