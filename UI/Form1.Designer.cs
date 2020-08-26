@@ -164,6 +164,7 @@
             this.txtIDCard.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.txtIDCard.Location = new System.Drawing.Point(348, 358);
             this.txtIDCard.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.txtIDCard.MaxLength = 18;
             this.txtIDCard.Multiline = true;
             this.txtIDCard.Name = "txtIDCard";
             this.txtIDCard.Size = new System.Drawing.Size(425, 55);
@@ -179,6 +180,7 @@
             this.txtPhone.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.txtPhone.Location = new System.Drawing.Point(352, 607);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.txtPhone.MaxLength = 11;
             this.txtPhone.Multiline = true;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(295, 56);

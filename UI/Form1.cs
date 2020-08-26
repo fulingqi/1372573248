@@ -18,7 +18,7 @@ using AForge.Video.DirectShow;
 using AForge.Video;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
-
+using System.Drawing.Imaging;
 
 namespace UI
 {
@@ -147,7 +147,6 @@ namespace UI
             catch (Exception ex)
             {
                 ShowMessage("业务限流！");
-                string s = ex.Message;
                 //Logging.LogFile(s);
             }
         }
@@ -244,27 +243,36 @@ namespace UI
 
             #endregion
             #region 人脸识别
-            FileStream fileStream;
-            //抓取照片
-            if (File.Exists(Path.GetFullPath(".\\") + "price.jpg"))
-            {
-                File.Delete(Path.GetFullPath(".\\") + "price.jpg");
-            }
-            try
-            {
-                Bitmap.Save(Path.GetFullPath(".\\") + "price.jpg");
-                Bitmap.Dispose();//释放资源
-            }
-            catch (Exception)
-            {
+            //FileStream fileStream;
+            ////抓取照片
+            //if (File.Exists(Path.GetFullPath(".\\") + "price.jpg"))
+            //{
+            //    File.Delete(Path.GetFullPath(".\\") + "price.jpg");
+            //}
+            //try
+            //{
+            //    Bitmap.Save(Path.GetFullPath(".\\") + "price.jpg");
+            //    Bitmap.Dispose();//释放资源
+            //}
+            //catch (Exception)
+            //{
 
-                ShowMessage("请上传照片！");
+            //    ShowMessage("请上传照片！");
+            //}
+            //fileStream = new FileStream(Path.GetFullPath(".\\") + "price.jpg", FileMode.Open);
+            //byte[] byt = Stream(fileStream);//转换二进制流文件
+            //fileStream.Dispose();
+            //photoImg = byt;
+
+            using (MemoryStream streams = new MemoryStream())
+            {
+                Bitmap.Save(streams, ImageFormat.Jpeg);
+                byte[] data = new byte[streams.Length];
+                streams.Seek(0, SeekOrigin.Begin);
+                streams.Read(data, 0, Convert.ToInt32(streams.Length));
+                photoImg = data;
             }
-           
-            fileStream = new FileStream(Path.GetFullPath(".\\") + "price.jpg", FileMode.Open);
-            byte[] byt = Stream(fileStream);//转换二进制流文件
-            fileStream.Dispose();
-            photoImg = byt;
+            
             #endregion
             #region 图片
             if (photoImg == null)
@@ -1075,7 +1083,6 @@ namespace UI
             //if (txtPhone.Text != "请输入手机号")
             //{
             this.txtPhone.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
-            
             //}
             //else
             //{
