@@ -831,7 +831,7 @@
             this.panelSuccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSuccess.Controls.Add(this.panelSmallFail);
             this.panelSuccess.Controls.Add(this.panelSmallSuccess);
-            this.panelSuccess.Location = new System.Drawing.Point(62, 1241);
+            this.panelSuccess.Location = new System.Drawing.Point(-2, -8);
             this.panelSuccess.Margin = new System.Windows.Forms.Padding(4);
             this.panelSuccess.Name = "panelSuccess";
             this.panelSuccess.Size = new System.Drawing.Size(2800, 1502);
@@ -958,7 +958,7 @@
             this.panelAll.Controls.Add(this.btnNoAgree);
             this.panelAll.Controls.Add(this.link3);
             this.panelAll.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.panelAll.Location = new System.Drawing.Point(-1, 3);
+            this.panelAll.Location = new System.Drawing.Point(1, 2);
             this.panelAll.Margin = new System.Windows.Forms.Padding(4);
             this.panelAll.Name = "panelAll";
             this.panelAll.Size = new System.Drawing.Size(2800, 1502);
@@ -1028,8 +1028,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(2142, 1372);
-            this.Controls.Add(this.panelSuccess);
             this.Controls.Add(this.panelAll);
+            this.Controls.Add(this.panelSuccess);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
