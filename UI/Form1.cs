@@ -391,8 +391,9 @@ namespace UI
             string result = "0";
             try
             {
-
+                //外网
                 string reqUrl = "http://121.42.164.134:9918/API/HealthCard/HealthCardGiter";
+                //医院内网
                 //string reqUrl = "http://10.178.227.93:1109/API/HealthCard/HealthCardGiter";
                 string encodeUrl = Utils.UriEncode(reqUrl);
                 HttpWebRequest request = WebRequest.Create(reqUrl) as HttpWebRequest;
@@ -427,12 +428,8 @@ namespace UI
 
         #endregion
 
-        #region 通过timer4实现每隔规定时间自动读取身份证信息
+        #region 通过实现每隔规定时间自动读取身份证信息
 
-        //private void timer4_Tick(object sender, EventArgs e)
-        //{
-                
-        //}
         public void ReadIdcardInfo(object s)
         {
             IsStartIDCard = false;
@@ -828,8 +825,10 @@ namespace UI
         public Bitmap Bitmap;
         FilterInfoCollection videoDevices;
         private VideoCaptureDevice videoSource;
-        //摄像头
-        public int selectedDeviceIndex =0;
+        //摄像头（一体机索引为1）
+        public int selectedDeviceIndex =1;
+        //开发索引为0
+        //public int selectedDeviceIndex = 0;
         private Point point;
         /// <summary>
         /// 连接摄像头
@@ -965,7 +964,9 @@ namespace UI
 
             //string url = "http://121.42.164.134:11122/WSFaces.asmx/VerificationCode";
             //string url = "http://121.42.164.134:11122/WSFaces.asmx/GetShortMessageCode";
+            //医院内网
             //string url = "http://10.178.227.93:1108/NtitServer.asmx/GetShortMessageCode";
+            //外网
             string url = "http://121.42.164.134:9909/NtitServer.asmx/GetShortMessageCode";
             var request = WebRequest.Create(url) as HttpWebRequest;
             if (request == null) throw new ArgumentNullException();
@@ -1045,7 +1046,7 @@ namespace UI
             //if (txtName.Text != "请输入姓名")
             //{
             this.txtName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#000000");
-           
+            this.panelMessage.Visible = false;
             //}
             //else
             //{
