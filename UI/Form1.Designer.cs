@@ -95,7 +95,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.panelSuccess.SuspendLayout();
             this.panelSmallFail.SuspendLayout();
-            this.panelSmallSuccess.SuspendLayout();
             this.panelMessage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picError)).BeginInit();
             this.panelAll.SuspendLayout();
@@ -774,7 +773,7 @@
             this.panelSmallFail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSmallFail.BackgroundImage")));
             this.panelSmallFail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSmallFail.Controls.Add(this.txtError);
-            this.panelSmallFail.Location = new System.Drawing.Point(0, 0);
+            this.panelSmallFail.Location = new System.Drawing.Point(743, 495);
             this.panelSmallFail.Name = "panelSmallFail";
             this.panelSmallFail.Size = new System.Drawing.Size(367, 268);
             this.panelSmallFail.TabIndex = 0;
@@ -816,7 +815,7 @@
             this.picError.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picError.BackgroundImage")));
             this.picError.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picError.Location = new System.Drawing.Point(158, 34);
-            this.picError.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picError.Margin = new System.Windows.Forms.Padding(2);
             this.picError.Name = "picError";
             this.picError.Size = new System.Drawing.Size(98, 95);
             this.picError.TabIndex = 2;
@@ -948,7 +947,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
@@ -968,7 +967,6 @@
             this.panelSuccess.ResumeLayout(false);
             this.panelSmallFail.ResumeLayout(false);
             this.panelSmallFail.PerformLayout();
-            this.panelSmallSuccess.ResumeLayout(false);
             this.panelMessage.ResumeLayout(false);
             this.panelMessage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picError)).EndInit();

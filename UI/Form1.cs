@@ -170,7 +170,7 @@ namespace UI
             String Mge = "";
             #region 验证身份证是否合法
 
-            Address = this.txtAddress.Text;
+            Address = this.txtAddress.Text.IndexOf('*')>0?Address:this.txtAddress.Text;
             Sidnum = this.txtIDCard.Text.IndexOf('*') > 0 ? Sidnum : this.txtIDCard.Text;
             SName = this.txtName.Text.IndexOf('*') > 0 ? SName : this.txtName.Text;
             string cid = CheckCidInfo18(Sidnum);
@@ -338,6 +338,7 @@ namespace UI
             if (strs == "1")
             {
                 this.panelSuccess.Visible = true;
+                this.panelSmallFail.Visible = false;
                 this.panelSmallSuccess.Visible = true;
             }
             else
@@ -826,9 +827,9 @@ namespace UI
         FilterInfoCollection videoDevices;
         private VideoCaptureDevice videoSource;
         //摄像头（一体机索引为1）
-        public int selectedDeviceIndex =1;
+        //public int selectedDeviceIndex =1;
         //开发索引为0
-        //public int selectedDeviceIndex = 0;
+        public int selectedDeviceIndex = 0;
         private Point point;
         /// <summary>
         /// 连接摄像头
